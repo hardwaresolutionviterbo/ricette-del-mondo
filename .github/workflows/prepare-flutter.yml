@@ -1,9 +1,9 @@
-name: Prepare Flutter project
+name: Prepara progetto Flutter V3
 
 on:
   push:
     paths:
-      - 'RicetteDelMondo_Flutter_v1_4.zip'
+      - 'RicetteDelMondo_Flutter_v3_reale.zip'
   workflow_dispatch:
 
 permissions:
@@ -17,36 +17,19 @@ jobs:
       - name: Scarica il repository
         uses: actions/checkout@v4
 
-      - name: Estrai il progetto Flutter
+      - name: Estrai la V3
         run: |
-          unzip -o RicetteDelMondo_Flutter_v1_4.zip
-          rm RicetteDelMondo_Flutter_v1_4.zip
+          unzip -o RicetteDelMondo_Flutter_v3_reale.zip
+          rm RicetteDelMondo_Flutter_v3_reale.zip
 
-      - name: Crea configurazione Codemagic
+      - name: Rimuovi eventuali file vecchi non più presenti
         run: |
-          cat > codemagic.yaml <<'EOF'
-          workflows:
-            android-build:
-              name: Ricette del Mondo Android
-              max_build_duration: 60
-              instance_type: mac_mini_m2
-              environment:
-                flutter: stable
-              scripts:
-                - name: Genera progetto Android
-                  script: flutter create --platforms=android .
-                - name: Installa pacchetti
-                  script: flutter pub get
-                - name: Crea APK
-                  script: flutter build apk --debug
-              artifacts:
-                - build/app/outputs/flutter-apk/*.apk
-          EOF
+          git status --short
 
-      - name: Salva i file preparati
+      - name: Salva la V3 nel repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Prepara progetto Flutter per Codemagic"
+          git commit -m "Aggiorna progetto alla V3"
           git push
