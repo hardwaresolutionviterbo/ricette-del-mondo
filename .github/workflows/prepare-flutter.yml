@@ -1,9 +1,9 @@
-name: Prepara progetto Flutter V3
+name: Prepara progetto Flutter V4
 
 on:
   push:
     paths:
-      - 'RicetteDelMondo_Flutter_v3_corretto.zip'
+      - 'RicetteDelMondo_Flutter_v4_completo.zip'
   workflow_dispatch:
 
 permissions:
@@ -17,10 +17,10 @@ jobs:
       - name: Scarica il repository
         uses: actions/checkout@v4
 
-      - name: Estrai la V3 corretta
+      - name: Estrai la V4
         run: |
-          unzip -o RicetteDelMondo_Flutter_v3_corretto.zip
-          rm RicetteDelMondo_Flutter_v3_corretto.zip
+          unzip -o RicetteDelMondo_Flutter_v4_completo.zip
+          rm RicetteDelMondo_Flutter_v4_completo.zip
 
       - name: Crea configurazione Codemagic
         run: |
@@ -48,5 +48,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Aggiorna progetto Flutter V3 corretta" || echo "Nessuna modifica da salvare"
+          git commit -m "Aggiorna progetto Flutter V4" || echo "Nessuna modifica da salvare"
           git push
