@@ -103,7 +103,7 @@ class _AppShellState extends State<AppShell> {
       CircleAvatar(child:IconButton(onPressed:()=>setState(()=>tab=4),icon:const Icon(Icons.person_outline)))
     ]),
     const SizedBox(height:18),searchBox(),const SizedBox(height:14),
-    Card(color:const Color(0xFFE8EFE5),child:InkWell(onTap:fridgePage,padding:const EdgeInsets.all(18),child:const Row(children:[
+    Card(color:const Color(0xFFE8EFE5),child:InkWell(onTap:fridgePage,child:Padding(padding:const EdgeInsets.all(18),child:const Row(children:[
       CircleAvatar(child:Icon(Icons.kitchen)),SizedBox(width:14),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
         Text('Cosa hai nel frigo?',style:TextStyle(fontSize:19,fontWeight:FontWeight.w900)),
         SizedBox(height:4),Text('Seleziona gli ingredienti e trova cosa puoi cucinare.') ])),Icon(Icons.chevron_right)]))),
