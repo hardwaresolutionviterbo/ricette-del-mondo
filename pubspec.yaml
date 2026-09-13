@@ -1,7 +1,7 @@
 name: ricette_del_mondo
-description: Ricette del Mondo — MVP con catalogo locale da 120 ricette.
+description: Ricette del Mondo — app di ricette e viaggio con catalogo locale da 120 ricette.
 publish_to: "none"
-version: 4.0.0+4
+version: 5.1.0+6
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  share_plus: ^11.1.0
 
 dev_dependencies:
   flutter_test:

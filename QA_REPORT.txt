@@ -1,0 +1,7 @@
+RICETTE DEL MONDO V5 — QA
+Recipes: 120
+Images: 120
+Unique image files: 40
+Common dimensions: 1200x900
+Note: the current local image set contains 40 unique clean generated food photos reused across the 120 recipe slots. This is intentionally flagged for replacement/validation before commercial publication.
+Code import cycle removed. Logo asset replaced with the supplied transparent logo.

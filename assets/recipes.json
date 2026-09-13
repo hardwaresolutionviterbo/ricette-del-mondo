@@ -35,7 +35,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🇮🇹",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R002",
@@ -74,7 +78,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R003",
@@ -114,7 +122,11 @@
     "prepMin": 12,
     "cookMin": 18,
     "flag": "🇲🇽",
-    "estimatedCostPerBaseServing": 8.45
+    "estimatedCostPerBaseServing": 8.45,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R004",
@@ -154,7 +166,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 8.45
+    "estimatedCostPerBaseServing": 8.45,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R005",
@@ -194,7 +210,11 @@
     "prepMin": 10,
     "cookMin": 5,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 8.45
+    "estimatedCostPerBaseServing": 8.45,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R006",
@@ -233,7 +253,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🇮🇹",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R007",
@@ -272,7 +296,11 @@
     "prepMin": 36,
     "cookMin": 54,
     "flag": "🇮🇹",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R008",
@@ -307,7 +335,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🌍",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; controlla doratura e cottura nella parte più spessa.",
+    "chef": ""
   },
   {
     "id": "R009",
@@ -344,7 +376,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇮🇹",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R010",
@@ -382,7 +418,11 @@
     "prepMin": 12,
     "cookMin": 18,
     "flag": "🇮🇹",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R011",
@@ -414,7 +454,11 @@
     "prepMin": 12,
     "cookMin": 18,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 10.35
+    "estimatedCostPerBaseServing": 10.35,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R012",
@@ -447,7 +491,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 11.3
+    "estimatedCostPerBaseServing": 11.3,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R013",
@@ -478,7 +526,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🌍",
-    "estimatedCostPerBaseServing": 9.4
+    "estimatedCostPerBaseServing": 9.4,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R014",
@@ -510,7 +562,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 10.35
+    "estimatedCostPerBaseServing": 10.35,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R015",
@@ -541,7 +597,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🇵🇪",
-    "estimatedCostPerBaseServing": 9.4
+    "estimatedCostPerBaseServing": 9.4,
+    "cookingMethod": "Padella / pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Regola il fuoco in base allo spessore e verifica la cottura al cuore; per il pesce destinato a consumo crudo valgono specifiche cautele igieniche.",
+    "chef": ""
   },
   {
     "id": "R016",
@@ -572,7 +632,11 @@
     "prepMin": 36,
     "cookMin": 54,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 9.4
+    "estimatedCostPerBaseServing": 9.4,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R017",
@@ -604,7 +668,11 @@
     "prepMin": 72,
     "cookMin": 108,
     "flag": "🇫🇷",
-    "estimatedCostPerBaseServing": 10.35
+    "estimatedCostPerBaseServing": 10.35,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R018",
@@ -637,7 +705,11 @@
     "prepMin": 30,
     "cookMin": 45,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 11.3
+    "estimatedCostPerBaseServing": 11.3,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R019",
@@ -669,7 +741,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 10.35
+    "estimatedCostPerBaseServing": 10.35,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R020",
@@ -701,7 +777,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇵🇪",
-    "estimatedCostPerBaseServing": 10.35
+    "estimatedCostPerBaseServing": 10.35,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R021",
@@ -736,7 +816,11 @@
     "prepMin": 48,
     "cookMin": 72,
     "flag": "🇮🇹",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R022",
@@ -773,7 +857,11 @@
     "prepMin": 44,
     "cookMin": 66,
     "flag": "🇮🇹",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R023",
@@ -811,7 +899,11 @@
     "prepMin": 28,
     "cookMin": 42,
     "flag": "🇫🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R024",
@@ -848,7 +940,11 @@
     "prepMin": 60,
     "cookMin": 90,
     "flag": "🇫🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R025",
@@ -883,7 +979,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R026",
@@ -921,7 +1021,11 @@
     "prepMin": 10,
     "cookMin": 10,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R027",
@@ -958,7 +1062,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R028",
@@ -993,7 +1101,11 @@
     "prepMin": 20,
     "cookMin": 30,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R029",
@@ -1029,7 +1141,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇲🇽",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R030",
@@ -1066,7 +1182,11 @@
     "prepMin": 10,
     "cookMin": 5,
     "flag": "🇲🇽",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R031",
@@ -1103,7 +1223,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R032",
@@ -1140,7 +1264,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Frittura in olio",
+    "cookingTempC": 175,
+    "cookingDetail": "Olio intorno a 170–180 °C; friggi in piccoli lotti per non abbassare troppo la temperatura.",
+    "chef": ""
   },
   {
     "id": "R033",
@@ -1177,7 +1305,11 @@
     "prepMin": 12,
     "cookMin": 18,
     "flag": "🇨🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R034",
@@ -1214,7 +1346,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇨🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R035",
@@ -1251,7 +1387,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R036",
@@ -1286,7 +1426,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R037",
@@ -1321,7 +1465,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R038",
@@ -1357,7 +1505,11 @@
     "prepMin": 26,
     "cookMin": 39,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R039",
@@ -1392,7 +1544,11 @@
     "prepMin": 60,
     "cookMin": 90,
     "flag": "🇧🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cottura lenta a fuoco basso; mantieni un leggero sobbollore e controlla il liquido durante la preparazione.",
+    "chef": ""
   },
   {
     "id": "R040",
@@ -1428,7 +1584,11 @@
     "prepMin": 30,
     "cookMin": 45,
     "flag": "🇧🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Frittura in olio",
+    "cookingTempC": 175,
+    "cookingDetail": "Olio intorno a 170–180 °C; friggi in piccoli lotti per non abbassare troppo la temperatura.",
+    "chef": ""
   },
   {
     "id": "R041",
@@ -1466,7 +1626,11 @@
     "prepMin": 76,
     "cookMin": 114,
     "flag": "🇫🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R042",
@@ -1502,7 +1666,11 @@
     "prepMin": 28,
     "cookMin": 42,
     "flag": "🇫🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R043",
@@ -1537,7 +1705,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🇫🇷",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R044",
@@ -1572,7 +1744,11 @@
     "prepMin": 28,
     "cookMin": 42,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Padella / pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Regola il fuoco in base allo spessore e verifica la cottura al cuore; per il pesce destinato a consumo crudo valgono specifiche cautele igieniche.",
+    "chef": ""
   },
   {
     "id": "R045",
@@ -1609,7 +1785,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R046",
@@ -1647,7 +1827,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R047",
@@ -1684,7 +1868,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R048",
@@ -1721,7 +1909,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Frittura in olio",
+    "cookingTempC": 175,
+    "cookingDetail": "Olio intorno a 170–180 °C; friggi in piccoli lotti per non abbassare troppo la temperatura.",
+    "chef": ""
   },
   {
     "id": "R049",
@@ -1757,7 +1949,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R050",
@@ -1792,7 +1988,11 @@
     "prepMin": 20,
     "cookMin": 30,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R051",
@@ -1829,7 +2029,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R052",
@@ -1866,7 +2070,11 @@
     "prepMin": 48,
     "cookMin": 72,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R053",
@@ -1903,7 +2111,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇨🇳",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R054",
@@ -1938,7 +2150,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇨🇳",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R055",
@@ -1975,7 +2191,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇨🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R056",
@@ -2011,7 +2231,11 @@
     "prepMin": 10,
     "cookMin": 10,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R057",
@@ -2047,7 +2271,11 @@
     "prepMin": 28,
     "cookMin": 42,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R058",
@@ -2083,7 +2311,11 @@
     "prepMin": 40,
     "cookMin": 60,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R059",
@@ -2119,7 +2351,11 @@
     "prepMin": 10,
     "cookMin": 5,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R060",
@@ -2157,7 +2393,11 @@
     "prepMin": 28,
     "cookMin": 42,
     "flag": "🇹🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R061",
@@ -2195,7 +2435,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R062",
@@ -2232,7 +2476,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R063",
@@ -2267,7 +2515,11 @@
     "prepMin": 36,
     "cookMin": 54,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R064",
@@ -2304,7 +2556,11 @@
     "prepMin": 72,
     "cookMin": 108,
     "flag": "🇮🇩",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cottura lenta a fuoco basso; mantieni un leggero sobbollore e controlla il liquido durante la preparazione.",
+    "chef": ""
   },
   {
     "id": "R065",
@@ -2340,7 +2596,11 @@
     "prepMin": 12,
     "cookMin": 18,
     "flag": "🇮🇩",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R066",
@@ -2375,7 +2635,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇮🇩",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R067",
@@ -2412,7 +2676,11 @@
     "prepMin": 72,
     "cookMin": 108,
     "flag": "🇻🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R068",
@@ -2448,7 +2716,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇻🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R069",
@@ -2484,7 +2756,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇻🇳",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R070",
@@ -2518,7 +2794,11 @@
     "prepMin": 48,
     "cookMin": 72,
     "flag": "🇦🇷",
-    "estimatedCostPerBaseServing": 4.65
+    "estimatedCostPerBaseServing": 4.65,
+    "cookingMethod": "Griglia / piastra",
+    "cookingTempC": null,
+    "cookingDetail": "Superficie molto calda per la rosolatura. Per le carni usa un termometro per verificare la temperatura interna.",
+    "chef": ""
   },
   {
     "id": "R071",
@@ -2554,7 +2834,11 @@
     "prepMin": 28,
     "cookMin": 42,
     "flag": "🇦🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R072",
@@ -2590,7 +2874,11 @@
     "prepMin": 10,
     "cookMin": 5,
     "flag": "🇦🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R073",
@@ -2627,7 +2915,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇵🇪",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R074",
@@ -2663,7 +2955,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇵🇪",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R075",
@@ -2699,7 +2995,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇵🇪",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R076",
@@ -2735,7 +3035,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R077",
@@ -2772,7 +3076,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Griglia / piastra",
+    "cookingTempC": null,
+    "cookingDetail": "Superficie molto calda per la rosolatura. Per le carni usa un termometro per verificare la temperatura interna.",
+    "chef": ""
   },
   {
     "id": "R078",
@@ -2808,7 +3116,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R079",
@@ -2844,7 +3156,11 @@
     "prepMin": 10,
     "cookMin": 5,
     "flag": "🌍",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R080",
@@ -2881,7 +3197,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🌍",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R081",
@@ -2918,7 +3238,11 @@
     "prepMin": 10,
     "cookMin": 10,
     "flag": "🇱🇧",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R082",
@@ -2954,7 +3278,11 @@
     "prepMin": 30,
     "cookMin": 45,
     "flag": "🇱🇧",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella o piastra",
+    "cookingTempC": null,
+    "cookingDetail": "Superficie ben calda. Per preparazioni a base di carne macinata, raggiungi almeno 71 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R083",
@@ -2990,7 +3318,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇱🇧",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R084",
@@ -3027,7 +3359,11 @@
     "prepMin": 36,
     "cookMin": 54,
     "flag": "🇲🇦",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R085",
@@ -3065,7 +3401,11 @@
     "prepMin": 20,
     "cookMin": 30,
     "flag": "🇲🇦",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R086",
@@ -3102,7 +3442,11 @@
     "prepMin": 32,
     "cookMin": 48,
     "flag": "🇲🇦",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R087",
@@ -3138,7 +3482,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇧🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R088",
@@ -3175,7 +3523,11 @@
     "prepMin": 20,
     "cookMin": 30,
     "flag": "🇧🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cottura lenta a fuoco basso; mantieni un leggero sobbollore e controlla il liquido durante la preparazione.",
+    "chef": ""
   },
   {
     "id": "R089",
@@ -3210,7 +3562,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🇧🇷",
-    "estimatedCostPerBaseServing": 5.6
+    "estimatedCostPerBaseServing": 5.6,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R090",
@@ -3246,7 +3602,11 @@
     "prepMin": 10,
     "cookMin": 15,
     "flag": "🇹🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R091",
@@ -3284,7 +3644,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇹🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R092",
@@ -3321,7 +3685,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇹🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R093",
@@ -3357,7 +3725,11 @@
     "prepMin": 12,
     "cookMin": 18,
     "flag": "🇺🇸",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Padella o piastra",
+    "cookingTempC": null,
+    "cookingDetail": "Superficie ben calda. Per preparazioni a base di carne macinata, raggiungi almeno 71 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R094",
@@ -3393,7 +3765,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇺🇸",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R095",
@@ -3430,7 +3806,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇺🇸",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R096",
@@ -3466,7 +3846,11 @@
     "prepMin": 36,
     "cookMin": 54,
     "flag": "🇺🇸",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R097",
@@ -3502,7 +3886,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇵🇪",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R098",
@@ -3539,7 +3927,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇵🇪",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R099",
@@ -3574,7 +3966,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R100",
@@ -3611,7 +4007,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R101",
@@ -3648,7 +4048,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R102",
@@ -3686,7 +4090,11 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R103",
@@ -3723,7 +4131,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇹🇭",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R104",
@@ -3761,7 +4173,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R105",
@@ -3798,7 +4214,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R106",
@@ -3835,7 +4255,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇰🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R107",
@@ -3872,7 +4296,11 @@
     "prepMin": 48,
     "cookMin": 72,
     "flag": "🇻🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R108",
@@ -3909,7 +4337,11 @@
     "prepMin": 12,
     "cookMin": 18,
     "flag": "🇻🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R109",
@@ -3946,7 +4378,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R110",
@@ -3983,7 +4419,11 @@
     "prepMin": 16,
     "cookMin": 24,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Cottura in padella o pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Usa fuoco medio e regola l’intensità in base alla quantità e al materiale della pentola; il tempo indicato è una stima casalinga.",
+    "chef": ""
   },
   {
     "id": "R111",
@@ -4019,7 +4459,11 @@
     "prepMin": 10,
     "cookMin": 10,
     "flag": "🇯🇵",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Pentola",
+    "cookingTempC": null,
+    "cookingDetail": "Porta a bollore e poi mantieni un leggero sobbollore per il tempo indicato, controllando la consistenza degli ingredienti.",
+    "chef": ""
   },
   {
     "id": "R112",
@@ -4056,7 +4500,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Cuoci a fuoco medio fino a completa cottura; per il pollo verifica almeno 74 °C al cuore con un termometro.",
+    "chef": ""
   },
   {
     "id": "R113",
@@ -4094,7 +4542,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R114",
@@ -4131,7 +4583,11 @@
     "prepMin": 18,
     "cookMin": 27,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R115",
@@ -4168,7 +4624,11 @@
     "prepMin": 24,
     "cookMin": 36,
     "flag": "🇮🇳",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Frittura in olio",
+    "cookingTempC": 175,
+    "cookingDetail": "Olio intorno a 170–180 °C; friggi in piccoli lotti per non abbassare troppo la temperatura.",
+    "chef": ""
   },
   {
     "id": "R116",
@@ -4206,7 +4666,11 @@
     "prepMin": 40,
     "cookMin": 60,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R117",
@@ -4243,7 +4707,11 @@
     "prepMin": 22,
     "cookMin": 33,
     "flag": "🇬🇷",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R118",
@@ -4280,7 +4748,11 @@
     "prepMin": 28,
     "cookMin": 42,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   },
   {
     "id": "R119",
@@ -4318,7 +4790,11 @@
     "prepMin": 10,
     "cookMin": 10,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 7.5
+    "estimatedCostPerBaseServing": 7.5,
+    "cookingMethod": "Padella / tegame",
+    "cookingTempC": null,
+    "cookingDetail": "Fuoco medio; regola l’intensità per evitare che spezie, cipolla o salse brucino prima che il piatto sia pronto.",
+    "chef": ""
   },
   {
     "id": "R120",
@@ -4354,6 +4830,10 @@
     "prepMin": 14,
     "cookMin": 21,
     "flag": "🇪🇸",
-    "estimatedCostPerBaseServing": 6.55
+    "estimatedCostPerBaseServing": 6.55,
+    "cookingMethod": "Forno domestico",
+    "cookingTempC": 200,
+    "cookingDetail": "Forno preriscaldato a 200 °C; il tempo indicato è una stima e va adattato a spessore, teglia e potenza del forno.",
+    "chef": ""
   }
 ]

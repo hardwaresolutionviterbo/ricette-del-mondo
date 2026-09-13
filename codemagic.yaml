@@ -1,16 +1,14 @@
 workflows:
-  android-build:
-    name: Ricette del Mondo Android
-    max_build_duration: 60
-    instance_type: mac_mini_m2
+  android-debug:
+    name: Ricette del Mondo Android debug
     environment:
       flutter: stable
     scripts:
-      - name: Genera progetto Android
-        script: flutter create --platforms=android .
-      - name: Installa pacchetti
+      - name: Get packages
         script: flutter pub get
-      - name: Crea APK
+      - name: Create Android platform files
+        script: flutter create --platforms=android .
+      - name: Build debug APK
         script: flutter build apk --debug
     artifacts:
-      - build/app/outputs/flutter-apk/*.apk
+      - build/app/outputs/flutter-apk/app-debug.apk
