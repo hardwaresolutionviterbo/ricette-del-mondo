@@ -4,13 +4,63 @@ import 'recipe_repository.dart';
 void main() => runApp(const RicetteApp());
 
 String? recipeImage(String id) {
-  const available = {'R001', 'R002', 'R003', 'R004'};
-  return available.contains(id) ? 'assets/images/$id.jpg' : null;
+  // V3: tutte le ricette hanno una superficie visuale; le foto reali
+  // disponibili vengono usate direttamente, le altre mostrano una card
+  // Premium illustrata finché non vengono sostituite da fotografie licenziate.
+  return 'assets/images/$id.jpg';
+}
+
+String countryFlag(String country) {
+  const flags = {
+    'Italia': '🇮🇹', 'Giappone': '🇯🇵', 'Messico': '🇲🇽', 'India': '🇮🇳',
+    'Grecia': '🇬🇷', 'Nord Europa': '🌍', 'Thailandia': '🇹🇭', 'Spagna': '🇪🇸',
+    'Medio Oriente': '🌍', 'Corea del Sud': '🇰🇷', 'Perù': '🇵🇪',
+    'Francia': '🇫🇷', 'Turchia': '🇹🇷', 'Cina': '🇨🇳', 'Stati Uniti': '🇺🇸',
+    'Marocco': '🇲🇦', 'Brasile': '🇧🇷', 'Argentina': '🇦🇷', 'Vietnam': '🇻🇳',
+    'Indonesia': '🇮🇩', 'Portogallo': '🇵🇹', 'Germania': '🇩🇪',
+    'Regno Unito': '🇬🇧', 'Etiopia': '🇪🇹', 'Libano': '🇱🇧', 'Israele': '🇮🇱',
+    'Egitto': '🇪🇬', 'Australia': '🇦🇺', 'Filippine': '🇵🇭',
+  };
+  return flags[country] ?? '🌍';
+}
+
+Widget recipeVisual(Recipe r, {double height = 150, BorderRadius? radius}) {
+  final path = recipeImage(r.id);
+  return Container(
+    height: height,
+    width: double.infinity,
+    decoration: BoxDecoration(
+      borderRadius: radius ?? BorderRadius.circular(18),
+      gradient: LinearGradient(
+        colors: [const Color(0xFFE8EFE5), const Color(0xFFFFE8C7)],
+        begin: Alignment.topLeft, end: Alignment.bottomRight,
+      ),
+    ),
+    clipBehavior: Clip.antiAlias,
+    child: Image.asset(
+      path!,
+      fit: BoxFit.cover,
+      errorBuilder: (_, __, ___) => Center(
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(countryFlag(r.country), style: const TextStyle(fontSize: 42)),
+            const SizedBox(height: 8),
+            Text(r.title, textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800)),
+            const SizedBox(height: 3),
+            Text('Anteprima Premium', style: TextStyle(
+              color: Colors.black.withOpacity(.62), fontWeight: FontWeight.w600)),
+          ]),
+        ),
+      ),
+    ),
+  );
 }
 
 class Recipe {
   final String id, title, country, cuisine, category, difficulty, description;
-  final int timeMin, servings;
+  final int timeMin, servings, prepMin, cookMin;
   final bool premium;
   final List<String> ingredients, steps, tags;
   final String editorialStatus;
@@ -18,7 +68,7 @@ class Recipe {
   const Recipe({
     required this.id, required this.title, required this.country,
     required this.cuisine, required this.category, required this.timeMin,
-    required this.servings, required this.difficulty, required this.premium,
+    required this.servings, required this.prepMin, required this.cookMin, required this.difficulty, required this.premium,
     required this.description, required this.ingredients, required this.steps,
     required this.tags, required this.editorialStatus,
   });
@@ -27,6 +77,7 @@ class Recipe {
     id: j['id'] ?? '', title: j['title'] ?? '', country: j['country'] ?? '',
     cuisine: j['cuisine'] ?? '', category: j['category'] ?? '',
     timeMin: j['timeMin'] ?? 0, servings: j['servings'] ?? 0,
+    prepMin: j['prepMin'] ?? 0, cookMin: j['cookMin'] ?? 0,
     difficulty: j['difficulty'] ?? 'Media', premium: j['premium'] == true,
     description: j['description'] ?? '',
     ingredients: List<String>.from(j['ingredients'] ?? const []),
@@ -134,8 +185,7 @@ class _AppShellState extends State<AppShell> {
           const SizedBox(height: 6),
           Text(all.first.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800)),
           const SizedBox(height: 10),
-          if (recipeImage(all.first.id) != null)
-            ClipRRect(borderRadius: BorderRadius.circular(18), child: Image.asset(recipeImage(all.first.id)!, height: 150, width: double.infinity, fit: BoxFit.cover)),
+          recipeVisual(all.first, height: 150),
           const SizedBox(height: 4),
           Text('${all.first.country} • ${all.first.timeMin} min'),
           const SizedBox(height: 12),
@@ -241,13 +291,13 @@ class _AppShellState extends State<AppShell> {
         Container(width: 82, height: 82, decoration: BoxDecoration(
           color: const Color(0xFFE8EFE5), borderRadius: BorderRadius.circular(16)),
           clipBehavior: Clip.antiAlias,
-          child: recipeImage(r.id) != null
-              ? Image.asset(recipeImage(r.id)!, fit: BoxFit.cover)
-              : const Icon(Icons.restaurant_menu, size: 32)),
+          child: Image.asset(recipeImage(r.id)!, fit: BoxFit.cover,
+            errorBuilder: (_, __, ___) => Center(child: Text(countryFlag(r.country),
+              style: const TextStyle(fontSize: 30)))),
         const SizedBox(width: 12),
         Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(r.title, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
-          const SizedBox(height: 4), Text('${r.country} • ${r.cuisine}'),
+          const SizedBox(height: 4), Text('${countryFlag(r.country)} ${r.country} • ${r.cuisine}'),
           const SizedBox(height: 4), Text('${r.timeMin} min • ${r.difficulty}'),
         ])),
         IconButton(onPressed: () => toggleFavorite(r),
@@ -256,8 +306,18 @@ class _AppShellState extends State<AppShell> {
     )),
   );
 
-  void toggleFavorite(Recipe r) => setState(() =>
-    favorites.contains(r.id) ? favorites.remove(r.id) : favorites.add(r.id));
+  void toggleFavorite(Recipe r) {
+    final adding = !favorites.contains(r.id);
+    setState(() => adding ? favorites.add(r.id) : favorites.remove(r.id));
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(adding ? '❤️ Aggiunto ai preferiti' : 'Rimosso dai preferiti'),
+        duration: const Duration(seconds: 2),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
 
   void openRecipe(Recipe r) {
     if (r.premium) {
@@ -312,17 +372,46 @@ class PaywallPage extends StatelessWidget {
   const PaywallPage({super.key, required this.recipe});
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('Premium')),
-    body: Center(child: Padding(padding: const EdgeInsets.all(25), child: Column(
-      mainAxisAlignment: MainAxisAlignment.center, children: [
-        const Icon(Icons.lock, size: 72), const SizedBox(height: 16),
-        Text(recipe.title, textAlign: TextAlign.center, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w800)),
-        const SizedBox(height: 10),
-        const Text('Questa ricetta appartiene al catalogo Premium.', textAlign: TextAlign.center),
-        const SizedBox(height: 22),
-        FilledButton(onPressed: () {}, child: const Text('Scopri Premium')),
-      ],
-    ))),
+    appBar: AppBar(title: const Text('Ricetta Premium')),
+    body: ListView(padding: const EdgeInsets.fromLTRB(20, 12, 20, 30), children: [
+      Stack(children: [
+        recipeVisual(recipe, height: 260, radius: BorderRadius.circular(24)),
+        Positioned(top: 14, right: 14, child: Chip(
+          avatar: const Icon(Icons.lock, size: 17),
+          label: const Text('PREMIUM'),
+        )),
+      ]),
+      const SizedBox(height: 18),
+      Text('${countryFlag(recipe.country)}  ${recipe.country}',
+        style: const TextStyle(fontWeight: FontWeight.w700)),
+      const SizedBox(height: 6),
+      Text(recipe.title, style: const TextStyle(fontSize: 29, fontWeight: FontWeight.w800)),
+      const SizedBox(height: 8),
+      Text(recipe.description, style: const TextStyle(fontSize: 16)),
+      const SizedBox(height: 16),
+      Wrap(spacing: 8, children: [
+        Chip(label: Text('${recipe.timeMin} min')),
+        Chip(label: Text('${recipe.servings} porzioni')),
+        Chip(label: Text(recipe.difficulty)),
+      ]),
+      const SizedBox(height: 20),
+      Container(
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: const Color(0xFFFFF1D9), borderRadius: BorderRadius.circular(20)),
+        child: const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text('🔒 Contenuto Premium', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
+          SizedBox(height: 8),
+          Text('Puoi vedere foto e anteprima della ricetta. Gli ingredienti completi e la preparazione dettagliata sono riservati agli abbonati Premium.'),
+        ]),
+      ),
+      const SizedBox(height: 20),
+      FilledButton.icon(
+        onPressed: () {},
+        icon: const Icon(Icons.workspace_premium),
+        label: const Text('Scopri Premium'),
+      ),
+    ]),
   );
 }
 
@@ -338,21 +427,22 @@ class RecipePage extends StatelessWidget {
       IconButton(onPressed: onFavorite, icon: Icon(favorite ? Icons.favorite : Icons.favorite_border))
     ]),
     body: ListView(padding: const EdgeInsets.fromLTRB(20, 10, 20, 30), children: [
-      Container(height: 245, decoration: BoxDecoration(
-        color: const Color(0xFFE8EFE5), borderRadius: BorderRadius.circular(24)),
-        clipBehavior: Clip.antiAlias,
-        child: recipeImage(recipe.id) != null
-            ? Image.asset(recipeImage(recipe.id)!, fit: BoxFit.cover)
-            : const Icon(Icons.restaurant_menu, size: 90)),
+      recipeVisual(recipe, height: 245, radius: BorderRadius.circular(24)),
       const SizedBox(height: 18),
       Text(recipe.title, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800)),
       const SizedBox(height: 6),
-      Text('${recipe.country} • ${recipe.cuisine}'),
+      Text('${countryFlag(recipe.country)} ${recipe.country} • ${recipe.cuisine}'),
       const SizedBox(height: 12),
-      Wrap(spacing: 8, children: [
-        Chip(label: Text('${recipe.timeMin} min')),
+      Wrap(spacing: 8, runSpacing: 6, children: [
+        Chip(avatar: const Icon(Icons.timer_outlined, size: 17),
+          label: Text('${recipe.timeMin} min')),
+        Chip(avatar: const Icon(Icons.people_outline, size: 17),
+          label: Text('${recipe.servings} porzioni')),
         Chip(label: Text(recipe.difficulty)),
-        Chip(label: Text('${recipe.servings} porzioni')),
+        if (recipe.prepMin > 0)
+          Chip(label: Text('Prep ${recipe.prepMin} min')),
+        if (recipe.cookMin > 0)
+          Chip(label: Text('Cottura ${recipe.cookMin} min')),
       ]),
       const SizedBox(height: 8), Text(recipe.description),
       const SizedBox(height: 22),
@@ -360,12 +450,19 @@ class RecipePage extends StatelessWidget {
         const Expanded(child: Text('Ingredienti', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800))),
         TextButton.icon(onPressed: () {
           for (final i in recipe.ingredients) onAddIngredient(i);
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Ingredienti aggiunti alla lista della spesa.')));
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('🛒 Tutti gli ingredienti sono stati aggiunti alla lista della spesa')));
         }, icon: const Icon(Icons.shopping_cart_outlined), label: const Text('Aggiungi tutto')),
       ]),
       ...recipe.ingredients.map((i) => ListTile(
         dense: true, leading: const Icon(Icons.check_circle_outline), title: Text(i),
-        trailing: IconButton(onPressed: () => onAddIngredient(i), icon: const Icon(Icons.add_shopping_cart)),
+        trailing: IconButton(onPressed: () {
+          onAddIngredient(i);
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('🛒 Aggiunto alla lista della spesa'),
+            duration: Duration(seconds: 2), behavior: SnackBarBehavior.floating,
+          ));
+        }, icon: const Icon(Icons.add_shopping_cart)),
       )),
       const SizedBox(height: 12),
       const Text('Preparazione', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
