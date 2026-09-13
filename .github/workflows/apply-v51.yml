@@ -13,6 +13,7 @@ permissions:
 jobs:
   apply:
     runs-on: ubuntu-latest
+
     steps:
       - name: Scarica il repository
         uses: actions/checkout@v6
@@ -24,20 +25,62 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y p7zip-full
 
-      - name: Applica V5.1
+      - name: Estrai V5.1
         run: |
-          test -f RicetteDelMondo_V5_1_Speciali_Cotture.7z
-          7z x -y RicetteDelMondo_V5_1_Speciali_Cotture.7z
-          rm -f RicetteDelMondo_V5_1_Speciali_Cotture.7z
+          set -e
+          rm -rf /tmp/rmd_v51
+          mkdir -p /tmp/rmd_v51
+          7z x -y "RicetteDelMondo_V5_1_Speciali_Cotture.7z" -o/tmp/rmd_v51
 
-      - name: Salva le modifiche nel repository
+      - name: Trova e applica il progetto V5.1
+        run: |
+          set -e
+
+          PUBSPEC=$(find /tmp/rmd_v51 -type f -name "pubspec.yaml" -print -quit)
+          test -n "$PUBSPEC"
+
+          SRC=$(dirname "$PUBSPEC")
+
+          echo "Progetto V5.1 trovato in:"
+          echo "$SRC"
+
+          rm -rf ./lib
+          rm -rf ./assets
+
+          cp -a "$SRC/lib" ./lib
+          cp -a "$SRC/assets" ./assets
+          cp -f "$SRC/pubspec.yaml" ./pubspec.yaml
+          cp -f "$SRC/codemagic.yaml" ./codemagic.yaml
+
+          if [ -f "$SRC/README.md" ]; then
+            cp -f "$SRC/README.md" ./README.md
+          fi
+
+          if [ -f "$SRC/QA_REPORT.txt" ]; then
+            cp -f "$SRC/QA_REPORT.txt" ./QA_REPORT.txt
+          fi
+
+          echo "V5.1 applicata."
+
+      - name: Verifica V5.1
+        run: |
+          test -f lib/special_recipes.dart
+          test -f lib/main.dart
+          test -f pubspec.yaml
+          test -f codemagic.yaml
+          echo "VERIFICA V5.1 OK"
+
+      - name: Salva le modifiche
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add -A
+
           if git diff --cached --quiet; then
-            echo "Nessuna modifica da applicare."
-            exit 0
+            echo "Nessuna modifica da salvare."
+            exit 1
           fi
+
           git commit -m "Applica Ricette del Mondo V5.1"
           git push
