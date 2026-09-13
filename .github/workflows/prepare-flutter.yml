@@ -1,0 +1,52 @@
+name: Prepare Flutter project
+
+on:
+  push:
+    paths:
+      - 'RicetteDelMondo_Flutter_v1_4.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Scarica il repository
+        uses: actions/checkout@v4
+
+      - name: Estrai il progetto Flutter
+        run: |
+          unzip -o RicetteDelMondo_Flutter_v1_4.zip
+          rm RicetteDelMondo_Flutter_v1_4.zip
+
+      - name: Crea configurazione Codemagic
+        run: |
+          cat > codemagic.yaml <<'EOF'
+          workflows:
+            android-build:
+              name: Ricette del Mondo Android
+              max_build_duration: 60
+              instance_type: mac_mini_m2
+              environment:
+                flutter: stable
+              scripts:
+                - name: Genera progetto Android
+                  script: flutter create --platforms=android .
+                - name: Installa pacchetti
+                  script: flutter pub get
+                - name: Crea APK
+                  script: flutter build apk --debug
+              artifacts:
+                - build/app/outputs/flutter-apk/*.apk
+          EOF
+
+      - name: Salva i file preparati
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Prepara progetto Flutter per Codemagic"
+          git push
