@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'recipe_repository.dart';
 
+// V4 DEFINITIVA CORRETTA
 void main() => runApp(const RicetteApp());
 
 const flags = {
@@ -106,7 +107,7 @@ class _AppShellState extends State<AppShell> {
     Card(color:const Color(0xFFE8EFE5),child:InkWell(onTap:fridgePage,child:Padding(padding:const EdgeInsets.all(18),child:const Row(children:[
       CircleAvatar(child:Icon(Icons.kitchen)),SizedBox(width:14),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
         Text('Cosa hai nel frigo?',style:TextStyle(fontSize:19,fontWeight:FontWeight.w900)),
-        SizedBox(height:4),Text('Seleziona gli ingredienti e trova cosa puoi cucinare.') ])),Icon(Icons.chevron_right)]))),
+        SizedBox(height:4),Text('Seleziona gli ingredienti e trova cosa puoi cucinare.') ])),Icon(Icons.chevron_right)])))),
     section('Ricetta del giorno'),Card(clipBehavior:Clip.antiAlias,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
       recipeVisual(all.first,height:190,radius:BorderRadius.zero),Padding(padding:const EdgeInsets.all(14),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
         Text('${countryFlag(all.first.country)} ${all.first.country}',style:const TextStyle(fontWeight:FontWeight.w700)),
