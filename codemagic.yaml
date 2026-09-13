@@ -1,0 +1,16 @@
+workflows:
+  android-build:
+    name: Ricette del Mondo Android
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      flutter: stable
+    scripts:
+      - name: Genera progetto Android
+        script: flutter create --platforms=android .
+      - name: Installa pacchetti
+        script: flutter pub get
+      - name: Crea APK
+        script: flutter build apk --debug
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk

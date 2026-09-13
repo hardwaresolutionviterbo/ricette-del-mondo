@@ -1,0 +1,3540 @@
+[
+  {
+    "id": "R001",
+    "title": "Spaghetti alla Carbonara",
+    "country": "Italia",
+    "cuisine": "Italiana",
+    "category": "Primi",
+    "timeMin": 25,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": false,
+    "description": "Ricetta Spaghetti alla Carbonara della cucina Italiana.",
+    "ingredients": [
+      "spaghetti",
+      "guanciale",
+      "tuorli",
+      "pecorino romano",
+      "pepe nero"
+    ],
+    "steps": [
+      "Porta a bollore l'acqua e cuoci gli spaghetti al dente.",
+      "Rosola il guanciale in padella fino a renderlo dorato.",
+      "Mescola i tuorli con il pecorino e abbondante pepe.",
+      "Scola la pasta conservando poca acqua di cottura.",
+      "Togli la padella dal fuoco, unisci pasta e crema e regola la consistenza con l'acqua di cottura."
+    ],
+    "tags": [
+      "italiana",
+      "primo",
+      "veloce"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R002",
+    "title": "California Roll",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Primi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": false,
+    "description": "Ricetta California Roll della cucina Giapponese.",
+    "ingredients": [
+      "riso per sushi",
+      "alga nori",
+      "avocado",
+      "surimi",
+      "sesamo",
+      "aceto di riso"
+    ],
+    "steps": [
+      "Cuoci il riso seguendo le indicazioni della confezione e condiscilo con aceto di riso.",
+      "Taglia avocado e surimi a bastoncini.",
+      "Stendi una foglia di nori su una stuoia e distribuisci il riso.",
+      "Disponi il ripieno al centro e arrotola con decisione.",
+      "Taglia il rotolo con un coltello umido e completa con sesamo."
+    ],
+    "tags": [
+      "giapponese",
+      "pesce",
+      "sushi"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R003",
+    "title": "Tacos di pollo",
+    "country": "Messico",
+    "cuisine": "Messicana",
+    "category": "Secondi",
+    "timeMin": 30,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": false,
+    "description": "Ricetta Tacos di pollo della cucina Messicana.",
+    "ingredients": [
+      "tortillas di mais",
+      "petto di pollo",
+      "peperone",
+      "lime",
+      "paprika",
+      "cumino",
+      "olio"
+    ],
+    "steps": [
+      "Taglia il pollo a striscioline e condiscilo con paprika e cumino.",
+      "Taglia il peperone e rosolalo in padella con l'olio.",
+      "Aggiungi il pollo e cuoci fino a completa cottura.",
+      "Scalda brevemente le tortillas.",
+      "Farcisci con pollo e peperone e completa con succo di lime."
+    ],
+    "tags": [
+      "messicana",
+      "pollo",
+      "veloce"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R004",
+    "title": "Chicken Curry",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Secondi",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": false,
+    "description": "Ricetta Chicken Curry della cucina Indiana.",
+    "ingredients": [
+      "pollo",
+      "cipolla",
+      "latte di cocco",
+      "curry",
+      "pomodoro",
+      "olio",
+      "riso basmati"
+    ],
+    "steps": [
+      "Taglia il pollo a bocconcini e affetta la cipolla.",
+      "Rosola la cipolla nell'olio e aggiungi il curry.",
+      "Unisci il pollo e fallo dorare.",
+      "Aggiungi il pomodoro e il latte di cocco.",
+      "Cuoci a fuoco dolce finché il pollo è cotto e servi con riso basmati."
+    ],
+    "tags": [
+      "indiana",
+      "pollo",
+      "spezia"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R005",
+    "title": "Insalata greca",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Antipasti e insalate",
+    "timeMin": 15,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": false,
+    "description": "Ricetta Insalata greca della cucina Greca.",
+    "ingredients": [
+      "pomodori",
+      "cetriolo",
+      "feta",
+      "olive nere",
+      "cipolla rossa",
+      "olio extravergine",
+      "origano"
+    ],
+    "steps": [
+      "Taglia pomodori e cetriolo a pezzi.",
+      "Affetta sottilmente la cipolla.",
+      "Unisci verdure, olive e feta.",
+      "Condisci con olio e origano.",
+      "Mescola delicatamente e servi fresca. Dare attenzione al contenuto di sale della feta e delle olive."
+    ],
+    "tags": [
+      "greca",
+      "vegetariana",
+      "veloce"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R006",
+    "title": "Pasta primavera vegana",
+    "country": "Italia",
+    "cuisine": "Italiana",
+    "category": "Primi",
+    "timeMin": 25,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": false,
+    "description": "Ricetta Pasta primavera vegana della cucina Italiana.",
+    "ingredients": [
+      "pasta",
+      "zucchine",
+      "pomodorini",
+      "piselli",
+      "basilico",
+      "olio extravergine"
+    ],
+    "steps": [
+      "Cuoci la pasta al dente.",
+      "Taglia le zucchine e i pomodorini.",
+      "Salta le verdure con l'olio e aggiungi i piselli.",
+      "Unisci la pasta con poca acqua di cottura.",
+      "Completa con basilico fresco."
+    ],
+    "tags": [
+      "italiana",
+      "vegana",
+      "vegetariana"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R007",
+    "title": "Pizza senza glutine",
+    "country": "Italia",
+    "cuisine": "Italiana",
+    "category": "Pizze",
+    "timeMin": 90,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": false,
+    "description": "Ricetta Pizza senza glutine della cucina Italiana.",
+    "ingredients": [
+      "mix certificato senza glutine",
+      "lievito di birra",
+      "acqua",
+      "olio extravergine",
+      "passata di pomodoro",
+      "mozzarella"
+    ],
+    "steps": [
+      "Usa esclusivamente ingredienti certificati senza glutine e utensili/superfici privi di contaminazioni.",
+      "Impasta il mix con acqua, lievito e olio.",
+      "Lascia lievitare secondo le indicazioni del mix.",
+      "Stendi l'impasto su superficie protetta e condisci.",
+      "Cuoci in forno ben caldo fino a doratura."
+    ],
+    "tags": [
+      "senza glutine",
+      "italiana",
+      "pizza"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R008",
+    "title": "Salmone al forno a ridotto contenuto di sodio",
+    "country": "Nord Europa",
+    "cuisine": "Nordica",
+    "category": "Secondi",
+    "timeMin": 25,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": false,
+    "description": "Ricetta Salmone al forno a ridotto contenuto di sodio della cucina Nordica.",
+    "ingredients": [
+      "filetti di salmone",
+      "limone",
+      "erbe aromatiche",
+      "olio extravergine"
+    ],
+    "steps": [
+      "Asciuga i filetti e disponili in una teglia.",
+      "Condisci con limone, erbe e poco olio, senza aggiunta di sale.",
+      "Cuoci in forno preriscaldato finché il salmone raggiunge la cottura desiderata.",
+      "Servi con verdure non salate o condite senza aggiunta di sale."
+    ],
+    "tags": [
+      "ridotto sodio",
+      "pesce"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R009",
+    "title": "Risotto ai funghi senza lattosio",
+    "country": "Italia",
+    "cuisine": "Italiana",
+    "category": "Primi",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": false,
+    "description": "Ricetta Risotto ai funghi senza lattosio della cucina Italiana.",
+    "ingredients": [
+      "riso Carnaroli",
+      "funghi",
+      "brodo vegetale senza lattosio",
+      "olio extravergine",
+      "prezzemolo"
+    ],
+    "steps": [
+      "Pulisci e affetta i funghi.",
+      "Rosola i funghi e tienili da parte.",
+      "Tosta il riso e aggiungi il brodo caldo poco alla volta.",
+      "A metà cottura incorpora i funghi.",
+      "Manteca fuori dal fuoco con olio e prezzemolo. Verifica le etichette degli ingredienti confezionati."
+    ],
+    "tags": [
+      "senza lattosio",
+      "italiana"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R010",
+    "title": "Tiramisù classico",
+    "country": "Italia",
+    "cuisine": "Italiana",
+    "category": "Dolci",
+    "timeMin": 30,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": false,
+    "description": "Ricetta Tiramisù classico della cucina Italiana.",
+    "ingredients": [
+      "savoiardi",
+      "mascarpone",
+      "uova",
+      "zucchero",
+      "caffè",
+      "cacao amaro"
+    ],
+    "steps": [
+      "Prepara il caffè e lascialo raffreddare.",
+      "Separa tuorli e albumi e prepara la crema secondo la ricetta.",
+      "Bagna rapidamente i savoiardi nel caffè.",
+      "Alterna savoiardi e crema in una pirofila.",
+      "Riposa in frigorifero e spolvera con cacao prima di servire."
+    ],
+    "tags": [
+      "italiana",
+      "dolce"
+    ],
+    "editorialStatus": "verifica_editoriale"
+  },
+  {
+    "id": "R011",
+    "title": "Pad Thai",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Primi",
+    "timeMin": 30,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Pad Thai della cucina Thailandese.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R012",
+    "title": "Paella valenciana",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Primi",
+    "timeMin": 60,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Paella valenciana della cucina Spagnola.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R013",
+    "title": "Falafel con hummus",
+    "country": "Medio Oriente",
+    "cuisine": "Mediorientale",
+    "category": "Antipasti",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Falafel con hummus della cucina Mediorientale.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R014",
+    "title": "Bibimbap",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Primi",
+    "timeMin": 45,
+    "servings": 2,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Bibimbap della cucina Coreana.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R015",
+    "title": "Ceviche di pesce",
+    "country": "Perù",
+    "cuisine": "Peruviana",
+    "category": "Antipasti",
+    "timeMin": 25,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Ceviche di pesce della cucina Peruviana.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R016",
+    "title": "Moussaka",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Secondi",
+    "timeMin": 90,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Moussaka della cucina Greca.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R017",
+    "title": "Boeuf bourguignon",
+    "country": "Francia",
+    "cuisine": "Francese",
+    "category": "Secondi",
+    "timeMin": 180,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Boeuf bourguignon della cucina Francese.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R018",
+    "title": "Biryani di pollo",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Primi",
+    "timeMin": 75,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Biryani di pollo della cucina Indiana.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R019",
+    "title": "Ramen al miso",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Zuppe",
+    "timeMin": 60,
+    "servings": 2,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Ramen al miso della cucina Giapponese.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R020",
+    "title": "Lomo saltado",
+    "country": "Perù",
+    "cuisine": "Peruviana",
+    "category": "Secondi",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Lomo saltado della cucina Peruviana.",
+    "ingredients": [],
+    "steps": [],
+    "tags": [],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R021",
+    "title": "Lasagne alla bolognese",
+    "country": "Italia",
+    "cuisine": "Italiana",
+    "category": "Primi",
+    "timeMin": 120,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Lasagne alla bolognese della cucina Italiana.",
+    "ingredients": [
+      "sfoglia per lasagne",
+      "ragù",
+      "besciamella",
+      "parmigiano"
+    ],
+    "steps": [
+      "Prepara il ragù.",
+      "Prepara la besciamella.",
+      "Alterna sfoglia, ragù, besciamella e formaggio.",
+      "Cuoci in forno fino a doratura."
+    ],
+    "tags": [
+      "italiana",
+      "pasta"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R022",
+    "title": "Ossobuco alla milanese",
+    "country": "Italia",
+    "cuisine": "Italiana",
+    "category": "Secondi",
+    "timeMin": 110,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Ossobuco alla milanese della cucina Italiana.",
+    "ingredients": [
+      "ossobuco di vitello",
+      "cipolla",
+      "carota",
+      "sedano",
+      "vino bianco",
+      "brodo"
+    ],
+    "steps": [
+      "Rosola la carne.",
+      "Aggiungi le verdure.",
+      "Sfuma con vino bianco.",
+      "Cuoci lentamente con il brodo fino a renderla tenera."
+    ],
+    "tags": [
+      "italiana",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R023",
+    "title": "Ratatouille",
+    "country": "Francia",
+    "cuisine": "Francese",
+    "category": "Contorni",
+    "timeMin": 70,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Ratatouille della cucina Francese.",
+    "ingredients": [
+      "melanzane",
+      "zucchine",
+      "pomodori",
+      "peperone",
+      "cipolla",
+      "olio"
+    ],
+    "steps": [
+      "Taglia le verdure.",
+      "Rosola separatamente quelle più consistenti.",
+      "Unisci tutto e cuoci lentamente.",
+      "Regola il condimento e servi."
+    ],
+    "tags": [
+      "francese",
+      "vegetariana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R024",
+    "title": "Coq au vin",
+    "country": "Francia",
+    "cuisine": "Francese",
+    "category": "Secondi",
+    "timeMin": 150,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Coq au vin della cucina Francese.",
+    "ingredients": [
+      "pollo",
+      "vino rosso",
+      "cipolla",
+      "carote",
+      "funghi",
+      "brodo"
+    ],
+    "steps": [
+      "Marina o prepara il pollo secondo la ricetta editoriale.",
+      "Rosola il pollo.",
+      "Aggiungi verdure e vino.",
+      "Cuoci lentamente fino a completa cottura."
+    ],
+    "tags": [
+      "francese",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R025",
+    "title": "Tortilla española",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Antipasti",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Tortilla española della cucina Spagnola.",
+    "ingredients": [
+      "patate",
+      "uova",
+      "cipolla",
+      "olio"
+    ],
+    "steps": [
+      "Affetta le patate.",
+      "Cuocile dolcemente con la cipolla.",
+      "Unisci alle uova sbattute.",
+      "Cuoci la tortilla da entrambi i lati."
+    ],
+    "tags": [
+      "spagnola",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R026",
+    "title": "Gazpacho",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Zuppe",
+    "timeMin": 20,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Gazpacho della cucina Spagnola.",
+    "ingredients": [
+      "pomodori",
+      "cetriolo",
+      "peperone",
+      "pane",
+      "olio",
+      "aceto"
+    ],
+    "steps": [
+      "Lava e taglia le verdure.",
+      "Frulla con pane e condimenti.",
+      "Regola la consistenza.",
+      "Raffredda prima di servire."
+    ],
+    "tags": [
+      "spagnola",
+      "vegetariana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R027",
+    "title": "Ramen al miso",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Zuppe",
+    "timeMin": 60,
+    "servings": 2,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Ramen al miso della cucina Giapponese.",
+    "ingredients": [
+      "brodo",
+      "miso",
+      "noodles ramen",
+      "funghi",
+      "cipollotto",
+      "uovo"
+    ],
+    "steps": [
+      "Prepara il brodo.",
+      "Sciogli il miso nel brodo caldo senza bollire eccessivamente.",
+      "Cuoci i noodles.",
+      "Assembla ciotola, noodles e guarnizioni."
+    ],
+    "tags": [
+      "giapponese",
+      "zuppa"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R028",
+    "title": "Gyoza",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Antipasti",
+    "timeMin": 50,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Gyoza della cucina Giapponese.",
+    "ingredients": [
+      "sfoglie gyoza",
+      "carne macinata o tofu",
+      "cavolo",
+      "zenzero",
+      "cipollotto"
+    ],
+    "steps": [
+      "Prepara il ripieno.",
+      "Farcisci e chiudi i ravioli.",
+      "Rosola la base in padella.",
+      "Aggiungi poca acqua e copri fino a cottura."
+    ],
+    "tags": [
+      "giapponese"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R029",
+    "title": "Enchiladas di pollo",
+    "country": "Messico",
+    "cuisine": "Messicana",
+    "category": "Secondi",
+    "timeMin": 55,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Enchiladas di pollo della cucina Messicana.",
+    "ingredients": [
+      "tortillas",
+      "pollo",
+      "salsa di pomodoro",
+      "peperoncino",
+      "formaggio"
+    ],
+    "steps": [
+      "Prepara il ripieno di pollo.",
+      "Farcisci le tortillas.",
+      "Disponile in teglia con salsa.",
+      "Completa con formaggio e cuoci in forno."
+    ],
+    "tags": [
+      "messicana",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R030",
+    "title": "Guacamole",
+    "country": "Messico",
+    "cuisine": "Messicana",
+    "category": "Antipasti",
+    "timeMin": 15,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Guacamole della cucina Messicana.",
+    "ingredients": [
+      "avocado",
+      "lime",
+      "pomodoro",
+      "cipolla",
+      "coriandolo"
+    ],
+    "steps": [
+      "Schiaccia l'avocado.",
+      "Aggiungi lime e verdure tritate.",
+      "Mescola lasciando una consistenza rustica.",
+      "Servi subito."
+    ],
+    "tags": [
+      "messicana",
+      "vegetariana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R031",
+    "title": "Butter chicken",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Secondi",
+    "timeMin": 55,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Butter chicken della cucina Indiana.",
+    "ingredients": [
+      "pollo",
+      "yogurt",
+      "pomodoro",
+      "burro",
+      "garam masala",
+      "panna"
+    ],
+    "steps": [
+      "Marina il pollo secondo la ricetta.",
+      "Rosola il pollo.",
+      "Prepara la salsa di pomodoro e spezie.",
+      "Unisci pollo e salsa e completa la cottura."
+    ],
+    "tags": [
+      "indiana",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R032",
+    "title": "Samosa",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Antipasti",
+    "timeMin": 60,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Samosa della cucina Indiana.",
+    "ingredients": [
+      "farina",
+      "patate",
+      "piselli",
+      "cumino",
+      "coriandolo",
+      "olio"
+    ],
+    "steps": [
+      "Prepara l'impasto.",
+      "Cuoci patate e piselli con le spezie.",
+      "Forma i triangoli.",
+      "Cuoci fino a doratura secondo il metodo scelto."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R033",
+    "title": "Riso cantonese",
+    "country": "Cina",
+    "cuisine": "Cinese",
+    "category": "Primi",
+    "timeMin": 30,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Riso cantonese della cucina Cinese.",
+    "ingredients": [
+      "riso",
+      "uova",
+      "piselli",
+      "carote",
+      "cipollotto",
+      "olio"
+    ],
+    "steps": [
+      "Cuoci e raffredda il riso.",
+      "Prepara le uova.",
+      "Salta verdure e riso in padella molto calda.",
+      "Unisci uova e cipollotto."
+    ],
+    "tags": [
+      "cinese",
+      "riso"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R034",
+    "title": "Pollo Kung Pao",
+    "country": "Cina",
+    "cuisine": "Cinese",
+    "category": "Secondi",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Pollo Kung Pao della cucina Cinese.",
+    "ingredients": [
+      "pollo",
+      "arachidi",
+      "peperone",
+      "cipollotto",
+      "zenzero",
+      "salsa di soia"
+    ],
+    "steps": [
+      "Taglia il pollo.",
+      "Prepara verdure e aromi.",
+      "Salta il pollo a fuoco alto.",
+      "Aggiungi salsa e arachidi e completa la cottura."
+    ],
+    "tags": [
+      "cinese",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R035",
+    "title": "Tom Yum",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Zuppe",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Tom Yum della cucina Thailandese.",
+    "ingredients": [
+      "gamberi",
+      "brodo",
+      "citronella",
+      "galanga",
+      "lime",
+      "peperoncino"
+    ],
+    "steps": [
+      "Prepara il brodo aromatico.",
+      "Aggiungi citronella e galanga.",
+      "Unisci i gamberi.",
+      "Completa con lime e peperoncino."
+    ],
+    "tags": [
+      "thailandese",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R036",
+    "title": "Green curry",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Secondi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Green curry della cucina Thailandese.",
+    "ingredients": [
+      "pasta curry verde",
+      "latte di cocco",
+      "pollo o tofu",
+      "melanzana",
+      "basilico thai"
+    ],
+    "steps": [
+      "Rosola la pasta di curry.",
+      "Aggiungi latte di cocco.",
+      "Unisci proteina e verdure.",
+      "Cuoci fino a completa cottura e completa con basilico."
+    ],
+    "tags": [
+      "thailandese"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R037",
+    "title": "Souvlaki",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Secondi",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Souvlaki della cucina Greca.",
+    "ingredients": [
+      "pollo o maiale",
+      "limone",
+      "olio",
+      "origano",
+      "aglio"
+    ],
+    "steps": [
+      "Taglia la carne.",
+      "Marina con limone, olio e aromi.",
+      "Infilza gli spiedini.",
+      "Cuoci fino a completa cottura."
+    ],
+    "tags": [
+      "greca"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R038",
+    "title": "Spanakopita",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Antipasti",
+    "timeMin": 65,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Spanakopita della cucina Greca.",
+    "ingredients": [
+      "pasta fillo",
+      "spinaci",
+      "feta",
+      "cipolla",
+      "olio"
+    ],
+    "steps": [
+      "Cuoci e strizza gli spinaci.",
+      "Mescola con feta e cipolla.",
+      "Alterna strati di fillo e ripieno.",
+      "Cuoci fino a doratura."
+    ],
+    "tags": [
+      "greca",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R039",
+    "title": "Feijoada",
+    "country": "Brasile",
+    "cuisine": "Brasiliana",
+    "category": "Secondi",
+    "timeMin": 150,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Feijoada della cucina Brasiliana.",
+    "ingredients": [
+      "fagioli neri",
+      "carne o alternativa vegetale",
+      "cipolla",
+      "aglio",
+      "alloro"
+    ],
+    "steps": [
+      "Ammolla e prepara i fagioli secondo necessità.",
+      "Rosola aromi e ingredienti principali.",
+      "Unisci i fagioli e cuoci lentamente.",
+      "Servi con i contorni tradizionali."
+    ],
+    "tags": [
+      "brasiliana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R040",
+    "title": "Coxinha",
+    "country": "Brasile",
+    "cuisine": "Brasiliana",
+    "category": "Antipasti",
+    "timeMin": 75,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Coxinha della cucina Brasiliana.",
+    "ingredients": [
+      "pollo",
+      "farina",
+      "brodo",
+      "formaggio cremoso",
+      "pangrattato"
+    ],
+    "steps": [
+      "Prepara il ripieno.",
+      "Prepara l'impasto con brodo e farina.",
+      "Forma le coxinha e farciscile.",
+      "Impanale e cuocile fino a doratura."
+    ],
+    "tags": [
+      "brasiliana",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R041",
+    "title": "Boeuf bourguignon",
+    "country": "Francia",
+    "cuisine": "Francese",
+    "category": "Secondi",
+    "timeMin": 190,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Boeuf bourguignon della cucina Francese.",
+    "ingredients": [
+      "manzo",
+      "vino rosso",
+      "carote",
+      "cipolla",
+      "funghi",
+      "brodo"
+    ],
+    "steps": [
+      "Rosola la carne.",
+      "Aggiungi cipolla e carote.",
+      "Sfuma con vino rosso.",
+      "Cuoci lentamente con il brodo.",
+      "Aggiungi i funghi verso la fine."
+    ],
+    "tags": [
+      "francese",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R042",
+    "title": "Quiche Lorraine",
+    "country": "Francia",
+    "cuisine": "Francese",
+    "category": "Antipasti",
+    "timeMin": 70,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Quiche Lorraine della cucina Francese.",
+    "ingredients": [
+      "pasta brisée",
+      "uova",
+      "panna",
+      "pancetta",
+      "formaggio"
+    ],
+    "steps": [
+      "Prepara e stendi la base.",
+      "Rosola la pancetta.",
+      "Mescola uova e panna.",
+      "Distribuisci il ripieno sulla base.",
+      "Cuoci fino a doratura."
+    ],
+    "tags": [
+      "francese"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R043",
+    "title": "Croque monsieur",
+    "country": "Francia",
+    "cuisine": "Francese",
+    "category": "Antipasti",
+    "timeMin": 25,
+    "servings": 2,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Croque monsieur della cucina Francese.",
+    "ingredients": [
+      "pane",
+      "prosciutto",
+      "formaggio",
+      "besciamella"
+    ],
+    "steps": [
+      "Prepara i panini.",
+      "Aggiungi prosciutto e formaggio.",
+      "Completa con besciamella.",
+      "Gratinate fino a doratura."
+    ],
+    "tags": [
+      "francese",
+      "veloce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R044",
+    "title": "Pulpo a la gallega",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Secondi",
+    "timeMin": 70,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Pulpo a la gallega della cucina Spagnola.",
+    "ingredients": [
+      "polpo",
+      "patate",
+      "paprika",
+      "olio"
+    ],
+    "steps": [
+      "Cuoci il polpo fino a renderlo tenero.",
+      "Cuoci le patate.",
+      "Taglia il polpo.",
+      "Servi con patate, paprika e olio."
+    ],
+    "tags": [
+      "spagnola",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R045",
+    "title": "Croquetas de jamón",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Antipasti",
+    "timeMin": 60,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Croquetas de jamón della cucina Spagnola.",
+    "ingredients": [
+      "latte",
+      "farina",
+      "burro",
+      "prosciutto",
+      "uova",
+      "pangrattato"
+    ],
+    "steps": [
+      "Prepara una besciamella densa.",
+      "Aggiungi il prosciutto.",
+      "Raffredda e forma le crocchette.",
+      "Impanale.",
+      "Cuocile fino a doratura."
+    ],
+    "tags": [
+      "spagnola"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R046",
+    "title": "Fideuà",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Primi",
+    "timeMin": 55,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Fideuà della cucina Spagnola.",
+    "ingredients": [
+      "pasta corta",
+      "gamberi",
+      "calamari",
+      "brodo",
+      "pomodoro",
+      "zafferano"
+    ],
+    "steps": [
+      "Rosola il pesce.",
+      "Aggiungi pomodoro e pasta.",
+      "Versa il brodo caldo.",
+      "Cuoci fino ad assorbimento.",
+      "Lascia riposare prima di servire."
+    ],
+    "tags": [
+      "spagnola",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R047",
+    "title": "Okonomiyaki",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Primi",
+    "timeMin": 35,
+    "servings": 2,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Okonomiyaki della cucina Giapponese.",
+    "ingredients": [
+      "cavolo",
+      "farina",
+      "uova",
+      "cipollotto",
+      "salsa okonomiyaki"
+    ],
+    "steps": [
+      "Affetta il cavolo.",
+      "Prepara la pastella.",
+      "Unisci il cavolo.",
+      "Cuoci le frittelle in padella.",
+      "Completa con salsa."
+    ],
+    "tags": [
+      "giapponese",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R048",
+    "title": "Tempura di verdure",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Antipasti",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Tempura di verdure della cucina Giapponese.",
+    "ingredients": [
+      "verdure",
+      "farina",
+      "uovo",
+      "acqua frizzante",
+      "olio"
+    ],
+    "steps": [
+      "Taglia le verdure.",
+      "Prepara una pastella fredda e leggera.",
+      "Immergi le verdure.",
+      "Friggi fino a doratura.",
+      "Scola e servi."
+    ],
+    "tags": [
+      "giapponese",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R049",
+    "title": "Udon saltati",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Primi",
+    "timeMin": 25,
+    "servings": 2,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Udon saltati della cucina Giapponese.",
+    "ingredients": [
+      "udon",
+      "carote",
+      "cavolo",
+      "funghi",
+      "salsa di soia"
+    ],
+    "steps": [
+      "Prepara gli udon.",
+      "Salta le verdure.",
+      "Aggiungi gli udon.",
+      "Condisci con la salsa e salta brevemente."
+    ],
+    "tags": [
+      "giapponese",
+      "veloce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R050",
+    "title": "Dosa",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Primi",
+    "timeMin": 50,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Dosa della cucina Indiana.",
+    "ingredients": [
+      "riso",
+      "lenticchie urad",
+      "acqua",
+      "olio"
+    ],
+    "steps": [
+      "Ammolla riso e lenticchie.",
+      "Frulla e lascia fermentare l'impasto.",
+      "Stendi uno strato sottile su piastra calda.",
+      "Cuoci fino a renderlo croccante."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R051",
+    "title": "Palak paneer",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Secondi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Palak paneer della cucina Indiana.",
+    "ingredients": [
+      "spinaci",
+      "paneer",
+      "cipolla",
+      "pomodoro",
+      "spezie"
+    ],
+    "steps": [
+      "Sbollenta e frulla gli spinaci.",
+      "Rosola cipolla e spezie.",
+      "Aggiungi pomodoro e spinaci.",
+      "Unisci il paneer.",
+      "Cuoci brevemente."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R052",
+    "title": "Dal makhani",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Primi",
+    "timeMin": 120,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Dal makhani della cucina Indiana.",
+    "ingredients": [
+      "lenticchie nere",
+      "fagioli",
+      "pomodoro",
+      "spezie",
+      "burro"
+    ],
+    "steps": [
+      "Ammolla i legumi.",
+      "Cuocili fino a renderli teneri.",
+      "Prepara il fondo speziato.",
+      "Unisci i legumi.",
+      "Cuoci lentamente per amalgamare i sapori."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R053",
+    "title": "Mapo tofu",
+    "country": "Cina",
+    "cuisine": "Cinese",
+    "category": "Secondi",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Mapo tofu della cucina Cinese.",
+    "ingredients": [
+      "tofu",
+      "carne macinata o alternativa",
+      "pasta di peperoncino",
+      "zenzero",
+      "cipollotto"
+    ],
+    "steps": [
+      "Taglia il tofu.",
+      "Rosola aromi e proteina.",
+      "Aggiungi la pasta piccante.",
+      "Unisci tofu e poca acqua.",
+      "Cuoci delicatamente e completa con cipollotto."
+    ],
+    "tags": [
+      "cinese",
+      "piccante"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R054",
+    "title": "Ravioli al vapore",
+    "country": "Cina",
+    "cuisine": "Cinese",
+    "category": "Antipasti",
+    "timeMin": 55,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Ravioli al vapore della cucina Cinese.",
+    "ingredients": [
+      "sfoglie per ravioli",
+      "carne o tofu",
+      "cavolo",
+      "zenzero",
+      "cipollotto"
+    ],
+    "steps": [
+      "Prepara il ripieno.",
+      "Farcisci e chiudi i ravioli.",
+      "Disponili nel cestello.",
+      "Cuoci a vapore fino a completa cottura."
+    ],
+    "tags": [
+      "cinese"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R055",
+    "title": "Zuppa agropiccante",
+    "country": "Cina",
+    "cuisine": "Cinese",
+    "category": "Zuppe",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Zuppa agropiccante della cucina Cinese.",
+    "ingredients": [
+      "brodo",
+      "tofu",
+      "funghi",
+      "germogli",
+      "aceto",
+      "peperoncino"
+    ],
+    "steps": [
+      "Prepara il brodo.",
+      "Aggiungi funghi e tofu.",
+      "Condisci con aceto e peperoncino.",
+      "Cuoci brevemente e servi calda."
+    ],
+    "tags": [
+      "cinese",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R056",
+    "title": "Som tam",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Antipasti",
+    "timeMin": 20,
+    "servings": 2,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Som tam della cucina Thailandese.",
+    "ingredients": [
+      "papaya verde",
+      "pomodoro",
+      "arachidi",
+      "lime",
+      "peperoncino"
+    ],
+    "steps": [
+      "Taglia la papaya a strisce.",
+      "Prepara il condimento con lime e peperoncino.",
+      "Unisci pomodoro e papaya.",
+      "Completa con arachidi."
+    ],
+    "tags": [
+      "thailandese",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R057",
+    "title": "Massaman curry",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Secondi",
+    "timeMin": 70,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Massaman curry della cucina Thailandese.",
+    "ingredients": [
+      "manzo o tofu",
+      "latte di cocco",
+      "patate",
+      "pasta massaman",
+      "arachidi"
+    ],
+    "steps": [
+      "Rosola la pasta di curry.",
+      "Aggiungi latte di cocco.",
+      "Unisci proteina e patate.",
+      "Cuoci lentamente.",
+      "Completa con arachidi."
+    ],
+    "tags": [
+      "thailandese"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R058",
+    "title": "Moussaka",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Secondi",
+    "timeMin": 100,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Moussaka della cucina Greca.",
+    "ingredients": [
+      "melanzane",
+      "carne macinata o alternativa",
+      "pomodoro",
+      "besciamella",
+      "formaggio"
+    ],
+    "steps": [
+      "Cuoci le melanzane.",
+      "Prepara il ragù.",
+      "Prepara la besciamella.",
+      "Alterna gli strati.",
+      "Cuoci in forno fino a doratura."
+    ],
+    "tags": [
+      "greca"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R059",
+    "title": "Tzatziki",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Antipasti",
+    "timeMin": 15,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Tzatziki della cucina Greca.",
+    "ingredients": [
+      "yogurt greco",
+      "cetriolo",
+      "aglio",
+      "limone",
+      "olio"
+    ],
+    "steps": [
+      "Grattugia e strizza il cetriolo.",
+      "Mescola con yogurt e aglio.",
+      "Aggiungi limone e olio.",
+      "Raffredda prima di servire."
+    ],
+    "tags": [
+      "greca",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R060",
+    "title": "Baklava",
+    "country": "Turchia",
+    "cuisine": "Turca",
+    "category": "Dolci",
+    "timeMin": 70,
+    "servings": 8,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Baklava della cucina Turca.",
+    "ingredients": [
+      "pasta fillo",
+      "noci",
+      "burro",
+      "zucchero",
+      "miele",
+      "limone"
+    ],
+    "steps": [
+      "Prepara il ripieno di frutta secca.",
+      "Alterna strati di fillo e ripieno.",
+      "Cuoci fino a doratura.",
+      "Prepara lo sciroppo.",
+      "Versalo sul dolce e lascia raffreddare."
+    ],
+    "tags": [
+      "turca",
+      "dolce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R061",
+    "title": "Aloo gobi",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Contorni",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Aloo gobi della cucina Indiana.",
+    "ingredients": [
+      "patate",
+      "cavolfiore",
+      "pomodoro",
+      "curcuma",
+      "cumino",
+      "zenzero"
+    ],
+    "steps": [
+      "Taglia patate e cavolfiore.",
+      "Rosola le spezie con gli aromi.",
+      "Aggiungi le verdure e il pomodoro.",
+      "Cuoci coperto fino a quando le verdure sono tenere."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R062",
+    "title": "Chana masala",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Secondi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Chana masala della cucina Indiana.",
+    "ingredients": [
+      "ceci",
+      "pomodoro",
+      "cipolla",
+      "zenzero",
+      "garam masala",
+      "coriandolo"
+    ],
+    "steps": [
+      "Soffriggi cipolla e zenzero.",
+      "Aggiungi spezie e pomodoro.",
+      "Unisci i ceci.",
+      "Cuoci lentamente e completa con coriandolo."
+    ],
+    "tags": [
+      "indiana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R063",
+    "title": "Naan",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Pane",
+    "timeMin": 90,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Naan della cucina Indiana.",
+    "ingredients": [
+      "farina",
+      "yogurt",
+      "lievito",
+      "acqua",
+      "olio"
+    ],
+    "steps": [
+      "Prepara l'impasto.",
+      "Lascia lievitare.",
+      "Dividi e stendi le porzioni.",
+      "Cuoci su piastra molto calda."
+    ],
+    "tags": [
+      "indiana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R064",
+    "title": "Rendang",
+    "country": "Indonesia",
+    "cuisine": "Indonesiana",
+    "category": "Secondi",
+    "timeMin": 180,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Rendang della cucina Indonesiana.",
+    "ingredients": [
+      "manzo",
+      "latte di cocco",
+      "zenzero",
+      "galanga",
+      "peperoncino",
+      "lemongrass"
+    ],
+    "steps": [
+      "Prepara la pasta aromatica.",
+      "Rosola la carne.",
+      "Aggiungi latte di cocco e aromi.",
+      "Cuoci lentamente fino a ridurre la salsa e rendere tenera la carne."
+    ],
+    "tags": [
+      "indonesiana",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R065",
+    "title": "Nasi goreng",
+    "country": "Indonesia",
+    "cuisine": "Indonesiana",
+    "category": "Primi",
+    "timeMin": 30,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Nasi goreng della cucina Indonesiana.",
+    "ingredients": [
+      "riso cotto",
+      "uova",
+      "verdure",
+      "cipollotto",
+      "salsa di soia"
+    ],
+    "steps": [
+      "Prepara il riso già cotto.",
+      "Cuoci le uova.",
+      "Salta verdure e riso a fuoco alto.",
+      "Unisci condimenti e uova."
+    ],
+    "tags": [
+      "indonesiana",
+      "riso"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R066",
+    "title": "Gado-gado",
+    "country": "Indonesia",
+    "cuisine": "Indonesiana",
+    "category": "Antipasti",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Gado-gado della cucina Indonesiana.",
+    "ingredients": [
+      "verdure",
+      "tofu",
+      "uova",
+      "salsa di arachidi"
+    ],
+    "steps": [
+      "Cuoci le verdure al vapore.",
+      "Prepara tofu e uova.",
+      "Disponi tutto nel piatto.",
+      "Completa con salsa di arachidi."
+    ],
+    "tags": [
+      "indonesiana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R067",
+    "title": "Pho bo",
+    "country": "Vietnam",
+    "cuisine": "Vietnamita",
+    "category": "Zuppe",
+    "timeMin": 180,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Pho bo della cucina Vietnamita.",
+    "ingredients": [
+      "manzo",
+      "brodo",
+      "noodles di riso",
+      "anice stellato",
+      "zenzero",
+      "cannella"
+    ],
+    "steps": [
+      "Prepara il brodo aromatico.",
+      "Cuoci la carne secondo il taglio scelto.",
+      "Prepara i noodles.",
+      "Assembla la ciotola e completa con erbe fresche."
+    ],
+    "tags": [
+      "vietnamita",
+      "zuppa"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R068",
+    "title": "Banh mi",
+    "country": "Vietnam",
+    "cuisine": "Vietnamita",
+    "category": "Antipasti",
+    "timeMin": 35,
+    "servings": 2,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Banh mi della cucina Vietnamita.",
+    "ingredients": [
+      "baguette",
+      "carne o tofu",
+      "carote",
+      "daikon",
+      "cetriolo",
+      "erbe fresche"
+    ],
+    "steps": [
+      "Prepara le verdure marinate.",
+      "Cuoci il ripieno.",
+      "Scalda il pane.",
+      "Farcisci con verdure, ripieno ed erbe."
+    ],
+    "tags": [
+      "vietnamita"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R069",
+    "title": "Goi cuon",
+    "country": "Vietnam",
+    "cuisine": "Vietnamita",
+    "category": "Antipasti",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Goi cuon della cucina Vietnamita.",
+    "ingredients": [
+      "carta di riso",
+      "gamberi o tofu",
+      "vermicelli",
+      "lattuga",
+      "erbe fresche"
+    ],
+    "steps": [
+      "Prepara ripieno e vermicelli.",
+      "Ammorbidisci la carta di riso.",
+      "Disponi gli ingredienti.",
+      "Arrotola stretto e servi con salsa."
+    ],
+    "tags": [
+      "vietnamita",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R070",
+    "title": "Asado argentino",
+    "country": "Argentina",
+    "cuisine": "Argentina",
+    "category": "Secondi",
+    "timeMin": 120,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Asado argentino della cucina Argentina.",
+    "ingredients": [
+      "carne bovina",
+      "sale",
+      "pepe"
+    ],
+    "steps": [
+      "Prepara la griglia.",
+      "Cuoci i tagli a calore controllato.",
+      "Gira secondo necessità.",
+      "Lascia riposare la carne prima di servire."
+    ],
+    "tags": [
+      "argentina",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R071",
+    "title": "Empanadas argentine",
+    "country": "Argentina",
+    "cuisine": "Argentina",
+    "category": "Antipasti",
+    "timeMin": 70,
+    "servings": 8,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Empanadas argentine della cucina Argentina.",
+    "ingredients": [
+      "farina",
+      "carne macinata",
+      "cipolla",
+      "uova",
+      "olive"
+    ],
+    "steps": [
+      "Prepara il ripieno.",
+      "Prepara o usa dischi di pasta.",
+      "Farcisci e chiudi.",
+      "Cuoci fino a doratura."
+    ],
+    "tags": [
+      "argentina",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R072",
+    "title": "Chimichurri",
+    "country": "Argentina",
+    "cuisine": "Argentina",
+    "category": "Salse",
+    "timeMin": 15,
+    "servings": 6,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Chimichurri della cucina Argentina.",
+    "ingredients": [
+      "prezzemolo",
+      "aglio",
+      "aceto",
+      "olio",
+      "origano"
+    ],
+    "steps": [
+      "Trita finemente gli aromi.",
+      "Mescola con aceto e olio.",
+      "Lascia riposare per amalgamare i sapori.",
+      "Servi come salsa."
+    ],
+    "tags": [
+      "argentina",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R073",
+    "title": "Lomo saltado",
+    "country": "Perù",
+    "cuisine": "Peruviana",
+    "category": "Secondi",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Lomo saltado della cucina Peruviana.",
+    "ingredients": [
+      "manzo",
+      "pomodoro",
+      "cipolla rossa",
+      "patate",
+      "salsa di soia",
+      "coriandolo"
+    ],
+    "steps": [
+      "Prepara patate e verdure.",
+      "Rosola il manzo a fuoco alto.",
+      "Aggiungi cipolla e pomodoro.",
+      "Condisci e servi con patate e riso."
+    ],
+    "tags": [
+      "peruviana",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R074",
+    "title": "Papa a la huancaína",
+    "country": "Perù",
+    "cuisine": "Peruviana",
+    "category": "Antipasti",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Papa a la huancaína della cucina Peruviana.",
+    "ingredients": [
+      "patate",
+      "formaggio fresco",
+      "latte",
+      "peperoncino giallo",
+      "cracker"
+    ],
+    "steps": [
+      "Cuoci le patate.",
+      "Frulla la salsa con formaggio, latte e peperoncino.",
+      "Affetta le patate.",
+      "Copri con la salsa e servi."
+    ],
+    "tags": [
+      "peruviana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R075",
+    "title": "Tacu tacu",
+    "country": "Perù",
+    "cuisine": "Peruviana",
+    "category": "Primi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Tacu tacu della cucina Peruviana.",
+    "ingredients": [
+      "riso cotto",
+      "fagioli",
+      "cipolla",
+      "olio",
+      "spezie"
+    ],
+    "steps": [
+      "Schiaccia riso e fagioli.",
+      "Insaporisci con cipolla e spezie.",
+      "Forma delle porzioni compatte.",
+      "Rosola in padella fino a creare una crosta."
+    ],
+    "tags": [
+      "peruviana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R076",
+    "title": "Kimchi jjigae",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Zuppe",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Kimchi jjigae della cucina Coreana.",
+    "ingredients": [
+      "kimchi",
+      "tofu",
+      "brodo",
+      "cipollotto",
+      "peperoncino"
+    ],
+    "steps": [
+      "Prepara il brodo.",
+      "Cuoci il kimchi.",
+      "Aggiungi tofu e aromi.",
+      "Lascia sobbollire e servi caldo."
+    ],
+    "tags": [
+      "coreana",
+      "zuppa"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R077",
+    "title": "Bulgogi",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Secondi",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Bulgogi della cucina Coreana.",
+    "ingredients": [
+      "manzo",
+      "salsa di soia",
+      "pera",
+      "aglio",
+      "sesamo",
+      "cipollotto"
+    ],
+    "steps": [
+      "Affetta finemente la carne.",
+      "Prepara la marinata.",
+      "Lascia insaporire.",
+      "Cuoci rapidamente a fuoco alto e completa con sesamo."
+    ],
+    "tags": [
+      "coreana",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R078",
+    "title": "Japchae",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Primi",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Japchae della cucina Coreana.",
+    "ingredients": [
+      "noodles di patata dolce",
+      "spinaci",
+      "carote",
+      "funghi",
+      "salsa di soia"
+    ],
+    "steps": [
+      "Cuoci i noodles.",
+      "Prepara separatamente le verdure.",
+      "Salta noodles e ingredienti.",
+      "Condisci e servi tiepido."
+    ],
+    "tags": [
+      "coreana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R079",
+    "title": "Hummus",
+    "country": "Medio Oriente",
+    "cuisine": "Mediorientale",
+    "category": "Antipasti",
+    "timeMin": 15,
+    "servings": 6,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Hummus della cucina Mediorientale.",
+    "ingredients": [
+      "ceci",
+      "tahina",
+      "limone",
+      "aglio",
+      "olio"
+    ],
+    "steps": [
+      "Frulla i ceci con tahina e limone.",
+      "Aggiungi poca acqua per la consistenza desiderata.",
+      "Regola aglio e condimento.",
+      "Servi con olio."
+    ],
+    "tags": [
+      "mediorientale",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R080",
+    "title": "Tabbouleh",
+    "country": "Medio Oriente",
+    "cuisine": "Mediorientale",
+    "category": "Antipasti",
+    "timeMin": 25,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Tabbouleh della cucina Mediorientale.",
+    "ingredients": [
+      "prezzemolo",
+      "pomodori",
+      "bulgur",
+      "menta",
+      "limone",
+      "olio"
+    ],
+    "steps": [
+      "Prepara il bulgur.",
+      "Trita finemente erbe e pomodori.",
+      "Unisci tutto.",
+      "Condisci con limone e olio e lascia riposare."
+    ],
+    "tags": [
+      "mediorientale",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R081",
+    "title": "Fattoush",
+    "country": "Libano",
+    "cuisine": "Mediorientale",
+    "category": "Antipasti",
+    "timeMin": 20,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Fattoush della cucina Mediorientale.",
+    "ingredients": [
+      "lattuga",
+      "pomodori",
+      "cetriolo",
+      "pane pita",
+      "menta",
+      "limone"
+    ],
+    "steps": [
+      "Taglia le verdure.",
+      "Tosta il pane pita.",
+      "Unisci verdure ed erbe.",
+      "Condisci con limone e olio e aggiungi il pane poco prima di servire."
+    ],
+    "tags": [
+      "libanese",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R082",
+    "title": "Kibbeh",
+    "country": "Libano",
+    "cuisine": "Mediorientale",
+    "category": "Secondi",
+    "timeMin": 75,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Kibbeh della cucina Mediorientale.",
+    "ingredients": [
+      "bulgur",
+      "carne macinata",
+      "cipolla",
+      "pinoli",
+      "spezie"
+    ],
+    "steps": [
+      "Ammolla il bulgur.",
+      "Prepara il ripieno.",
+      "Forma le polpette.",
+      "Cuoci fino a completa cottura."
+    ],
+    "tags": [
+      "libanese",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R083",
+    "title": "Shish taouk",
+    "country": "Libano",
+    "cuisine": "Mediorientale",
+    "category": "Secondi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Shish taouk della cucina Mediorientale.",
+    "ingredients": [
+      "pollo",
+      "yogurt",
+      "limone",
+      "aglio",
+      "paprika"
+    ],
+    "steps": [
+      "Taglia il pollo.",
+      "Marina con yogurt, limone e spezie.",
+      "Infilza i pezzi.",
+      "Cuoci fino a completa cottura."
+    ],
+    "tags": [
+      "libanese",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R084",
+    "title": "Tajine di pollo",
+    "country": "Marocco",
+    "cuisine": "Marocchina",
+    "category": "Secondi",
+    "timeMin": 90,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Tajine di pollo della cucina Marocchina.",
+    "ingredients": [
+      "pollo",
+      "cipolla",
+      "limone",
+      "olive",
+      "zenzero",
+      "zafferano"
+    ],
+    "steps": [
+      "Rosola il pollo.",
+      "Aggiungi cipolla e spezie.",
+      "Cuoci lentamente con poca acqua.",
+      "Completa con limone e olive."
+    ],
+    "tags": [
+      "marocchina",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R085",
+    "title": "Couscous marocchino",
+    "country": "Marocco",
+    "cuisine": "Marocchina",
+    "category": "Primi",
+    "timeMin": 50,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Couscous marocchino della cucina Marocchina.",
+    "ingredients": [
+      "couscous",
+      "carote",
+      "zucchine",
+      "ceci",
+      "uva passa",
+      "spezie"
+    ],
+    "steps": [
+      "Prepara il couscous.",
+      "Cuoci verdure e ceci con le spezie.",
+      "Sgrana il couscous.",
+      "Unisci tutto."
+    ],
+    "tags": [
+      "marocchina",
+      "vegetariana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R086",
+    "title": "Harira",
+    "country": "Marocco",
+    "cuisine": "Marocchina",
+    "category": "Zuppe",
+    "timeMin": 80,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Harira della cucina Marocchina.",
+    "ingredients": [
+      "pomodoro",
+      "lenticchie",
+      "ceci",
+      "sedano",
+      "cipolla",
+      "spezie"
+    ],
+    "steps": [
+      "Prepara il fondo di cipolla e sedano.",
+      "Aggiungi pomodoro e spezie.",
+      "Unisci legumi e liquido.",
+      "Cuoci lentamente."
+    ],
+    "tags": [
+      "marocchina",
+      "zuppa"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R087",
+    "title": "Pão de queijo",
+    "country": "Brasile",
+    "cuisine": "Brasiliana",
+    "category": "Antipasti",
+    "timeMin": 35,
+    "servings": 8,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Pão de queijo della cucina Brasiliana.",
+    "ingredients": [
+      "amido di tapioca",
+      "formaggio",
+      "uova",
+      "latte",
+      "olio"
+    ],
+    "steps": [
+      "Prepara l'impasto.",
+      "Forma piccole palline.",
+      "Disponile su teglia.",
+      "Cuoci fino a doratura."
+    ],
+    "tags": [
+      "brasiliana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R088",
+    "title": "Moqueca",
+    "country": "Brasile",
+    "cuisine": "Brasiliana",
+    "category": "Secondi",
+    "timeMin": 50,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Moqueca della cucina Brasiliana.",
+    "ingredients": [
+      "pesce",
+      "latte di cocco",
+      "pomodoro",
+      "peperone",
+      "cipolla",
+      "coriandolo"
+    ],
+    "steps": [
+      "Prepara le verdure.",
+      "Disponi pesce e verdure.",
+      "Aggiungi latte di cocco.",
+      "Cuoci fino a completa cottura del pesce."
+    ],
+    "tags": [
+      "brasiliana",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R089",
+    "title": "Brigadeiro",
+    "country": "Brasile",
+    "cuisine": "Brasiliana",
+    "category": "Dolci",
+    "timeMin": 25,
+    "servings": 12,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Brigadeiro della cucina Brasiliana.",
+    "ingredients": [
+      "latte condensato",
+      "cacao",
+      "burro",
+      "codette di cioccolato"
+    ],
+    "steps": [
+      "Cuoci latte condensato, cacao e burro.",
+      "Lascia raffreddare.",
+      "Forma palline.",
+      "Passale nelle codette."
+    ],
+    "tags": [
+      "brasiliana",
+      "dolce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R090",
+    "title": "Menemen",
+    "country": "Turchia",
+    "cuisine": "Turca",
+    "category": "Primi",
+    "timeMin": 25,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Menemen della cucina Turca.",
+    "ingredients": [
+      "uova",
+      "pomodori",
+      "peperoni",
+      "cipolla",
+      "olio"
+    ],
+    "steps": [
+      "Rosola cipolla e peperoni.",
+      "Aggiungi pomodori.",
+      "Cuoci fino a salsa densa.",
+      "Aggiungi le uova e cuoci."
+    ],
+    "tags": [
+      "turca",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R091",
+    "title": "Lahmacun",
+    "country": "Turchia",
+    "cuisine": "Turca",
+    "category": "Pizze",
+    "timeMin": 55,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Lahmacun della cucina Turca.",
+    "ingredients": [
+      "farina",
+      "carne macinata",
+      "pomodoro",
+      "cipolla",
+      "prezzemolo",
+      "spezie"
+    ],
+    "steps": [
+      "Prepara l'impasto.",
+      "Trita il condimento.",
+      "Stendi sottile.",
+      "Distribuisci il condimento.",
+      "Cuoci in forno molto caldo."
+    ],
+    "tags": [
+      "turca",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R092",
+    "title": "Mercimek çorbası",
+    "country": "Turchia",
+    "cuisine": "Turca",
+    "category": "Zuppe",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Mercimek çorbası della cucina Turca.",
+    "ingredients": [
+      "lenticchie rosse",
+      "carota",
+      "patata",
+      "cipolla",
+      "cumino"
+    ],
+    "steps": [
+      "Soffriggi la cipolla.",
+      "Aggiungi verdure e lenticchie.",
+      "Copri con acqua o brodo.",
+      "Cuoci e frulla."
+    ],
+    "tags": [
+      "turca",
+      "zuppa",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R093",
+    "title": "Hamburger classico",
+    "country": "USA",
+    "cuisine": "Americana",
+    "category": "Secondi",
+    "timeMin": 30,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Hamburger classico della cucina Americana.",
+    "ingredients": [
+      "carne macinata",
+      "pane hamburger",
+      "lattuga",
+      "pomodoro",
+      "cipolla"
+    ],
+    "steps": [
+      "Forma i burger.",
+      "Cuocili fino a cottura sicura.",
+      "Scalda i panini.",
+      "Assembla con le verdure."
+    ],
+    "tags": [
+      "americana",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R094",
+    "title": "Mac and cheese",
+    "country": "USA",
+    "cuisine": "Americana",
+    "category": "Primi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Mac and cheese della cucina Americana.",
+    "ingredients": [
+      "maccheroni",
+      "cheddar",
+      "latte",
+      "burro",
+      "farina"
+    ],
+    "steps": [
+      "Cuoci la pasta.",
+      "Prepara la salsa al formaggio.",
+      "Unisci pasta e salsa.",
+      "Servi o gratina."
+    ],
+    "tags": [
+      "americana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R095",
+    "title": "Clam chowder",
+    "country": "USA",
+    "cuisine": "Americana",
+    "category": "Zuppe",
+    "timeMin": 55,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Clam chowder della cucina Americana.",
+    "ingredients": [
+      "vongole",
+      "patate",
+      "sedano",
+      "cipolla",
+      "latte",
+      "pancetta"
+    ],
+    "steps": [
+      "Prepara il fondo.",
+      "Aggiungi patate e liquido.",
+      "Cuoci fino a tenerezza.",
+      "Unisci vongole e latte e completa la cottura."
+    ],
+    "tags": [
+      "americana",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R096",
+    "title": "Apple pie",
+    "country": "USA",
+    "cuisine": "Americana",
+    "category": "Dolci",
+    "timeMin": 90,
+    "servings": 8,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Apple pie della cucina Americana.",
+    "ingredients": [
+      "mele",
+      "farina",
+      "burro",
+      "zucchero",
+      "cannella"
+    ],
+    "steps": [
+      "Prepara la pasta.",
+      "Condisci le mele.",
+      "Riempi e copri la torta.",
+      "Cuoci fino a doratura."
+    ],
+    "tags": [
+      "americana",
+      "dolce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R097",
+    "title": "Causa limeña",
+    "country": "Perù",
+    "cuisine": "Peruviana",
+    "category": "Antipasti",
+    "timeMin": 55,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Causa limeña della cucina Peruviana.",
+    "ingredients": [
+      "patate",
+      "lime",
+      "peperoncino giallo",
+      "pollo o tonno",
+      "avocado"
+    ],
+    "steps": [
+      "Cuoci e schiaccia le patate.",
+      "Condisci con lime e peperoncino.",
+      "Prepara il ripieno.",
+      "Forma gli strati."
+    ],
+    "tags": [
+      "peruviana",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R098",
+    "title": "Ají de gallina",
+    "country": "Perù",
+    "cuisine": "Peruviana",
+    "category": "Secondi",
+    "timeMin": 60,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Ají de gallina della cucina Peruviana.",
+    "ingredients": [
+      "pollo",
+      "pane",
+      "latte",
+      "peperoncino giallo",
+      "noci",
+      "cipolla"
+    ],
+    "steps": [
+      "Cuoci e sfilaccia il pollo.",
+      "Prepara la salsa.",
+      "Unisci pollo e salsa.",
+      "Cuoci brevemente e servi con riso."
+    ],
+    "tags": [
+      "peruviana",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R099",
+    "title": "Mandu",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Antipasti",
+    "timeMin": 55,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Mandu della cucina Coreana.",
+    "ingredients": [
+      "sfoglie mandu",
+      "carne o tofu",
+      "cavolo",
+      "cipollotto",
+      "aglio"
+    ],
+    "steps": [
+      "Prepara il ripieno.",
+      "Farcisci e chiudi.",
+      "Cuoci a vapore, in padella o in brodo.",
+      "Servi con salsa."
+    ],
+    "tags": [
+      "coreana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R100",
+    "title": "Kimbap",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Primi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Kimbap della cucina Coreana.",
+    "ingredients": [
+      "riso",
+      "alga nori",
+      "carota",
+      "spinaci",
+      "uovo",
+      "cetriolo"
+    ],
+    "steps": [
+      "Prepara il riso.",
+      "Cuoci verdure e uovo.",
+      "Stendi riso e ripieni sull'alga.",
+      "Arrotola e taglia."
+    ],
+    "tags": [
+      "coreana",
+      "riso"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R101",
+    "title": "Pad Thai",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Primi",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Pad Thai della cucina Thailandese.",
+    "ingredients": [
+      "noodles di riso",
+      "tofu",
+      "uovo",
+      "germogli di soia",
+      "arachidi",
+      "lime"
+    ],
+    "steps": [
+      "Ammolla i noodles.",
+      "Salta tofu e uovo.",
+      "Aggiungi noodles e condimento.",
+      "Completa con germogli, arachidi e lime."
+    ],
+    "tags": [
+      "thai",
+      "riso"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R102",
+    "title": "Tom yum",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Zuppe",
+    "timeMin": 35,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Tom yum della cucina Thailandese.",
+    "ingredients": [
+      "gamberi",
+      "funghi",
+      "lemongrass",
+      "lime",
+      "zenzero",
+      "peperoncino"
+    ],
+    "steps": [
+      "Prepara il brodo aromatico.",
+      "Aggiungi funghi e aromi.",
+      "Unisci i gamberi.",
+      "Cuoci fino a completa cottura e aggiungi lime."
+    ],
+    "tags": [
+      "thai",
+      "zuppa",
+      "pesce"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R103",
+    "title": "Green curry",
+    "country": "Thailandia",
+    "cuisine": "Thailandese",
+    "category": "Secondi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Green curry della cucina Thailandese.",
+    "ingredients": [
+      "pollo",
+      "latte di cocco",
+      "pasta di curry verde",
+      "melanzane",
+      "basilico",
+      "riso"
+    ],
+    "steps": [
+      "Rosola la pasta di curry.",
+      "Aggiungi latte di cocco.",
+      "Unisci pollo e verdure.",
+      "Cuoci fino a completa cottura e servi con riso."
+    ],
+    "tags": [
+      "thai",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R104",
+    "title": "Bibimbap",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Primi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Bibimbap della cucina Coreana.",
+    "ingredients": [
+      "riso",
+      "spinaci",
+      "carote",
+      "funghi",
+      "uovo",
+      "gochujang"
+    ],
+    "steps": [
+      "Prepara il riso.",
+      "Cuoci separatamente le verdure.",
+      "Disponi tutto sul riso.",
+      "Aggiungi uovo e gochujang."
+    ],
+    "tags": [
+      "coreana",
+      "riso",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R105",
+    "title": "Japchae",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Primi",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Japchae della cucina Coreana.",
+    "ingredients": [
+      "noodles di patata dolce",
+      "spinaci",
+      "carote",
+      "funghi",
+      "cipollotto",
+      "sesamo"
+    ],
+    "steps": [
+      "Cuoci i noodles.",
+      "Salta le verdure separatamente.",
+      "Unisci noodles e verdure.",
+      "Condisci e completa con sesamo."
+    ],
+    "tags": [
+      "coreana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R106",
+    "title": "Kimchi jjigae",
+    "country": "Corea del Sud",
+    "cuisine": "Coreana",
+    "category": "Zuppe",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Kimchi jjigae della cucina Coreana.",
+    "ingredients": [
+      "kimchi",
+      "tofu",
+      "cipollotto",
+      "funghi",
+      "brodo",
+      "peperoncino"
+    ],
+    "steps": [
+      "Prepara il brodo.",
+      "Aggiungi kimchi e funghi.",
+      "Unisci tofu.",
+      "Cuoci brevemente e completa con cipollotto."
+    ],
+    "tags": [
+      "coreana",
+      "zuppa"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R107",
+    "title": "Pho vietnamita",
+    "country": "Vietnam",
+    "cuisine": "Vietnamita",
+    "category": "Zuppe",
+    "timeMin": 120,
+    "servings": 6,
+    "difficulty": "Difficile",
+    "premium": true,
+    "description": "Ricetta Pho vietnamita della cucina Vietnamita.",
+    "ingredients": [
+      "noodles di riso",
+      "manzo",
+      "anice stellato",
+      "cannella",
+      "zenzero",
+      "germogli"
+    ],
+    "steps": [
+      "Prepara il brodo aromatico.",
+      "Cuoci lentamente il brodo.",
+      "Prepara noodles e carne.",
+      "Assembla e completa con erbe e germogli."
+    ],
+    "tags": [
+      "vietnamita",
+      "zuppa"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R108",
+    "title": "Banh mi",
+    "country": "Vietnam",
+    "cuisine": "Vietnamita",
+    "category": "Secondi",
+    "timeMin": 30,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Banh mi della cucina Vietnamita.",
+    "ingredients": [
+      "baguette",
+      "pollo",
+      "carota",
+      "cetriolo",
+      "coriandolo",
+      "salsa"
+    ],
+    "steps": [
+      "Prepara il ripieno.",
+      "Taglia le verdure.",
+      "Riempi il pane.",
+      "Completa con erbe e salsa."
+    ],
+    "tags": [
+      "vietnamita",
+      "panino"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R109",
+    "title": "Gyoza",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Antipasti",
+    "timeMin": 45,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Gyoza della cucina Giapponese.",
+    "ingredients": [
+      "sfoglie gyoza",
+      "carne macinata",
+      "cavolo",
+      "zenzero",
+      "cipollotto",
+      "salsa di soia"
+    ],
+    "steps": [
+      "Prepara il ripieno.",
+      "Farcisci e chiudi i gyoza.",
+      "Rosola il fondo in padella.",
+      "Aggiungi poca acqua e termina la cottura."
+    ],
+    "tags": [
+      "giapponese",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R110",
+    "title": "Okonomiyaki",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Primi",
+    "timeMin": 40,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Okonomiyaki della cucina Giapponese.",
+    "ingredients": [
+      "cavolo",
+      "farina",
+      "uova",
+      "cipollotto",
+      "salsa okonomiyaki",
+      "maionese"
+    ],
+    "steps": [
+      "Prepara la pastella.",
+      "Unisci il cavolo.",
+      "Cuoci le frittelle in padella.",
+      "Completa con salse."
+    ],
+    "tags": [
+      "giapponese",
+      "uova"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R111",
+    "title": "Miso soup",
+    "country": "Giappone",
+    "cuisine": "Giapponese",
+    "category": "Zuppe",
+    "timeMin": 20,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Miso soup della cucina Giapponese.",
+    "ingredients": [
+      "miso",
+      "tofu",
+      "alga wakame",
+      "cipollotto",
+      "dashi"
+    ],
+    "steps": [
+      "Scalda il dashi senza bollire.",
+      "Aggiungi tofu e wakame.",
+      "Sciogli il miso in poco brodo.",
+      "Unisci il miso e servi."
+    ],
+    "tags": [
+      "giapponese",
+      "zuppa"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R112",
+    "title": "Butter chicken",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Secondi",
+    "timeMin": 60,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Butter chicken della cucina Indiana.",
+    "ingredients": [
+      "pollo",
+      "yogurt",
+      "pomodoro",
+      "burro",
+      "garam masala",
+      "panna"
+    ],
+    "steps": [
+      "Marina il pollo.",
+      "Rosola il pollo.",
+      "Prepara la salsa di pomodoro e spezie.",
+      "Unisci pollo, burro e panna e completa la cottura."
+    ],
+    "tags": [
+      "indiana",
+      "pollo"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R113",
+    "title": "Dal di lenticchie",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Primi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Dal di lenticchie della cucina Indiana.",
+    "ingredients": [
+      "lenticchie rosse",
+      "cipolla",
+      "pomodoro",
+      "curcuma",
+      "cumino",
+      "zenzero"
+    ],
+    "steps": [
+      "Cuoci le lenticchie.",
+      "Prepara il soffritto speziato.",
+      "Unisci tutto.",
+      "Cuoci fino a consistenza cremosa."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R114",
+    "title": "Palak paneer",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Secondi",
+    "timeMin": 45,
+    "servings": 4,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Palak paneer della cucina Indiana.",
+    "ingredients": [
+      "spinaci",
+      "paneer",
+      "pomodoro",
+      "cipolla",
+      "zenzero",
+      "spezie"
+    ],
+    "steps": [
+      "Sbollenta e frulla gli spinaci.",
+      "Prepara la base speziata.",
+      "Aggiungi gli spinaci.",
+      "Unisci il paneer e scalda."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R115",
+    "title": "Samosa",
+    "country": "India",
+    "cuisine": "Indiana",
+    "category": "Antipasti",
+    "timeMin": 60,
+    "servings": 8,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Samosa della cucina Indiana.",
+    "ingredients": [
+      "farina",
+      "patate",
+      "piselli",
+      "cumino",
+      "coriandolo",
+      "olio"
+    ],
+    "steps": [
+      "Prepara l'impasto.",
+      "Cuoci il ripieno.",
+      "Forma i triangoli.",
+      "Cuoci fino a doratura."
+    ],
+    "tags": [
+      "indiana",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R116",
+    "title": "Moussaka",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Secondi",
+    "timeMin": 100,
+    "servings": 6,
+    "difficulty": "Difficile",
+    "premium": true,
+    "description": "Ricetta Moussaka della cucina Greca.",
+    "ingredients": [
+      "melanzane",
+      "carne macinata",
+      "pomodoro",
+      "patate",
+      "besciamella",
+      "cipolla"
+    ],
+    "steps": [
+      "Prepara melanzane e patate.",
+      "Prepara il ragù.",
+      "Prepara la besciamella.",
+      "Componi gli strati.",
+      "Cuoci e lascia riposare prima di servire."
+    ],
+    "tags": [
+      "greca",
+      "carne"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R117",
+    "title": "Spanakopita",
+    "country": "Grecia",
+    "cuisine": "Greca",
+    "category": "Antipasti",
+    "timeMin": 55,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Spanakopita della cucina Greca.",
+    "ingredients": [
+      "pasta fillo",
+      "spinaci",
+      "feta",
+      "cipolla",
+      "aneto",
+      "olio"
+    ],
+    "steps": [
+      "Cuoci gli spinaci.",
+      "Mescola con feta ed erbe.",
+      "Farcisci la pasta fillo.",
+      "Cuoci fino a doratura."
+    ],
+    "tags": [
+      "greca",
+      "vegetariana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R118",
+    "title": "Paella valenciana",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Primi",
+    "timeMin": 70,
+    "servings": 4,
+    "difficulty": "Difficile",
+    "premium": true,
+    "description": "Ricetta Paella valenciana della cucina Spagnola.",
+    "ingredients": [
+      "riso",
+      "pollo",
+      "fagiolini",
+      "zafferano",
+      "pomodoro",
+      "brodo"
+    ],
+    "steps": [
+      "Rosola il pollo.",
+      "Aggiungi verdure e pomodoro.",
+      "Unisci riso e brodo.",
+      "Cuoci senza mescolare fino a cottura."
+    ],
+    "tags": [
+      "spagnola",
+      "riso"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R119",
+    "title": "Gazpacho",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Antipasti",
+    "timeMin": 20,
+    "servings": 4,
+    "difficulty": "Facile",
+    "premium": true,
+    "description": "Ricetta Gazpacho della cucina Spagnola.",
+    "ingredients": [
+      "pomodori",
+      "cetriolo",
+      "peperone",
+      "pane",
+      "aceto",
+      "olio"
+    ],
+    "steps": [
+      "Taglia le verdure.",
+      "Frulla con pane e condimenti.",
+      "Regola la consistenza.",
+      "Raffredda e servi."
+    ],
+    "tags": [
+      "spagnola",
+      "vegetariana",
+      "vegana"
+    ],
+    "editorialStatus": "draft"
+  },
+  {
+    "id": "R120",
+    "title": "Churros",
+    "country": "Spagna",
+    "cuisine": "Spagnola",
+    "category": "Dolci",
+    "timeMin": 35,
+    "servings": 6,
+    "difficulty": "Media",
+    "premium": true,
+    "description": "Ricetta Churros della cucina Spagnola.",
+    "ingredients": [
+      "farina",
+      "acqua",
+      "zucchero",
+      "olio",
+      "cannella"
+    ],
+    "steps": [
+      "Prepara l'impasto.",
+      "Forma i churros.",
+      "Cuocili fino a doratura.",
+      "Passali nello zucchero e cannella."
+    ],
+    "tags": [
+      "spagnola",
+      "dolce"
+    ],
+    "editorialStatus": "draft"
+  }
+]
