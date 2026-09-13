@@ -3,6 +3,11 @@ import 'recipe_repository.dart';
 
 void main() => runApp(const RicetteApp());
 
+String? recipeImage(String id) {
+  const available = {'R001', 'R002', 'R003', 'R004'};
+  return available.contains(id) ? 'assets/images/$id.jpg' : null;
+}
+
 class Recipe {
   final String id, title, country, cuisine, category, difficulty, description;
   final int timeMin, servings;
@@ -128,6 +133,9 @@ class _AppShellState extends State<AppShell> {
           const Text('Ricetta del giorno', style: TextStyle(fontWeight: FontWeight.w700)),
           const SizedBox(height: 6),
           Text(all.first.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800)),
+          const SizedBox(height: 10),
+          if (recipeImage(all.first.id) != null)
+            ClipRRect(borderRadius: BorderRadius.circular(18), child: Image.asset(recipeImage(all.first.id)!, height: 150, width: double.infinity, fit: BoxFit.cover)),
           const SizedBox(height: 4),
           Text('${all.first.country} • ${all.first.timeMin} min'),
           const SizedBox(height: 12),
@@ -230,9 +238,12 @@ class _AppShellState extends State<AppShell> {
     child: InkWell(onTap: () => openRecipe(r), child: Padding(
       padding: const EdgeInsets.all(12),
       child: Row(children: [
-        Container(width: 76, height: 76, decoration: BoxDecoration(
+        Container(width: 82, height: 82, decoration: BoxDecoration(
           color: const Color(0xFFE8EFE5), borderRadius: BorderRadius.circular(16)),
-          child: const Icon(Icons.restaurant_menu, size: 32)),
+          clipBehavior: Clip.antiAlias,
+          child: recipeImage(r.id) != null
+              ? Image.asset(recipeImage(r.id)!, fit: BoxFit.cover)
+              : const Icon(Icons.restaurant_menu, size: 32)),
         const SizedBox(width: 12),
         Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(r.title, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
@@ -327,9 +338,12 @@ class RecipePage extends StatelessWidget {
       IconButton(onPressed: onFavorite, icon: Icon(favorite ? Icons.favorite : Icons.favorite_border))
     ]),
     body: ListView(padding: const EdgeInsets.fromLTRB(20, 10, 20, 30), children: [
-      Container(height: 210, decoration: BoxDecoration(
+      Container(height: 245, decoration: BoxDecoration(
         color: const Color(0xFFE8EFE5), borderRadius: BorderRadius.circular(24)),
-        child: const Icon(Icons.restaurant_menu, size: 90)),
+        clipBehavior: Clip.antiAlias,
+        child: recipeImage(recipe.id) != null
+            ? Image.asset(recipeImage(recipe.id)!, fit: BoxFit.cover)
+            : const Icon(Icons.restaurant_menu, size: 90)),
       const SizedBox(height: 18),
       Text(recipe.title, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800)),
       const SizedBox(height: 6),
