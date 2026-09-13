@@ -34,3 +34,15 @@ Nota: il Premium è ancora una schermata dimostrativa; gli acquisti reali, accou
 
 ### Stato V3
 Le 10 ricette gratuite usano le fotografie già presenti. Le ricette Premium hanno ora un'anteprima grafica generata localmente, così il catalogo è visibile anche prima di integrare fotografie licenziate ad alta risoluzione.
+
+
+## V4 – grafica e funzioni sperimentali
+La V4 introduce identità grafica con logo trasparente, immagini e bandiere, porzioni regolabili, costo stimato, storia del piatto, scelta lingua, animazione del cuore e area “Cosa hai nel frigo?”. Il costo è una stima indicativa e i contenuti editoriali/storici restano da verificare prima della pubblicazione.
+
+
+## V4 controllo qualità completato
+- 120 immagini normalizzate a 1200×800.
+- 120 ricette con immagine e indicatore geografico.
+- 120 ricette con ingredienti; le 10 precedentemente vuote sono state completate come base editoriale da verificare.
+- Tempi, porzioni, storia e costo stimato predisposti.
+- Codice Dart corretto nelle sezioni di filtri e animazione preferiti.

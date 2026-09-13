@@ -1,7 +1,7 @@
 name: ricette_del_mondo
 description: Ricette del Mondo — MVP con catalogo locale da 120 ricette.
 publish_to: "none"
-version: 3.0.0+3
+version: 4.0.0+4
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
@@ -18,5 +18,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/logo_rdm.png
     - assets/recipes.json
     - assets/images/

@@ -11,11 +11,11 @@
     "premium": false,
     "description": "Ricetta Spaghetti alla Carbonara della cucina Italiana.",
     "ingredients": [
-      "spaghetti",
-      "guanciale",
-      "tuorli",
-      "pecorino romano",
-      "pepe nero"
+      "320 g spaghetti",
+      "80 g guanciale",
+      "80 g tuorli",
+      "100 g pecorino romano",
+      "8 g pepe nero"
     ],
     "steps": [
       "Porta a bollore l'acqua e cuoci gli spaghetti al dente.",
@@ -29,7 +29,13 @@
       "primo",
       "veloce"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Piatto legato alla tradizione culinaria italiana; la scheda definitiva raccoglierà origini documentate, evoluzione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🇮🇹",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R002",
@@ -43,12 +49,12 @@
     "premium": false,
     "description": "Ricetta California Roll della cucina Giapponese.",
     "ingredients": [
-      "riso per sushi",
-      "alga nori",
-      "avocado",
-      "surimi",
-      "sesamo",
-      "aceto di riso"
+      "320 g riso per sushi",
+      "80 g alga nori",
+      "320 g avocado",
+      "80 g surimi",
+      "80 g sesamo",
+      "320 g aceto di riso"
     ],
     "steps": [
       "Cuoci il riso seguendo le indicazioni della confezione e condiscilo con aceto di riso.",
@@ -62,7 +68,13 @@
       "pesce",
       "sushi"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R003",
@@ -76,13 +88,13 @@
     "premium": false,
     "description": "Ricetta Tacos di pollo della cucina Messicana.",
     "ingredients": [
-      "tortillas di mais",
-      "petto di pollo",
-      "peperone",
-      "lime",
-      "paprika",
-      "cumino",
-      "olio"
+      "4 tortillas di mais",
+      "600 g petto di pollo",
+      "320 g peperone",
+      "320 g lime",
+      "8 g paprika",
+      "80 g cumino",
+      "80 ml olio"
     ],
     "steps": [
       "Taglia il pollo a striscioline e condiscilo con paprika e cumino.",
@@ -96,7 +108,13 @@
       "pollo",
       "veloce"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Ricetta della tradizione gastronomica messicana; saranno evidenziati ingredienti caratteristici, contesto e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 12,
+    "cookMin": 18,
+    "flag": "🇲🇽",
+    "estimatedCostPerBaseServing": 8.45
   },
   {
     "id": "R004",
@@ -110,13 +128,13 @@
     "premium": false,
     "description": "Ricetta Chicken Curry della cucina Indiana.",
     "ingredients": [
-      "pollo",
-      "cipolla",
-      "latte di cocco",
-      "curry",
-      "pomodoro",
-      "olio",
-      "riso basmati"
+      "600 g pollo",
+      "320 g cipolla",
+      "80 ml latte di cocco",
+      "80 g curry",
+      "320 g pomodoro",
+      "80 ml olio",
+      "320 g riso basmati"
     ],
     "steps": [
       "Taglia il pollo a bocconcini e affetta la cipolla.",
@@ -130,7 +148,13 @@
       "pollo",
       "spezia"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 8.45
   },
   {
     "id": "R005",
@@ -144,13 +168,13 @@
     "premium": false,
     "description": "Ricetta Insalata greca della cucina Greca.",
     "ingredients": [
-      "pomodori",
-      "cetriolo",
-      "feta",
-      "olive nere",
-      "cipolla rossa",
-      "olio extravergine",
-      "origano"
+      "80 g pomodori",
+      "80 g cetriolo",
+      "80 g feta",
+      "80 g olive nere",
+      "320 g cipolla rossa",
+      "80 ml olio extravergine",
+      "8 g origano"
     ],
     "steps": [
       "Taglia pomodori e cetriolo a pezzi.",
@@ -164,7 +188,13 @@
       "vegetariana",
       "veloce"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 5,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 8.45
   },
   {
     "id": "R006",
@@ -178,12 +208,12 @@
     "premium": false,
     "description": "Ricetta Pasta primavera vegana della cucina Italiana.",
     "ingredients": [
-      "pasta",
-      "zucchine",
-      "pomodorini",
-      "piselli",
-      "basilico",
-      "olio extravergine"
+      "320 g pasta",
+      "80 g zucchine",
+      "80 g pomodorini",
+      "80 g piselli",
+      "8 g basilico",
+      "80 ml olio extravergine"
     ],
     "steps": [
       "Cuoci la pasta al dente.",
@@ -197,7 +227,13 @@
       "vegana",
       "vegetariana"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Piatto legato alla tradizione culinaria italiana; la scheda definitiva raccoglierà origini documentate, evoluzione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🇮🇹",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R007",
@@ -211,12 +247,12 @@
     "premium": false,
     "description": "Ricetta Pizza senza glutine della cucina Italiana.",
     "ingredients": [
-      "mix certificato senza glutine",
-      "lievito di birra",
-      "acqua",
-      "olio extravergine",
-      "passata di pomodoro",
-      "mozzarella"
+      "80 g mix certificato senza glutine",
+      "80 g lievito di birra",
+      "80 ml acqua",
+      "80 ml olio extravergine",
+      "80 ml passata di pomodoro",
+      "100 g mozzarella"
     ],
     "steps": [
       "Usa esclusivamente ingredienti certificati senza glutine e utensili/superfici privi di contaminazioni.",
@@ -230,7 +266,13 @@
       "italiana",
       "pizza"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Piatto legato alla tradizione culinaria italiana; la scheda definitiva raccoglierà origini documentate, evoluzione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 36,
+    "cookMin": 54,
+    "flag": "🇮🇹",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R008",
@@ -244,10 +286,10 @@
     "premium": false,
     "description": "Ricetta Salmone al forno a ridotto contenuto di sodio della cucina Nordica.",
     "ingredients": [
-      "filetti di salmone",
-      "limone",
-      "erbe aromatiche",
-      "olio extravergine"
+      "640 g filetti di salmone",
+      "320 g limone",
+      "80 g erbe aromatiche",
+      "80 ml olio extravergine"
     ],
     "steps": [
       "Asciuga i filetti e disponili in una teglia.",
@@ -259,7 +301,13 @@
       "ridotto sodio",
       "pesce"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Ricetta ispirata alle tradizioni del Nord Europa; la scheda editoriale approfondirà area e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🌍",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R009",
@@ -273,11 +321,11 @@
     "premium": false,
     "description": "Ricetta Risotto ai funghi senza lattosio della cucina Italiana.",
     "ingredients": [
-      "riso Carnaroli",
-      "funghi",
-      "brodo vegetale senza lattosio",
-      "olio extravergine",
-      "prezzemolo"
+      "320 g riso Carnaroli",
+      "80 g funghi",
+      "80 ml brodo vegetale senza lattosio",
+      "80 ml olio extravergine",
+      "8 g prezzemolo"
     ],
     "steps": [
       "Pulisci e affetta i funghi.",
@@ -290,7 +338,13 @@
       "senza lattosio",
       "italiana"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Piatto legato alla tradizione culinaria italiana; la scheda definitiva raccoglierà origini documentate, evoluzione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇮🇹",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R010",
@@ -304,12 +358,12 @@
     "premium": false,
     "description": "Ricetta Tiramisù classico della cucina Italiana.",
     "ingredients": [
-      "savoiardi",
-      "mascarpone",
-      "uova",
-      "zucchero",
-      "caffè",
-      "cacao amaro"
+      "120 g savoiardi",
+      "120 g mascarpone",
+      "6 uova",
+      "120 g zucchero",
+      "120 g caffè",
+      "120 g cacao amaro"
     ],
     "steps": [
       "Prepara il caffè e lascialo raffreddare.",
@@ -322,7 +376,13 @@
       "italiana",
       "dolce"
     ],
-    "editorialStatus": "verifica_editoriale"
+    "editorialStatus": "verifica_editoriale",
+    "history": "Piatto legato alla tradizione culinaria italiana; la scheda definitiva raccoglierà origini documentate, evoluzione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 12,
+    "cookMin": 18,
+    "flag": "🇮🇹",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R011",
@@ -335,10 +395,26 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Pad Thai della cucina Thailandese.",
-    "ingredients": [],
+    "ingredients": [
+      "200 g noodles di riso",
+      "150 g germogli di soia",
+      "200 g petto di pollo",
+      "2 uova",
+      "80 g arachidi",
+      "60 ml salsa di pesce",
+      "30 g zucchero di canna",
+      "1 lime",
+      "2 spicchi d'aglio"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 12,
+    "cookMin": 18,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 10.35
   },
   {
     "id": "R012",
@@ -351,10 +427,27 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Paella valenciana della cucina Spagnola.",
-    "ingredients": [],
+    "ingredients": [
+      "320 g riso bomba",
+      "400 g pollo",
+      "200 g calamari",
+      "200 g gamberi",
+      "150 g fagiolini",
+      "1 peperone",
+      "800 ml brodo",
+      "80 g pomodoro",
+      "60 ml olio EVO",
+      "1 bustina zafferano"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 11.3
   },
   {
     "id": "R013",
@@ -367,10 +460,25 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Falafel con hummus della cucina Mediorientale.",
-    "ingredients": [],
+    "ingredients": [
+      "250 g ceci cotti",
+      "100 g tahina",
+      "1 limone",
+      "1 spicchio d'aglio",
+      "80 ml olio EVO",
+      "1 cucchiaino cumino",
+      "4 g prezzemolo",
+      "4 pita"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta appartenente alle tradizioni del Medio Oriente; le origini possono variare tra Paesi e saranno indicate con cautela.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🌍",
+    "estimatedCostPerBaseServing": 9.4
   },
   {
     "id": "R014",
@@ -383,10 +491,26 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Bibimbap della cucina Coreana.",
-    "ingredients": [],
+    "ingredients": [
+      "320 g riso",
+      "300 g manzo",
+      "200 g spinaci",
+      "150 g carote",
+      "150 g zucchine",
+      "4 uova",
+      "60 ml olio di sesamo",
+      "80 ml salsa di soia",
+      "2 spicchi d'aglio"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 10.35
   },
   {
     "id": "R015",
@@ -399,10 +523,25 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Ceviche di pesce della cucina Peruviana.",
-    "ingredients": [],
+    "ingredients": [
+      "500 g pesce bianco fresco",
+      "120 ml succo di lime",
+      "1 cipolla rossa",
+      "1 peperoncino",
+      "20 g coriandolo",
+      "1 patata dolce",
+      "100 g mais",
+      "5 g sale"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina peruviana, nata dall’incontro di tradizioni e ingredienti diversi; la scheda finale approfondirà il contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🇵🇪",
+    "estimatedCostPerBaseServing": 9.4
   },
   {
     "id": "R016",
@@ -415,10 +554,25 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Moussaka della cucina Greca.",
-    "ingredients": [],
+    "ingredients": [
+      "500 g melanzane",
+      "400 g carne macinata",
+      "500 g patate",
+      "400 g passata di pomodoro",
+      "300 ml besciamella",
+      "80 g feta",
+      "1 cipolla",
+      "40 ml olio EVO"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 36,
+    "cookMin": 54,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 9.4
   },
   {
     "id": "R017",
@@ -431,10 +585,26 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Boeuf bourguignon della cucina Francese.",
-    "ingredients": [],
+    "ingredients": [
+      "800 g manzo da brasato",
+      "750 ml vino rosso",
+      "200 g carote",
+      "150 g cipolle",
+      "150 g funghi",
+      "500 ml brodo",
+      "30 g farina",
+      "40 g burro",
+      "2 spicchi d'aglio"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della cucina francese; saranno raccolti contesto storico, tradizione regionale e curiosità.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 72,
+    "cookMin": 108,
+    "flag": "🇫🇷",
+    "estimatedCostPerBaseServing": 10.35
   },
   {
     "id": "R018",
@@ -447,10 +617,27 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Biryani di pollo della cucina Indiana.",
-    "ingredients": [],
+    "ingredients": [
+      "400 g riso basmati",
+      "600 g pollo",
+      "250 g yogurt",
+      "2 cipolle",
+      "30 g zenzero",
+      "4 spicchi d'aglio",
+      "500 ml brodo",
+      "20 g garam masala",
+      "40 ml olio",
+      "50 g uvetta"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 30,
+    "cookMin": 45,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 11.3
   },
   {
     "id": "R019",
@@ -463,10 +650,26 @@
     "difficulty": "Media",
     "premium": true,
     "description": "Ricetta Ramen al miso della cucina Giapponese.",
-    "ingredients": [],
+    "ingredients": [
+      "400 g noodles ramen",
+      "1,2 l brodo",
+      "80 g miso",
+      "200 g tofu",
+      "100 g mais",
+      "2 uova",
+      "2 cipollotti",
+      "10 g zenzero",
+      "10 ml olio di sesamo"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 10.35
   },
   {
     "id": "R020",
@@ -479,10 +682,26 @@
     "difficulty": "Facile",
     "premium": true,
     "description": "Ricetta Lomo saltado della cucina Peruviana.",
-    "ingredients": [],
+    "ingredients": [
+      "500 g manzo",
+      "400 g patate",
+      "2 pomodori",
+      "1 cipolla rossa",
+      "30 ml salsa di soia",
+      "30 ml aceto",
+      "30 ml olio",
+      "5 g cumino",
+      "10 g coriandolo"
+    ],
     "steps": [],
     "tags": [],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina peruviana, nata dall’incontro di tradizioni e ingredienti diversi; la scheda finale approfondirà il contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇵🇪",
+    "estimatedCostPerBaseServing": 10.35
   },
   {
     "id": "R021",
@@ -496,10 +715,10 @@
     "premium": true,
     "description": "Ricetta Lasagne alla bolognese della cucina Italiana.",
     "ingredients": [
-      "sfoglia per lasagne",
-      "ragù",
-      "besciamella",
-      "parmigiano"
+      "120 g sfoglia per lasagne",
+      "120 g ragù",
+      "120 g besciamella",
+      "150 g parmigiano"
     ],
     "steps": [
       "Prepara il ragù.",
@@ -511,7 +730,13 @@
       "italiana",
       "pasta"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto legato alla tradizione culinaria italiana; la scheda definitiva raccoglierà origini documentate, evoluzione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 48,
+    "cookMin": 72,
+    "flag": "🇮🇹",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R022",
@@ -525,12 +750,12 @@
     "premium": true,
     "description": "Ricetta Ossobuco alla milanese della cucina Italiana.",
     "ingredients": [
-      "ossobuco di vitello",
-      "cipolla",
-      "carota",
-      "sedano",
-      "vino bianco",
-      "brodo"
+      "80 g ossobuco di vitello",
+      "320 g cipolla",
+      "320 g carota",
+      "80 g sedano",
+      "80 ml vino bianco",
+      "80 ml brodo"
     ],
     "steps": [
       "Rosola la carne.",
@@ -542,7 +767,13 @@
       "italiana",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto legato alla tradizione culinaria italiana; la scheda definitiva raccoglierà origini documentate, evoluzione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 44,
+    "cookMin": 66,
+    "flag": "🇮🇹",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R023",
@@ -556,12 +787,12 @@
     "premium": true,
     "description": "Ricetta Ratatouille della cucina Francese.",
     "ingredients": [
-      "melanzane",
-      "zucchine",
-      "pomodori",
-      "peperone",
-      "cipolla",
-      "olio"
+      "320 g melanzane",
+      "80 g zucchine",
+      "80 g pomodori",
+      "320 g peperone",
+      "320 g cipolla",
+      "80 ml olio"
     ],
     "steps": [
       "Taglia le verdure.",
@@ -574,7 +805,13 @@
       "vegetariana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della cucina francese; saranno raccolti contesto storico, tradizione regionale e curiosità.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 28,
+    "cookMin": 42,
+    "flag": "🇫🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R024",
@@ -588,12 +825,12 @@
     "premium": true,
     "description": "Ricetta Coq au vin della cucina Francese.",
     "ingredients": [
-      "pollo",
-      "vino rosso",
-      "cipolla",
-      "carote",
-      "funghi",
-      "brodo"
+      "600 g pollo",
+      "80 ml vino rosso",
+      "320 g cipolla",
+      "80 g carote",
+      "80 g funghi",
+      "80 ml brodo"
     ],
     "steps": [
       "Marina o prepara il pollo secondo la ricetta editoriale.",
@@ -605,7 +842,13 @@
       "francese",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della cucina francese; saranno raccolti contesto storico, tradizione regionale e curiosità.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 60,
+    "cookMin": 90,
+    "flag": "🇫🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R025",
@@ -619,10 +862,10 @@
     "premium": true,
     "description": "Ricetta Tortilla española della cucina Spagnola.",
     "ingredients": [
-      "patate",
-      "uova",
-      "cipolla",
-      "olio"
+      "320 g patate",
+      "4 uova",
+      "320 g cipolla",
+      "80 ml olio"
     ],
     "steps": [
       "Affetta le patate.",
@@ -634,7 +877,13 @@
       "spagnola",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R026",
@@ -648,12 +897,12 @@
     "premium": true,
     "description": "Ricetta Gazpacho della cucina Spagnola.",
     "ingredients": [
-      "pomodori",
-      "cetriolo",
-      "peperone",
-      "pane",
-      "olio",
-      "aceto"
+      "80 g pomodori",
+      "80 g cetriolo",
+      "320 g peperone",
+      "4 pane",
+      "80 ml olio",
+      "80 g aceto"
     ],
     "steps": [
       "Lava e taglia le verdure.",
@@ -666,7 +915,13 @@
       "vegetariana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 10,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R027",
@@ -680,12 +935,12 @@
     "premium": true,
     "description": "Ricetta Ramen al miso della cucina Giapponese.",
     "ingredients": [
-      "brodo",
-      "miso",
-      "noodles ramen",
-      "funghi",
-      "cipollotto",
-      "uovo"
+      "40 ml brodo",
+      "40 g miso",
+      "160 g noodles ramen",
+      "40 g funghi",
+      "300 g cipollotto",
+      "2 uovo"
     ],
     "steps": [
       "Prepara il brodo.",
@@ -697,7 +952,13 @@
       "giapponese",
       "zuppa"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R028",
@@ -711,11 +972,11 @@
     "premium": true,
     "description": "Ricetta Gyoza della cucina Giapponese.",
     "ingredients": [
-      "sfoglie gyoza",
-      "carne macinata o tofu",
-      "cavolo",
-      "zenzero",
-      "cipollotto"
+      "80 g sfoglie gyoza",
+      "600 g carne macinata o tofu",
+      "80 g cavolo",
+      "80 g zenzero",
+      "600 g cipollotto"
     ],
     "steps": [
       "Prepara il ripieno.",
@@ -726,7 +987,13 @@
     "tags": [
       "giapponese"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 20,
+    "cookMin": 30,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R029",
@@ -740,11 +1007,11 @@
     "premium": true,
     "description": "Ricetta Enchiladas di pollo della cucina Messicana.",
     "ingredients": [
-      "tortillas",
-      "pollo",
-      "salsa di pomodoro",
-      "peperoncino",
-      "formaggio"
+      "4 tortillas",
+      "600 g pollo",
+      "80 ml salsa di pomodoro",
+      "8 g peperoncino",
+      "100 g formaggio"
     ],
     "steps": [
       "Prepara il ripieno di pollo.",
@@ -756,7 +1023,13 @@
       "messicana",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione gastronomica messicana; saranno evidenziati ingredienti caratteristici, contesto e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇲🇽",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R030",
@@ -770,11 +1043,11 @@
     "premium": true,
     "description": "Ricetta Guacamole della cucina Messicana.",
     "ingredients": [
-      "avocado",
-      "lime",
-      "pomodoro",
-      "cipolla",
-      "coriandolo"
+      "320 g avocado",
+      "320 g lime",
+      "320 g pomodoro",
+      "320 g cipolla",
+      "80 g coriandolo"
     ],
     "steps": [
       "Schiaccia l'avocado.",
@@ -787,7 +1060,13 @@
       "vegetariana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione gastronomica messicana; saranno evidenziati ingredienti caratteristici, contesto e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 5,
+    "flag": "🇲🇽",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R031",
@@ -801,12 +1080,12 @@
     "premium": true,
     "description": "Ricetta Butter chicken della cucina Indiana.",
     "ingredients": [
-      "pollo",
-      "yogurt",
-      "pomodoro",
-      "burro",
-      "garam masala",
-      "panna"
+      "600 g pollo",
+      "100 g yogurt",
+      "320 g pomodoro",
+      "100 g burro",
+      "80 g garam masala",
+      "100 g panna"
     ],
     "steps": [
       "Marina il pollo secondo la ricetta.",
@@ -818,7 +1097,13 @@
       "indiana",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R032",
@@ -832,12 +1117,12 @@
     "premium": true,
     "description": "Ricetta Samosa della cucina Indiana.",
     "ingredients": [
-      "farina",
-      "patate",
-      "piselli",
-      "cumino",
-      "coriandolo",
-      "olio"
+      "750 g farina",
+      "480 g patate",
+      "120 g piselli",
+      "120 g cumino",
+      "120 g coriandolo",
+      "120 ml olio"
     ],
     "steps": [
       "Prepara l'impasto.",
@@ -849,7 +1134,13 @@
       "indiana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R033",
@@ -863,12 +1154,12 @@
     "premium": true,
     "description": "Ricetta Riso cantonese della cucina Cinese.",
     "ingredients": [
-      "riso",
-      "uova",
-      "piselli",
-      "carote",
-      "cipollotto",
-      "olio"
+      "320 g riso",
+      "4 uova",
+      "80 g piselli",
+      "80 g carote",
+      "600 g cipollotto",
+      "80 ml olio"
     ],
     "steps": [
       "Cuoci e raffredda il riso.",
@@ -880,7 +1171,13 @@
       "cinese",
       "riso"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della vasta tradizione culinaria cinese; la scheda editoriale distinguerà territorio, tecnica e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 12,
+    "cookMin": 18,
+    "flag": "🇨🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R034",
@@ -894,12 +1191,12 @@
     "premium": true,
     "description": "Ricetta Pollo Kung Pao della cucina Cinese.",
     "ingredients": [
-      "pollo",
-      "arachidi",
-      "peperone",
-      "cipollotto",
-      "zenzero",
-      "salsa di soia"
+      "600 g pollo",
+      "80 g arachidi",
+      "320 g peperone",
+      "600 g cipollotto",
+      "80 g zenzero",
+      "80 ml salsa di soia"
     ],
     "steps": [
       "Taglia il pollo.",
@@ -911,7 +1208,13 @@
       "cinese",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della vasta tradizione culinaria cinese; la scheda editoriale distinguerà territorio, tecnica e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇨🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R035",
@@ -925,12 +1228,12 @@
     "premium": true,
     "description": "Ricetta Tom Yum della cucina Thailandese.",
     "ingredients": [
-      "gamberi",
-      "brodo",
-      "citronella",
-      "galanga",
-      "lime",
-      "peperoncino"
+      "640 g gamberi",
+      "80 ml brodo",
+      "80 g citronella",
+      "80 g galanga",
+      "320 g lime",
+      "8 g peperoncino"
     ],
     "steps": [
       "Prepara il brodo aromatico.",
@@ -942,7 +1245,13 @@
       "thailandese",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R036",
@@ -956,11 +1265,11 @@
     "premium": true,
     "description": "Ricetta Green curry della cucina Thailandese.",
     "ingredients": [
-      "pasta curry verde",
-      "latte di cocco",
-      "pollo o tofu",
-      "melanzana",
-      "basilico thai"
+      "320 g pasta curry verde",
+      "80 ml latte di cocco",
+      "600 g pollo o tofu",
+      "320 g melanzana",
+      "8 g basilico thai"
     ],
     "steps": [
       "Rosola la pasta di curry.",
@@ -971,7 +1280,13 @@
     "tags": [
       "thailandese"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R037",
@@ -985,11 +1300,11 @@
     "premium": true,
     "description": "Ricetta Souvlaki della cucina Greca.",
     "ingredients": [
-      "pollo o maiale",
-      "limone",
-      "olio",
-      "origano",
-      "aglio"
+      "600 g pollo o maiale",
+      "320 g limone",
+      "80 ml olio",
+      "8 g origano",
+      "8 g aglio"
     ],
     "steps": [
       "Taglia la carne.",
@@ -1000,7 +1315,13 @@
     "tags": [
       "greca"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R038",
@@ -1014,11 +1335,11 @@
     "premium": true,
     "description": "Ricetta Spanakopita della cucina Greca.",
     "ingredients": [
-      "pasta fillo",
-      "spinaci",
-      "feta",
-      "cipolla",
-      "olio"
+      "480 g pasta fillo",
+      "120 g spinaci",
+      "120 g feta",
+      "480 g cipolla",
+      "120 ml olio"
     ],
     "steps": [
       "Cuoci e strizza gli spinaci.",
@@ -1030,7 +1351,13 @@
       "greca",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 26,
+    "cookMin": 39,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R039",
@@ -1044,11 +1371,11 @@
     "premium": true,
     "description": "Ricetta Feijoada della cucina Brasiliana.",
     "ingredients": [
-      "fagioli neri",
-      "carne o alternativa vegetale",
-      "cipolla",
-      "aglio",
-      "alloro"
+      "120 g fagioli neri",
+      "900 g carne o alternativa vegetale",
+      "480 g cipolla",
+      "12 g aglio",
+      "120 g alloro"
     ],
     "steps": [
       "Ammolla e prepara i fagioli secondo necessità.",
@@ -1059,7 +1386,13 @@
     "tags": [
       "brasiliana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina brasiliana, ricca di influenze regionali; la scheda finale approfondirà territorio e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 60,
+    "cookMin": 90,
+    "flag": "🇧🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R040",
@@ -1073,11 +1406,11 @@
     "premium": true,
     "description": "Ricetta Coxinha della cucina Brasiliana.",
     "ingredients": [
-      "pollo",
-      "farina",
-      "brodo",
-      "formaggio cremoso",
-      "pangrattato"
+      "900 g pollo",
+      "750 g farina",
+      "120 ml brodo",
+      "150 g formaggio cremoso",
+      "120 g pangrattato"
     ],
     "steps": [
       "Prepara il ripieno.",
@@ -1089,7 +1422,13 @@
       "brasiliana",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina brasiliana, ricca di influenze regionali; la scheda finale approfondirà territorio e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 30,
+    "cookMin": 45,
+    "flag": "🇧🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R041",
@@ -1103,12 +1442,12 @@
     "premium": true,
     "description": "Ricetta Boeuf bourguignon della cucina Francese.",
     "ingredients": [
-      "manzo",
-      "vino rosso",
-      "carote",
-      "cipolla",
-      "funghi",
-      "brodo"
+      "900 g manzo",
+      "120 ml vino rosso",
+      "120 g carote",
+      "480 g cipolla",
+      "120 g funghi",
+      "120 ml brodo"
     ],
     "steps": [
       "Rosola la carne.",
@@ -1121,7 +1460,13 @@
       "francese",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della cucina francese; saranno raccolti contesto storico, tradizione regionale e curiosità.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 76,
+    "cookMin": 114,
+    "flag": "🇫🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R042",
@@ -1135,11 +1480,11 @@
     "premium": true,
     "description": "Ricetta Quiche Lorraine della cucina Francese.",
     "ingredients": [
-      "pasta brisée",
-      "uova",
-      "panna",
-      "pancetta",
-      "formaggio"
+      "480 g pasta brisée",
+      "6 uova",
+      "150 g panna",
+      "120 g pancetta",
+      "150 g formaggio"
     ],
     "steps": [
       "Prepara e stendi la base.",
@@ -1151,7 +1496,13 @@
     "tags": [
       "francese"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della cucina francese; saranno raccolti contesto storico, tradizione regionale e curiosità.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 28,
+    "cookMin": 42,
+    "flag": "🇫🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R043",
@@ -1165,10 +1516,10 @@
     "premium": true,
     "description": "Ricetta Croque monsieur della cucina Francese.",
     "ingredients": [
-      "pane",
-      "prosciutto",
-      "formaggio",
-      "besciamella"
+      "2 pane",
+      "300 g prosciutto",
+      "50 g formaggio",
+      "40 g besciamella"
     ],
     "steps": [
       "Prepara i panini.",
@@ -1180,7 +1531,13 @@
       "francese",
       "veloce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della cucina francese; saranno raccolti contesto storico, tradizione regionale e curiosità.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🇫🇷",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R044",
@@ -1194,10 +1551,10 @@
     "premium": true,
     "description": "Ricetta Pulpo a la gallega della cucina Spagnola.",
     "ingredients": [
-      "polpo",
-      "patate",
-      "paprika",
-      "olio"
+      "80 g polpo",
+      "320 g patate",
+      "8 g paprika",
+      "80 ml olio"
     ],
     "steps": [
       "Cuoci il polpo fino a renderlo tenero.",
@@ -1209,7 +1566,13 @@
       "spagnola",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 28,
+    "cookMin": 42,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R045",
@@ -1223,12 +1586,12 @@
     "premium": true,
     "description": "Ricetta Croquetas de jamón della cucina Spagnola.",
     "ingredients": [
-      "latte",
-      "farina",
-      "burro",
-      "prosciutto",
-      "uova",
-      "pangrattato"
+      "120 ml latte",
+      "750 g farina",
+      "150 g burro",
+      "900 g prosciutto",
+      "6 uova",
+      "120 g pangrattato"
     ],
     "steps": [
       "Prepara una besciamella densa.",
@@ -1240,7 +1603,13 @@
     "tags": [
       "spagnola"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R046",
@@ -1254,12 +1623,12 @@
     "premium": true,
     "description": "Ricetta Fideuà della cucina Spagnola.",
     "ingredients": [
-      "pasta corta",
-      "gamberi",
-      "calamari",
-      "brodo",
-      "pomodoro",
-      "zafferano"
+      "320 g pasta corta",
+      "640 g gamberi",
+      "80 g calamari",
+      "80 ml brodo",
+      "320 g pomodoro",
+      "80 g zafferano"
     ],
     "steps": [
       "Rosola il pesce.",
@@ -1272,7 +1641,13 @@
       "spagnola",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R047",
@@ -1286,11 +1661,11 @@
     "premium": true,
     "description": "Ricetta Okonomiyaki della cucina Giapponese.",
     "ingredients": [
-      "cavolo",
-      "farina",
-      "uova",
-      "cipollotto",
-      "salsa okonomiyaki"
+      "40 g cavolo",
+      "250 g farina",
+      "2 uova",
+      "300 g cipollotto",
+      "40 ml salsa okonomiyaki"
     ],
     "steps": [
       "Affetta il cavolo.",
@@ -1303,7 +1678,13 @@
       "giapponese",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R048",
@@ -1317,11 +1698,11 @@
     "premium": true,
     "description": "Ricetta Tempura di verdure della cucina Giapponese.",
     "ingredients": [
-      "verdure",
-      "farina",
-      "uovo",
-      "acqua frizzante",
-      "olio"
+      "80 g verdure",
+      "500 g farina",
+      "4 uovo",
+      "80 ml acqua frizzante",
+      "80 ml olio"
     ],
     "steps": [
       "Taglia le verdure.",
@@ -1334,7 +1715,13 @@
       "giapponese",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R049",
@@ -1348,11 +1735,11 @@
     "premium": true,
     "description": "Ricetta Udon saltati della cucina Giapponese.",
     "ingredients": [
-      "udon",
-      "carote",
-      "cavolo",
-      "funghi",
-      "salsa di soia"
+      "40 g udon",
+      "40 g carote",
+      "40 g cavolo",
+      "40 g funghi",
+      "40 ml salsa di soia"
     ],
     "steps": [
       "Prepara gli udon.",
@@ -1364,7 +1751,13 @@
       "giapponese",
       "veloce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R050",
@@ -1378,10 +1771,10 @@
     "premium": true,
     "description": "Ricetta Dosa della cucina Indiana.",
     "ingredients": [
-      "riso",
-      "lenticchie urad",
-      "acqua",
-      "olio"
+      "320 g riso",
+      "80 g lenticchie urad",
+      "80 ml acqua",
+      "80 ml olio"
     ],
     "steps": [
       "Ammolla riso e lenticchie.",
@@ -1393,7 +1786,13 @@
       "indiana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 20,
+    "cookMin": 30,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R051",
@@ -1407,11 +1806,11 @@
     "premium": true,
     "description": "Ricetta Palak paneer della cucina Indiana.",
     "ingredients": [
-      "spinaci",
-      "paneer",
-      "cipolla",
-      "pomodoro",
-      "spezie"
+      "80 g spinaci",
+      "4 paneer",
+      "320 g cipolla",
+      "320 g pomodoro",
+      "8 g spezie"
     ],
     "steps": [
       "Sbollenta e frulla gli spinaci.",
@@ -1424,7 +1823,13 @@
       "indiana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R052",
@@ -1438,11 +1843,11 @@
     "premium": true,
     "description": "Ricetta Dal makhani della cucina Indiana.",
     "ingredients": [
-      "lenticchie nere",
-      "fagioli",
-      "pomodoro",
-      "spezie",
-      "burro"
+      "80 g lenticchie nere",
+      "80 g fagioli",
+      "320 g pomodoro",
+      "8 g spezie",
+      "100 g burro"
     ],
     "steps": [
       "Ammolla i legumi.",
@@ -1455,7 +1860,13 @@
       "indiana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 48,
+    "cookMin": 72,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R053",
@@ -1469,11 +1880,11 @@
     "premium": true,
     "description": "Ricetta Mapo tofu della cucina Cinese.",
     "ingredients": [
-      "tofu",
-      "carne macinata o alternativa",
-      "pasta di peperoncino",
-      "zenzero",
-      "cipollotto"
+      "80 g tofu",
+      "600 g carne macinata o alternativa",
+      "320 g pasta di peperoncino",
+      "80 g zenzero",
+      "600 g cipollotto"
     ],
     "steps": [
       "Taglia il tofu.",
@@ -1486,7 +1897,13 @@
       "cinese",
       "piccante"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della vasta tradizione culinaria cinese; la scheda editoriale distinguerà territorio, tecnica e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇨🇳",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R054",
@@ -1500,11 +1917,11 @@
     "premium": true,
     "description": "Ricetta Ravioli al vapore della cucina Cinese.",
     "ingredients": [
-      "sfoglie per ravioli",
-      "carne o tofu",
-      "cavolo",
-      "zenzero",
-      "cipollotto"
+      "80 g sfoglie per ravioli",
+      "600 g carne o tofu",
+      "80 g cavolo",
+      "80 g zenzero",
+      "600 g cipollotto"
     ],
     "steps": [
       "Prepara il ripieno.",
@@ -1515,7 +1932,13 @@
     "tags": [
       "cinese"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della vasta tradizione culinaria cinese; la scheda editoriale distinguerà territorio, tecnica e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇨🇳",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R055",
@@ -1529,12 +1952,12 @@
     "premium": true,
     "description": "Ricetta Zuppa agropiccante della cucina Cinese.",
     "ingredients": [
-      "brodo",
-      "tofu",
-      "funghi",
-      "germogli",
-      "aceto",
-      "peperoncino"
+      "80 ml brodo",
+      "80 g tofu",
+      "80 g funghi",
+      "80 g germogli",
+      "80 g aceto",
+      "8 g peperoncino"
     ],
     "steps": [
       "Prepara il brodo.",
@@ -1546,7 +1969,13 @@
       "cinese",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della vasta tradizione culinaria cinese; la scheda editoriale distinguerà territorio, tecnica e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇨🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R056",
@@ -1560,11 +1989,11 @@
     "premium": true,
     "description": "Ricetta Som tam della cucina Thailandese.",
     "ingredients": [
-      "papaya verde",
-      "pomodoro",
-      "arachidi",
-      "lime",
-      "peperoncino"
+      "40 g papaya verde",
+      "160 g pomodoro",
+      "40 g arachidi",
+      "160 g lime",
+      "4 g peperoncino"
     ],
     "steps": [
       "Taglia la papaya a strisce.",
@@ -1576,7 +2005,13 @@
       "thailandese",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 10,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R057",
@@ -1590,11 +2025,11 @@
     "premium": true,
     "description": "Ricetta Massaman curry della cucina Thailandese.",
     "ingredients": [
-      "manzo o tofu",
-      "latte di cocco",
-      "patate",
-      "pasta massaman",
-      "arachidi"
+      "600 g manzo o tofu",
+      "80 ml latte di cocco",
+      "320 g patate",
+      "320 g pasta massaman",
+      "80 g arachidi"
     ],
     "steps": [
       "Rosola la pasta di curry.",
@@ -1606,7 +2041,13 @@
     "tags": [
       "thailandese"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 28,
+    "cookMin": 42,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R058",
@@ -1620,11 +2061,11 @@
     "premium": true,
     "description": "Ricetta Moussaka della cucina Greca.",
     "ingredients": [
-      "melanzane",
-      "carne macinata o alternativa",
-      "pomodoro",
-      "besciamella",
-      "formaggio"
+      "480 g melanzane",
+      "900 g carne macinata o alternativa",
+      "480 g pomodoro",
+      "120 g besciamella",
+      "150 g formaggio"
     ],
     "steps": [
       "Cuoci le melanzane.",
@@ -1636,7 +2077,13 @@
     "tags": [
       "greca"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 40,
+    "cookMin": 60,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R059",
@@ -1650,11 +2097,11 @@
     "premium": true,
     "description": "Ricetta Tzatziki della cucina Greca.",
     "ingredients": [
-      "yogurt greco",
-      "cetriolo",
-      "aglio",
-      "limone",
-      "olio"
+      "100 g yogurt greco",
+      "80 g cetriolo",
+      "8 g aglio",
+      "320 g limone",
+      "80 ml olio"
     ],
     "steps": [
       "Grattugia e strizza il cetriolo.",
@@ -1666,7 +2113,13 @@
       "greca",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 5,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R060",
@@ -1680,12 +2133,12 @@
     "premium": true,
     "description": "Ricetta Baklava della cucina Turca.",
     "ingredients": [
-      "pasta fillo",
-      "noci",
-      "burro",
-      "zucchero",
-      "miele",
-      "limone"
+      "640 g pasta fillo",
+      "160 g noci",
+      "200 g burro",
+      "160 g zucchero",
+      "160 g miele",
+      "640 g limone"
     ],
     "steps": [
       "Prepara il ripieno di frutta secca.",
@@ -1698,7 +2151,13 @@
       "turca",
       "dolce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione turca, influenzata da diverse aree culturali; la storia finale approfondirà origini e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 28,
+    "cookMin": 42,
+    "flag": "🇹🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R061",
@@ -1712,12 +2171,12 @@
     "premium": true,
     "description": "Ricetta Aloo gobi della cucina Indiana.",
     "ingredients": [
-      "patate",
-      "cavolfiore",
-      "pomodoro",
-      "curcuma",
-      "cumino",
-      "zenzero"
+      "320 g patate",
+      "80 g cavolfiore",
+      "320 g pomodoro",
+      "80 g curcuma",
+      "80 g cumino",
+      "80 g zenzero"
     ],
     "steps": [
       "Taglia patate e cavolfiore.",
@@ -1730,7 +2189,13 @@
       "vegetariana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R062",
@@ -1744,12 +2209,12 @@
     "premium": true,
     "description": "Ricetta Chana masala della cucina Indiana.",
     "ingredients": [
-      "ceci",
-      "pomodoro",
-      "cipolla",
-      "zenzero",
-      "garam masala",
-      "coriandolo"
+      "80 g ceci",
+      "320 g pomodoro",
+      "320 g cipolla",
+      "80 g zenzero",
+      "80 g garam masala",
+      "80 g coriandolo"
     ],
     "steps": [
       "Soffriggi cipolla e zenzero.",
@@ -1761,7 +2226,13 @@
       "indiana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R063",
@@ -1775,11 +2246,11 @@
     "premium": true,
     "description": "Ricetta Naan della cucina Indiana.",
     "ingredients": [
-      "farina",
-      "yogurt",
-      "lievito",
-      "acqua",
-      "olio"
+      "750 g farina",
+      "150 g yogurt",
+      "120 g lievito",
+      "120 ml acqua",
+      "120 ml olio"
     ],
     "steps": [
       "Prepara l'impasto.",
@@ -1790,7 +2261,13 @@
     "tags": [
       "indiana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 36,
+    "cookMin": 54,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R064",
@@ -1804,12 +2281,12 @@
     "premium": true,
     "description": "Ricetta Rendang della cucina Indonesiana.",
     "ingredients": [
-      "manzo",
-      "latte di cocco",
-      "zenzero",
-      "galanga",
-      "peperoncino",
-      "lemongrass"
+      "900 g manzo",
+      "120 ml latte di cocco",
+      "120 g zenzero",
+      "120 g galanga",
+      "12 g peperoncino",
+      "120 g lemongrass"
     ],
     "steps": [
       "Prepara la pasta aromatica.",
@@ -1821,7 +2298,13 @@
       "indonesiana",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina indonesiana; saranno evidenziati ingredienti, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 72,
+    "cookMin": 108,
+    "flag": "🇮🇩",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R065",
@@ -1835,11 +2318,11 @@
     "premium": true,
     "description": "Ricetta Nasi goreng della cucina Indonesiana.",
     "ingredients": [
-      "riso cotto",
-      "uova",
-      "verdure",
-      "cipollotto",
-      "salsa di soia"
+      "320 g riso cotto",
+      "4 uova",
+      "80 g verdure",
+      "600 g cipollotto",
+      "80 ml salsa di soia"
     ],
     "steps": [
       "Prepara il riso già cotto.",
@@ -1851,7 +2334,13 @@
       "indonesiana",
       "riso"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina indonesiana; saranno evidenziati ingredienti, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 12,
+    "cookMin": 18,
+    "flag": "🇮🇩",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R066",
@@ -1865,10 +2354,10 @@
     "premium": true,
     "description": "Ricetta Gado-gado della cucina Indonesiana.",
     "ingredients": [
-      "verdure",
-      "tofu",
-      "uova",
-      "salsa di arachidi"
+      "80 g verdure",
+      "80 g tofu",
+      "4 uova",
+      "80 ml salsa di arachidi"
     ],
     "steps": [
       "Cuoci le verdure al vapore.",
@@ -1880,7 +2369,13 @@
       "indonesiana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina indonesiana; saranno evidenziati ingredienti, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇮🇩",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R067",
@@ -1894,12 +2389,12 @@
     "premium": true,
     "description": "Ricetta Pho bo della cucina Vietnamita.",
     "ingredients": [
-      "manzo",
-      "brodo",
-      "noodles di riso",
-      "anice stellato",
-      "zenzero",
-      "cannella"
+      "600 g manzo",
+      "80 ml brodo",
+      "320 g noodles di riso",
+      "80 g anice stellato",
+      "80 g zenzero",
+      "8 g cannella"
     ],
     "steps": [
       "Prepara il brodo aromatico.",
@@ -1911,7 +2406,13 @@
       "vietnamita",
       "zuppa"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina vietnamita; la scheda editoriale approfondirà equilibrio dei sapori e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 72,
+    "cookMin": 108,
+    "flag": "🇻🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R068",
@@ -1925,12 +2426,12 @@
     "premium": true,
     "description": "Ricetta Banh mi della cucina Vietnamita.",
     "ingredients": [
-      "baguette",
-      "carne o tofu",
-      "carote",
-      "daikon",
-      "cetriolo",
-      "erbe fresche"
+      "40 g baguette",
+      "300 g carne o tofu",
+      "40 g carote",
+      "40 g daikon",
+      "40 g cetriolo",
+      "40 g erbe fresche"
     ],
     "steps": [
       "Prepara le verdure marinate.",
@@ -1941,7 +2442,13 @@
     "tags": [
       "vietnamita"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina vietnamita; la scheda editoriale approfondirà equilibrio dei sapori e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇻🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R069",
@@ -1955,11 +2462,11 @@
     "premium": true,
     "description": "Ricetta Goi cuon della cucina Vietnamita.",
     "ingredients": [
-      "carta di riso",
-      "gamberi o tofu",
-      "vermicelli",
-      "lattuga",
-      "erbe fresche"
+      "320 g carta di riso",
+      "640 g gamberi o tofu",
+      "80 g vermicelli",
+      "80 g lattuga",
+      "80 g erbe fresche"
     ],
     "steps": [
       "Prepara ripieno e vermicelli.",
@@ -1971,7 +2478,13 @@
       "vietnamita",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina vietnamita; la scheda editoriale approfondirà equilibrio dei sapori e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇻🇳",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R070",
@@ -1985,9 +2498,9 @@
     "premium": true,
     "description": "Ricetta Asado argentino della cucina Argentina.",
     "ingredients": [
-      "carne bovina",
-      "sale",
-      "pepe"
+      "900 g carne bovina",
+      "12 g sale",
+      "12 g pepe"
     ],
     "steps": [
       "Prepara la griglia.",
@@ -1999,7 +2512,13 @@
       "argentina",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione argentina; saranno raccontati contesto, ingredienti e diffusione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 48,
+    "cookMin": 72,
+    "flag": "🇦🇷",
+    "estimatedCostPerBaseServing": 4.65
   },
   {
     "id": "R071",
@@ -2013,11 +2532,11 @@
     "premium": true,
     "description": "Ricetta Empanadas argentine della cucina Argentina.",
     "ingredients": [
-      "farina",
-      "carne macinata",
-      "cipolla",
-      "uova",
-      "olive"
+      "1000 g farina",
+      "1200 g carne macinata",
+      "640 g cipolla",
+      "8 uova",
+      "160 g olive"
     ],
     "steps": [
       "Prepara il ripieno.",
@@ -2029,7 +2548,13 @@
       "argentina",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione argentina; saranno raccontati contesto, ingredienti e diffusione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 28,
+    "cookMin": 42,
+    "flag": "🇦🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R072",
@@ -2043,11 +2568,11 @@
     "premium": true,
     "description": "Ricetta Chimichurri della cucina Argentina.",
     "ingredients": [
-      "prezzemolo",
-      "aglio",
-      "aceto",
-      "olio",
-      "origano"
+      "12 g prezzemolo",
+      "12 g aglio",
+      "120 g aceto",
+      "120 ml olio",
+      "12 g origano"
     ],
     "steps": [
       "Trita finemente gli aromi.",
@@ -2059,7 +2584,13 @@
       "argentina",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione argentina; saranno raccontati contesto, ingredienti e diffusione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 5,
+    "flag": "🇦🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R073",
@@ -2073,12 +2604,12 @@
     "premium": true,
     "description": "Ricetta Lomo saltado della cucina Peruviana.",
     "ingredients": [
-      "manzo",
-      "pomodoro",
-      "cipolla rossa",
-      "patate",
-      "salsa di soia",
-      "coriandolo"
+      "600 g manzo",
+      "320 g pomodoro",
+      "320 g cipolla rossa",
+      "320 g patate",
+      "80 ml salsa di soia",
+      "80 g coriandolo"
     ],
     "steps": [
       "Prepara patate e verdure.",
@@ -2090,7 +2621,13 @@
       "peruviana",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina peruviana, nata dall’incontro di tradizioni e ingredienti diversi; la scheda finale approfondirà il contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇵🇪",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R074",
@@ -2104,11 +2641,11 @@
     "premium": true,
     "description": "Ricetta Papa a la huancaína della cucina Peruviana.",
     "ingredients": [
-      "patate",
-      "formaggio fresco",
-      "latte",
-      "peperoncino giallo",
-      "cracker"
+      "320 g patate",
+      "100 g formaggio fresco",
+      "80 ml latte",
+      "8 g peperoncino giallo",
+      "80 g cracker"
     ],
     "steps": [
       "Cuoci le patate.",
@@ -2120,7 +2657,13 @@
       "peruviana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina peruviana, nata dall’incontro di tradizioni e ingredienti diversi; la scheda finale approfondirà il contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇵🇪",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R075",
@@ -2134,11 +2677,11 @@
     "premium": true,
     "description": "Ricetta Tacu tacu della cucina Peruviana.",
     "ingredients": [
-      "riso cotto",
-      "fagioli",
-      "cipolla",
-      "olio",
-      "spezie"
+      "320 g riso cotto",
+      "80 g fagioli",
+      "320 g cipolla",
+      "80 ml olio",
+      "8 g spezie"
     ],
     "steps": [
       "Schiaccia riso e fagioli.",
@@ -2150,7 +2693,13 @@
       "peruviana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina peruviana, nata dall’incontro di tradizioni e ingredienti diversi; la scheda finale approfondirà il contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇵🇪",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R076",
@@ -2164,11 +2713,11 @@
     "premium": true,
     "description": "Ricetta Kimchi jjigae della cucina Coreana.",
     "ingredients": [
-      "kimchi",
-      "tofu",
-      "brodo",
-      "cipollotto",
-      "peperoncino"
+      "80 g kimchi",
+      "80 g tofu",
+      "80 ml brodo",
+      "600 g cipollotto",
+      "8 g peperoncino"
     ],
     "steps": [
       "Prepara il brodo.",
@@ -2180,7 +2729,13 @@
       "coreana",
       "zuppa"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R077",
@@ -2194,12 +2749,12 @@
     "premium": true,
     "description": "Ricetta Bulgogi della cucina Coreana.",
     "ingredients": [
-      "manzo",
-      "salsa di soia",
-      "pera",
-      "aglio",
-      "sesamo",
-      "cipollotto"
+      "600 g manzo",
+      "80 ml salsa di soia",
+      "80 g pera",
+      "8 g aglio",
+      "80 g sesamo",
+      "600 g cipollotto"
     ],
     "steps": [
       "Affetta finemente la carne.",
@@ -2211,7 +2766,13 @@
       "coreana",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R078",
@@ -2225,11 +2786,11 @@
     "premium": true,
     "description": "Ricetta Japchae della cucina Coreana.",
     "ingredients": [
-      "noodles di patata dolce",
-      "spinaci",
-      "carote",
-      "funghi",
-      "salsa di soia"
+      "320 g noodles di patata dolce",
+      "80 g spinaci",
+      "80 g carote",
+      "80 g funghi",
+      "80 ml salsa di soia"
     ],
     "steps": [
       "Cuoci i noodles.",
@@ -2241,7 +2802,13 @@
       "coreana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R079",
@@ -2255,11 +2822,11 @@
     "premium": true,
     "description": "Ricetta Hummus della cucina Mediorientale.",
     "ingredients": [
-      "ceci",
-      "tahina",
-      "limone",
-      "aglio",
-      "olio"
+      "120 g ceci",
+      "120 g tahina",
+      "480 g limone",
+      "12 g aglio",
+      "120 ml olio"
     ],
     "steps": [
       "Frulla i ceci con tahina e limone.",
@@ -2271,7 +2838,13 @@
       "mediorientale",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta appartenente alle tradizioni del Medio Oriente; le origini possono variare tra Paesi e saranno indicate con cautela.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 5,
+    "flag": "🌍",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R080",
@@ -2285,12 +2858,12 @@
     "premium": true,
     "description": "Ricetta Tabbouleh della cucina Mediorientale.",
     "ingredients": [
-      "prezzemolo",
-      "pomodori",
-      "bulgur",
-      "menta",
-      "limone",
-      "olio"
+      "8 g prezzemolo",
+      "80 g pomodori",
+      "80 g bulgur",
+      "80 g menta",
+      "320 g limone",
+      "80 ml olio"
     ],
     "steps": [
       "Prepara il bulgur.",
@@ -2302,7 +2875,13 @@
       "mediorientale",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta appartenente alle tradizioni del Medio Oriente; le origini possono variare tra Paesi e saranno indicate con cautela.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🌍",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R081",
@@ -2316,12 +2895,12 @@
     "premium": true,
     "description": "Ricetta Fattoush della cucina Mediorientale.",
     "ingredients": [
-      "lattuga",
-      "pomodori",
-      "cetriolo",
-      "pane pita",
-      "menta",
-      "limone"
+      "80 g lattuga",
+      "80 g pomodori",
+      "80 g cetriolo",
+      "4 pane pita",
+      "80 g menta",
+      "320 g limone"
     ],
     "steps": [
       "Taglia le verdure.",
@@ -2333,7 +2912,13 @@
       "libanese",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione libanese; saranno approfonditi ingredienti, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 10,
+    "flag": "🇱🇧",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R082",
@@ -2347,11 +2932,11 @@
     "premium": true,
     "description": "Ricetta Kibbeh della cucina Mediorientale.",
     "ingredients": [
-      "bulgur",
-      "carne macinata",
-      "cipolla",
-      "pinoli",
-      "spezie"
+      "120 g bulgur",
+      "900 g carne macinata",
+      "480 g cipolla",
+      "120 g pinoli",
+      "12 g spezie"
     ],
     "steps": [
       "Ammolla il bulgur.",
@@ -2363,7 +2948,13 @@
       "libanese",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione libanese; saranno approfonditi ingredienti, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 30,
+    "cookMin": 45,
+    "flag": "🇱🇧",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R083",
@@ -2377,11 +2968,11 @@
     "premium": true,
     "description": "Ricetta Shish taouk della cucina Mediorientale.",
     "ingredients": [
-      "pollo",
-      "yogurt",
-      "limone",
-      "aglio",
-      "paprika"
+      "600 g pollo",
+      "100 g yogurt",
+      "320 g limone",
+      "8 g aglio",
+      "8 g paprika"
     ],
     "steps": [
       "Taglia il pollo.",
@@ -2393,7 +2984,13 @@
       "libanese",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione libanese; saranno approfonditi ingredienti, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇱🇧",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R084",
@@ -2407,12 +3004,12 @@
     "premium": true,
     "description": "Ricetta Tajine di pollo della cucina Marocchina.",
     "ingredients": [
-      "pollo",
-      "cipolla",
-      "limone",
-      "olive",
-      "zenzero",
-      "zafferano"
+      "600 g pollo",
+      "320 g cipolla",
+      "320 g limone",
+      "80 g olive",
+      "80 g zenzero",
+      "80 g zafferano"
     ],
     "steps": [
       "Rosola il pollo.",
@@ -2424,7 +3021,13 @@
       "marocchina",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina marocchina; saranno valorizzati spezie, tradizioni e contesto gastronomico.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 36,
+    "cookMin": 54,
+    "flag": "🇲🇦",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R085",
@@ -2438,12 +3041,12 @@
     "premium": true,
     "description": "Ricetta Couscous marocchino della cucina Marocchina.",
     "ingredients": [
-      "couscous",
-      "carote",
-      "zucchine",
-      "ceci",
-      "uva passa",
-      "spezie"
+      "320 g couscous",
+      "80 g carote",
+      "80 g zucchine",
+      "80 g ceci",
+      "80 g uva passa",
+      "8 g spezie"
     ],
     "steps": [
       "Prepara il couscous.",
@@ -2456,7 +3059,13 @@
       "vegetariana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina marocchina; saranno valorizzati spezie, tradizioni e contesto gastronomico.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 20,
+    "cookMin": 30,
+    "flag": "🇲🇦",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R086",
@@ -2470,12 +3079,12 @@
     "premium": true,
     "description": "Ricetta Harira della cucina Marocchina.",
     "ingredients": [
-      "pomodoro",
-      "lenticchie",
-      "ceci",
-      "sedano",
-      "cipolla",
-      "spezie"
+      "480 g pomodoro",
+      "120 g lenticchie",
+      "120 g ceci",
+      "120 g sedano",
+      "480 g cipolla",
+      "12 g spezie"
     ],
     "steps": [
       "Prepara il fondo di cipolla e sedano.",
@@ -2487,7 +3096,13 @@
       "marocchina",
       "zuppa"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina marocchina; saranno valorizzati spezie, tradizioni e contesto gastronomico.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 32,
+    "cookMin": 48,
+    "flag": "🇲🇦",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R087",
@@ -2501,11 +3116,11 @@
     "premium": true,
     "description": "Ricetta Pão de queijo della cucina Brasiliana.",
     "ingredients": [
-      "amido di tapioca",
-      "formaggio",
-      "uova",
-      "latte",
-      "olio"
+      "160 g amido di tapioca",
+      "200 g formaggio",
+      "8 uova",
+      "160 ml latte",
+      "160 ml olio"
     ],
     "steps": [
       "Prepara l'impasto.",
@@ -2517,7 +3132,13 @@
       "brasiliana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina brasiliana, ricca di influenze regionali; la scheda finale approfondirà territorio e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇧🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R088",
@@ -2531,12 +3152,12 @@
     "premium": true,
     "description": "Ricetta Moqueca della cucina Brasiliana.",
     "ingredients": [
-      "pesce",
-      "latte di cocco",
-      "pomodoro",
-      "peperone",
-      "cipolla",
-      "coriandolo"
+      "640 g pesce",
+      "80 ml latte di cocco",
+      "320 g pomodoro",
+      "320 g peperone",
+      "320 g cipolla",
+      "80 g coriandolo"
     ],
     "steps": [
       "Prepara le verdure.",
@@ -2548,7 +3169,13 @@
       "brasiliana",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina brasiliana, ricca di influenze regionali; la scheda finale approfondirà territorio e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 20,
+    "cookMin": 30,
+    "flag": "🇧🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R089",
@@ -2562,10 +3189,10 @@
     "premium": true,
     "description": "Ricetta Brigadeiro della cucina Brasiliana.",
     "ingredients": [
-      "latte condensato",
-      "cacao",
-      "burro",
-      "codette di cioccolato"
+      "240 ml latte condensato",
+      "240 g cacao",
+      "300 g burro",
+      "240 g codette di cioccolato"
     ],
     "steps": [
       "Cuoci latte condensato, cacao e burro.",
@@ -2577,7 +3204,13 @@
       "brasiliana",
       "dolce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina brasiliana, ricca di influenze regionali; la scheda finale approfondirà territorio e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🇧🇷",
+    "estimatedCostPerBaseServing": 5.6
   },
   {
     "id": "R090",
@@ -2591,11 +3224,11 @@
     "premium": true,
     "description": "Ricetta Menemen della cucina Turca.",
     "ingredients": [
-      "uova",
-      "pomodori",
-      "peperoni",
-      "cipolla",
-      "olio"
+      "4 uova",
+      "80 g pomodori",
+      "8 g peperoni",
+      "320 g cipolla",
+      "80 ml olio"
     ],
     "steps": [
       "Rosola cipolla e peperoni.",
@@ -2607,7 +3240,13 @@
       "turca",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione turca, influenzata da diverse aree culturali; la storia finale approfondirà origini e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 15,
+    "flag": "🇹🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R091",
@@ -2621,12 +3260,12 @@
     "premium": true,
     "description": "Ricetta Lahmacun della cucina Turca.",
     "ingredients": [
-      "farina",
-      "carne macinata",
-      "pomodoro",
-      "cipolla",
-      "prezzemolo",
-      "spezie"
+      "500 g farina",
+      "600 g carne macinata",
+      "320 g pomodoro",
+      "320 g cipolla",
+      "8 g prezzemolo",
+      "8 g spezie"
     ],
     "steps": [
       "Prepara l'impasto.",
@@ -2639,7 +3278,13 @@
       "turca",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione turca, influenzata da diverse aree culturali; la storia finale approfondirà origini e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇹🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R092",
@@ -2653,11 +3298,11 @@
     "premium": true,
     "description": "Ricetta Mercimek çorbası della cucina Turca.",
     "ingredients": [
-      "lenticchie rosse",
-      "carota",
-      "patata",
-      "cipolla",
-      "cumino"
+      "80 g lenticchie rosse",
+      "320 g carota",
+      "320 g patata",
+      "320 g cipolla",
+      "80 g cumino"
     ],
     "steps": [
       "Soffriggi la cipolla.",
@@ -2670,7 +3315,13 @@
       "zuppa",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione turca, influenzata da diverse aree culturali; la storia finale approfondirà origini e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇹🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R093",
@@ -2684,11 +3335,11 @@
     "premium": true,
     "description": "Ricetta Hamburger classico della cucina Americana.",
     "ingredients": [
-      "carne macinata",
-      "pane hamburger",
-      "lattuga",
-      "pomodoro",
-      "cipolla"
+      "600 g carne macinata",
+      "4 pane hamburger",
+      "80 g lattuga",
+      "320 g pomodoro",
+      "320 g cipolla"
     ],
     "steps": [
       "Forma i burger.",
@@ -2700,7 +3351,13 @@
       "americana",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione gastronomica statunitense; saranno approfondite origini, diffusione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 12,
+    "cookMin": 18,
+    "flag": "🇺🇸",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R094",
@@ -2714,11 +3371,11 @@
     "premium": true,
     "description": "Ricetta Mac and cheese della cucina Americana.",
     "ingredients": [
-      "maccheroni",
-      "cheddar",
-      "latte",
-      "burro",
-      "farina"
+      "320 g maccheroni",
+      "100 g cheddar",
+      "80 ml latte",
+      "100 g burro",
+      "500 g farina"
     ],
     "steps": [
       "Cuoci la pasta.",
@@ -2730,7 +3387,13 @@
       "americana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione gastronomica statunitense; saranno approfondite origini, diffusione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇺🇸",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R095",
@@ -2744,12 +3407,12 @@
     "premium": true,
     "description": "Ricetta Clam chowder della cucina Americana.",
     "ingredients": [
-      "vongole",
-      "patate",
-      "sedano",
-      "cipolla",
-      "latte",
-      "pancetta"
+      "640 g vongole",
+      "320 g patate",
+      "80 g sedano",
+      "320 g cipolla",
+      "80 ml latte",
+      "80 g pancetta"
     ],
     "steps": [
       "Prepara il fondo.",
@@ -2761,7 +3424,13 @@
       "americana",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione gastronomica statunitense; saranno approfondite origini, diffusione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇺🇸",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R096",
@@ -2775,11 +3444,11 @@
     "premium": true,
     "description": "Ricetta Apple pie della cucina Americana.",
     "ingredients": [
-      "mele",
-      "farina",
-      "burro",
-      "zucchero",
-      "cannella"
+      "160 g mele",
+      "1000 g farina",
+      "200 g burro",
+      "160 g zucchero",
+      "16 g cannella"
     ],
     "steps": [
       "Prepara la pasta.",
@@ -2791,7 +3460,13 @@
       "americana",
       "dolce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione gastronomica statunitense; saranno approfondite origini, diffusione e varianti regionali.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 36,
+    "cookMin": 54,
+    "flag": "🇺🇸",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R097",
@@ -2805,11 +3480,11 @@
     "premium": true,
     "description": "Ricetta Causa limeña della cucina Peruviana.",
     "ingredients": [
-      "patate",
-      "lime",
-      "peperoncino giallo",
-      "pollo o tonno",
-      "avocado"
+      "480 g patate",
+      "480 g lime",
+      "12 g peperoncino giallo",
+      "900 g pollo o tonno",
+      "480 g avocado"
     ],
     "steps": [
       "Cuoci e schiaccia le patate.",
@@ -2821,7 +3496,13 @@
       "peruviana",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina peruviana, nata dall’incontro di tradizioni e ingredienti diversi; la scheda finale approfondirà il contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇵🇪",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R098",
@@ -2835,12 +3516,12 @@
     "premium": true,
     "description": "Ricetta Ají de gallina della cucina Peruviana.",
     "ingredients": [
-      "pollo",
-      "pane",
-      "latte",
-      "peperoncino giallo",
-      "noci",
-      "cipolla"
+      "600 g pollo",
+      "4 pane",
+      "80 ml latte",
+      "8 g peperoncino giallo",
+      "80 g noci",
+      "320 g cipolla"
     ],
     "steps": [
       "Cuoci e sfilaccia il pollo.",
@@ -2852,7 +3533,13 @@
       "peruviana",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina peruviana, nata dall’incontro di tradizioni e ingredienti diversi; la scheda finale approfondirà il contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇵🇪",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R099",
@@ -2866,11 +3553,11 @@
     "premium": true,
     "description": "Ricetta Mandu della cucina Coreana.",
     "ingredients": [
-      "sfoglie mandu",
-      "carne o tofu",
-      "cavolo",
-      "cipollotto",
-      "aglio"
+      "120 g sfoglie mandu",
+      "900 g carne o tofu",
+      "120 g cavolo",
+      "900 g cipollotto",
+      "12 g aglio"
     ],
     "steps": [
       "Prepara il ripieno.",
@@ -2881,7 +3568,13 @@
     "tags": [
       "coreana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R100",
@@ -2895,12 +3588,12 @@
     "premium": true,
     "description": "Ricetta Kimbap della cucina Coreana.",
     "ingredients": [
-      "riso",
-      "alga nori",
-      "carota",
-      "spinaci",
-      "uovo",
-      "cetriolo"
+      "320 g riso",
+      "80 g alga nori",
+      "320 g carota",
+      "80 g spinaci",
+      "4 uovo",
+      "80 g cetriolo"
     ],
     "steps": [
       "Prepara il riso.",
@@ -2912,7 +3605,13 @@
       "coreana",
       "riso"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R101",
@@ -2926,12 +3625,12 @@
     "premium": true,
     "description": "Ricetta Pad Thai della cucina Thailandese.",
     "ingredients": [
-      "noodles di riso",
-      "tofu",
-      "uovo",
-      "germogli di soia",
-      "arachidi",
-      "lime"
+      "320 g noodles di riso",
+      "80 g tofu",
+      "4 uovo",
+      "80 g germogli di soia",
+      "80 g arachidi",
+      "320 g lime"
     ],
     "steps": [
       "Ammolla i noodles.",
@@ -2943,7 +3642,13 @@
       "thai",
       "riso"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R102",
@@ -2957,12 +3662,12 @@
     "premium": true,
     "description": "Ricetta Tom yum della cucina Thailandese.",
     "ingredients": [
-      "gamberi",
-      "funghi",
-      "lemongrass",
-      "lime",
-      "zenzero",
-      "peperoncino"
+      "640 g gamberi",
+      "80 g funghi",
+      "80 g lemongrass",
+      "320 g lime",
+      "80 g zenzero",
+      "8 g peperoncino"
     ],
     "steps": [
       "Prepara il brodo aromatico.",
@@ -2975,7 +3680,13 @@
       "zuppa",
       "pesce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R103",
@@ -2989,12 +3700,12 @@
     "premium": true,
     "description": "Ricetta Green curry della cucina Thailandese.",
     "ingredients": [
-      "pollo",
-      "latte di cocco",
-      "pasta di curry verde",
-      "melanzane",
-      "basilico",
-      "riso"
+      "600 g pollo",
+      "80 ml latte di cocco",
+      "320 g pasta di curry verde",
+      "320 g melanzane",
+      "8 g basilico",
+      "320 g riso"
     ],
     "steps": [
       "Rosola la pasta di curry.",
@@ -3006,7 +3717,13 @@
       "thai",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della tradizione thailandese; la scheda finale descriverà equilibrio dei sapori, tecniche e contesto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇹🇭",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R104",
@@ -3020,12 +3737,12 @@
     "premium": true,
     "description": "Ricetta Bibimbap della cucina Coreana.",
     "ingredients": [
-      "riso",
-      "spinaci",
-      "carote",
-      "funghi",
-      "uovo",
-      "gochujang"
+      "320 g riso",
+      "80 g spinaci",
+      "80 g carote",
+      "80 g funghi",
+      "4 uovo",
+      "80 g gochujang"
     ],
     "steps": [
       "Prepara il riso.",
@@ -3038,7 +3755,13 @@
       "riso",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R105",
@@ -3052,12 +3775,12 @@
     "premium": true,
     "description": "Ricetta Japchae della cucina Coreana.",
     "ingredients": [
-      "noodles di patata dolce",
-      "spinaci",
-      "carote",
-      "funghi",
-      "cipollotto",
-      "sesamo"
+      "320 g noodles di patata dolce",
+      "80 g spinaci",
+      "80 g carote",
+      "80 g funghi",
+      "600 g cipollotto",
+      "80 g sesamo"
     ],
     "steps": [
       "Cuoci i noodles.",
@@ -3069,7 +3792,13 @@
       "coreana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R106",
@@ -3083,12 +3812,12 @@
     "premium": true,
     "description": "Ricetta Kimchi jjigae della cucina Coreana.",
     "ingredients": [
-      "kimchi",
-      "tofu",
-      "cipollotto",
-      "funghi",
-      "brodo",
-      "peperoncino"
+      "80 g kimchi",
+      "80 g tofu",
+      "600 g cipollotto",
+      "80 g funghi",
+      "80 ml brodo",
+      "8 g peperoncino"
     ],
     "steps": [
       "Prepara il brodo.",
@@ -3100,7 +3829,13 @@
       "coreana",
       "zuppa"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della tradizione coreana; saranno raccontati contesto, tecnica e ruolo nella cucina quotidiana.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇰🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R107",
@@ -3114,12 +3849,12 @@
     "premium": true,
     "description": "Ricetta Pho vietnamita della cucina Vietnamita.",
     "ingredients": [
-      "noodles di riso",
-      "manzo",
-      "anice stellato",
-      "cannella",
-      "zenzero",
-      "germogli"
+      "480 g noodles di riso",
+      "900 g manzo",
+      "120 g anice stellato",
+      "12 g cannella",
+      "120 g zenzero",
+      "120 g germogli"
     ],
     "steps": [
       "Prepara il brodo aromatico.",
@@ -3131,7 +3866,13 @@
       "vietnamita",
       "zuppa"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina vietnamita; la scheda editoriale approfondirà equilibrio dei sapori e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 48,
+    "cookMin": 72,
+    "flag": "🇻🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R108",
@@ -3145,12 +3886,12 @@
     "premium": true,
     "description": "Ricetta Banh mi della cucina Vietnamita.",
     "ingredients": [
-      "baguette",
-      "pollo",
-      "carota",
-      "cetriolo",
-      "coriandolo",
-      "salsa"
+      "80 g baguette",
+      "600 g pollo",
+      "320 g carota",
+      "80 g cetriolo",
+      "80 g coriandolo",
+      "80 ml salsa"
     ],
     "steps": [
       "Prepara il ripieno.",
@@ -3162,7 +3903,13 @@
       "vietnamita",
       "panino"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina vietnamita; la scheda editoriale approfondirà equilibrio dei sapori e tradizione.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 12,
+    "cookMin": 18,
+    "flag": "🇻🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R109",
@@ -3176,12 +3923,12 @@
     "premium": true,
     "description": "Ricetta Gyoza della cucina Giapponese.",
     "ingredients": [
-      "sfoglie gyoza",
-      "carne macinata",
-      "cavolo",
-      "zenzero",
-      "cipollotto",
-      "salsa di soia"
+      "120 g sfoglie gyoza",
+      "900 g carne macinata",
+      "120 g cavolo",
+      "120 g zenzero",
+      "900 g cipollotto",
+      "120 ml salsa di soia"
     ],
     "steps": [
       "Prepara il ripieno.",
@@ -3193,7 +3940,13 @@
       "giapponese",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R110",
@@ -3207,12 +3960,12 @@
     "premium": true,
     "description": "Ricetta Okonomiyaki della cucina Giapponese.",
     "ingredients": [
-      "cavolo",
-      "farina",
-      "uova",
-      "cipollotto",
-      "salsa okonomiyaki",
-      "maionese"
+      "80 g cavolo",
+      "500 g farina",
+      "4 uova",
+      "600 g cipollotto",
+      "80 ml salsa okonomiyaki",
+      "80 g maionese"
     ],
     "steps": [
       "Prepara la pastella.",
@@ -3224,7 +3977,13 @@
       "giapponese",
       "uova"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 16,
+    "cookMin": 24,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R111",
@@ -3238,11 +3997,11 @@
     "premium": true,
     "description": "Ricetta Miso soup della cucina Giapponese.",
     "ingredients": [
-      "miso",
-      "tofu",
-      "alga wakame",
-      "cipollotto",
-      "dashi"
+      "80 g miso",
+      "80 g tofu",
+      "80 g alga wakame",
+      "600 g cipollotto",
+      "80 g dashi"
     ],
     "steps": [
       "Scalda il dashi senza bollire.",
@@ -3254,7 +4013,13 @@
       "giapponese",
       "zuppa"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Espressione della cucina giapponese; la versione editoriale approfondirà contesto, tradizione e diffusione del piatto.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 10,
+    "flag": "🇯🇵",
+    "estimatedCostPerBaseServing": 6.55
   },
   {
     "id": "R112",
@@ -3268,12 +4033,12 @@
     "premium": true,
     "description": "Ricetta Butter chicken della cucina Indiana.",
     "ingredients": [
-      "pollo",
-      "yogurt",
-      "pomodoro",
-      "burro",
-      "garam masala",
-      "panna"
+      "600 g pollo",
+      "100 g yogurt",
+      "320 g pomodoro",
+      "100 g burro",
+      "80 g garam masala",
+      "100 g panna"
     ],
     "steps": [
       "Marina il pollo.",
@@ -3285,7 +4050,13 @@
       "indiana",
       "pollo"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R113",
@@ -3299,12 +4070,12 @@
     "premium": true,
     "description": "Ricetta Dal di lenticchie della cucina Indiana.",
     "ingredients": [
-      "lenticchie rosse",
-      "cipolla",
-      "pomodoro",
-      "curcuma",
-      "cumino",
-      "zenzero"
+      "80 g lenticchie rosse",
+      "320 g cipolla",
+      "320 g pomodoro",
+      "80 g curcuma",
+      "80 g cumino",
+      "80 g zenzero"
     ],
     "steps": [
       "Cuoci le lenticchie.",
@@ -3317,7 +4088,13 @@
       "vegetariana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R114",
@@ -3331,12 +4108,12 @@
     "premium": true,
     "description": "Ricetta Palak paneer della cucina Indiana.",
     "ingredients": [
-      "spinaci",
-      "paneer",
-      "pomodoro",
-      "cipolla",
-      "zenzero",
-      "spezie"
+      "80 g spinaci",
+      "4 paneer",
+      "320 g pomodoro",
+      "320 g cipolla",
+      "80 g zenzero",
+      "8 g spezie"
     ],
     "steps": [
       "Sbollenta e frulla gli spinaci.",
@@ -3348,7 +4125,13 @@
       "indiana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 18,
+    "cookMin": 27,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R115",
@@ -3362,12 +4145,12 @@
     "premium": true,
     "description": "Ricetta Samosa della cucina Indiana.",
     "ingredients": [
-      "farina",
-      "patate",
-      "piselli",
-      "cumino",
-      "coriandolo",
-      "olio"
+      "1000 g farina",
+      "640 g patate",
+      "160 g piselli",
+      "160 g cumino",
+      "160 g coriandolo",
+      "160 ml olio"
     ],
     "steps": [
       "Prepara l'impasto.",
@@ -3379,7 +4162,13 @@
       "indiana",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Piatto della ricca tradizione regionale indiana; la scheda editoriale approfondirà spezie, tecniche e contesto culturale.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 24,
+    "cookMin": 36,
+    "flag": "🇮🇳",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R116",
@@ -3393,12 +4182,12 @@
     "premium": true,
     "description": "Ricetta Moussaka della cucina Greca.",
     "ingredients": [
-      "melanzane",
-      "carne macinata",
-      "pomodoro",
-      "patate",
-      "besciamella",
-      "cipolla"
+      "480 g melanzane",
+      "900 g carne macinata",
+      "480 g pomodoro",
+      "480 g patate",
+      "120 g besciamella",
+      "480 g cipolla"
     ],
     "steps": [
       "Prepara melanzane e patate.",
@@ -3411,7 +4200,13 @@
       "greca",
       "carne"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 40,
+    "cookMin": 60,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R117",
@@ -3425,12 +4220,12 @@
     "premium": true,
     "description": "Ricetta Spanakopita della cucina Greca.",
     "ingredients": [
-      "pasta fillo",
-      "spinaci",
-      "feta",
-      "cipolla",
-      "aneto",
-      "olio"
+      "480 g pasta fillo",
+      "120 g spinaci",
+      "120 g feta",
+      "480 g cipolla",
+      "120 g aneto",
+      "120 ml olio"
     ],
     "steps": [
       "Cuoci gli spinaci.",
@@ -3442,7 +4237,13 @@
       "greca",
       "vegetariana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Ricetta della cucina greca e mediterranea; la storia finale racconterà tradizione, territorio e varianti.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 22,
+    "cookMin": 33,
+    "flag": "🇬🇷",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R118",
@@ -3456,12 +4257,12 @@
     "premium": true,
     "description": "Ricetta Paella valenciana della cucina Spagnola.",
     "ingredients": [
-      "riso",
-      "pollo",
-      "fagiolini",
-      "zafferano",
-      "pomodoro",
-      "brodo"
+      "320 g riso",
+      "600 g pollo",
+      "80 g fagiolini",
+      "80 g zafferano",
+      "320 g pomodoro",
+      "80 ml brodo"
     ],
     "steps": [
       "Rosola il pollo.",
@@ -3473,7 +4274,13 @@
       "spagnola",
       "riso"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 28,
+    "cookMin": 42,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R119",
@@ -3487,12 +4294,12 @@
     "premium": true,
     "description": "Ricetta Gazpacho della cucina Spagnola.",
     "ingredients": [
-      "pomodori",
-      "cetriolo",
-      "peperone",
-      "pane",
-      "aceto",
-      "olio"
+      "80 g pomodori",
+      "80 g cetriolo",
+      "320 g peperone",
+      "4 pane",
+      "80 g aceto",
+      "80 ml olio"
     ],
     "steps": [
       "Taglia le verdure.",
@@ -3505,7 +4312,13 @@
       "vegetariana",
       "vegana"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 10,
+    "cookMin": 10,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 7.5
   },
   {
     "id": "R120",
@@ -3519,11 +4332,11 @@
     "premium": true,
     "description": "Ricetta Churros della cucina Spagnola.",
     "ingredients": [
-      "farina",
-      "acqua",
-      "zucchero",
-      "olio",
-      "cannella"
+      "750 g farina",
+      "120 ml acqua",
+      "120 g zucchero",
+      "120 ml olio",
+      "12 g cannella"
     ],
     "steps": [
       "Prepara l'impasto.",
@@ -3535,6 +4348,12 @@
       "spagnola",
       "dolce"
     ],
-    "editorialStatus": "draft"
+    "editorialStatus": "draft",
+    "history": "Specialità della cucina spagnola; saranno approfonditi territorio, tradizione e trasformazioni nel tempo.",
+    "costNote": "Stima indicativa, soggetta a prezzi locali, marca e offerte.",
+    "prepMin": 14,
+    "cookMin": 21,
+    "flag": "🇪🇸",
+    "estimatedCostPerBaseServing": 6.55
   }
 ]
