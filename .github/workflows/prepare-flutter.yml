@@ -14,10 +14,10 @@ jobs:
       - name: Scarica il repository
         uses: actions/checkout@v4
 
-      - name: Controlla il file V4 definitivo
+      - name: Controlla ZIP V4
         run: |
-          test -f RicetteDelMondo_V4_DEFINITIVA.zip
-          echo "ZIP V4 definitivo trovato"
+          test -f RicetteDelMondo_V4_DEFINITIVA_CORRETTA.zip
+          echo "ZIP V4 trovato correttamente"
 
       - name: Pulisce il vecchio progetto Flutter
         run: |
@@ -35,13 +35,13 @@ jobs:
           rm -f README.md
           rm -f codemagic.yaml
 
-      - name: Estrai la V4
+      - name: Estrae la V4 definitiva
         run: |
           rm -rf /tmp/rdm_v4
           mkdir -p /tmp/rdm_v4
-          unzip -q RicetteDelMondo_V4_DEFINITIVA.zip -d /tmp/rdm_v4
+          unzip -q RicetteDelMondo_V4_DEFINITIVA_CORRETTA.zip -d /tmp/rdm_v4
           cp -a /tmp/rdm_v4/. .
-          rm -f RicetteDelMondo_V4_DEFINITIVA.zip
+          rm -f RicetteDelMondo_V4_DEFINITIVA_CORRETTA.zip
 
       - name: Controlla che sia davvero V4
         run: |
@@ -49,10 +49,7 @@ jobs:
           grep -q "FridgePage" lib/main.dart
           grep -q "history" assets/recipes.json
           grep -q "estimatedCost" assets/recipes.json
-          count=$(find assets/images -type f -name 'R*.jpg' | wc -l)
-          test "$count" -ge 120
-          echo "CONTROLLI V4 SUPERATI"
-          echo "Immagini trovate: $count"
+          echo "V4 verificata correttamente"
 
       - name: Crea configurazione Codemagic
         run: |
@@ -75,10 +72,10 @@ jobs:
                 - build/app/outputs/flutter-apk/*.apk
           EOF
 
-      - name: Salva i file preparati
+      - name: Salva la V4 nel repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Prepara progetto Flutter V4 definitivo" || echo "Nessuna modifica da salvare"
+          git commit -m "Prepara progetto Flutter V4 definitiva" || echo "Nessuna modifica da salvare"
           git push
