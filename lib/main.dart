@@ -285,25 +285,46 @@ class _AppShellState extends State<AppShell> {
   Widget recipeCard(Recipe r) => Card(
     margin: const EdgeInsets.only(bottom: 10),
     clipBehavior: Clip.antiAlias,
-    child: InkWell(onTap: () => openRecipe(r), child: Padding(
-      padding: const EdgeInsets.all(12),
-      child: Row(children: [
-        Container(width: 82, height: 82, decoration: BoxDecoration(
-          color: const Color(0xFFE8EFE5), borderRadius: BorderRadius.circular(16)),
-          clipBehavior: Clip.antiAlias,
-          child: Image.asset(recipeImage(r.id)!, fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => Center(child: Text(countryFlag(r.country),
-              style: const TextStyle(fontSize: 30)))),
-        const SizedBox(width: 12),
-        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(r.title, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
-          const SizedBox(height: 4), Text('${countryFlag(r.country)} ${r.country} • ${r.cuisine}'),
-          const SizedBox(height: 4), Text('${r.timeMin} min • ${r.difficulty}'),
-        ])),
-        IconButton(onPressed: () => toggleFavorite(r),
-          icon: Icon(favorites.contains(r.id) ? Icons.favorite : Icons.favorite_border)),
-      ]),
-    )),
+    child: InkWell(
+      onTap: () => openRecipe(r),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 82,
+              height: 82,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: recipeVisual(r, height: 82, radius: BorderRadius.zero),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    r.title,
+                    style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                  ),
+                  const SizedBox(height: 4),
+                  Text('${countryFlag(r.country)} ${r.country} • ${r.cuisine}'),
+                  const SizedBox(height: 4),
+                  Text('${r.timeMin} min • ${r.difficulty} • ${r.servings} persone'),
+                ],
+              ),
+            ),
+            IconButton(
+              onPressed: () => toggleFavorite(r),
+              icon: Icon(
+                favorites.contains(r.id) ? Icons.favorite : Icons.favorite_border,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
   );
 
   void toggleFavorite(Recipe r) {
