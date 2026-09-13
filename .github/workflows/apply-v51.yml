@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Scarica il repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -28,15 +28,30 @@ jobs:
       - name: Estrai V5.1
         run: |
           set -e
+
           rm -rf /tmp/rmd_v51
           mkdir -p /tmp/rmd_v51
+
+          test -f "RicetteDelMondo_V5_1_Speciali_Cotture.7z"
+
           7z x -y "RicetteDelMondo_V5_1_Speciali_Cotture.7z" -o/tmp/rmd_v51
 
       - name: Trova e applica il progetto V5.1
         run: |
           set -e
 
-          PUBSPEC=$(find /tmp/rmd_v51 -type f -name "pubspec.yaml" -print -quit)
+          ZIPFILE=$(find /tmp/rmd_v51 -type f -name "*.zip" -print -quit)
+          test -n "$ZIPFILE"
+
+          echo "Archivio ZIP trovato:"
+          echo "$ZIPFILE"
+
+          rm -rf /tmp/rmd_project
+          mkdir -p /tmp/rmd_project
+
+          unzip -q "$ZIPFILE" -d /tmp/rmd_project
+
+          PUBSPEC=$(find /tmp/rmd_project -type f -name "pubspec.yaml" -print -quit)
           test -n "$PUBSPEC"
 
           SRC=$(dirname "$PUBSPEC")
@@ -60,14 +75,20 @@ jobs:
             cp -f "$SRC/QA_REPORT.txt" ./QA_REPORT.txt
           fi
 
+          rm -f "RicetteDelMondo_V5_1_Speciali_Cotture.7z"
+
           echo "V5.1 applicata."
 
       - name: Verifica V5.1
         run: |
           test -f lib/special_recipes.dart
           test -f lib/main.dart
+          test -f lib/recipe.dart
+          test -f lib/recipe_repository.dart
+          test -f assets/recipes.json
           test -f pubspec.yaml
           test -f codemagic.yaml
+
           echo "VERIFICA V5.1 OK"
 
       - name: Salva le modifiche
@@ -78,7 +99,7 @@ jobs:
           git add -A
 
           if git diff --cached --quiet; then
-            echo "Nessuna modifica da salvare."
+            echo "ERRORE: nessuna modifica V5.1 da salvare."
             exit 1
           fi
 
