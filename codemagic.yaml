@@ -1,5 +1,5 @@
 workflows:
-  android-debug:
+  android-build:
     name: Ricette del Mondo Android debug
     environment:
       flutter: stable
