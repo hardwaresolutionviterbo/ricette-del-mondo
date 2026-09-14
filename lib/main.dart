@@ -14,7 +14,6 @@ import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'legal_pages.dart';
 import 'account_page.dart';
-import 'privacy_preferences.dart';
 import 'ad_consent_service.dart';
 import 'ad_service.dart';
 
@@ -503,25 +502,117 @@ class FavoriteButton extends StatefulWidget{final bool selected;final VoidCallba
 class _FavoriteButtonState extends State<FavoriteButton> with SingleTickerProviderStateMixin{late final c=AnimationController(vsync:this,duration:const Duration(milliseconds:260));@override void didUpdateWidget(covariant FavoriteButton old){super.didUpdateWidget(old);if(widget.selected&&!old.selected)c.forward(from:0);}@override void dispose(){c.dispose();super.dispose();}@override Widget build(BuildContext x)=>ScaleTransition(scale:Tween(begin:1.0,end:1.25).animate(CurvedAnimation(parent:c,curve:Curves.elasticOut)),child:IconButton(onPressed:(){widget.onTap();c.forward(from:0);},icon:Icon(widget.selected?Icons.favorite:Icons.favorite_border,color:widget.selected?Colors.red:Colors.black45)));}
 
 class AllergenSettingsPage extends StatelessWidget{
- final Set<String> selected; final void Function(String,bool) onChanged;
- const AllergenSettingsPage({super.key,required this.selected,required this.onChanged});
- @override Widget build(BuildContext context)=>Scaffold(backgroundColor:cream,appBar:AppBar(title:const Text('Allergeni da evitare',style:TextStyle(fontWeight:FontWeight.w900)),backgroundColor:cream),body:ListView(padding:const EdgeInsets.fromLTRB(16,10,16,30),children:[
-  Container(padding:const EdgeInsets.all(20),decoration:BoxDecoration(gradient:const LinearGradient(begin:Alignment.topLeft,end:Alignment.bottomRight,colors:[Color(0xFF075B3A),Color(0xFF0C7A4B)]),borderRadius:BorderRadius.circular(26)),child:const Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Icon(Icons.shield_outlined,color:Colors.white,size:38),SizedBox(height:10),Text('Proteggi le tue preferenze',style:TextStyle(color:Colors.white,fontSize:24,fontWeight:FontWeight.w900)),SizedBox(height:7),Text('Seleziona gli allergeni che vuoi evitare. Le ricette compatibili verranno filtrate e, se ne apri una con un possibile conflitto, riceverai un avviso prima di continuare.',style:TextStyle(color:Colors.white70,height:1.45))])),
-  const SizedBox(height:16),
-  ...allergenLabels.entries.map((e)=>Card(margin:const EdgeInsets.only(bottom:8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),child:SwitchListTile(value:selected.contains(e.key),onChanged:(v)=>onChanged(e.key,v),secondary:Container(width:42,height:42,decoration:BoxDecoration(color:const Color(0xFFEAF4EE),borderRadius:BorderRadius.circular(13)),child:const Icon(Icons.warning_amber_rounded,color:green)),title:Text(e.value,style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),subtitle:const Text('Usa sempre anche le etichette e le informazioni del prodotto.'))),
-  const SizedBox(height:8),
-  Container(
-    padding:const EdgeInsets.all(16),
-    decoration:BoxDecoration(
-      color:const Color(0xFFFFF4DE),
-      borderRadius:BorderRadius.circular(20),
-    ),
-    child:const Text(
-      "Il filtro è un aiuto informativo: non garantisce l'assenza di contaminazioni o tracce e non sostituisce il controllo dell'etichetta. In caso di allergia, verifica sempre gli ingredienti del prodotto utilizzato.",
-      style:TextStyle(fontSize:12.5,height:1.45,fontWeight:FontWeight.w600,color:ink),
-    ),
-  ),
- ]);
+ final Set<String> selected;
+ final void Function(String,bool) onChanged;
+
+ const AllergenSettingsPage({
+   super.key,
+   required this.selected,
+   required this.onChanged,
+ });
+
+ @override
+ Widget build(BuildContext context)=>Scaffold(
+   backgroundColor:cream,
+   appBar:AppBar(
+     title:const Text(
+       'Allergeni da evitare',
+       style:TextStyle(fontWeight:FontWeight.w900),
+     ),
+     backgroundColor:cream,
+   ),
+   body:ListView(
+     padding:const EdgeInsets.fromLTRB(16,10,16,30),
+     children:[
+       Container(
+         padding:const EdgeInsets.all(20),
+         decoration:BoxDecoration(
+           gradient:const LinearGradient(
+             begin:Alignment.topLeft,
+             end:Alignment.bottomRight,
+             colors:[Color(0xFF075B3A),Color(0xFF0C7A4B)],
+           ),
+           borderRadius:BorderRadius.circular(26),
+         ),
+         child:const Column(
+           crossAxisAlignment:CrossAxisAlignment.start,
+           children:[
+             Icon(Icons.shield_outlined,color:Colors.white,size:38),
+             SizedBox(height:10),
+             Text(
+               'Proteggi le tue preferenze',
+               style:TextStyle(
+                 color:Colors.white,
+                 fontSize:24,
+                 fontWeight:FontWeight.w900,
+               ),
+             ),
+             SizedBox(height:7),
+             Text(
+               'Seleziona gli allergeni che vuoi evitare. Le ricette compatibili verranno filtrate e, se ne apri una con un possibile conflitto, riceverai un avviso prima di continuare.',
+               style:TextStyle(color:Colors.white70,height:1.45),
+             ),
+           ],
+         ),
+       ),
+       const SizedBox(height:16),
+       ...allergenLabels.entries.map(
+         (e)=>Card(
+           margin:const EdgeInsets.only(bottom:8),
+           shape:RoundedRectangleBorder(
+             borderRadius:BorderRadius.circular(18),
+           ),
+           child:SwitchListTile(
+             value:selected.contains(e.key),
+             onChanged:(v)=>onChanged(e.key,v),
+             secondary:Container(
+               width:42,
+               height:42,
+               decoration:BoxDecoration(
+                 color:const Color(0xFFEAF4EE),
+                 borderRadius:BorderRadius.circular(13),
+               ),
+               child:const Icon(
+                 Icons.warning_amber_rounded,
+                 color:green,
+               ),
+             ),
+             title:Text(
+               e.value,
+               style:const TextStyle(
+                 fontWeight:FontWeight.w800,
+                 color:ink,
+               ),
+             ),
+             subtitle:const Text(
+               'Usa sempre anche le etichette e le informazioni del prodotto.',
+             ),
+           ),
+         ),
+       ),
+       const SizedBox(height:8),
+       Container(
+         padding:const EdgeInsets.all(16),
+         decoration:BoxDecoration(
+           color:const Color(0xFFFFF4DE),
+           borderRadius:BorderRadius.circular(18),
+           border:Border.all(
+             color:const Color(0xFFE7C77D),
+           ),
+         ),
+         child:const Text(
+           "Il filtro è un aiuto informativo: non garantisce l'assenza di contaminazioni o tracce e non sostituisce il controllo dell'etichetta. In caso di allergia, verifica sempre gli ingredienti del prodotto utilizzato.",
+           style:TextStyle(
+             color:ink,
+             fontSize:12.5,
+             height:1.45,
+             fontWeight:FontWeight.w600,
+           ),
+         ),
+       ),
+     ],
+   ),
+ );
 }
 
 class FoodSafetyPage extends StatelessWidget{const FoodSafetyPage({super.key});
