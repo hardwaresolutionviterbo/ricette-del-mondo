@@ -1,1 +1,6 @@
 include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - archive_v6_backups/**
+    - QA_REJECTED_PHOTOS/**
