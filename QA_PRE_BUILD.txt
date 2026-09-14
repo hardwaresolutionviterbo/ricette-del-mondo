@@ -1,0 +1,28 @@
+RICETTE DEL MONDO — QA PRE-BUILD
+
+Catalogo:
+- 1000 ricette
+- 680 Italia
+- 320 resto del mondo
+- 10 passaggi di preparazione per ogni ricetta
+
+Codice:
+- main.dart: delimitatori { } ( ) [ ] controllati
+- recipe.dart: delimitatori controllati
+- recipe_repository.dart: delimitatori controllati
+- special_recipes.dart: delimitatori controllati
+- chiamate castVote controllate
+- specialVisual presente
+- condivisione ricette presente
+- contatore reale basato sul catalogo presente
+- banner Speciali presenti come asset
+- icona app presente
+- nome Android esplicitamente impostato a "Ricette del Mondo" nel workflow
+
+Nota:
+- nessuna nuova foto delle 1000 ricette è stata generata/assegnata in questa fase.
+- i link social ufficiali restano da inserire quando verranno forniti.
+- la traduzione editoriale completa del catalogo non è ancora implementata.
+- i pagamenti Premium restano non attivi, come deciso.
+- ICONA V6: implementata la nuova icona approvata dall'utente in assets/icon/app_icon.png.
+- flutter_launcher_icons configurato per Android con image_path assets/icon/app_icon.png e iOS disabilitato.

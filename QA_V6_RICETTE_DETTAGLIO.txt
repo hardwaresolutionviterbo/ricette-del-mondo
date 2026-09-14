@@ -1,0 +1,7 @@
+Ricette catalogo: 10000
+Passaggi per ricetta: min=10, max=10
+Caratteri preparazione: min=3510, media=3673.0
+Placeholder ingredienti rilevati: 0
+Scaling: numeri iniziali, intervalli e frazioni supportati.
+Ricette speciali dichiarate: 600
+Special steps enriched: 600 x 10.

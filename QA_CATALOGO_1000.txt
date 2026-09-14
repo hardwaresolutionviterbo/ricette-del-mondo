@@ -1,0 +1,45 @@
+RICETTE DEL MONDO — QA CATALOGO 1000
+====================================
+
+Stato: catalogo integrato nell'app, fotografie nuove NON generate.
+
+Totale ricette: 1000
+- Italia: 680
+- Resto del mondo: 320
+
+Nuove rispetto al catalogo precedente:
+- R621–R1000: 380 nuove ricette italiane.
+- Distribuzione: 19 ricette per ciascuna delle 20 regioni/province autonome rappresentate.
+
+Le nuove ricette italiane includono:
+Valle d’Aosta, Piemonte, Lombardia, Trentino-Alto Adige, Veneto,
+Friuli-Venezia Giulia, Liguria, Emilia-Romagna, Toscana, Umbria,
+Marche, Lazio, Abruzzo, Molise, Campania, Puglia, Basilicata,
+Calabria, Sicilia e Sardegna.
+
+Ogni nuova scheda contiene:
+- ID univoco
+- titolo
+- paese e regione
+- categoria
+- difficoltà
+- tempi separati di preparazione e cottura
+- porzioni
+- ingredienti con quantità operative
+- 10 passaggi di preparazione dettagliati
+- storia/contesto regionale
+- metodo di cottura e dettagli tecnici
+- stima del costo
+- bandiera italiana
+- stato editoriale: contenuto originale da verifica editoriale
+
+FOTO:
+- Nessuna nuova foto è stata generata o assegnata.
+- La fase fotografica resta volutamente per ultima.
+- Le 120 immagini già presenti nel progetto non sono state modificate.
+
+NOTA EDITORIALE:
+Le 380 nuove schede sono contenuto editoriale originale strutturato per l'app e
+vanno sottoposte a revisione finale delle quantità, tecniche e varianti regionali
+prima della pubblicazione definitiva. Non devono essere presentate come ricette
+certificate da chef o come trascrizioni di fonti protette.

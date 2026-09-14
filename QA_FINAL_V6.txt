@@ -1,0 +1,28 @@
+RICETTE DEL MONDO — V6 FINAL QA
+Data: 2026-09-14
+
+Controlli statici eseguiti:
+- recipes.json: 10.000 ricette
+- ID univoci: 10.000/10.000
+- Titoli univoci: 10.000/10.000
+- 10 passaggi per ricetta: 10.000/10.000
+- Liste speciali: 200 Impasti + 200 Hamburger + 200 Braceria = 600
+- ID speciali univoci per lista: OK
+- Delimitatori Dart (), [], {}: OK su tutti i file lib/*.dart
+- Stringhe/commenti non hanno lasciato delimitatori non bilanciati: OK
+- Asset dichiarati nel pubspec: presenti
+- Foto locali presenti: 8
+- Doppioni byte-identici tra le 8 foto locali: 0
+- imageUrl espliciti nel catalogo: 0
+- Icona approvata installata in assets/icon/app_icon.png: OK
+- Nome applicazione visibile configurato: Ricette del Mondo
+- Versione: 6.0.0+1
+- flutter_launcher_icons iOS disabilitato per la pipeline Android: OK
+- Codemagic workflow Android debug presente: OK
+
+Nota di verifica:
+L'ambiente di lavoro non contiene Flutter/Dart, quindi non è stato possibile eseguire localmente `flutter analyze`, `flutter test` o `flutter build apk`.
+Il controllo effettuato è statico e strutturale; la compilazione reale deve essere eseguita da Codemagic/Flutter.
+
+Nota fotografie:
+Il progetto usa una risoluzione fotografica conservativa: le 8 foto locali attualmente validate sono uniche; per le altre ricette il servizio tenta una ricerca Wikimedia Commons e, se non trova un abbinamento sufficientemente coerente, mostra il logo invece di una foto potenzialmente sbagliata. Non vengono dichiarate come già verificate 10.000 foto individuali.

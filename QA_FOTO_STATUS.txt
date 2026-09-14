@@ -1,0 +1,17 @@
+QA FOTO V6 — controllo anti-doppioni e anti-abbinamenti errati
+
+Catalogo principale: 10.000 ricette.
+Foto locali presenti: 120 file storici.
+Foto locali realmente uniche per contenuto: 40/120.
+Controllo manuale del contact sheet: i file storici non sono tutti coerenti con gli ID attuali; diversi sono duplicati e diversi sono associati al piatto sbagliato.
+Decisione V6: NON usare automaticamente i file storici dubbi.
+
+Abbinamenti locali verificati e autorizzati: R00001–R00008 (8 foto).
+Tutti gli altri file locali storici sono esclusi dal resolver.
+
+Resolver remoto: Wikimedia Commons, ricerca per titolo + cucina + paese, selezione conservativa e anti-riutilizzo nella sessione.
+Se la corrispondenza non raggiunge la soglia di sicurezza, il resolver non mostra una foto diversa dalla ricetta.
+
+Nota: l'ambiente di lavoro non dispone di rete, quindi non è possibile scaricare e verificare qui le restanti migliaia di immagini remote. Non vengono inventate foto o URL.
+
+Pulizia asset: i 112 file storici non verificati/duplicati sono stati spostati fuori da assets/ e conservati in QA_REJECTED_PHOTOS, così non possono finire accidentalmente nell'app e non aumentano il peso del pacchetto.

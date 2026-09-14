@@ -1,0 +1,10 @@
+V6 — CATALOGO 10.000 RICETTE
+Totale: 10.000
+Titoli unici: 10000
+ID univoci: 10000
+Passaggi da 10: 10000
+Ricette con varianti: 10000
+Macro aree: {'Italia': 3000, 'Resto del mondo': 4000, 'Europa': 3000}
+Continenti/aree: {'Europa': 6000, 'Asia': 2538, 'Americhe': 1322, 'Resto del mondo': 56, 'Medio Oriente': 42, 'Africa': 42}
+Nota editoriale: le nuove schede con suffisso numerico sono varianti editoriali basate su ricette madri; non sono presentate come nuove ricette tradizionali indipendenti.
+Fonti di orientamento consultate: raccolte regionali italiane e archivi open/public-domain; i testi non sono copiati verbatim.
