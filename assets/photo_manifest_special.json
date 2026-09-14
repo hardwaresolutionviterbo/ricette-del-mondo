@@ -1,0 +1,4210 @@
+{
+  "block": "special",
+  "range": "IMP001-BRA200",
+  "count": 600,
+  "policy": "photo_service_or_logo_fallback",
+  "fallback_asset": "assets/logo_rdm.png",
+  "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6",
+  "recipes": [
+    {
+      "id": "IMP001",
+      "title": "Pizza napoletana — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP002",
+      "title": "Pizza napoletana — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP003",
+      "title": "Pizza napoletana — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP004",
+      "title": "Pizza napoletana — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP005",
+      "title": "Pizza napoletana — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP006",
+      "title": "Pizza napoletana — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP007",
+      "title": "Pizza napoletana — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP008",
+      "title": "Pizza napoletana — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP009",
+      "title": "Pizza napoletana — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP010",
+      "title": "Pizza napoletana — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP011",
+      "title": "Pizza romana tonda — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP012",
+      "title": "Pizza romana tonda — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP013",
+      "title": "Pizza romana tonda — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP014",
+      "title": "Pizza romana tonda — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP015",
+      "title": "Pizza romana tonda — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP016",
+      "title": "Pizza romana tonda — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP017",
+      "title": "Pizza romana tonda — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP018",
+      "title": "Pizza romana tonda — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP019",
+      "title": "Pizza romana tonda — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP020",
+      "title": "Pizza romana tonda — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP021",
+      "title": "Pizza in teglia romana — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP022",
+      "title": "Pizza in teglia romana — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP023",
+      "title": "Pizza in teglia romana — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP024",
+      "title": "Pizza in teglia romana — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP025",
+      "title": "Pizza in teglia romana — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP026",
+      "title": "Pizza in teglia romana — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP027",
+      "title": "Pizza in teglia romana — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP028",
+      "title": "Pizza in teglia romana — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP029",
+      "title": "Pizza in teglia romana — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP030",
+      "title": "Pizza in teglia romana — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP031",
+      "title": "Focaccia genovese — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP032",
+      "title": "Focaccia genovese — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP033",
+      "title": "Focaccia genovese — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP034",
+      "title": "Focaccia genovese — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP035",
+      "title": "Focaccia genovese — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP036",
+      "title": "Focaccia genovese — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP037",
+      "title": "Focaccia genovese — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP038",
+      "title": "Focaccia genovese — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP039",
+      "title": "Focaccia genovese — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP040",
+      "title": "Focaccia genovese — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP041",
+      "title": "Focaccia barese — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP042",
+      "title": "Focaccia barese — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP043",
+      "title": "Focaccia barese — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP044",
+      "title": "Focaccia barese — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP045",
+      "title": "Focaccia barese — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP046",
+      "title": "Focaccia barese — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP047",
+      "title": "Focaccia barese — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP048",
+      "title": "Focaccia barese — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP049",
+      "title": "Focaccia barese — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP050",
+      "title": "Focaccia barese — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP051",
+      "title": "Pane rustico — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP052",
+      "title": "Pane rustico — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP053",
+      "title": "Pane rustico — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP054",
+      "title": "Pane rustico — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP055",
+      "title": "Pane rustico — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP056",
+      "title": "Pane rustico — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP057",
+      "title": "Pane rustico — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP058",
+      "title": "Pane rustico — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP059",
+      "title": "Pane rustico — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP060",
+      "title": "Pane rustico — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP061",
+      "title": "Baguette — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP062",
+      "title": "Baguette — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP063",
+      "title": "Baguette — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP064",
+      "title": "Baguette — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP065",
+      "title": "Baguette — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP066",
+      "title": "Baguette — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP067",
+      "title": "Baguette — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP068",
+      "title": "Baguette — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP069",
+      "title": "Baguette — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP070",
+      "title": "Baguette — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP071",
+      "title": "Ciabatta — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP072",
+      "title": "Ciabatta — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP073",
+      "title": "Ciabatta — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP074",
+      "title": "Ciabatta — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP075",
+      "title": "Ciabatta — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP076",
+      "title": "Ciabatta — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP077",
+      "title": "Ciabatta — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP078",
+      "title": "Ciabatta — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP079",
+      "title": "Ciabatta — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP080",
+      "title": "Ciabatta — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP081",
+      "title": "Pita — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP082",
+      "title": "Pita — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP083",
+      "title": "Pita — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP084",
+      "title": "Pita — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP085",
+      "title": "Pita — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP086",
+      "title": "Pita — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP087",
+      "title": "Pita — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP088",
+      "title": "Pita — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP089",
+      "title": "Pita — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP090",
+      "title": "Pita — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP091",
+      "title": "Naan — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP092",
+      "title": "Naan — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP093",
+      "title": "Naan — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP094",
+      "title": "Naan — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP095",
+      "title": "Naan — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP096",
+      "title": "Naan — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP097",
+      "title": "Naan — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP098",
+      "title": "Naan — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP099",
+      "title": "Naan — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP100",
+      "title": "Naan — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP101",
+      "title": "Roti — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP102",
+      "title": "Roti — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP103",
+      "title": "Roti — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP104",
+      "title": "Roti — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP105",
+      "title": "Roti — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP106",
+      "title": "Roti — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP107",
+      "title": "Roti — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP108",
+      "title": "Roti — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP109",
+      "title": "Roti — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP110",
+      "title": "Roti — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP111",
+      "title": "Lavash — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP112",
+      "title": "Lavash — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP113",
+      "title": "Lavash — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP114",
+      "title": "Lavash — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP115",
+      "title": "Lavash — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP116",
+      "title": "Lavash — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP117",
+      "title": "Lavash — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP118",
+      "title": "Lavash — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP119",
+      "title": "Lavash — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP120",
+      "title": "Lavash — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP121",
+      "title": "Tortilla di farina — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP122",
+      "title": "Tortilla di farina — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP123",
+      "title": "Tortilla di farina — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP124",
+      "title": "Tortilla di farina — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP125",
+      "title": "Tortilla di farina — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP126",
+      "title": "Tortilla di farina — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP127",
+      "title": "Tortilla di farina — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP128",
+      "title": "Tortilla di farina — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP129",
+      "title": "Tortilla di farina — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP130",
+      "title": "Tortilla di farina — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP131",
+      "title": "Focaccia alta all’olio — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP132",
+      "title": "Focaccia alta all’olio — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP133",
+      "title": "Focaccia alta all’olio — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP134",
+      "title": "Focaccia alta all’olio — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP135",
+      "title": "Focaccia alta all’olio — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP136",
+      "title": "Focaccia alta all’olio — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP137",
+      "title": "Focaccia alta all’olio — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP138",
+      "title": "Focaccia alta all’olio — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP139",
+      "title": "Focaccia alta all’olio — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP140",
+      "title": "Focaccia alta all’olio — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP141",
+      "title": "Impasto integrale — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP142",
+      "title": "Impasto integrale — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP143",
+      "title": "Impasto integrale — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP144",
+      "title": "Impasto integrale — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP145",
+      "title": "Impasto integrale — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP146",
+      "title": "Impasto integrale — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP147",
+      "title": "Impasto integrale — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP148",
+      "title": "Impasto integrale — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP149",
+      "title": "Impasto integrale — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP150",
+      "title": "Impasto integrale — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP151",
+      "title": "Impasto ai cereali — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP152",
+      "title": "Impasto ai cereali — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP153",
+      "title": "Impasto ai cereali — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP154",
+      "title": "Impasto ai cereali — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP155",
+      "title": "Impasto ai cereali — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP156",
+      "title": "Impasto ai cereali — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP157",
+      "title": "Impasto ai cereali — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP158",
+      "title": "Impasto ai cereali — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP159",
+      "title": "Impasto ai cereali — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP160",
+      "title": "Impasto ai cereali — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP161",
+      "title": "Pinsa romana — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP162",
+      "title": "Pinsa romana — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP163",
+      "title": "Pinsa romana — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP164",
+      "title": "Pinsa romana — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP165",
+      "title": "Pinsa romana — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP166",
+      "title": "Pinsa romana — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP167",
+      "title": "Pinsa romana — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP168",
+      "title": "Pinsa romana — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP169",
+      "title": "Pinsa romana — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP170",
+      "title": "Pinsa romana — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP171",
+      "title": "Focaccia turca pide — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP172",
+      "title": "Focaccia turca pide — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP173",
+      "title": "Focaccia turca pide — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP174",
+      "title": "Focaccia turca pide — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP175",
+      "title": "Focaccia turca pide — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP176",
+      "title": "Focaccia turca pide — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP177",
+      "title": "Focaccia turca pide — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP178",
+      "title": "Focaccia turca pide — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP179",
+      "title": "Focaccia turca pide — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP180",
+      "title": "Focaccia turca pide — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP181",
+      "title": "Impasto pretzel — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP182",
+      "title": "Impasto pretzel — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP183",
+      "title": "Impasto pretzel — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP184",
+      "title": "Impasto pretzel — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP185",
+      "title": "Impasto pretzel — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP186",
+      "title": "Impasto pretzel — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP187",
+      "title": "Impasto pretzel — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP188",
+      "title": "Impasto pretzel — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP189",
+      "title": "Impasto pretzel — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP190",
+      "title": "Impasto pretzel — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP191",
+      "title": "Impasto brioche — variante classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP192",
+      "title": "Impasto brioche — variante a lunga maturazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP193",
+      "title": "Impasto brioche — variante con semola",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP194",
+      "title": "Impasto brioche — variante con farina integrale",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP195",
+      "title": "Impasto brioche — variante con farina di farro",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP196",
+      "title": "Impasto brioche — variante con olio extravergine",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP197",
+      "title": "Impasto brioche — variante con erbe aromatiche",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP198",
+      "title": "Impasto brioche — variante con semi misti",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP199",
+      "title": "Impasto brioche — variante rustica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "IMP200",
+      "title": "Impasto brioche — variante ad alta idratazione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR001",
+      "title": "Cheeseburger classico — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR002",
+      "title": "Cheeseburger classico — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR003",
+      "title": "Cheeseburger classico — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR004",
+      "title": "Cheeseburger classico — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR005",
+      "title": "Cheeseburger classico — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR006",
+      "title": "Cheeseburger classico — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR007",
+      "title": "Cheeseburger classico — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR008",
+      "title": "Cheeseburger classico — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR009",
+      "title": "Cheeseburger classico — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR010",
+      "title": "Cheeseburger classico — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR011",
+      "title": "Smash burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR012",
+      "title": "Smash burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR013",
+      "title": "Smash burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR014",
+      "title": "Smash burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR015",
+      "title": "Smash burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR016",
+      "title": "Smash burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR017",
+      "title": "Smash burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR018",
+      "title": "Smash burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR019",
+      "title": "Smash burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR020",
+      "title": "Smash burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR021",
+      "title": "Bacon burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR022",
+      "title": "Bacon burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR023",
+      "title": "Bacon burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR024",
+      "title": "Bacon burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR025",
+      "title": "Bacon burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR026",
+      "title": "Bacon burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR027",
+      "title": "Bacon burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR028",
+      "title": "Bacon burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR029",
+      "title": "Bacon burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR030",
+      "title": "Bacon burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR031",
+      "title": "Blue cheese burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR032",
+      "title": "Blue cheese burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR033",
+      "title": "Blue cheese burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR034",
+      "title": "Blue cheese burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR035",
+      "title": "Blue cheese burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR036",
+      "title": "Blue cheese burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR037",
+      "title": "Blue cheese burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR038",
+      "title": "Blue cheese burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR039",
+      "title": "Blue cheese burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR040",
+      "title": "Blue cheese burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR041",
+      "title": "BBQ burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR042",
+      "title": "BBQ burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR043",
+      "title": "BBQ burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR044",
+      "title": "BBQ burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR045",
+      "title": "BBQ burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR046",
+      "title": "BBQ burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR047",
+      "title": "BBQ burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR048",
+      "title": "BBQ burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR049",
+      "title": "BBQ burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR050",
+      "title": "BBQ burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR051",
+      "title": "California burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR052",
+      "title": "California burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR053",
+      "title": "California burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR054",
+      "title": "California burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR055",
+      "title": "California burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR056",
+      "title": "California burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR057",
+      "title": "California burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR058",
+      "title": "California burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR059",
+      "title": "California burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR060",
+      "title": "California burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR061",
+      "title": "Mexican burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR062",
+      "title": "Mexican burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR063",
+      "title": "Mexican burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR064",
+      "title": "Mexican burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR065",
+      "title": "Mexican burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR066",
+      "title": "Mexican burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR067",
+      "title": "Mexican burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR068",
+      "title": "Mexican burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR069",
+      "title": "Mexican burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR070",
+      "title": "Mexican burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR071",
+      "title": "Cuban frita — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR072",
+      "title": "Cuban frita — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR073",
+      "title": "Cuban frita — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR074",
+      "title": "Cuban frita — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR075",
+      "title": "Cuban frita — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR076",
+      "title": "Cuban frita — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR077",
+      "title": "Cuban frita — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR078",
+      "title": "Cuban frita — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR079",
+      "title": "Cuban frita — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR080",
+      "title": "Cuban frita — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR081",
+      "title": "Greek lamb burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR082",
+      "title": "Greek lamb burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR083",
+      "title": "Greek lamb burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR084",
+      "title": "Greek lamb burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR085",
+      "title": "Greek lamb burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR086",
+      "title": "Greek lamb burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR087",
+      "title": "Greek lamb burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR088",
+      "title": "Greek lamb burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR089",
+      "title": "Greek lamb burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR090",
+      "title": "Greek lamb burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR091",
+      "title": "Korean BBQ burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR092",
+      "title": "Korean BBQ burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR093",
+      "title": "Korean BBQ burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR094",
+      "title": "Korean BBQ burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR095",
+      "title": "Korean BBQ burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR096",
+      "title": "Korean BBQ burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR097",
+      "title": "Korean BBQ burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR098",
+      "title": "Korean BBQ burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR099",
+      "title": "Korean BBQ burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR100",
+      "title": "Korean BBQ burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR101",
+      "title": "Thai turkey burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR102",
+      "title": "Thai turkey burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR103",
+      "title": "Thai turkey burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR104",
+      "title": "Thai turkey burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR105",
+      "title": "Thai turkey burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR106",
+      "title": "Thai turkey burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR107",
+      "title": "Thai turkey burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR108",
+      "title": "Thai turkey burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR109",
+      "title": "Thai turkey burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR110",
+      "title": "Thai turkey burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR111",
+      "title": "Japanese teriyaki burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR112",
+      "title": "Japanese teriyaki burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR113",
+      "title": "Japanese teriyaki burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR114",
+      "title": "Japanese teriyaki burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR115",
+      "title": "Japanese teriyaki burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR116",
+      "title": "Japanese teriyaki burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR117",
+      "title": "Japanese teriyaki burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR118",
+      "title": "Japanese teriyaki burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR119",
+      "title": "Japanese teriyaki burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR120",
+      "title": "Japanese teriyaki burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR121",
+      "title": "Banh mi burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR122",
+      "title": "Banh mi burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR123",
+      "title": "Banh mi burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR124",
+      "title": "Banh mi burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR125",
+      "title": "Banh mi burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR126",
+      "title": "Banh mi burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR127",
+      "title": "Banh mi burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR128",
+      "title": "Banh mi burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR129",
+      "title": "Banh mi burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR130",
+      "title": "Banh mi burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR131",
+      "title": "Caprese burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR132",
+      "title": "Caprese burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR133",
+      "title": "Caprese burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR134",
+      "title": "Caprese burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR135",
+      "title": "Caprese burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR136",
+      "title": "Caprese burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR137",
+      "title": "Caprese burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR138",
+      "title": "Caprese burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR139",
+      "title": "Caprese burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR140",
+      "title": "Caprese burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR141",
+      "title": "Mediterranean chicken burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR142",
+      "title": "Mediterranean chicken burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR143",
+      "title": "Mediterranean chicken burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR144",
+      "title": "Mediterranean chicken burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR145",
+      "title": "Mediterranean chicken burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR146",
+      "title": "Mediterranean chicken burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR147",
+      "title": "Mediterranean chicken burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR148",
+      "title": "Mediterranean chicken burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR149",
+      "title": "Mediterranean chicken burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR150",
+      "title": "Mediterranean chicken burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR151",
+      "title": "Salmon burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR152",
+      "title": "Salmon burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR153",
+      "title": "Salmon burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR154",
+      "title": "Salmon burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR155",
+      "title": "Salmon burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR156",
+      "title": "Salmon burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR157",
+      "title": "Salmon burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR158",
+      "title": "Salmon burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR159",
+      "title": "Salmon burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR160",
+      "title": "Salmon burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR161",
+      "title": "Veggie chickpea burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR162",
+      "title": "Veggie chickpea burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR163",
+      "title": "Veggie chickpea burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR164",
+      "title": "Veggie chickpea burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR165",
+      "title": "Veggie chickpea burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR166",
+      "title": "Veggie chickpea burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR167",
+      "title": "Veggie chickpea burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR168",
+      "title": "Veggie chickpea burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR169",
+      "title": "Veggie chickpea burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR170",
+      "title": "Veggie chickpea burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR171",
+      "title": "Black bean burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR172",
+      "title": "Black bean burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR173",
+      "title": "Black bean burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR174",
+      "title": "Black bean burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR175",
+      "title": "Black bean burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR176",
+      "title": "Black bean burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR177",
+      "title": "Black bean burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR178",
+      "title": "Black bean burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR179",
+      "title": "Black bean burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR180",
+      "title": "Black bean burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR181",
+      "title": "Portobello burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR182",
+      "title": "Portobello burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR183",
+      "title": "Portobello burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR184",
+      "title": "Portobello burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR185",
+      "title": "Portobello burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR186",
+      "title": "Portobello burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR187",
+      "title": "Portobello burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR188",
+      "title": "Portobello burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR189",
+      "title": "Portobello burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR190",
+      "title": "Portobello burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR191",
+      "title": "Duck burger — classico",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR192",
+      "title": "Duck burger — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR193",
+      "title": "Duck burger — con cipolla caramellata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR194",
+      "title": "Duck burger — con salsa affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR195",
+      "title": "Duck burger — con cetriolini",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR196",
+      "title": "Duck burger — con avocado",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR197",
+      "title": "Duck burger — con insalata croccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR198",
+      "title": "Duck burger — con formaggio stagionato",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR199",
+      "title": "Duck burger — con salsa allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BUR200",
+      "title": "Duck burger — con spezie della regione",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA001",
+      "title": "Costata di manzo — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA002",
+      "title": "Costata di manzo — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA003",
+      "title": "Costata di manzo — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA004",
+      "title": "Costata di manzo — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA005",
+      "title": "Costata di manzo — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA006",
+      "title": "Costata di manzo — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA007",
+      "title": "Costata di manzo — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA008",
+      "title": "Costata di manzo — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA009",
+      "title": "Costata di manzo — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA010",
+      "title": "Costata di manzo — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA011",
+      "title": "Fiorentina — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA012",
+      "title": "Fiorentina — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA013",
+      "title": "Fiorentina — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA014",
+      "title": "Fiorentina — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA015",
+      "title": "Fiorentina — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA016",
+      "title": "Fiorentina — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA017",
+      "title": "Fiorentina — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA018",
+      "title": "Fiorentina — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA019",
+      "title": "Fiorentina — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA020",
+      "title": "Fiorentina — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA021",
+      "title": "Tagliata di controfiletto — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA022",
+      "title": "Tagliata di controfiletto — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA023",
+      "title": "Tagliata di controfiletto — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA024",
+      "title": "Tagliata di controfiletto — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA025",
+      "title": "Tagliata di controfiletto — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA026",
+      "title": "Tagliata di controfiletto — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA027",
+      "title": "Tagliata di controfiletto — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA028",
+      "title": "Tagliata di controfiletto — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA029",
+      "title": "Tagliata di controfiletto — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA030",
+      "title": "Tagliata di controfiletto — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA031",
+      "title": "Entrecote alla brace — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA032",
+      "title": "Entrecote alla brace — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA033",
+      "title": "Entrecote alla brace — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA034",
+      "title": "Entrecote alla brace — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA035",
+      "title": "Entrecote alla brace — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA036",
+      "title": "Entrecote alla brace — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA037",
+      "title": "Entrecote alla brace — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA038",
+      "title": "Entrecote alla brace — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA039",
+      "title": "Entrecote alla brace — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA040",
+      "title": "Entrecote alla brace — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA041",
+      "title": "Tomahawk alla brace — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA042",
+      "title": "Tomahawk alla brace — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA043",
+      "title": "Tomahawk alla brace — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA044",
+      "title": "Tomahawk alla brace — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA045",
+      "title": "Tomahawk alla brace — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA046",
+      "title": "Tomahawk alla brace — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA047",
+      "title": "Tomahawk alla brace — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA048",
+      "title": "Tomahawk alla brace — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA049",
+      "title": "Tomahawk alla brace — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA050",
+      "title": "Tomahawk alla brace — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA051",
+      "title": "Costine di maiale BBQ — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA052",
+      "title": "Costine di maiale BBQ — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA053",
+      "title": "Costine di maiale BBQ — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA054",
+      "title": "Costine di maiale BBQ — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA055",
+      "title": "Costine di maiale BBQ — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA056",
+      "title": "Costine di maiale BBQ — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA057",
+      "title": "Costine di maiale BBQ — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA058",
+      "title": "Costine di maiale BBQ — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA059",
+      "title": "Costine di maiale BBQ — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA060",
+      "title": "Costine di maiale BBQ — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA061",
+      "title": "Pulled pork — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA062",
+      "title": "Pulled pork — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA063",
+      "title": "Pulled pork — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA064",
+      "title": "Pulled pork — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA065",
+      "title": "Pulled pork — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA066",
+      "title": "Pulled pork — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA067",
+      "title": "Pulled pork — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA068",
+      "title": "Pulled pork — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA069",
+      "title": "Pulled pork — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA070",
+      "title": "Pulled pork — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA071",
+      "title": "Brisket — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA072",
+      "title": "Brisket — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA073",
+      "title": "Brisket — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA074",
+      "title": "Brisket — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA075",
+      "title": "Brisket — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA076",
+      "title": "Brisket — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA077",
+      "title": "Brisket — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA078",
+      "title": "Brisket — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA079",
+      "title": "Brisket — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA080",
+      "title": "Brisket — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA081",
+      "title": "Salsiccia alla brace — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA082",
+      "title": "Salsiccia alla brace — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA083",
+      "title": "Salsiccia alla brace — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA084",
+      "title": "Salsiccia alla brace — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA085",
+      "title": "Salsiccia alla brace — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA086",
+      "title": "Salsiccia alla brace — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA087",
+      "title": "Salsiccia alla brace — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA088",
+      "title": "Salsiccia alla brace — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA089",
+      "title": "Salsiccia alla brace — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA090",
+      "title": "Salsiccia alla brace — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA091",
+      "title": "Spiedini di pollo — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA092",
+      "title": "Spiedini di pollo — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA093",
+      "title": "Spiedini di pollo — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA094",
+      "title": "Spiedini di pollo — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA095",
+      "title": "Spiedini di pollo — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA096",
+      "title": "Spiedini di pollo — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA097",
+      "title": "Spiedini di pollo — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA098",
+      "title": "Spiedini di pollo — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA099",
+      "title": "Spiedini di pollo — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA100",
+      "title": "Spiedini di pollo — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA101",
+      "title": "Pollo alla griglia — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA102",
+      "title": "Pollo alla griglia — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA103",
+      "title": "Pollo alla griglia — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA104",
+      "title": "Pollo alla griglia — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA105",
+      "title": "Pollo alla griglia — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA106",
+      "title": "Pollo alla griglia — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA107",
+      "title": "Pollo alla griglia — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA108",
+      "title": "Pollo alla griglia — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA109",
+      "title": "Pollo alla griglia — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA110",
+      "title": "Pollo alla griglia — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA111",
+      "title": "Agnello alla brace — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA112",
+      "title": "Agnello alla brace — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA113",
+      "title": "Agnello alla brace — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA114",
+      "title": "Agnello alla brace — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA115",
+      "title": "Agnello alla brace — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA116",
+      "title": "Agnello alla brace — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA117",
+      "title": "Agnello alla brace — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA118",
+      "title": "Agnello alla brace — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA119",
+      "title": "Agnello alla brace — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA120",
+      "title": "Agnello alla brace — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA121",
+      "title": "Kebab di agnello — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA122",
+      "title": "Kebab di agnello — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA123",
+      "title": "Kebab di agnello — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA124",
+      "title": "Kebab di agnello — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA125",
+      "title": "Kebab di agnello — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA126",
+      "title": "Kebab di agnello — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA127",
+      "title": "Kebab di agnello — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA128",
+      "title": "Kebab di agnello — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA129",
+      "title": "Kebab di agnello — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA130",
+      "title": "Kebab di agnello — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA131",
+      "title": "Asado di manzo — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA132",
+      "title": "Asado di manzo — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA133",
+      "title": "Asado di manzo — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA134",
+      "title": "Asado di manzo — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA135",
+      "title": "Asado di manzo — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA136",
+      "title": "Asado di manzo — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA137",
+      "title": "Asado di manzo — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA138",
+      "title": "Asado di manzo — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA139",
+      "title": "Asado di manzo — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA140",
+      "title": "Asado di manzo — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA141",
+      "title": "Churrasco — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA142",
+      "title": "Churrasco — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA143",
+      "title": "Churrasco — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA144",
+      "title": "Churrasco — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA145",
+      "title": "Churrasco — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA146",
+      "title": "Churrasco — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA147",
+      "title": "Churrasco — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA148",
+      "title": "Churrasco — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA149",
+      "title": "Churrasco — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA150",
+      "title": "Churrasco — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA151",
+      "title": "Picanha — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA152",
+      "title": "Picanha — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA153",
+      "title": "Picanha — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA154",
+      "title": "Picanha — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA155",
+      "title": "Picanha — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA156",
+      "title": "Picanha — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA157",
+      "title": "Picanha — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA158",
+      "title": "Picanha — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA159",
+      "title": "Picanha — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA160",
+      "title": "Picanha — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA161",
+      "title": "Yakitori di pollo — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA162",
+      "title": "Yakitori di pollo — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA163",
+      "title": "Yakitori di pollo — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA164",
+      "title": "Yakitori di pollo — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA165",
+      "title": "Yakitori di pollo — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA166",
+      "title": "Yakitori di pollo — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA167",
+      "title": "Yakitori di pollo — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA168",
+      "title": "Yakitori di pollo — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA169",
+      "title": "Yakitori di pollo — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA170",
+      "title": "Yakitori di pollo — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA171",
+      "title": "Satay di pollo — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA172",
+      "title": "Satay di pollo — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA173",
+      "title": "Satay di pollo — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA174",
+      "title": "Satay di pollo — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA175",
+      "title": "Satay di pollo — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA176",
+      "title": "Satay di pollo — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA177",
+      "title": "Satay di pollo — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA178",
+      "title": "Satay di pollo — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA179",
+      "title": "Satay di pollo — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA180",
+      "title": "Satay di pollo — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA181",
+      "title": "Jerk chicken — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA182",
+      "title": "Jerk chicken — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA183",
+      "title": "Jerk chicken — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA184",
+      "title": "Jerk chicken — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA185",
+      "title": "Jerk chicken — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA186",
+      "title": "Jerk chicken — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA187",
+      "title": "Jerk chicken — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA188",
+      "title": "Jerk chicken — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA189",
+      "title": "Jerk chicken — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA190",
+      "title": "Jerk chicken — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA191",
+      "title": "Halloumi alla griglia — classica",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA192",
+      "title": "Halloumi alla griglia — con rosmarino",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA193",
+      "title": "Halloumi alla griglia — con aglio e limone",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA194",
+      "title": "Halloumi alla griglia — piccante",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA195",
+      "title": "Halloumi alla griglia — con paprika affumicata",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA196",
+      "title": "Halloumi alla griglia — con erbe mediterranee",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA197",
+      "title": "Halloumi alla griglia — con marinatura allo yogurt",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA198",
+      "title": "Halloumi alla griglia — con salsa BBQ",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA199",
+      "title": "Halloumi alla griglia — con spezie del territorio",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    },
+    {
+      "id": "BRA200",
+      "title": "Halloumi alla griglia — con agrumi",
+      "image_policy": "photo_service_or_logo_fallback",
+      "fallback_asset": "assets/logo_rdm.png",
+      "fallback_sha256": "85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "R00001": {
+    "source": "Wikimedia Commons",
+    "file": "Spaghetti alla Carbonara.jpg",
+    "license": "Public domain"
+  },
+  "R00002": {
+    "source": "Wikimedia Commons",
+    "file": "California roll.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "Tiia Monto"
+  },
+  "R00003": {
+    "source": "Wikimedia Commons",
+    "file": "Chicken tacos.jpg",
+    "license": "CC BY-SA 4.0",
+    "author": "Kylam2002"
+  },
+  "R00004": {
+    "source": "Wikimedia Commons",
+    "file": "Chicken Curry.JPG",
+    "license": "CC0 1.0",
+    "author": "Miansari66"
+  },
+  "R00005": {
+    "source": "Wikimedia Commons",
+    "file": "Insalata greca.JPG",
+    "license": "CC0 1.0",
+    "author": "Cifo Buscemi"
+  },
+  "R00009": {
+    "source": "Wikimedia Commons",
+    "file": "Pasta primavera.jpg",
+    "license": "CC BY 2.0",
+    "author": "Jeremy Keith",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Pasta_primavera.jpg"
+  },
+  "R00010": {
+    "source": "Wikimedia Commons",
+    "file": "Mushroom Risotto (4789418371).jpg",
+    "license": "CC BY-SA 2.0",
+    "author": "Katrin Gilger",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Mushroom_Risotto_(4789418371).jpg"
+  },
+  "R00011": {
+    "source": "Wikimedia Commons",
+    "file": "Tiramisu (4993303775).jpg",
+    "license": "CC BY-SA 2.0",
+    "author": "cyclonebill",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Tiramisu_(4993303775).jpg"
+  }
+}

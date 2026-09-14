@@ -3,7 +3,7 @@ description: Ricette del Mondo — app di ricette e viaggio culinario.
 publish_to: "none"
 version: 6.0.0+1
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.10.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -11,12 +11,18 @@ dependencies:
   cupertino_icons: ^1.0.8
   share_plus: ^11.1.0
   http: ^1.5.0
-    firebase_core: ^4.14.0
-      firebase_auth: ^6.6.1
-        cloud_firestore: ^6.9.0
-          firebase_storage: ^13.5.0
-            google_sign_in: ^7.2.0
-              firebase_crashlytics: ^5.3.0
+  shared_preferences: ^2.5.3
+  firebase_core: ^4.14.0
+  firebase_auth: ^6.6.1
+  cloud_firestore: ^6.9.0
+  google_sign_in: ^7.2.0
+  firebase_analytics: ^12.0.0
+  firebase_crashlytics: ^5.3.0
+  firebase_messaging: ^16.6.0
+  flutter_local_notifications: ^22.3.1
+  google_mobile_ads: ^6.0.0
+  url_launcher: ^6.3.2
+  image_picker: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -29,9 +35,12 @@ flutter:
   assets:
     - assets/logo_rdm.png
     - assets/recipes.json
+    - assets/photo_manifest_block_001.json
+    - assets/photo_queries_v6.json
     - assets/images/
     - assets/banners/
     - assets/splash_v6.png
+    - assets/icon/app_icon.png
 
 flutter_launcher_icons:
   android: "launcher_icon"

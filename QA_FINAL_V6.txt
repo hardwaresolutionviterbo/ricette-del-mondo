@@ -7,18 +7,22 @@ Controlli statici eseguiti:
 - Titoli univoci: 10.000/10.000
 - 10 passaggi per ricetta: 10.000/10.000
 - Liste speciali: 200 Impasti + 200 Hamburger + 200 Braceria = 600
+- Manifest fotografico: 10.000 ricette + 600 speciali = 10.600/10.600 ID univoci
 - ID speciali univoci per lista: OK
 - Delimitatori Dart (), [], {}: OK su tutti i file lib/*.dart
 - Stringhe/commenti non hanno lasciato delimitatori non bilanciati: OK
 - Asset dichiarati nel pubspec: presenti
-- Foto locali presenti: 8
+- Foto locali verificate e uniche: 8
+- Sistema foto remoto: Openverse/Wikimedia a runtime con logo ufficiale come fallback
 - Doppioni byte-identici tra le 8 foto locali: 0
 - imageUrl espliciti nel catalogo: 0
 - Icona approvata installata in assets/icon/app_icon.png: OK
 - Nome applicazione visibile configurato: Ricette del Mondo
 - Versione: 6.0.0+1
 - flutter_launcher_icons iOS disabilitato per la pipeline Android: OK
-- Codemagic workflow Android debug presente: OK
+- Codemagic workflow Android release presente: OK
+- Preferito ricetta: cuore superiore e cuore nella barra inferiore aggiornati immediatamente: OK
+- Permesso Android INTERNET inserito dal workflow per il resolver fotografico remoto: OK
 
 Nota di verifica:
 L'ambiente di lavoro non contiene Flutter/Dart, quindi non è stato possibile eseguire localmente `flutter analyze`, `flutter test` o `flutter build apk`.
@@ -26,3 +30,15 @@ Il controllo effettuato è statico e strutturale; la compilazione reale deve ess
 
 Nota fotografie:
 Il progetto usa una risoluzione fotografica conservativa: le 8 foto locali attualmente validate sono uniche; per le altre ricette il servizio tenta una ricerca Wikimedia Commons e, se non trova un abbinamento sufficientemente coerente, mostra il logo invece di una foto potenzialmente sbagliata. Non vengono dichiarate come già verificate 10.000 foto individuali.
+
+--- CONSOLIDAMENTO PRIVACY/ACCOUNT V6 ---
+- Titolare: Casalini Carlo; recapito pubblico: Porano (TR), 05010, Italia; email: hardwaresolutionviterbo@gmail.com.
+- Aggiunta area Il mio account con registrazione/accesso, nome visualizzato, email/password, recupero password e Continua con Google come interfaccia pronta per il collegamento Firebase.
+- Aggiunta accettazione Privacy Policy e Termini prima della registrazione.
+- Aggiunte preferenze privacy persistenti per Analytics, pubblicita personalizzata, comunicazioni promozionali e notifiche di servizio.
+- Aggiunti filtri dietetici Vegetariani, Vegani, Senza glutine e Senza lattosio con rilevazione euristica sugli ingredienti/titolo/tag.
+- Aggiunta gestione allergeni, avviso prima dell'apertura e filtro dalle ricerche.
+- Aggiunte pagine Privacy Policy, Termini, Condizioni Premium, Licenze/Crediti e Sicurezza alimentare.
+- Aggiunte richieste di esportazione e cancellazione dati nell'interfaccia privacy, da collegare all'account cloud reale.
+- Nota tecnica: il progetto non contiene ancora credenziali/configurazione Firebase, AdMob, FCM o certificati Apple; tali configurazioni esterne sono necessarie per attivare i servizi reali in produzione.
+- Verifica Flutter locale non eseguibile in questo ambiente per assenza di Flutter/Dart; il controllo di compilazione finale resta da eseguire in Codemagic.

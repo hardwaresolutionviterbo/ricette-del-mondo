@@ -1,0 +1,8 @@
+QA COPERTURA IMMAGINI V6
+Ricette catalogo: 10000
+Ricette speciali: 600
+Totale schede con strategia immagine: 10600
+Strategia: foto reale pertinente da fonte online quando verificata; logo ufficiale come fallback.
+Nessuna foto casuale viene assegnata come fallback.
+photo_queries_v6.json SHA256: 966cd8e036525563cd843be0ed3f33b0d7c1fdaed8fa19011689d85c53a7b08f
+Nota: il progetto usa risoluzione/cache remota; questo file non dichiara che 10.600 foto reali siano già state scaricate localmente.

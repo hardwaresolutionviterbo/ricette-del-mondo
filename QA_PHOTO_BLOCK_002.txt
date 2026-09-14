@@ -1,0 +1,12 @@
+CONTROLLO FOTOGRAFICO BLOCCO 2
+
+Intervallo: R01001-R02000
+Ricette nel blocco: 1000
+ID univoci: True
+Manifest completo: True
+Fallback immagine: assets/logo_rdm.png
+SHA256 fallback: 85c1ed64cefae0bc1bda4c97794a5dd27ea0df7c34aa61f5808f0e08d54eddf6
+
+Politica: foto reale pertinente e licenza verificabile quando il servizio fotografico trova un risultato idoneo; in assenza di una corrispondenza attendibile, logo ufficiale. Nessuna foto di un piatto diverso viene usata come riempitivo.
+
+Nota: il servizio fotografico e' runtime; questo manifest non dichiara 1.000 foto reali gia' scaricate localmente.

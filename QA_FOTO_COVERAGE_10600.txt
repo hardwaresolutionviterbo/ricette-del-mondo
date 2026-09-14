@@ -1,0 +1,12 @@
+RICETTE DEL MONDO — QA FOTOGRAFICO V6
+Data: 2026-09-14
+
+- Catalogo principale: 10000 ricette
+- Ricette speciali: 600
+- Totale schede coperte da manifest fotografico: 10600
+- ID fotografici univoci: 10600/10600
+- Foto locali verificate: 8
+- Foto locali duplicate byte-identiche: 0
+- Copertura immagine: 10.600/10.600 schede hanno un percorso di risoluzione (foto remota verificata oppure logo fallback).
+- Importante: il manifest non dichiara 10.600 foto reali già scaricate. Le immagini remote vengono risolte a runtime; il logo è il fallback.
+- Speciali correttamente identificati: IMP001-IMP200, BUR001-BUR200, BRA001-BRA200.

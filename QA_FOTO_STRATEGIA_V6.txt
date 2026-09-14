@@ -1,0 +1,18 @@
+V6 - STRATEGIA FOTO
+
+Stato: implementata nel progetto di lavoro.
+
+Priorita' per ogni ricetta:
+1) foto locale gia' verificata;
+2) imageUrl esplicito, se presente e non duplicato;
+3) ricerca Openverse con licenze CC0, Public Domain, CC BY e CC BY-SA;
+4) ricerca Wikimedia Commons;
+5) logo ufficiale Ricette del Mondo come fallback, mai foto casuale di un altro piatto.
+
+Vincoli:
+- una stessa URL remota non viene assegnata a piu' ricette nella stessa installazione;
+- le associazioni vengono memorizzate localmente;
+- loghi, icone, bandiere, mappe, poster e diagrammi vengono esclusi dalle ricerche;
+- il progetto non dichiara 10.600 foto verificate finche' non lo sono realmente.
+
+Nota: le API Openverse aggregano contenuti con licenze aperte, ma la licenza della singola opera va comunque rispettata/verificata; per questo sono escluse le licenze NC nella ricerca automatica.
