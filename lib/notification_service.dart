@@ -111,7 +111,7 @@ class NotificationService {
     const settings = InitializationSettings(android: android, iOS: ios);
 
     await _local.initialize(
-      settings,
+    settings: settings,
       onDidReceiveNotificationResponse: (_) {},
     );
 
@@ -151,10 +151,10 @@ class NotificationService {
     if ((title == null || title.isEmpty) && (body == null || body.isEmpty)) return;
 
     await _local.show(
-      DateTime.now().millisecondsSinceEpoch.remainder(1 << 31),
-      title?.isNotEmpty == true ? title : 'Ricette del Mondo',
-      body ?? '',
-      const NotificationDetails(
+        id:       DateTime.now().millisecondsSinceEpoch.remainder(1 << 31),
+        title:       title?.isNotEmpty == true ? title : 'Ricette del Mondo',
+        body:       body ?? '',
+        notificationDetails:       const NotificationDetails(
         android: AndroidNotificationDetails(
           _notificationChannelId,
           _notificationChannelName,

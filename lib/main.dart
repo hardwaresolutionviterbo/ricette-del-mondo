@@ -465,7 +465,7 @@ class AllergenSettingsPage extends StatelessWidget{
   const SizedBox(height:16),
   ...allergenLabels.entries.map((e)=>Card(margin:const EdgeInsets.only(bottom:8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),child:SwitchListTile(value:selected.contains(e.key),onChanged:(v)=>onChanged(e.key,v),secondary:Container(width:42,height:42,decoration:BoxDecoration(color:const Color(0xFFEAF4EE),borderRadius:BorderRadius.circular(13)),child:const Icon(Icons.warning_amber_rounded,color:green)),title:Text(e.value,style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),subtitle:const Text('Usa sempre anche le etichette e le informazioni del prodotto.'))),
   const SizedBox(height:8),
-  Container(padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:const Color(0xFFFFF4DE),borderRadius:BorderRadius.circular(20)),child:const Text('Il filtro è un aiuto informativo: non garantisce l'assenza di contaminazioni o tracce e non sostituisce il controllo dell'etichetta. In caso di allergia, verifica sempre gli ingredienti del prodotto utilizzato.',style:TextStyle(fontSize:12.5,height:1.45,fontWeight:FontWeight.w600,color:ink))),
+              child: const Text("Il filtro è un aiuto informativo: non garantisce l'assenza di contaminazioni o tracce e non sostituisce il controllo dell'etichetta. In caso di allergia, verifica sempre gli ingredienti del prodotto utilizzato."),
  ]);
 }
 
