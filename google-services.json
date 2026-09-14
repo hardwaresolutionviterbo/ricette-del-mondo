@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "128376772198",
+    "project_id": "ricette-del-mondo",
+    "storage_bucket": "ricette-del-mondo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128376772198:android:446fee32184ea6ca683fa7",
+        "android_client_info": {
+          "package_name": "it.ricettedelmondo.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrPXagp_5_Gd-dc5qPHMM941hBcVf94wg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
