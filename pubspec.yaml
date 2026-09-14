@@ -1,7 +1,7 @@
 name: ricette_del_mondo
 description: Ricette del Mondo — app di ricette e viaggio culinario.
 publish_to: "none"
-version: 5.2.1+8
+version: 5.2.0+7
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
