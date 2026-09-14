@@ -1,7 +1,7 @@
 name: ricette_del_mondo
-description: Ricette del Mondo — app di ricette e viaggio con catalogo locale da 120 ricette.
+description: Ricette del Mondo — app di ricette e viaggio culinario.
 publish_to: "none"
-version: 5.1.0+6
+version: 5.2.1+8
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
@@ -15,6 +15,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
@@ -22,3 +23,11 @@ flutter:
     - assets/logo_rdm.png
     - assets/recipes.json
     - assets/images/
+    - assets/banners/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
