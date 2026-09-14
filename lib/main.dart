@@ -285,6 +285,51 @@ class _AppShellState extends State<AppShell>{
  Widget searchBox()=>TextField(controller:search,onChanged:(_)=>setState((){}),onSubmitted:(_)=>setState(()=>tab=1),decoration:InputDecoration(hintText:'Cerca ricette, Paesi o ingredienti',prefixIcon:const Icon(Icons.search,color:green),suffixIcon:IconButton(onPressed:showFilters,icon:const Icon(Icons.tune,color:green)),filled:true,fillColor:Colors.white,border:OutlineInputBorder(borderRadius:BorderRadius.circular(30),borderSide:BorderSide.none),contentPadding:const EdgeInsets.symmetric(vertical:14)));
  Widget fridgeBanner()=>Card(elevation:0,color:const Color(0xFFE4F1E8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(22)),child:InkWell(borderRadius:BorderRadius.circular(22),onTap:fridgePage,child:Padding(padding:const EdgeInsets.all(17),child:Row(children:[Container(width:52,height:52,decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(16)),child:const Icon(Icons.kitchen,color:Colors.white)),const SizedBox(width:14),const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Cosa hai nel frigo?',style:TextStyle(fontSize:19,fontWeight:FontWeight.w900,color:ink)),SizedBox(height:4),Text('Seleziona gli ingredienti e scopri cosa puoi cucinare.',style:TextStyle(color:ink))])),const Icon(Icons.arrow_forward_ios_rounded,size:18,color:green)]))));
  Widget section(String t,{String? action,VoidCallback? onAction})=>Padding(padding:const EdgeInsets.only(top:22,bottom:10),child:Row(children:[Expanded(child:Text(t,style:const TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink))),if(action!=null)TextButton(onPressed:onAction,child:Text(action,style:const TextStyle(color:green,fontWeight:FontWeight.w800)))]));
+ Widget recipeCard(Recipe r)=>Card(
+  margin:const EdgeInsets.only(bottom:11),
+  clipBehavior:Clip.antiAlias,
+  elevation:1,
+  child:InkWell(
+    onTap:()=>openRecipe(r),
+    child:Row(children:[
+      SizedBox(width:124,height:124,child:recipeVisual(r,height:124,radius:BorderRadius.zero)),
+      Expanded(child:Padding(
+        padding:const EdgeInsets.all(12),
+        child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+          Row(children:[
+            Expanded(child:Text(r.title,maxLines:2,overflow:TextOverflow.ellipsis,
+              style:const TextStyle(fontWeight:FontWeight.w900,fontSize:16,color:ink))),
+            if(r.premium)const Icon(Icons.workspace_premium,size:18,color:orange),
+          ]),
+          const SizedBox(height:5),
+          Text('${flag(r.country)} ${r.country}',style:const TextStyle(fontWeight:FontWeight.w600)),
+          const SizedBox(height:5),
+          Text('${r.prepMin} min prep • ${r.cookMin} min cottura • ${r.servings} porzioni',
+            style:const TextStyle(fontSize:11)),
+          Text(cost(r,r.servings),
+            style:const TextStyle(fontSize:11,color:green,fontWeight:FontWeight.w800)),
+        ]),
+      )),
+      FavoriteButton(
+        selected:favorites.contains(r.id),
+        onTap:(){
+          setState((){
+            if(favorites.contains(r.id)){
+              favorites.remove(r.id);
+            }else{
+              favorites.add(r.id);
+            }
+          });
+        },
+      ),
+    ]),
+  ),
+ );
+ String cost(Recipe r,int servings){
+   final base=1.9+r.ingredients.length*.9;
+   final v=base*(servings/(r.servings==0?4:r.servings));
+   return '€${v.toStringAsFixed(2)} stimati';
+ }
  Widget miniCard(Recipe r)=>GestureDetector(onTap:()=>openRecipe(r),child:SizedBox(width:172,height:254,child:Container(margin:const EdgeInsets.only(right:12),child:Card(clipBehavior:Clip.antiAlias,elevation:2,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[recipeVisual(r,height:112,radius:BorderRadius.zero),Padding(padding:const EdgeInsets.fromLTRB(10,7,10,8),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(r.title,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:4),Text('${flag(r.country)} ${r.country}',style:const TextStyle(fontSize:12)),const SizedBox(height:3),Text('${r.timeMin} min • ${cost(r,r.servings)}',maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:11))]))])))));
  Widget continentGrid()=>GridView.count(crossAxisCount:3,shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),crossAxisSpacing:8,mainAxisSpacing:8,childAspectRatio:1.1,children:[['Europa','🇪🇺'],['Asia','🌏'],['Americhe','🌎'],['Africa','🌍'],['Oceania','🌊'],['Medio Oriente','🕌']].map((x)=>InkWell(onTap:()=>openContinentPage(x[0]),borderRadius:BorderRadius.circular(18),child:Container(decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(18),border:Border.all(color:const Color(0xFFE8DFD1))),child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[Text(x[1],style:const TextStyle(fontSize:32)),const SizedBox(height:5),Text(x[0],style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),const SizedBox(height:3),const Text('Tocca per esplorare',style:TextStyle(fontSize:9,color:Colors.black45))])))).toList());
  void openContinentPage(String continent){final rs=all.where((r)=>r.continent.toLowerCase()==continent.toLowerCase()).toList();Navigator.push(context,MaterialPageRoute(builder:(_)=>SpecialCollectionPage(title:'Ricette $continent',subtitle:'Scopri le ricette di $continent.',recipes:rs,icon:Icons.public)));}
@@ -465,7 +510,17 @@ class AllergenSettingsPage extends StatelessWidget{
   const SizedBox(height:16),
   ...allergenLabels.entries.map((e)=>Card(margin:const EdgeInsets.only(bottom:8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),child:SwitchListTile(value:selected.contains(e.key),onChanged:(v)=>onChanged(e.key,v),secondary:Container(width:42,height:42,decoration:BoxDecoration(color:const Color(0xFFEAF4EE),borderRadius:BorderRadius.circular(13)),child:const Icon(Icons.warning_amber_rounded,color:green)),title:Text(e.value,style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),subtitle:const Text('Usa sempre anche le etichette e le informazioni del prodotto.'))),
   const SizedBox(height:8),
-              child: const Text("Il filtro è un aiuto informativo: non garantisce l'assenza di contaminazioni o tracce e non sostituisce il controllo dell'etichetta. In caso di allergia, verifica sempre gli ingredienti del prodotto utilizzato."),
+  Container(
+    padding:const EdgeInsets.all(16),
+    decoration:BoxDecoration(
+      color:const Color(0xFFFFF4DE),
+      borderRadius:BorderRadius.circular(20),
+    ),
+    child:const Text(
+      "Il filtro è un aiuto informativo: non garantisce l'assenza di contaminazioni o tracce e non sostituisce il controllo dell'etichetta. In caso di allergia, verifica sempre gli ingredienti del prodotto utilizzato.",
+      style:TextStyle(fontSize:12.5,height:1.45,fontWeight:FontWeight.w600,color:ink),
+    ),
+  ),
  ]);
 }
 
