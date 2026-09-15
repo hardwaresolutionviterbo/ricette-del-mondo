@@ -5,6 +5,7 @@ import 'recipe.dart';
 
 class RecipeRepository {
   static List<Recipe>? _cache;
+  static List<Recipe>? get cachedRecipes => _cache;
   static Future<List<Recipe>>? _loading;
 
   Future<List<Recipe>> loadRecipes({void Function(double progress)? onProgress}) {

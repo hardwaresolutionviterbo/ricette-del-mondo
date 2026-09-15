@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -19,22 +20,39 @@ import 'ad_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // La UI parte immediatamente. Firebase, consenso, annunci e notifiche sono
+  // servizi non critici e non devono bloccare il primo frame.
+  runApp(const RicetteApp());
+  unawaited(_initializeNonCriticalServices());
+}
+
+Future<void> _initializeNonCriticalServices() async {
   try {
     await Firebase.initializeApp();
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   } catch (_) {
-    // In assenza della configurazione nativa Firebase l'app resta avviabile;
-    // Codemagic la configura durante il build Android.
+    // Firebase non deve mai impedire l'avvio dell'app.
   }
+
+  await Future<void>.delayed(const Duration(milliseconds: 1800));
   try {
     final canRequestAds = await AdConsentService.instance.initialize();
     if (canRequestAds) {
       await MobileAds.instance.initialize();
+      if (AdConsentService.instance.canRequestAds) {
+        AdService.instance.preload();
+      }
     }
   } catch (_) {
-    // Gli annunci restano disabilitati finché il consenso non consente le richieste.
+    // Gli annunci sono opzionali.
   }
-  runApp(const RicetteApp());
+
+  await Future<void>.delayed(const Duration(milliseconds: 1200));
+  try {
+    await NotificationService.instance.initialize();
+  } catch (_) {
+    // Le notifiche sono opzionali.
+  }
 }
 
 class RatingStats { double sum=0; int count=0; double get avg=>count==0?0:sum/count; }
@@ -91,18 +109,144 @@ const socialFacebook='';
 const socialInstagram='';
 const socialTikTok='';
 
-Widget recipeVisual(Recipe r,{double height=170,BorderRadius? radius})=>RecipePhoto(recipe:r,height:height,radius:radius??BorderRadius.circular(18));
+Widget recipeVisual(Recipe r,{double height=170,BorderRadius? radius,bool allowNetwork=false})=>RecipePhoto(recipe:r,height:height,radius:radius??BorderRadius.circular(18),allowNetwork:allowNetwork);
 
-Widget specialVisual(Recipe r,{double height=170,BorderRadius? radius})=>recipeVisual(r,height:height,radius:radius);
+Widget specialVisual(Recipe r,{double height=170,BorderRadius? radius,bool allowNetwork=false})=>recipeVisual(r,height:height,radius:radius,allowNetwork:allowNetwork);
 
-class SplashPage extends StatefulWidget{const SplashPage({super.key});@override State<SplashPage> createState()=>_SplashPageState();}
-class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin{
- late final AnimationController controller;
- @override void initState(){super.initState();controller=AnimationController(vsync:this,duration:const Duration(milliseconds:5000))..forward();Future.delayed(const Duration(milliseconds:5200),(){if(mounted)Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(_)=>const AppShell()));});}
- @override void dispose(){controller.dispose();super.dispose();}
- @override Widget build(BuildContext c)=>Scaffold(backgroundColor:Colors.black,body:SafeArea(child:LayoutBuilder(builder:(c,box)=>Stack(children:[Positioned.fill(child:Image.asset('assets/splash_v6.png',fit:BoxFit.cover,filterQuality:FilterQuality.high)),Positioned.fill(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.transparent,Colors.black.withValues(alpha:.08),Colors.black.withValues(alpha:.20)])))),
-Positioned(left:0,right:0,top:box.maxHeight*.615,height:box.maxHeight*.12,child:IgnorePointer(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.transparent,Colors.black,Colors.black,Colors.transparent]))))),
-Positioned(left:24,right:24,bottom:42,child:AnimatedBuilder(animation:controller,builder:(_,__) {final p=controller.value;final pct=(p*100).round();final count=(p*10000).round().clamp(0,10000);return Column(children:[Text('Caricamento ricette...',style:TextStyle(color:Colors.white,fontSize:14,fontWeight:FontWeight.w700,shadows:[Shadow(color:Colors.black54,blurRadius:5)])),const SizedBox(height:7),ClipRRect(borderRadius:BorderRadius.circular(20),child:Container(height:12,decoration:BoxDecoration(color:Colors.black.withValues(alpha:.35),border:Border.all(color:Colors.white70)),child:FractionallySizedBox(alignment:Alignment.centerLeft,widthFactor:p,child:Container(decoration:const BoxDecoration(gradient:LinearGradient(colors:[Color(0xFFD89A32),Color(0xFFFFE0A0)])))))),const SizedBox(height:7),Text('$pct%',style:const TextStyle(color:Colors.white,fontSize:14,fontWeight:FontWeight.w900,shadows:[Shadow(color:Colors.black54,blurRadius:5)])),const SizedBox(height:7),Text('$count di 10.000 ricette caricate',style:const TextStyle(color:Colors.white,fontSize:16,fontWeight:FontWeight.w900,shadows:[Shadow(color:Colors.black54,blurRadius:5)]))]);}) )]))));}
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  double progress = 0;
+  bool ready = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCatalog();
+  }
+
+  Future<void> _loadCatalog() async {
+    try {
+      await RecipeRepository().loadRecipes(onProgress: (value) {
+        if (mounted) setState(() => progress = value.clamp(0.0, 1.0));
+      });
+    } catch (_) {
+      // AppShell tenterà comunque di usare il repository/cache disponibile.
+    }
+    if (!mounted) return;
+    setState(() {
+      progress = 1;
+      ready = true;
+    });
+    await Future<void>.delayed(const Duration(milliseconds: 220));
+    if (!mounted) return;
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => const AppShell()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final pct = (progress * 100).round();
+    final count = (progress * 10000).round().clamp(0, 10000);
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset(
+                'assets/splash_v6.png',
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.medium,
+              ),
+            ),
+            Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent,
+                      Colors.black.withValues(alpha: .08),
+                      Colors.black.withValues(alpha: .20),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 24,
+              right: 24,
+              bottom: 42,
+              child: Column(
+                children: [
+                  Text(
+                    ready ? 'Catalogo pronto' : 'Caricamento ricette...',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      shadows: [Shadow(color: Colors.black54, blurRadius: 5)],
+                    ),
+                  ),
+                  const SizedBox(height: 7),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      height: 12,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withValues(alpha: .35),
+                        border: Border.all(color: Colors.white70),
+                      ),
+                      child: FractionallySizedBox(
+                        alignment: Alignment.centerLeft,
+                        widthFactor: progress,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Color(0xFFD89A32), Color(0xFFFFE0A0)],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 7),
+                  Text(
+                    '$pct%',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w900,
+                      shadows: [Shadow(color: Colors.black54, blurRadius: 5)],
+                    ),
+                  ),
+                  const SizedBox(height: 7),
+                  Text(
+                    '$count di 10.000 ricette caricate',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      shadows: [Shadow(color: Colors.black54, blurRadius: 5)],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class RicetteApp extends StatelessWidget{const RicetteApp({super.key});@override Widget build(BuildContext c)=>MaterialApp(debugShowCheckedModeBanner:false,title:'Ricette del Mondo',theme:ThemeData(useMaterial3:true,scaffoldBackgroundColor:cream,colorScheme:ColorScheme.fromSeed(seedColor:green),fontFamily:'sans-serif',appBarTheme:const AppBarTheme(backgroundColor:cream,foregroundColor:ink,elevation:0)),home:const SplashPage());}
 
@@ -110,25 +254,70 @@ class AppShell extends StatefulWidget{const AppShell({super.key});@override Stat
 class _AppShellState extends State<AppShell>{
  String? profilePhotoPath;
  final ImagePicker _profilePicker = ImagePicker();
- final repo=RecipeRepository(), search=TextEditingController(); List<Recipe> all=[]; final favorites=<String>{}, shopping=<String>{}; final ratings=<String,RatingStats>{}, tasteRatings=<String,RatingStats>{}; final userRatings=<String,int>{}, userTasteRatings=<String,int>{}; final avoidedAllergens=<String>{}; int tab=0; String category='Tutte',diet='Tutte',language='Italiano'; int maxTime=180;
- List<Recipe> get catalog=>[...all,...specialDoughRecipes];
+ final repo=RecipeRepository(), search=TextEditingController();
+ List<Recipe> all=[];
+ late List<Recipe> _catalog;
+ Map<String,Recipe> _recipeById=<String,Recipe>{};
+ List<Recipe> _premiumFreeCache=const [];
+ List<Recipe> _hamburgerCache=const [];
+ List<Recipe> _braceriaCache=const [];
+ List<Recipe> _gourmetCache=const [];
+ final favorites=<String>{}, shopping=<String>{};
+ final ratings=<String,RatingStats>{}, tasteRatings=<String,RatingStats>{};
+ final userRatings=<String,int>{}, userTasteRatings=<String,int>{};
+ final avoidedAllergens=<String>{};
+ final Map<String,String> _searchHaystack=<String,String>{};
+ final Map<String,String> _fullTextCache=<String,String>{};
+ final Map<String,Set<String>> _allergenCache=<String,Set<String>>{};
+ Timer? _searchDebounce;
+ List<Recipe>? _filteredCache;
+ String _filteredSignature='';
+ int _italianCount=0;
+ int tab=0;
+ String category='Tutte',diet='Tutte',language='Italiano';
+ int maxTime=180;
 
- // Le 10 ricette gratuite Premium ruotano su 5 gruppi diversi.
- // Il gruppo viene scelto in modo deterministico in base al giorno, così
- // durante la giornata resta stabile e dopo 5 rotazioni il ciclo riparte.
- List<Recipe> get premiumFreeRecipes {
-  final pool=all.where((r)=>!r.premium).toList();
-  if(pool.length<=10)return pool;
-  final day=DateTime.now().difference(DateTime(2020,1,1)).inDays;
-  final cycle=day%5;
-  final shuffled=List<Recipe>.from(pool);
-  final random=math.Random(0x5A17);
-  shuffled.shuffle(random);
-  final start=cycle*10;
-  if(start+10<=shuffled.length)return shuffled.sublist(start,start+10);
-  // Fallback per cataloghi più piccoli: ricomincia dal principio del ciclo.
-  return shuffled.take(10).toList();
+ List<Recipe> get catalog=>_catalog;
+ List<Recipe> get premiumFreeRecipes=>_premiumFreeCache;
+
+ void _invalidateFilterCache(){
+  _filteredCache=null;
+  _filteredSignature='';
  }
+
+ void _prepareCatalog(List<Recipe> recipes) {
+  all=recipes;
+  _catalog=List<Recipe>.unmodifiable([...recipes,...specialDoughRecipes]);
+  _recipeById={for(final r in _catalog)r.id:r};
+  _italianCount=all.where((r)=>r.country.toLowerCase()=='italia').length;
+
+  final pool=all.where((r)=>!r.premium).toList(growable:false);
+  if(pool.length<=10){
+    _premiumFreeCache=List<Recipe>.unmodifiable(pool);
+  }else{
+    final day=DateTime.now().difference(DateTime(2020,1,1)).inDays;
+    final cycle=day%5;
+    final shuffled=List<Recipe>.from(pool)..shuffle(math.Random(0x5A17));
+    final start=cycle*10;
+    _premiumFreeCache=List<Recipe>.unmodifiable(
+      start+10<=shuffled.length ? shuffled.sublist(start,start+10) : shuffled.take(10),
+    );
+  }
+
+  _hamburgerCache=List<Recipe>.unmodifiable([
+    ...specialHamburgerRecipes,
+    ...catalog.where((r)=>r.title.toLowerCase().contains('hamburger') || r.tags.any((t)=>t.toLowerCase().contains('burger'))),
+  ]);
+  _braceriaCache=List<Recipe>.unmodifiable([
+    ...specialBraceriaRecipes,
+    ...catalog.where((r)=>r.tags.any((t)=>['carne','griglia','brace','bbq','pollo'].contains(t.toLowerCase())) || r.title.toLowerCase().contains('asado') || r.title.toLowerCase().contains('pulled')),
+  ]);
+  _gourmetCache=List<Recipe>.unmodifiable(
+    catalog.where((r)=>r.tags.any((t)=>t.toLowerCase()=='gourmet')),
+  );
+  _invalidateFilterCache();
+ }
+
  RatingStats statsFor(Map<String,RatingStats> map,String id)=>map.putIfAbsent(id,()=>RatingStats());
  void castVote(Recipe r,int stars,{required bool taste}){
   final map=taste?tasteRatings:ratings;
@@ -150,16 +339,97 @@ class _AppShellState extends State<AppShell>{
  double avgFor(Recipe r,{bool taste=false})=>(taste?tasteRatings:ratings)[r.id]?.avg??0;
  int countFor(Recipe r,{bool taste=false})=>(taste?tasteRatings:ratings)[r.id]?.count??0;
  @override void initState(){super.initState();
-  repo.loadRecipes().then((r){if(mounted)setState(()=>all=r);});
-  SharedPreferences.getInstance().then((p){if(mounted)setState((){avoidedAllergens.addAll(p.getStringList('rdm_avoided_allergens')??const []);profilePhotoPath=p.getString('rdm_profile_photo_path');});});
-  Future.delayed(const Duration(milliseconds:450),(){if(mounted)NotificationService.instance.initialize().catchError((_) async {});});
-  Future.delayed(const Duration(seconds:1),(){if(mounted&&AdConsentService.instance.canRequestAds)AdService.instance.preload();});
+  final cached=RecipeRepository.cachedRecipes;
+  if(cached!=null){
+    _prepareCatalog(cached);
+  }else{
+    repo.loadRecipes().then((r){if(!mounted)return;setState(()=>_prepareCatalog(r));});
+  }
+  SharedPreferences.getInstance().then((p){
+    if(!mounted)return;
+    final allergens=p.getStringList('rdm_avoided_allergens')??const [];
+    final photo=p.getString('rdm_profile_photo_path');
+    if(allergens.isEmpty && photo==null)return;
+    setState((){
+      avoidedAllergens.addAll(allergens);
+      profilePhotoPath=photo;
+      _invalidateFilterCache();
+    });
+  });
 }
- bool dietMatches(Recipe r,String selected){if(selected=='Tutte')return true;final t='${r.title} ${r.description} ${r.ingredients.join(' ')} ${r.tags.join(' ')}'.toLowerCase();if(selected=='Vegetariano')return !RegExp(r'\b(carne|manzo|maiale|prosciutto|pollo|tacchino|agnello|salsiccia|pesce|salmone|tonno|merluzzo|gamberi|gambero|acciuga|acciughe)\b').hasMatch(t);if(selected=='Vegano')return !RegExp(r'\b(carne|manzo|maiale|prosciutto|pollo|tacchino|agnello|salsiccia|pesce|salmone|tonno|merluzzo|gamberi|gambero|uova|uovo|latte|burro|panna|formaggio|parmigiano|mozzarella|ricotta|yogurt|miele)\b').hasMatch(t);if(selected=='Senza glutine')return !allergenTerms['glutine']!.any((x)=>t.contains(x));if(selected=='Senza lattosio')return !allergenTerms['latte']!.any((x)=>t.contains(x));return true;}
- List<Recipe> get filtered{final s=search.text.trim().toLowerCase();return catalog.where((r){final hay='${r.title} ${r.country} ${r.cuisine} ${r.category} ${r.ingredients.join(' ')} ${r.tags.join(' ')}'.toLowerCase();return (s.isEmpty||s.split(RegExp(r'[, ]+')).where((x)=>x.isNotEmpty).every(hay.contains))&&(category=='Tutte'||r.category==category)&&(r.timeMin<=maxTime)&&(dietMatches(r,diet))&&!detectAllergens(r).intersection(avoidedAllergens).isNotEmpty;}).toList();}
- @override Widget build(BuildContext c){if(all.isEmpty)return const Scaffold(body:Center(child:CircularProgressIndicator()));final pages=[home(),searchPage(),categoriesPage(),favoritesPage(),profilePage()];return Scaffold(body:SafeArea(child:pages[tab]),bottomNavigationBar:NavigationBar(backgroundColor:Colors.white,indicatorColor:const Color(0xFFDCEFE5),selectedIndex:tab,onDestinationSelected:(i)=>setState(()=>tab=i),destinations:const [NavigationDestination(icon:Icon(Icons.home_outlined),selectedIcon:Icon(Icons.home),label:'Home'),NavigationDestination(icon:Icon(Icons.search),label:'Cerca'),NavigationDestination(icon:Icon(Icons.grid_view_rounded),label:'Categorie'),NavigationDestination(icon:Icon(Icons.favorite_border),selectedIcon:Icon(Icons.favorite),label:'Preferiti'),NavigationDestination(icon:Icon(Icons.person_outline),selectedIcon:Icon(Icons.person),label:'Profilo')]));}
+
+ @override void dispose(){_searchDebounce?.cancel();search.dispose();super.dispose();}
+
+ String _dietText(Recipe r)=>_fullTextCache.putIfAbsent(r.id,()=> '${r.title} ${r.description} ${r.ingredients.join(' ')} ${r.tags.join(' ')}'.toLowerCase());
+
+ bool dietMatches(Recipe r,String selected){
+  if(selected=='Tutte')return true;
+  final t=_dietText(r);
+  if(selected=='Vegetariano')return !RegExp(r'\b(carne|manzo|maiale|prosciutto|pollo|tacchino|agnello|salsiccia|pesce|salmone|tonno|merluzzo|gamberi|gambero|acciuga|acciughe)\b').hasMatch(t);
+  if(selected=='Vegano')return !RegExp(r'\b(carne|manzo|maiale|prosciutto|pollo|tacchino|agnello|salsiccia|pesce|salmone|tonno|merluzzo|gamberi|gambero|uova|uovo|latte|burro|panna|formaggio|parmigiano|mozzarella|ricotta|yogurt|miele)\b').hasMatch(t);
+  if(selected=='Senza glutine')return !allergenTerms['glutine']!.any((x)=>t.contains(x));
+  if(selected=='Senza lattosio')return !allergenTerms['latte']!.any((x)=>t.contains(x));
+  return true;
+ }
+
+ List<Recipe> get filtered{
+  final s=search.text.trim().toLowerCase();
+  final signature='$s|$category|$diet|$maxTime|${avoidedAllergens.join(',')}';
+  if(_filteredCache!=null && _filteredSignature==signature)return _filteredCache!;
+  if(s.isEmpty && category=='Tutte' && diet=='Tutte' && maxTime>=180 && avoidedAllergens.isEmpty){
+    _filteredSignature=signature;
+    _filteredCache=catalog;
+    return catalog;
+  }
+  final tokens=s.split(RegExp(r'[, ]+')).where((x)=>x.isNotEmpty).toList(growable:false);
+  final result=<Recipe>[];
+  for(final r in catalog){
+    if(category!='Tutte' && r.category!=category)continue;
+    if(r.timeMin>maxTime)continue;
+    if(diet!='Tutte' && !dietMatches(r,diet))continue;
+    if(avoidedAllergens.isNotEmpty && _allergenCache.putIfAbsent(r.id,()=>detectAllergens(r)).intersection(avoidedAllergens).isNotEmpty)continue;
+    if(tokens.isNotEmpty){
+      final hay=_searchHaystack.putIfAbsent(r.id,()=> '${r.title} ${r.country} ${r.cuisine} ${r.category} ${r.ingredients.join(' ')} ${r.tags.join(' ')}'.toLowerCase());
+      if(!tokens.every(hay.contains))continue;
+    }
+    result.add(r);
+  }
+  _filteredSignature=signature;
+  _filteredCache=List<Recipe>.unmodifiable(result);
+  return _filteredCache!;
+ }
+
+ Widget _currentPage(){
+  switch(tab){
+    case 1:return searchPage();
+    case 2:return categoriesPage();
+    case 3:return favoritesPage();
+    case 4:return profilePage();
+    default:return home();
+  }
+ }
+
+ @override Widget build(BuildContext c){
+  if(all.isEmpty)return const Scaffold(body:Center(child:CircularProgressIndicator()));
+  return Scaffold(
+    body:SafeArea(child:_currentPage()),
+    bottomNavigationBar:NavigationBar(
+      backgroundColor:Colors.white,
+      indicatorColor:const Color(0xFFDCEFE5),
+      selectedIndex:tab,
+      onDestinationSelected:(i){if(i==tab)return;setState(()=>tab=i);},
+      destinations:const [
+        NavigationDestination(icon:Icon(Icons.home_outlined),selectedIcon:Icon(Icons.home),label:'Home'),
+        NavigationDestination(icon:Icon(Icons.search),label:'Cerca'),
+        NavigationDestination(icon:Icon(Icons.grid_view_rounded),label:'Categorie'),
+        NavigationDestination(icon:Icon(Icons.favorite_border),selectedIcon:Icon(Icons.favorite),label:'Preferiti'),
+        NavigationDestination(icon:Icon(Icons.person_outline),selectedIcon:Icon(Icons.person),label:'Profilo'),
+      ],
+    ),
+  );
+ }
  Widget logo({double h=96})=>Image.asset('assets/logo_rdm.png',height:h,fit:BoxFit.contain);
- Widget home(){final total=all.length;final italian=all.where((r)=>r.country.toLowerCase()=='italia').length;final world=total-italian;return ListView(padding:const EdgeInsets.fromLTRB(16,12,16,30),children:[homeHero(total,italian,world),const SizedBox(height:14),searchBox(),const SizedBox(height:14),dailyRecipeCard(),const SizedBox(height:14),fridgeBanner(),section('Speciali di Ricette del Mondo'),specialBanner('assets/banners/banner_impasti.png',onTap:()=>openSpecialPage('Speciale Impasti','Impasti per pizza e focaccia da fare a casa.',specialDoughRecipes,Icons.local_pizza)),specialBanner('assets/banners/banner_hamburger.png',onTap:()=>openSpecialPage('Speciale Hamburger','Una raccolta dedicata agli hamburger.',[...specialHamburgerRecipes,...catalog.where((r)=>r.title.toLowerCase().contains('hamburger')||r.tags.any((t)=>t.toLowerCase().contains('burger')))],Icons.lunch_dining)),specialBanner('assets/banners/banner_braceria.png',onTap:()=>openSpecialPage('Speciale Braceria','Ricette per griglia, brace e cotture lente.',[...specialBraceriaRecipes,...catalog.where((r)=>r.tags.any((t)=>['carne','griglia','brace','bbq','pollo'].contains(t.toLowerCase()))||r.title.toLowerCase().contains('asado')||r.title.toLowerCase().contains('pulled'))],Icons.outdoor_grill)),specialBanner('assets/banners/banner_gourmet.png',onTap:()=>openSpecialPage('Speciale Gourmet Stellato','Una raccolta editoriale di alta cucina.',catalog.where((r)=>r.tags.any((t)=>t.toLowerCase()=='gourmet')).toList(),Icons.auto_awesome)),section('Le 10 ricette gratuite',action:'Vedi tutte',onAction:()=>setState(()=>tab=1)),SizedBox(height:264,child:ListView(scrollDirection:Axis.horizontal,padding:const EdgeInsets.only(bottom:4),children:premiumFreeRecipes.map((r)=>miniCard(r)).toList())),ratingHomeSection('🏆 Ricette più votate',false),ratingHomeSection('😋 Ricette più buone',true),section('Esplora il mondo'),continentGrid(),section('Seguici sui social'),socialSection(),section('Scopri Premium'),premiumBanner(),section('Idee per te'),...all.skip(10).take(5).map(recipeCard)]);}
+ Widget home(){final total=all.length;final italian=_italianCount;final world=total-italian;return ListView(padding:const EdgeInsets.fromLTRB(16,12,16,30),children:[homeHero(total,italian,world),const SizedBox(height:14),searchBox(),const SizedBox(height:14),dailyRecipeCard(),const SizedBox(height:14),fridgeBanner(),section('Speciali di Ricette del Mondo'),specialBanner('assets/banners/banner_impasti.png',onTap:()=>openSpecialPage('Speciale Impasti','Impasti per pizza e focaccia da fare a casa.',specialDoughRecipes,Icons.local_pizza)),specialBanner('assets/banners/banner_hamburger.png',onTap:()=>openSpecialPage('Speciale Hamburger','Una raccolta dedicata agli hamburger.',_hamburgerCache,Icons.lunch_dining)),specialBanner('assets/banners/banner_braceria.png',onTap:()=>openSpecialPage('Speciale Braceria','Ricette per griglia, brace e cotture lente.',_braceriaCache,Icons.outdoor_grill)),specialBanner('assets/banners/banner_gourmet.png',onTap:()=>openSpecialPage('Speciale Gourmet Stellato','Una raccolta editoriale di alta cucina.',_gourmetCache,Icons.auto_awesome)),section('Le 10 ricette gratuite',action:'Vedi tutte',onAction:()=>setState(()=>tab=1)),SizedBox(height:264,child:ListView(scrollDirection:Axis.horizontal,padding:const EdgeInsets.only(bottom:4),children:premiumFreeRecipes.map((r)=>miniCard(r)).toList())),ratingHomeSection('🏆 Ricette più votate',false),ratingHomeSection('😋 Ricette più buone',true),section('Esplora il mondo'),continentGrid(),section('Seguici sui social'),socialSection(),section('Scopri Premium'),premiumBanner(),section('Idee per te'),...all.skip(10).take(5).map(recipeCard)]);}
  Widget dailyRecipeCard(){
   if(all.isEmpty)return const SizedBox.shrink();
   final now=DateTime.now();
@@ -277,11 +547,25 @@ class _AppShellState extends State<AppShell>{
  Widget socialButton(String mark,String label,Color color,String url)=>InkWell(onTap:()=>openSocial(url,label),borderRadius:BorderRadius.circular(18),child:Container(padding:const EdgeInsets.symmetric(vertical:12),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(18),boxShadow:[BoxShadow(color:Colors.black12,blurRadius:8,offset:Offset(0,3))]),child:Column(children:[CircleAvatar(radius:21,backgroundColor:color,child:Text(mark,style:const TextStyle(color:Colors.white,fontSize:24,fontWeight:FontWeight.w900))),const SizedBox(height:5),Text(label,style:const TextStyle(fontWeight:FontWeight.w800,color:ink,fontSize:12))])));
  void openSocial(String url,String label){if(url.isEmpty){ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text('Collegheremo $label al tuo profilo ufficiale.')));return;}}
 
- Widget ratingHomeSection(String title,bool taste){final ranked=catalog.where((r)=>countFor(r,taste:taste)>0).toList()..sort((a,b)=>avgFor(b,taste:taste).compareTo(avgFor(a,taste:taste))); final shown=ranked.take(5).toList(); return Column(crossAxisAlignment:CrossAxisAlignment.start,children:[section(title,action:'Vedi tutte',onAction:()=>showRatingRanking(taste)),if(shown.isEmpty)Card(color:Colors.white,child:const Padding(padding:EdgeInsets.all(18),child:Text('Ancora nessun voto: sii il primo a valutare una ricetta ⭐',style:TextStyle(fontWeight:FontWeight.w700,color:ink)))) else ...shown.map((r)=>ratingRow(r,taste))]);}
+ Widget ratingHomeSection(String title,bool taste){final map=taste?tasteRatings:ratings;final ranked=<Recipe>[];for(final entry in map.entries){if(entry.value.count>0){final recipe=_recipeById[entry.key];if(recipe!=null)ranked.add(recipe);}}ranked.sort((a,b)=>avgFor(b,taste:taste).compareTo(avgFor(a,taste:taste)));final shown=ranked.take(5).toList(growable:false);return Column(crossAxisAlignment:CrossAxisAlignment.start,children:[section(title,action:'Vedi tutte',onAction:()=>showRatingRanking(taste)),if(shown.isEmpty)Card(color:Colors.white,child:const Padding(padding:EdgeInsets.all(18),child:Text('Ancora nessun voto: sii il primo a valutare una ricetta ⭐',style:TextStyle(fontWeight:FontWeight.w700,color:ink)))) else ...shown.map((r)=>ratingRow(r,taste))]);}
  Widget ratingRow(Recipe r,bool taste)=>Card(margin:const EdgeInsets.only(bottom:8),child:ListTile(leading:SizedBox(width:58,height:58,child:recipeVisual(r,height:58,radius:BorderRadius.circular(12))),title:Text(r.title,maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),subtitle:Row(children:[stars(avgFor(r,taste:taste)),const SizedBox(width:5),Text('${avgFor(r,taste:taste).toStringAsFixed(1)} • ${countFor(r,taste:taste)} voti',style:const TextStyle(fontSize:11))]),trailing:const Icon(Icons.chevron_right),onTap:()=>openRecipe(r)));
  Widget stars(double value)=>Row(mainAxisSize:MainAxisSize.min,children:List.generate(5,(i)=>Icon(i<value.round()?Icons.star:Icons.star_border,size:17,color:orange)));
- void showRatingRanking(bool taste)=>showModalBottomSheet(context:context,showDragHandle:true,builder:(_){final ranked=catalog.where((r)=>countFor(r,taste:taste)>0).toList()..sort((a,b)=>avgFor(b,taste:taste).compareTo(avgFor(a,taste:taste)));return SafeArea(child:ListView(padding:const EdgeInsets.all(18),children:[Text(taste?'Ricette più buone':'Ricette più votate',style:const TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:10),...ranked.map((r)=>ratingRow(r,taste))]));});
- Widget searchBox()=>TextField(controller:search,onChanged:(_)=>setState((){}),onSubmitted:(_)=>setState(()=>tab=1),decoration:InputDecoration(hintText:'Cerca ricette, Paesi o ingredienti',prefixIcon:const Icon(Icons.search,color:green),suffixIcon:IconButton(onPressed:showFilters,icon:const Icon(Icons.tune,color:green)),filled:true,fillColor:Colors.white,border:OutlineInputBorder(borderRadius:BorderRadius.circular(30),borderSide:BorderSide.none),contentPadding:const EdgeInsets.symmetric(vertical:14)));
+ void showRatingRanking(bool taste)=>showModalBottomSheet(context:context,showDragHandle:true,builder:(_){final map=taste?tasteRatings:ratings;final ranked=<Recipe>[];for(final entry in map.entries){if(entry.value.count>0){final recipe=_recipeById[entry.key];if(recipe!=null)ranked.add(recipe);}}ranked.sort((a,b)=>avgFor(b,taste:taste).compareTo(avgFor(a,taste:taste)));return SafeArea(child:ListView(padding:const EdgeInsets.all(18),children:[Text(taste?'Ricette più buone':'Ricette più votate',style:const TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:10),...ranked.map((r)=>ratingRow(r,taste))]));});
+ Widget searchBox()=>TextField(
+  controller:search,
+  onChanged:(_){
+    _searchDebounce?.cancel();
+    _searchDebounce=Timer(const Duration(milliseconds:140),(){
+      if(!mounted)return;
+      _invalidateFilterCache();
+      setState((){});
+    });
+  },
+  onSubmitted:(_){
+    _searchDebounce?.cancel();
+    _invalidateFilterCache();
+    setState(()=>tab=1);
+  },decoration:InputDecoration(hintText:'Cerca ricette, Paesi o ingredienti',prefixIcon:const Icon(Icons.search,color:green),suffixIcon:IconButton(onPressed:showFilters,icon:const Icon(Icons.tune,color:green)),filled:true,fillColor:Colors.white,border:OutlineInputBorder(borderRadius:BorderRadius.circular(30),borderSide:BorderSide.none),contentPadding:const EdgeInsets.symmetric(vertical:14)));
  Widget fridgeBanner()=>Card(elevation:0,color:const Color(0xFFE4F1E8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(22)),child:InkWell(borderRadius:BorderRadius.circular(22),onTap:fridgePage,child:Padding(padding:const EdgeInsets.all(17),child:Row(children:[Container(width:52,height:52,decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(16)),child:const Icon(Icons.kitchen,color:Colors.white)),const SizedBox(width:14),const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Cosa hai nel frigo?',style:TextStyle(fontSize:19,fontWeight:FontWeight.w900,color:ink)),SizedBox(height:4),Text('Seleziona gli ingredienti e scopri cosa puoi cucinare.',style:TextStyle(color:ink))])),const Icon(Icons.arrow_forward_ios_rounded,size:18,color:green)]))));
  Widget section(String t,{String? action,VoidCallback? onAction})=>Padding(padding:const EdgeInsets.only(top:22,bottom:10),child:Row(children:[Expanded(child:Text(t,style:const TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink))),if(action!=null)TextButton(onPressed:onAction,child:Text(action,style:const TextStyle(color:green,fontWeight:FontWeight.w800)))]));
  Widget recipeCard(Recipe r)=>Card(
@@ -334,9 +618,57 @@ class _AppShellState extends State<AppShell>{
  void openContinentPage(String continent){final rs=all.where((r)=>r.continent.toLowerCase()==continent.toLowerCase()).toList();Navigator.push(context,MaterialPageRoute(builder:(_)=>SpecialCollectionPage(title:'Ricette $continent',subtitle:'Scopri le ricette di $continent.',recipes:rs,icon:Icons.public)));}
  Widget premiumBanner()=>Card(clipBehavior:Clip.antiAlias,elevation:3,child:Container(decoration:const BoxDecoration(gradient:LinearGradient(colors:[Color(0xFF075B3A),Color(0xFF0C7A4B)])),padding:const EdgeInsets.all(18),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Row(children:[Icon(Icons.workspace_premium,color:orange,size:32),SizedBox(width:8),Text('Passa a Premium',style:TextStyle(color:Colors.white,fontSize:24,fontWeight:FontWeight.w900))]),const SizedBox(height:6),const Text('Sblocca tutte le ricette Premium, le raccolte speciali, storie, procedimenti e funzioni esclusive.',style:TextStyle(color:Colors.white,fontSize:15)),const SizedBox(height:12),Row(children:[priceChip('1 mese','€2,99'),priceChip('6 mesi','€14,99'),priceChip('12 mesi','€24,99')]),const SizedBox(height:12),FilledButton(style:FilledButton.styleFrom(backgroundColor:orange,foregroundColor:ink,minimumSize:const Size.fromHeight(48)),onPressed:premiumPage,child:const Text('Scopri Premium',style:TextStyle(fontWeight:FontWeight.w900)))])));
  Widget priceChip(String a,String b)=>Expanded(child:Container(margin:const EdgeInsets.only(right:6),padding:const EdgeInsets.symmetric(vertical:9,horizontal:5),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.95),borderRadius:BorderRadius.circular(14)),child:Column(children:[Text(a,style:const TextStyle(fontSize:11,color:ink)),Text(b,style:const TextStyle(fontWeight:FontWeight.w900,color:green))])));
- Widget searchPage()=>ListView(padding:const EdgeInsets.all(16),children:[const Text('Cerca',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),searchBox(),const SizedBox(height:10),Text('${filtered.length} ricette',style:const TextStyle(fontWeight:FontWeight.w700)),const SizedBox(height:8),...filtered.map(recipeCard)]);
- Widget categoriesPage()=>ListView(padding:const EdgeInsets.all(16),children:[const Text('Categorie',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),Wrap(spacing:9,runSpacing:9,children:['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'].map((x)=>ChoiceChip(label:Text(x),selected:category==x,onSelected:(_)=>setState(()=>category=x))).toList()),section('Esplora per Paese'),...all.take(20).map(recipeCard)]);
- Widget favoritesPage(){final list=all.where((r)=>favorites.contains(r.id)).toList();return ListView(padding:const EdgeInsets.all(16),children:[const Text('I tuoi preferiti',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),Text('${list.length} ricette salvate'),const SizedBox(height:12),if(list.isEmpty)Card(child:Padding(padding:const EdgeInsets.all(24),child:Column(children:[const Icon(Icons.favorite_border,size:48,color:green),const SizedBox(height:10),const Text('Le tue ricette preferite appariranno qui.',textAlign:TextAlign.center)]))) else ...list.map(recipeCard)]);}
+ Widget searchPage(){
+  final results=filtered;
+  return ListView.builder(
+    padding:const EdgeInsets.all(16),
+    itemCount:results.length+5,
+    itemBuilder:(context,index){
+      if(index==0)return const Text('Cerca',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink));
+      if(index==1)return const SizedBox(height:12);
+      if(index==2)return searchBox();
+      if(index==3)return Padding(padding:const EdgeInsets.only(top:10,bottom:8),child:Text('${results.length} ricette',style:const TextStyle(fontWeight:FontWeight.w700)));
+      if(index==4)return const SizedBox(height:8);
+      return recipeCard(results[index-5]);
+    },
+  );
+ }
+ Widget categoriesPage(){
+  const categories=['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'];
+  final shown=all.take(20).toList(growable:false);
+  return ListView.builder(
+    padding:const EdgeInsets.all(16),
+    itemCount:shown.length+4,
+    itemBuilder:(context,index){
+      if(index==0)return const Text('Categorie',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink));
+      if(index==1)return const SizedBox(height:12);
+      if(index==2)return Wrap(spacing:9,runSpacing:9,children:categories.map((x)=>ChoiceChip(label:Text(x),selected:category==x,onSelected:(_){_invalidateFilterCache();setState(()=>category=x);})).toList(growable:false));
+      if(index==3)return section('Esplora per Paese');
+      return recipeCard(shown[index-4]);
+    },
+  );
+ }
+ Widget favoritesPage(){
+  final list=favorites.isEmpty ? const <Recipe>[] : all.where((r)=>favorites.contains(r.id)).toList(growable:false);
+  if(list.isEmpty){
+    return ListView(padding:const EdgeInsets.all(16),children:[
+      const Text('I tuoi preferiti',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),
+      const Text('0 ricette salvate'),
+      const SizedBox(height:12),
+      Card(child:Padding(padding:const EdgeInsets.all(24),child:Column(children:[const Icon(Icons.favorite_border,size:48,color:green),const SizedBox(height:10),const Text('Le tue ricette preferite appariranno qui.',textAlign:TextAlign.center)]))),
+    ]);
+  }
+  return ListView.builder(
+    padding:const EdgeInsets.all(16),
+    itemCount:list.length+3,
+    itemBuilder:(context,index){
+      if(index==0)return const Text('I tuoi preferiti',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink));
+      if(index==1)return Text('${list.length} ricette salvate');
+      if(index==2)return const SizedBox(height:12);
+      return recipeCard(list[index-3]);
+    },
+  );
+ }
  Future<void> pickProfilePhoto() async {
   final action = await showModalBottomSheet<String>(context: context, builder: (c)=>SafeArea(child: Wrap(children:[
     ListTile(leading:const Icon(Icons.photo_library_outlined),title:const Text('Scegli dalla galleria'),onTap:()=>Navigator.pop(c,'gallery')),
@@ -354,9 +686,10 @@ class _AppShellState extends State<AppShell>{
  }
  Widget profileAvatar(){
   final path=profilePhotoPath;
-  final hasPhoto=path!=null && File(path).existsSync();
+  final File? file=path==null?null:File(path);
+  final hasPhoto=file!=null && file.existsSync();
   return Stack(clipBehavior:Clip.none,children:[
-    CircleAvatar(radius:48,backgroundColor:const Color(0xFFDCEFE5),backgroundImage:hasPhoto?FileImage(File(path)):null,child:hasPhoto?null:const Icon(Icons.person_rounded,size:56,color:green)),
+    CircleAvatar(radius:48,backgroundColor:const Color(0xFFDCEFE5),backgroundImage:hasPhoto?FileImage(file!):null,child:hasPhoto?null:const Icon(Icons.person_rounded,size:56,color:green)),
     Positioned(right:-2,bottom:0,child:InkWell(onTap:pickProfilePhoto,borderRadius:BorderRadius.circular(18),child:Container(width:34,height:34,decoration:const BoxDecoration(color:green,shape:BoxShape.circle),child:const Icon(Icons.camera_alt_rounded,size:17,color:Colors.white)))),
   ]);
  }
@@ -427,7 +760,7 @@ class _AppShellState extends State<AppShell>{
  void accountPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const AccountPage()));
  void showProfileSettings(){showModalBottomSheet(context:context,showDragHandle:true,backgroundColor:cream,builder:(c)=>SafeArea(child:ListView(shrinkWrap:true,padding:const EdgeInsets.fromLTRB(20,8,20,20),children:[const Text('Impostazioni',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:8),ListTile(leading:const Icon(Icons.notifications_none_rounded,color:green),title:const Text('Notifiche'),subtitle:const Text('Gestisci gli avvisi dell’app'),onTap:(){Navigator.pop(c);Navigator.push(context,MaterialPageRoute(builder:(_)=>const AppPrivacySettingsPage()));}),const ListTile(leading:Icon(Icons.dark_mode_outlined,color:green),title:Text('Aspetto'),subtitle:Text('Tema chiaro dell’app')),ListTile(leading:const Icon(Icons.privacy_tip_outlined,color:green),title:const Text('Privacy'),subtitle:const Text('Gestisci le tue preferenze'),onTap:(){Navigator.pop(c);Navigator.push(context,MaterialPageRoute(builder:(_)=>const AppPrivacySettingsPage()));}),const SizedBox(height:8),FilledButton(onPressed:()=>Navigator.pop(c),child:const Text('Chiudi'))])));}
  void showHelp(){showModalBottomSheet(context:context,showDragHandle:true,builder:(c)=>SafeArea(child:Padding(padding:const EdgeInsets.all(22),child:Column(mainAxisSize:MainAxisSize.min,crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Aiuto e supporto',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:10),const Text('Per assistenza, suggerimenti o segnalazioni potrai contattarci dalla sezione supporto dell’app.',style:TextStyle(height:1.4)),const SizedBox(height:18),FilledButton(onPressed:()=>Navigator.pop(c),child:const Text('Chiudi'))]))));}
- void allergenSettingsPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>AllergenSettingsPage(selected:avoidedAllergens,onChanged:(key,value)async{setState(()=>value?avoidedAllergens.add(key):avoidedAllergens.remove(key));final p=await SharedPreferences.getInstance();await p.setStringList('rdm_avoided_allergens',avoidedAllergens.toList());})));
+ void allergenSettingsPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>AllergenSettingsPage(selected:avoidedAllergens,onChanged:(key,value)async{setState(()=>value?avoidedAllergens.add(key):avoidedAllergens.remove(key));_invalidateFilterCache();final p=await SharedPreferences.getInstance();await p.setStringList('rdm_avoided_allergens',avoidedAllergens.toList());})));
  void foodSafetyPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const FoodSafetyPage()));
 
  void premiumPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const PremiumPage()));
@@ -474,7 +807,7 @@ class _AppShellState extends State<AppShell>{
  }
 
  void fridgePage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>FridgePage(recipes:all,onOpen:openRecipe)));
- void showFilters(){showModalBottomSheet(context:context,showDragHandle:true,isScrollControlled:true,builder:(c)=>StatefulBuilder(builder:(c,setM)=>Padding(padding:EdgeInsets.fromLTRB(20,8,20,20+MediaQuery.of(c).viewInsets.bottom),child:SingleChildScrollView(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Filtri',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),DropdownButtonFormField<String>(initialValue:category,items:['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'].map((x)=>DropdownMenuItem(value:x,child:Text(x))).toList(),onChanged:(v){if(v!=null)setM(()=>category=v);}),const SizedBox(height:12),const Text('Stile alimentare',style:TextStyle(fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Wrap(spacing:8,runSpacing:8,children:['Tutte','Vegetariano','Vegano','Senza glutine','Senza lattosio'].map((x)=>ChoiceChip(label:Text(x),selected:diet==x,onSelected:(_)=>setM(()=>diet=x))).toList()),const SizedBox(height:12),Text('Tempo massimo: $maxTime min',style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),Slider(min:15,max:180,divisions:11,value:maxTime.toDouble(),label:'$maxTime min',onChanged:(v)=>setM(()=>maxTime=v.round())),const SizedBox(height:8),SizedBox(width:double.infinity,child:FilledButton(onPressed:(){Navigator.pop(c);setState((){});},child:const Text('Applica filtri')))])))));}
+ void showFilters(){showModalBottomSheet(context:context,showDragHandle:true,isScrollControlled:true,builder:(c)=>StatefulBuilder(builder:(c,setM)=>Padding(padding:EdgeInsets.fromLTRB(20,8,20,20+MediaQuery.of(c).viewInsets.bottom),child:SingleChildScrollView(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Filtri',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),DropdownButtonFormField<String>(initialValue:category,items:['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'].map((x)=>DropdownMenuItem(value:x,child:Text(x))).toList(),onChanged:(v){if(v!=null)setM(()=>category=v);}),const SizedBox(height:12),const Text('Stile alimentare',style:TextStyle(fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Wrap(spacing:8,runSpacing:8,children:['Tutte','Vegetariano','Vegano','Senza glutine','Senza lattosio'].map((x)=>ChoiceChip(label:Text(x),selected:diet==x,onSelected:(_)=>setM(()=>diet=x))).toList()),const SizedBox(height:12),Text('Tempo massimo: $maxTime min',style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),Slider(min:15,max:180,divisions:11,value:maxTime.toDouble(),label:'$maxTime min',onChanged:(v)=>setM(()=>maxTime=v.round())),const SizedBox(height:8),SizedBox(width:double.infinity,child:FilledButton(onPressed:(){Navigator.pop(c);_invalidateFilterCache();setState((){});},child:const Text('Applica filtri')))])))));}
 }
 
 class AppPrivacySettingsPage extends StatefulWidget{const AppPrivacySettingsPage({super.key});@override State<AppPrivacySettingsPage> createState()=>_AppPrivacySettingsPageState();}
@@ -486,9 +819,9 @@ class _AppPrivacySettingsPageState extends State<AppPrivacySettingsPage>{
   Container(padding:const EdgeInsets.all(20),decoration:BoxDecoration(gradient:const LinearGradient(colors:[green,green2]),borderRadius:BorderRadius.circular(26)),child:const Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Icon(Icons.shield_rounded,color:Colors.white,size:38),SizedBox(height:10),Text('Le tue preferenze, sotto il tuo controllo',style:TextStyle(color:Colors.white,fontSize:23,fontWeight:FontWeight.w900)),SizedBox(height:7),Text('Puoi modificarle in qualsiasi momento.',style:TextStyle(color:Colors.white70,height:1.4))])),
   const SizedBox(height:14),Card(color:Colors.white,elevation:0,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),child:Column(children:[
    SwitchListTile(value:analytics,onChanged:(v){setState(()=>analytics=v);save('rdm_pref_analytics',v);},title:const Text('Statistiche di utilizzo',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Aiutano a migliorare l’app.'),secondary:const Icon(Icons.analytics_outlined,color:green)),
-   if(AdConsentService.instance.privacyOptionsRequired)ListTile(leading:const Icon(Icons.ads_click_outlined,color:green),title:const Text('Gestisci consenso pubblicità',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Modifica in qualsiasi momento le scelte sulla pubblicità e sulla privacy.'),trailing:const Icon(Icons.chevron_right_rounded),onTap:()async{final ok=await AdConsentService.instance.showPrivacyOptions();if(context.mounted && !ok)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Non è stato possibile aprire le preferenze pubblicitarie.')));}),
+   if(AdConsentService.instance.privacyOptionsRequired)ListTile(leading:const Icon(Icons.ads_click_outlined,color:green),title:const Text('Gestisci consenso pubblicità',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Modifica in qualsiasi momento le scelte sulla pubblicità e sulla privacy.'),trailing:const Icon(Icons.chevron_right_rounded),onTap:()async{final ok=await AdConsentService.instance.showPrivacyOptions();if(!mounted)return;if(!ok)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Non è stato possibile aprire le preferenze pubblicitarie.')));}),
    SwitchListTile(value:promotional,onChanged:(v){setState(()=>promotional=v);save('rdm_pref_promotional',v);},title:const Text('Comunicazioni promozionali',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Offerte, novità e promozioni.'),secondary:const Icon(Icons.campaign_outlined,color:green)),
-   SwitchListTile(value:serviceNotifications,onChanged:(v)async{setState(()=>serviceNotifications=v);await save('rdm_pref_service_notifications',v);await NotificationService.instance.setEnabled(v);if(context.mounted && v)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Notifiche di servizio abilitate.')));},title:const Text('Notifiche di servizio',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Nuove ricette, comunicazioni importanti e aggiornamenti.'),secondary:const Icon(Icons.notifications_none_rounded,color:green)),
+   SwitchListTile(value:serviceNotifications,onChanged:(v)async{setState(()=>serviceNotifications=v);await save('rdm_pref_service_notifications',v);await NotificationService.instance.setEnabled(v);if(!mounted)return;if(v)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Notifiche di servizio abilitate.')));},title:const Text('Notifiche di servizio',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Nuove ricette, comunicazioni importanti e aggiornamenti.'),secondary:const Icon(Icons.notifications_none_rounded,color:green)),
   ])),const SizedBox(height:12),
   ListTile(tileColor:Colors.white,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),leading:const Icon(Icons.description_outlined,color:green),title:const Text('Privacy Policy',style:TextStyle(fontWeight:FontWeight.w800)),onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const PrivacyPolicyPage()))),const SizedBox(height:8),
   ListTile(tileColor:Colors.white,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),leading:const Icon(Icons.gavel_outlined,color:green),title:const Text('Termini e Condizioni',style:TextStyle(fontWeight:FontWeight.w800)),onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const TermsPage()))),const SizedBox(height:8),
@@ -748,7 +1081,7 @@ class _PremiumPageState extends State<PremiumPage>{
   }
 }
 
-class PaywallPage extends StatelessWidget{final Recipe recipe;final VoidCallback onPremium;const PaywallPage({super.key,required this.recipe,required this.onPremium});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Anteprima Premium')),body:ListView(padding:const EdgeInsets.all(18),children:[recipeVisual(recipe,height:260),const SizedBox(height:12),Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(fontWeight:FontWeight.w800,color:green)),Text(recipe.title,style:const TextStyle(fontSize:29,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.description),const SizedBox(height:14),Container(padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:pale,borderRadius:BorderRadius.circular(20)),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('📖 La storia del piatto',style:TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.history,maxLines:5,overflow:TextOverflow.ellipsis)])),const SizedBox(height:14),const Text('🔒 Ingredienti e procedimento completo sono disponibili con Premium.',style:TextStyle(fontWeight:FontWeight.w700)),const SizedBox(height:16),FilledButton(onPressed:onPremium,child:const Text('Scopri i piani Premium'))]));}
+class PaywallPage extends StatelessWidget{final Recipe recipe;final VoidCallback onPremium;const PaywallPage({super.key,required this.recipe,required this.onPremium});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Anteprima Premium')),body:ListView(padding:const EdgeInsets.all(18),children:[recipeVisual(recipe,height:260,allowNetwork:true),const SizedBox(height:12),Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(fontWeight:FontWeight.w800,color:green)),Text(recipe.title,style:const TextStyle(fontSize:29,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.description),const SizedBox(height:14),Container(padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:pale,borderRadius:BorderRadius.circular(20)),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('📖 La storia del piatto',style:TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.history,maxLines:5,overflow:TextOverflow.ellipsis)])),const SizedBox(height:14),const Text('🔒 Ingredienti e procedimento completo sono disponibili con Premium.',style:TextStyle(fontWeight:FontWeight.w700)),const SizedBox(height:16),FilledButton(onPressed:onPremium,child:const Text('Scopri i piani Premium'))]));}
 
 class RecipePage extends StatefulWidget{
   final Recipe recipe; final bool selected; final VoidCallback onFavorite; final ValueChanged<String> onAdd; final VoidCallback onAddAll;
@@ -833,7 +1166,7 @@ class _RecipePageState extends State<RecipePage> with SingleTickerProviderStateM
       final t=Curves.easeOutCubic.transform(heroController.value);
       return Opacity(opacity:t,child:Transform.translate(offset:Offset(0,18*(1-t)),child:child));
     },child:ClipRRect(borderRadius:BorderRadius.circular(30),child:SizedBox(height:365,child:Stack(fit:StackFit.expand,children:[
-      recipeVisual(r,height:365,radius:BorderRadius.circular(30)),
+      recipeVisual(r,height:365,radius:BorderRadius.circular(30),allowNetwork:true),
       DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.black.withValues(alpha:.05),Colors.transparent,Colors.black.withValues(alpha:.72)]))),
       Positioned(left:18,top:18,child:Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:7),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.92),borderRadius:BorderRadius.circular(20)),child:Text('${flag(r.country)}  ${r.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w900)))),
       Positioned(left:18,right:18,bottom:18,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
@@ -1112,87 +1445,97 @@ class SpecialCollectionPage extends StatelessWidget {
     required this.icon,
   });
 
-  @override
-  Widget build(BuildContext c) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
+  Widget _headerCard() {
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(colors: [green, green2]),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Row(
         children: [
-          Container(
-            padding: const EdgeInsets.all(18),
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(colors: [green, green2]),
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Row(
+          Icon(icon, color: orange, size: 42),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(icon, color: orange, size: 42),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(title, style: const TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.w900)),
-                      const SizedBox(height: 4),
-                      Text(subtitle, style: const TextStyle(color: Colors.white70)),
-                    ],
-                  ),
-                ),
+                Text(title, style: const TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.w900)),
+                const SizedBox(height: 4),
+                Text(subtitle, style: const TextStyle(color: Colors.white70)),
               ],
             ),
           ),
-          const SizedBox(height: 14),
-          if (recipes.isEmpty)
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(22),
-                child: Column(
-                  children: [
-                    const Icon(Icons.auto_awesome, color: orange, size: 40),
-                    const SizedBox(height: 8),
-                    const Text(
-                      'Questa raccolta è pronta per essere ampliata con nuove ricette editoriali.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.w700, color: ink),
-                    ),
-                  ],
-                ),
-              ),
-            )
-          else
-            ...recipes.map(
-              (r) => Card(
-                child: ListTile(
-                  leading: SizedBox(
-                    width: 72,
-                    height: 72,
-                    child: specialVisual(r, height: 72, radius: BorderRadius.circular(12)),
-                  ),
-                  title: Text(r.title, style: const TextStyle(fontWeight: FontWeight.w900, color: ink)),
-                  subtitle: Text(
-                    r.chef.isEmpty
-                        ? '${flag(r.country)} ${r.country} • ${r.cookMin} min'
-                        : '${flag(r.country)} ${r.country} • Ricetta di ${r.chef}',
-                  ),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => Navigator.push(
-                    c,
-                    MaterialPageRoute(builder: (_) => SimpleRecipePreview(recipe: r)),
-                  ),
-                ),
-              ),
-            ),
         ],
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext c) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: recipes.isEmpty
+          ? ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                _headerCard(),
+                const SizedBox(height: 14),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(22),
+                    child: Column(
+                      children: [
+                        const Icon(Icons.auto_awesome, color: orange, size: 40),
+                        const SizedBox(height: 8),
+                        const Text(
+                          'Questa raccolta è pronta per essere ampliata con nuove ricette editoriali.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontWeight: FontWeight.w700, color: ink),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            )
+          : ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: recipes.length + 2,
+              itemBuilder: (context, index) {
+                if (index == 0) return _headerCard();
+                if (index == 1) return const SizedBox(height: 14);
+                final r = recipes[index - 2];
+                return Card(
+                  child: ListTile(
+                    leading: SizedBox(
+                      width: 72,
+                      height: 72,
+                      child: specialVisual(r, height: 72, radius: BorderRadius.circular(12)),
+                    ),
+                    title: Text(r.title, style: const TextStyle(fontWeight: FontWeight.w900, color: ink)),
+                    subtitle: Text(
+                      r.chef.isEmpty
+                          ? '${flag(r.country)} ${r.country} • ${r.cookMin} min'
+                          : '${flag(r.country)} ${r.country} • Ricetta di ${r.chef}',
+                    ),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => SimpleRecipePreview(recipe: r)),
+                    ),
+                  ),
+                );
+              },
+            ),
+    );
+  }
 }
 
-class SimpleRecipePreview extends StatelessWidget{final Recipe recipe;const SimpleRecipePreview({super.key,required this.recipe});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:Text(recipe.title)),body:ListView(padding:const EdgeInsets.all(18),children:[specialVisual(recipe,height:250,radius:BorderRadius.circular(22)),const SizedBox(height:12),Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w800)),Text(recipe.title,style:const TextStyle(fontSize:28,fontWeight:FontWeight.w900,color:ink)),if(recipe.chef.isNotEmpty)Padding(padding:const EdgeInsets.only(top:6),child:Text('Ricetta di ${recipe.chef}',style:const TextStyle(fontWeight:FontWeight.w800,color:orange))),const SizedBox(height:14),CookingGuide(recipe:recipe),const SizedBox(height:14),const Text('Ingredienti',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.ingredients.map((x)=>ListTile(leading:const Icon(Icons.circle,size:7,color:green),title:Text(x))),const Text('Preparazione',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.steps.asMap().entries.map((e)=>ListTile(leading:CircleAvatar(radius:14,backgroundColor:green,child:Text('${e.key+1}',style:const TextStyle(color:Colors.white,fontSize:12))),title:Text(e.value)))]));}
+class SimpleRecipePreview extends StatelessWidget{final Recipe recipe;const SimpleRecipePreview({super.key,required this.recipe});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:Text(recipe.title)),body:ListView(padding:const EdgeInsets.all(18),children:[specialVisual(recipe,height:250,radius:BorderRadius.circular(22),allowNetwork:true),const SizedBox(height:12),Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w800)),Text(recipe.title,style:const TextStyle(fontSize:28,fontWeight:FontWeight.w900,color:ink)),if(recipe.chef.isNotEmpty)Padding(padding:const EdgeInsets.only(top:6),child:Text('Ricetta di ${recipe.chef}',style:const TextStyle(fontWeight:FontWeight.w800,color:orange))),const SizedBox(height:14),CookingGuide(recipe:recipe),const SizedBox(height:14),const Text('Ingredienti',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.ingredients.map((x)=>ListTile(leading:const Icon(Icons.circle,size:7,color:green),title:Text(x))),const Text('Preparazione',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.steps.asMap().entries.map((e)=>ListTile(leading:CircleAvatar(radius:14,backgroundColor:green,child:Text('${e.key+1}',style:const TextStyle(color:Colors.white,fontSize:12))),title:Text(e.value)))]));}
 
 class ShoppingPage extends StatefulWidget{final Set<String> items;const ShoppingPage({super.key,required this.items});@override State<ShoppingPage> createState()=>_ShoppingPageState();}
 class _ShoppingPageState extends State<ShoppingPage>{final done=<String>{};@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Lista della spesa')),body:ListView(padding:const EdgeInsets.all(18),children:[Card(child:Padding(padding:const EdgeInsets.all(16),child:Column(children:[const Row(children:[Icon(Icons.shopping_cart,color:green),SizedBox(width:8),Text('I tuoi ingredienti',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink))]),const SizedBox(height:8),...widget.items.map((x)=>CheckboxListTile(value:done.contains(x),onChanged:(v)=>setState(()=>v==true?done.add(x):done.remove(x)),title:Text(x),controlAffinity:ListTileControlAffinity.leading)),FilledButton.icon(onPressed:(){ScaffoldMessenger.of(c).showSnackBar(const SnackBar(content:Text('Lista pronta per la spesa')));},icon:const Icon(Icons.check),label:const Text('Ho finito'))])))]));}
 
 class FridgePage extends StatefulWidget{final List<Recipe> recipes;final ValueChanged<Recipe> onOpen;const FridgePage({super.key,required this.recipes,required this.onOpen});@override State<FridgePage> createState()=>_FridgePageState();}
-class _FridgePageState extends State<FridgePage>{final selected=<String>{};final search=TextEditingController();final ingredients=['uova','farina','pomodori','cipolla','aglio','olio','burro','latte','formaggio','pollo','riso','pasta','patate','pesce','carne','limone','basilico','pepe','zucchine','melanzane'];@override Widget build(BuildContext c){final q=search.text.toLowerCase();final shown=ingredients.where((x)=>q.isEmpty||x.contains(q)).toList();final ranked=widget.recipes.map((r){final hay=r.ingredients.join(' ').toLowerCase();final missing=selected.where((s)=>!hay.contains(s)).length;final match=selected.isEmpty?0:missing;return (r,match);}).where((x)=>selected.isEmpty||x.$2<selected.length).toList()..sort((a,b)=>a.$2.compareTo(b.$2));return Scaffold(appBar:AppBar(title:const Text('Cosa hai nel frigo?')),body:ListView(padding:const EdgeInsets.all(18),children:[const Text('Scegli gli ingredienti che hai',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:8),TextField(controller:search,onChanged:(_)=>setState((){}),decoration:const InputDecoration(prefixIcon:Icon(Icons.search),hintText:'Cerca un ingrediente...')),const SizedBox(height:10),Wrap(spacing:7,runSpacing:7,children:shown.map((x)=>FilterChip(label:Text(x),selected:selected.contains(x),onSelected:(v)=>setState(()=>v?selected.add(x):selected.remove(x)))).toList()),const SizedBox(height:16),Text(selected.isEmpty?'Seleziona almeno un ingrediente.':'${ranked.length} ricette con pochi ingredienti mancanti',style:const TextStyle(fontWeight:FontWeight.w800)),const SizedBox(height:8),...ranked.take(20).map((x)=>Card(child:ListTile(leading:SizedBox(width:62,height:62,child:recipeVisual(x.$1,height:62,radius:BorderRadius.circular(10))),title:Text(x.$1.title,style:const TextStyle(fontWeight:FontWeight.w800)),subtitle:Text('${flag(x.$1.country)} ${x.$1.country} • ${x.$2} mancanti'),trailing:const Icon(Icons.chevron_right),onTap:()=>widget.onOpen(x.$1))))]));}}
+class _FridgePageState extends State<FridgePage>{final selected=<String>{};final search=TextEditingController();final ingredients=['uova','farina','pomodori','cipolla','aglio','olio','burro','latte','formaggio','pollo','riso','pasta','patate','pesce','carne','limone','basilico','pepe','zucchine','melanzane'];@override void dispose(){search.dispose();super.dispose();}@override Widget build(BuildContext c){final q=search.text.toLowerCase();final shown=ingredients.where((x)=>q.isEmpty||x.contains(q)).toList();final ranked=<({Recipe recipe,int missing})>[];if(selected.isNotEmpty){for(final r in widget.recipes){final hay=r.ingredients.join(' ').toLowerCase();final missing=selected.where((s)=>!hay.contains(s)).length;if(missing<selected.length)ranked.add((recipe:r,missing:missing));}ranked.sort((a,b)=>a.missing.compareTo(b.missing));}return Scaffold(appBar:AppBar(title:const Text('Cosa hai nel frigo?')),body:ListView(padding:const EdgeInsets.all(18),children:[const Text('Scegli gli ingredienti che hai',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:8),TextField(controller:search,onChanged:(_)=>setState((){}),decoration:const InputDecoration(prefixIcon:Icon(Icons.search),hintText:'Cerca un ingrediente...')),const SizedBox(height:10),Wrap(spacing:7,runSpacing:7,children:shown.map((x)=>FilterChip(label:Text(x),selected:selected.contains(x),onSelected:(v)=>setState(()=>v?selected.add(x):selected.remove(x)))).toList()),const SizedBox(height:16),Text(selected.isEmpty?'Seleziona almeno un ingrediente.':'${ranked.length} ricette con pochi ingredienti mancanti',style:const TextStyle(fontWeight:FontWeight.w800)),const SizedBox(height:8),...ranked.take(20).map((x)=>Card(child:ListTile(leading:SizedBox(width:62,height:62,child:recipeVisual(x.recipe,height:62,radius:BorderRadius.circular(10))),title:Text(x.recipe.title,style:const TextStyle(fontWeight:FontWeight.w800)),subtitle:Text('${flag(x.recipe.country)} ${x.recipe.country} • ${x.missing} mancanti'),trailing:const Icon(Icons.chevron_right),onTap:()=>widget.onOpen(x.recipe))))]));}}

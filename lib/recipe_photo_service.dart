@@ -111,21 +111,19 @@ class RecipePhotoService {
     return value;
   }
 
-  Future<String?> resolve(Recipe r) async {
-    await _ensureInit();
-    if (_cache.containsKey(r.id)) return _cache[r.id];
-    final existing = _pending[r.id];
-    if (existing != null) return existing;
-    final future = _lookup(r).whenComplete(() => _pending.remove(r.id));
-    _pending[r.id] = future;
-    return future;
-  }
+  Future<String?> resolve(Recipe r, {bool allowNetwork = false}) async {
+    // Le card di Home/ricerca non devono mai aspettare SharedPreferences o
+    // una ricerca web. La rete viene usata solo nelle schermate di dettaglio.
+    final memoryValue = _cache[r.id];
+    if (_cache.containsKey(r.id)) {
+      if (memoryValue == null || memoryValue.startsWith('asset://') || allowNetwork) {
+        return memoryValue;
+      }
+      // Una URL remota già in cache non deve riattivare la rete nelle card.
+      return 'asset://assets/logo_rdm.png';
+    }
 
-  Future<String?> _lookup(Recipe r) async {
     String? local = _verifiedLocal[r.id];
-    // Nel progetto sono presenti 120 foto locali validate (R001-R120).
-    // Usarle direttamente elimina 120 ricerche di rete e rende le prime
-    // schermate molto più rapide e affidabili anche senza connessione.
     if (local == null && r.id.startsWith('R')) {
       final number = int.tryParse(r.id.substring(1));
       if (number != null && number >= 1 && number <= 120) {
@@ -134,16 +132,33 @@ class RecipePhotoService {
     }
     if (local != null) {
       final value = 'asset://$local';
-      _persist(r.id, value);
+      _cache[r.id]=value;
       return value;
     }
 
     final explicit = r.imageUrl.trim();
-    if (explicit.isNotEmpty && !_usedUrls.contains(explicit)) {
-      _persist(r.id, explicit);
+    if (explicit.isNotEmpty) {
+      _cache[r.id]=explicit;
       return explicit;
     }
 
+    if (!allowNetwork) {
+      const fallback = 'asset://assets/logo_rdm.png';
+      _cache[r.id]=fallback;
+      return fallback;
+    }
+
+    await _ensureInit();
+    final persisted = _cache[r.id];
+    if (persisted != null && persisted.isNotEmpty) return persisted;
+    final existing = _pending[r.id];
+    if (existing != null) return existing;
+    final future = _lookupNetwork(r).whenComplete(() => _pending.remove(r.id));
+    _pending[r.id] = future;
+    return future;
+  }
+
+  Future<String?> _lookupNetwork(Recipe r) async {
     return _runNetworkLookup(() async {
       // Una sola ricerca per volta evita che una schermata con molte card
       // apra decine di richieste HTTP contemporaneamente.
@@ -323,17 +338,18 @@ class RecipePhoto extends StatefulWidget {
   final Recipe recipe;
   final double height;
   final BorderRadius radius;
-  const RecipePhoto({super.key, required this.recipe, required this.height, required this.radius});
+  final bool allowNetwork;
+  const RecipePhoto({super.key, required this.recipe, required this.height, required this.radius, this.allowNetwork=false});
   @override State<RecipePhoto> createState() => _RecipePhotoState();
 }
 
 class _RecipePhotoState extends State<RecipePhoto> {
   late Future<String?> _future;
-  @override void initState() { super.initState(); _future = RecipePhotoService.instance.resolve(widget.recipe); }
+  @override void initState() { super.initState(); _future = RecipePhotoService.instance.resolve(widget.recipe, allowNetwork: widget.allowNetwork); }
   @override void didUpdateWidget(covariant RecipePhoto oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.recipe.id != widget.recipe.id) {
-      _future = RecipePhotoService.instance.resolve(widget.recipe);
+      _future = RecipePhotoService.instance.resolve(widget.recipe, allowNetwork: widget.allowNetwork);
     }
   }
 
