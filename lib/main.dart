@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'notification_service.dart';
+import 'dart:math' as math;
 import 'dart:io';
-import 'dart:async';
 import 'package:image_picker/image_picker.dart';
 import 'recipe.dart';
 import 'recipe_photo_service.dart';
@@ -20,16 +19,12 @@ import 'ad_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const RicetteApp());
-  unawaited(_initializeNonCriticalServices());
-}
-
-Future<void> _initializeNonCriticalServices() async {
   try {
     await Firebase.initializeApp();
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   } catch (_) {
-    // L'app resta avviabile anche se Firebase non è ancora disponibile.
+    // In assenza della configurazione nativa Firebase l'app resta avviabile;
+    // Codemagic la configura durante il build Android.
   }
   try {
     final canRequestAds = await AdConsentService.instance.initialize();
@@ -39,6 +34,7 @@ Future<void> _initializeNonCriticalServices() async {
   } catch (_) {
     // Gli annunci restano disabilitati finché il consenso non consente le richieste.
   }
+  runApp(const RicetteApp());
 }
 
 class RatingStats { double sum=0; int count=0; double get avg=>count==0?0:sum/count; }
@@ -99,168 +95,14 @@ Widget recipeVisual(Recipe r,{double height=170,BorderRadius? radius})=>RecipePh
 
 Widget specialVisual(Recipe r,{double height=170,BorderRadius? radius})=>recipeVisual(r,height:height,radius:radius);
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
-  @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  final RecipeRepository repo = RecipeRepository();
-  double progress = 0;
-  String status = 'Preparazione...';
-  bool opened = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadCatalog();
-  }
-
-  Future<void> _loadCatalog() async {
-    try {
-      await repo.loadRecipes(
-        onProgress: (p) {
-          if (!mounted) return;
-          final value = p.clamp(0.0, 1.0).toDouble();
-          setState(() {
-            progress = value;
-            status = value < 0.28
-                ? 'Apertura del catalogo...'
-                : value < 0.38
-                    ? 'Preparazione delle ricette...'
-                    : value < 1
-                        ? 'Caricamento ricette...'
-                        : 'Ricette pronte';
-          });
-        },
-      );
-      if (!mounted || opened) return;
-      opened = true;
-      setState(() {
-        progress = 1;
-        status = 'Ricette pronte';
-      });
-      await Future<void>.delayed(const Duration(milliseconds: 350));
-      if (mounted) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_) => const AppShell()),
-        );
-      }
-    } catch (_) {
-      if (!mounted || opened) return;
-      opened = true;
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const AppShell()),
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: Image.asset(
-                'assets/splash_v6.png',
-                fit: BoxFit.fill,
-                filterQuality: FilterQuality.medium,
-              ),
-            ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              height: 96,
-              child: IgnorePointer(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Colors.black.withValues(alpha: .18),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: const Alignment(0, 0.496),
-              child: FractionallySizedBox(
-                widthFactor: .53,
-                child: SizedBox(
-                  height: 34,
-                  child: IgnorePointer(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Stack(
-                        children: [
-                          Positioned.fill(
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                color: Colors.black.withValues(alpha: .58),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          FractionallySizedBox(
-                            widthFactor: progress,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFFFD889),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: const Alignment(0, 0.456),
-              child: FractionallySizedBox(
-                widthFactor: .53,
-                child: Text(
-                  status,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: const Alignment(0, 0.56),
-              child: FractionallySizedBox(
-                widthFactor: .53,
-                child: Text(
-                  '${(progress * 100).round()}%',
-                  textAlign: TextAlign.right,
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 9,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+class SplashPage extends StatefulWidget{const SplashPage({super.key});@override State<SplashPage> createState()=>_SplashPageState();}
+class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin{
+ late final AnimationController controller;
+ @override void initState(){super.initState();controller=AnimationController(vsync:this,duration:const Duration(milliseconds:5000))..forward();Future.delayed(const Duration(milliseconds:5200),(){if(mounted)Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(_)=>const AppShell()));});}
+ @override void dispose(){controller.dispose();super.dispose();}
+ @override Widget build(BuildContext c)=>Scaffold(backgroundColor:Colors.black,body:SafeArea(child:LayoutBuilder(builder:(c,box)=>Stack(children:[Positioned.fill(child:Image.asset('assets/splash_v6.png',fit:BoxFit.cover,filterQuality:FilterQuality.high)),Positioned.fill(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.transparent,Colors.black.withValues(alpha:.08),Colors.black.withValues(alpha:.20)])))),
+Positioned(left:0,right:0,top:box.maxHeight*.615,height:box.maxHeight*.12,child:IgnorePointer(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.transparent,Colors.black,Colors.black,Colors.transparent]))))),
+Positioned(left:24,right:24,bottom:42,child:AnimatedBuilder(animation:controller,builder:(_,__) {final p=controller.value;final pct=(p*100).round();final count=(p*10000).round().clamp(0,10000);return Column(children:[Text('Caricamento ricette...',style:TextStyle(color:Colors.white,fontSize:14,fontWeight:FontWeight.w700,shadows:[Shadow(color:Colors.black54,blurRadius:5)])),const SizedBox(height:7),ClipRRect(borderRadius:BorderRadius.circular(20),child:Container(height:12,decoration:BoxDecoration(color:Colors.black.withValues(alpha:.35),border:Border.all(color:Colors.white70)),child:FractionallySizedBox(alignment:Alignment.centerLeft,widthFactor:p,child:Container(decoration:const BoxDecoration(gradient:LinearGradient(colors:[Color(0xFFD89A32),Color(0xFFFFE0A0)])))))),const SizedBox(height:7),Text('$pct%',style:const TextStyle(color:Colors.white,fontSize:14,fontWeight:FontWeight.w900,shadows:[Shadow(color:Colors.black54,blurRadius:5)])),const SizedBox(height:7),Text('$count di 10.000 ricette caricate',style:const TextStyle(color:Colors.white,fontSize:16,fontWeight:FontWeight.w900,shadows:[Shadow(color:Colors.black54,blurRadius:5)]))]);}) )]))));}
 
 class RicetteApp extends StatelessWidget{const RicetteApp({super.key});@override Widget build(BuildContext c)=>MaterialApp(debugShowCheckedModeBanner:false,title:'Ricette del Mondo',theme:ThemeData(useMaterial3:true,scaffoldBackgroundColor:cream,colorScheme:ColorScheme.fromSeed(seedColor:green),fontFamily:'sans-serif',appBarTheme:const AppBarTheme(backgroundColor:cream,foregroundColor:ink,elevation:0)),home:const SplashPage());}
 
@@ -268,13 +110,25 @@ class AppShell extends StatefulWidget{const AppShell({super.key});@override Stat
 class _AppShellState extends State<AppShell>{
  String? profilePhotoPath;
  final ImagePicker _profilePicker = ImagePicker();
- final repo=RecipeRepository(), search=TextEditingController(); List<Recipe> all=[]; List<Recipe> _catalog=[]; List<Recipe> _premiumFree=[]; List<Recipe> _specialBraceria=[]; List<Recipe> _specialGourmet=[]; int _italianCount=0; Timer? _searchDebounce; String _searchQuery=''; final favorites=<String>{}, shopping=<String>{}; final ratings=<String,RatingStats>{}, tasteRatings=<String,RatingStats>{}; final userRatings=<String,int>{}, userTasteRatings=<String,int>{}; final avoidedAllergens=<String>{}; int tab=0; String category='Tutte',diet='Tutte',language='Italiano'; int maxTime=180;
- List<Recipe> get catalog=>_catalog;
+ final repo=RecipeRepository(), search=TextEditingController(); List<Recipe> all=[]; final favorites=<String>{}, shopping=<String>{}; final ratings=<String,RatingStats>{}, tasteRatings=<String,RatingStats>{}; final userRatings=<String,int>{}, userTasteRatings=<String,int>{}; final avoidedAllergens=<String>{}; int tab=0; String category='Tutte',diet='Tutte',language='Italiano'; int maxTime=180;
+ List<Recipe> get catalog=>[...all,...specialDoughRecipes];
 
  // Le 10 ricette gratuite Premium ruotano su 5 gruppi diversi.
  // Il gruppo viene scelto in modo deterministico in base al giorno, così
  // durante la giornata resta stabile e dopo 5 rotazioni il ciclo riparte.
- List<Recipe> get premiumFreeRecipes=>_premiumFree;
+ List<Recipe> get premiumFreeRecipes {
+  final pool=all.where((r)=>!r.premium).toList();
+  if(pool.length<=10)return pool;
+  final day=DateTime.now().difference(DateTime(2020,1,1)).inDays;
+  final cycle=day%5;
+  final shuffled=List<Recipe>.from(pool);
+  final random=math.Random(0x5A17);
+  shuffled.shuffle(random);
+  final start=cycle*10;
+  if(start+10<=shuffled.length)return shuffled.sublist(start,start+10);
+  // Fallback per cataloghi più piccoli: ricomincia dal principio del ciclo.
+  return shuffled.take(10).toList();
+ }
  RatingStats statsFor(Map<String,RatingStats> map,String id)=>map.putIfAbsent(id,()=>RatingStats());
  void castVote(Recipe r,int stars,{required bool taste}){
   final map=taste?tasteRatings:ratings;
@@ -296,137 +150,16 @@ class _AppShellState extends State<AppShell>{
  double avgFor(Recipe r,{bool taste=false})=>(taste?tasteRatings:ratings)[r.id]?.avg??0;
  int countFor(Recipe r,{bool taste=false})=>(taste?tasteRatings:ratings)[r.id]?.count??0;
  @override void initState(){super.initState();
-  repo.loadRecipes().then((r){
-    if(!mounted)return;
-    _buildCatalogCaches(r);
-    setState(()=>all=r);
-  }).catchError((_){
-    if(mounted)setState((){});
-  });
+  repo.loadRecipes().then((r){if(mounted)setState(()=>all=r);});
   SharedPreferences.getInstance().then((p){if(mounted)setState((){avoidedAllergens.addAll(p.getStringList('rdm_avoided_allergens')??const []);profilePhotoPath=p.getString('rdm_profile_photo_path');});});
-  Future.delayed(const Duration(milliseconds:700),(){if(mounted)NotificationService.instance.initialize().catchError((_) async {});});
-  // Gli annunci non devono competere con il primo rendering dell'Home.
-  Future.delayed(const Duration(seconds:4),(){if(mounted&&AdConsentService.instance.canRequestAds)AdService.instance.preload();});
+  Future.delayed(const Duration(milliseconds:450),(){if(mounted)NotificationService.instance.initialize().catchError((_) async {});});
+  Future.delayed(const Duration(seconds:1),(){if(mounted&&AdConsentService.instance.canRequestAds)AdService.instance.preload();});
 }
- void _buildCatalogCaches(List<Recipe> recipes){
-  _catalog=List<Recipe>.unmodifiable([...recipes,...specialDoughRecipes]);
-  final pool=recipes.where((r)=>!r.premium).toList(growable:false);
-  if(pool.length<=10){
-    _premiumFree=List<Recipe>.unmodifiable(pool);
-  }else{
-    // Selezione deterministica senza shuffle dell'intero catalogo: evita un
-    // lavoro inutile sul thread UI ogni volta che l'app viene avviata.
-    final day=DateTime.now().difference(DateTime(2020,1,1)).inDays;
-    final start=(day%5)*10;
-    final safeStart=start<pool.length?start:0;
-    _premiumFree=List<Recipe>.unmodifiable(List.generate(10,(i)=>pool[(safeStart+i)%pool.length]));
-  }
-  _italianCount=0;
-  final braceria=[...specialBraceriaRecipes];
-  final gourmet=<Recipe>[];
-  for(final r in _catalog){
-    if(r.country.toLowerCase()=='italia')_italianCount++;
-    final title=r.title.toLowerCase();
-    final tags=r.tags.map((x)=>x.toLowerCase()).toSet();
-    if(tags.intersection({'carne','griglia','brace','bbq','pollo'}).isNotEmpty||title.contains('asado')||title.contains('pulled'))braceria.add(r);
-    if(tags.contains('gourmet'))gourmet.add(r);
-  }
-  _specialBraceria=List<Recipe>.unmodifiable(braceria);
-  _specialGourmet=List<Recipe>.unmodifiable(gourmet);
- }
-
  bool dietMatches(Recipe r,String selected){if(selected=='Tutte')return true;final t='${r.title} ${r.description} ${r.ingredients.join(' ')} ${r.tags.join(' ')}'.toLowerCase();if(selected=='Vegetariano')return !RegExp(r'\b(carne|manzo|maiale|prosciutto|pollo|tacchino|agnello|salsiccia|pesce|salmone|tonno|merluzzo|gamberi|gambero|acciuga|acciughe)\b').hasMatch(t);if(selected=='Vegano')return !RegExp(r'\b(carne|manzo|maiale|prosciutto|pollo|tacchino|agnello|salsiccia|pesce|salmone|tonno|merluzzo|gamberi|gambero|uova|uovo|latte|burro|panna|formaggio|parmigiano|mozzarella|ricotta|yogurt|miele)\b').hasMatch(t);if(selected=='Senza glutine')return !allergenTerms['glutine']!.any((x)=>t.contains(x));if(selected=='Senza lattosio')return !allergenTerms['latte']!.any((x)=>t.contains(x));return true;}
- List<Recipe> get filtered{
-  final s=_searchQuery.trim().toLowerCase();
-  final terms=s.split(RegExp(r'[, ]+')).where((x)=>x.isNotEmpty).toList(growable:false);
-  return catalog.where((r){
-    final hay='${r.title} ${r.country} ${r.cuisine} ${r.category} ${r.ingredients.join(' ')} ${r.tags.join(' ')}'.toLowerCase();
-    return (terms.isEmpty||terms.every(hay.contains))&&(category=='Tutte'||r.category==category)&&(r.timeMin<=maxTime)&&(dietMatches(r,diet))&&!detectAllergens(r).intersection(avoidedAllergens).isNotEmpty;
-  }).toList(growable:false);
- }
- void onSearchChanged(String value){
-  _searchQuery=value;
-  _searchDebounce?.cancel();
-  if(tab!=1)return;
-  _searchDebounce=Timer(const Duration(milliseconds:160),(){if(mounted)setState((){});});
- }
- @override void dispose(){_searchDebounce?.cancel();search.dispose();super.dispose();}
- @override Widget build(BuildContext c){if(all.isEmpty)return const Scaffold(body:Center(child:CircularProgressIndicator()));final Widget currentPage=switch(tab){0=>home(),1=>searchPage(),2=>categoriesPage(),3=>favoritesPage(),4=>profilePage(),_=>home()};return Scaffold(body:SafeArea(child:currentPage),bottomNavigationBar:NavigationBar(height:68,elevation:10,backgroundColor:Colors.white,indicatorColor:const Color(0xFFDCEFE5),labelBehavior:NavigationDestinationLabelBehavior.alwaysShow,selectedIndex:tab,onDestinationSelected:(i){if(i!=tab)setState(()=>tab=i);},destinations:const [NavigationDestination(icon:Icon(Icons.home_outlined),selectedIcon:Icon(Icons.home_rounded),label:'Home'),NavigationDestination(icon:Icon(Icons.search_rounded),selectedIcon:Icon(Icons.search_rounded),label:'Cerca'),NavigationDestination(icon:Icon(Icons.grid_view_rounded),selectedIcon:Icon(Icons.grid_view_rounded),label:'Esplora'),NavigationDestination(icon:Icon(Icons.favorite_border_rounded),selectedIcon:Icon(Icons.favorite_rounded),label:'Preferiti'),NavigationDestination(icon:Icon(Icons.person_outline_rounded),selectedIcon:Icon(Icons.person_rounded),label:'Profilo')]));}
+ List<Recipe> get filtered{final s=search.text.trim().toLowerCase();return catalog.where((r){final hay='${r.title} ${r.country} ${r.cuisine} ${r.category} ${r.ingredients.join(' ')} ${r.tags.join(' ')}'.toLowerCase();return (s.isEmpty||s.split(RegExp(r'[, ]+')).where((x)=>x.isNotEmpty).every(hay.contains))&&(category=='Tutte'||r.category==category)&&(r.timeMin<=maxTime)&&(dietMatches(r,diet))&&!detectAllergens(r).intersection(avoidedAllergens).isNotEmpty;}).toList();}
+ @override Widget build(BuildContext c){if(all.isEmpty)return const Scaffold(body:Center(child:CircularProgressIndicator()));final pages=[home(),searchPage(),categoriesPage(),favoritesPage(),profilePage()];return Scaffold(body:SafeArea(child:pages[tab]),bottomNavigationBar:NavigationBar(backgroundColor:Colors.white,indicatorColor:const Color(0xFFDCEFE5),selectedIndex:tab,onDestinationSelected:(i)=>setState(()=>tab=i),destinations:const [NavigationDestination(icon:Icon(Icons.home_outlined),selectedIcon:Icon(Icons.home),label:'Home'),NavigationDestination(icon:Icon(Icons.search),label:'Cerca'),NavigationDestination(icon:Icon(Icons.grid_view_rounded),label:'Categorie'),NavigationDestination(icon:Icon(Icons.favorite_border),selectedIcon:Icon(Icons.favorite),label:'Preferiti'),NavigationDestination(icon:Icon(Icons.person_outline),selectedIcon:Icon(Icons.person),label:'Profilo')]));}
  Widget logo({double h=96})=>Image.asset('assets/logo_rdm.png',height:h,fit:BoxFit.contain);
- Widget home(){
-  final total=all.length;
-  final italian=_italianCount;
-  final world=total-italian;
-  final heroRecipe=all.isNotEmpty?all[0]:null;
-  return ListView(
-    padding:const EdgeInsets.fromLTRB(16,8,16,28),
-    children:[
-      modernHeader(),
-      const SizedBox(height:12),
-      if(heroRecipe!=null) homeHeroModern(heroRecipe,total,italian,world),
-      const SizedBox(height:14),
-      searchBox(),
-      const SizedBox(height:6),
-      section('Scopri le specialità',action:'Vedi tutte'),
-      SizedBox(
-        height:92,
-        child:ListView(
-          scrollDirection:Axis.horizontal,
-          padding:const EdgeInsets.only(bottom:4),
-          children:[
-            specialCompact('assets/banners/banner_impasti.png','Impasti','Basi perfette per grandi ricette',()=>openSpecialPage('Speciale Impasti','Impasti per pizza e focaccia da fare a casa.',specialDoughRecipes,Icons.local_pizza)),
-            specialCompact('assets/banners/banner_hamburger.png','Hamburger','Classici e creativi da tutto il mondo',()=>openSpecialPage('Speciale Hamburger','Una raccolta dedicata agli hamburger.',[...specialHamburgerRecipes,...catalog.where((r)=>r.title.toLowerCase().contains('hamburger')||r.tags.any((t)=>t.toLowerCase().contains('burger')))],Icons.lunch_dining)),
-            specialCompact('assets/banners/banner_braceria.png','Braceria','Il gusto autentico della griglia',()=>openSpecialPage('Speciale Braceria','Ricette per griglia, brace e cotture lente.',_specialBraceria,Icons.outdoor_grill)),
-            specialCompact('assets/banners/banner_gourmet.png','Gourmet','L’alta cucina a casa tua',()=>openSpecialPage('Speciale Gourmet Stellato','Una raccolta editoriale di alta cucina.',_specialGourmet,Icons.auto_awesome)),
-          ],
-        ),
-      ),
-      section('Ricetta del giorno',action:'Apri',onAction:heroRecipe==null?null:()=>openRecipe(heroRecipe)),
-      if(heroRecipe!=null) dailyRecipeCard(),
-      const SizedBox(height:4),
-      section('Le 10 ricette gratuite',action:'Vedi tutte',onAction:()=>setState(()=>tab=1)),
-      SizedBox(height:238,child:ListView(scrollDirection:Axis.horizontal,padding:const EdgeInsets.only(bottom:4),children:premiumFreeRecipes.map((r)=>miniCard(r)).toList())),
-      ratingHomeSection('🏆 Più votate',false),
-      section('Esplora il mondo',action:'Scopri tutto'),
-      continentGrid(),
-      section('Idee per te',action:'Vedi tutte'),
-      ...all.skip(10).take(6).map(recipeCard),
-      section('Scopri Premium'),
-      premiumBanner(),
-      const SizedBox(height:4),
-      socialSection(),
-    ],
-  );
- }
- Widget modernHeader()=>Row(children:[
-   Container(width:46,height:46,decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(15),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.06),blurRadius:14,offset:const Offset(0,5))]),child:Padding(padding:const EdgeInsets.all(6),child:Image.asset('assets/logo_rdm.png',fit:BoxFit.contain))),
-   const SizedBox(width:10),
-   const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Ricette del Mondo',style:TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink)),Text('Ogni ricetta è un viaggio.',style:TextStyle(fontSize:11,color:Colors.black54,fontWeight:FontWeight.w600))])),
-   IconButton(style:IconButton.styleFrom(backgroundColor:Colors.white),onPressed:()=>setState(()=>tab=4),icon:const Icon(Icons.person_outline_rounded,color:green)),
- ]);
- Widget homeHeroModern(Recipe r,int total,int italian,int world)=>Container(
-   height:290,
-   decoration:BoxDecoration(borderRadius:BorderRadius.circular(28),boxShadow:[BoxShadow(color:green.withValues(alpha:.16),blurRadius:24,offset:const Offset(0,10))]),
-   child:ClipRRect(borderRadius:BorderRadius.circular(28),child:Stack(children:[
-     Positioned.fill(child:recipeVisual(r,height:290,radius:BorderRadius.zero)),
-     Positioned.fill(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.black.withValues(alpha:.08),Colors.black.withValues(alpha:.10),Colors.black.withValues(alpha:.78)])))),
-     Positioned(left:18,right:18,top:16,child:Row(children:[Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:7),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.16),borderRadius:BorderRadius.circular(20),border:Border.all(color:Colors.white.withValues(alpha:.24))),child:const Text('SAPORI SENZA CONFINI',style:TextStyle(color:Colors.white,fontSize:9,fontWeight:FontWeight.w900,letterSpacing:1.5)),),const Spacer(),Container(width:38,height:38,decoration:BoxDecoration(color:Colors.white.withValues(alpha:.16),shape:BoxShape.circle),child:const Icon(Icons.public_rounded,color:Colors.white,size:20))])),
-     Positioned(left:18,right:18,bottom:16,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-       const Text('Scopri il mondo a tavola',style:TextStyle(color:Colors.white,fontSize:27,fontWeight:FontWeight.w900,height:1.05)),
-       const SizedBox(height:5),
-       const Text('Ricette, tradizioni e sapori da ogni angolo del pianeta.',style:TextStyle(color:Colors.white70,fontSize:12.5,fontWeight:FontWeight.w500)),
-       const SizedBox(height:12),
-       Row(children:[
-         Expanded(child:Container(height:44,padding:const EdgeInsets.symmetric(horizontal:12),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.95),borderRadius:BorderRadius.circular(15)),child:Row(children:[const Icon(Icons.restaurant_menu_rounded,color:green,size:18),const SizedBox(width:8),Expanded(child:Text(r.title,maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(color:ink,fontSize:12,fontWeight:FontWeight.w900))),Text('${r.timeMin} min',style:const TextStyle(color:green,fontSize:11,fontWeight:FontWeight.w800))]))),
-         const SizedBox(width:8),
-         Container(height:44,padding:const EdgeInsets.symmetric(horizontal:14),decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(15)),child:const Icon(Icons.arrow_forward_rounded,color:Colors.white)),
-       ]),
-       const SizedBox(height:10),
-       Row(children:[homeHeroMetric('$total','RICETTE'),homeHeroMetric('$italian','ITALIANE'),homeHeroMetric('$world','DAL MONDO')]),
-     ])),
-   ])));
- Widget homeHeroMetric(String value,String label)=>Expanded(child:Row(children:[Text(value,style:const TextStyle(color:Colors.white,fontSize:15,fontWeight:FontWeight.w900)),const SizedBox(width:5),Text(label,style:const TextStyle(color:Colors.white70,fontSize:8,fontWeight:FontWeight.w800,letterSpacing:.6))]));
- Widget specialCompact(String asset,String title,String subtitle,VoidCallback onTap)=>Padding(padding:const EdgeInsets.only(right:9),child:SizedBox(width:320,height:30,child:Material(color:Colors.white,borderRadius:BorderRadius.circular(17),elevation:2,child:InkWell(onTap:onTap,borderRadius:BorderRadius.circular(17),child:ClipRRect(borderRadius:BorderRadius.circular(17),child:Container(color:pale,alignment:Alignment.center,child:Image.asset(asset,width:320,height:30,fit:BoxFit.contain,filterQuality:FilterQuality.medium,errorBuilder:(_,__,___)=>const Icon(Icons.image_not_supported_outlined,color:green,size:20))))))));
+ Widget home(){final total=all.length;final italian=all.where((r)=>r.country.toLowerCase()=='italia').length;final world=total-italian;return ListView(padding:const EdgeInsets.fromLTRB(16,12,16,30),children:[homeHero(total,italian,world),const SizedBox(height:14),searchBox(),const SizedBox(height:14),dailyRecipeCard(),const SizedBox(height:14),fridgeBanner(),section('Speciali di Ricette del Mondo'),specialBanner('assets/banners/banner_impasti.png',onTap:()=>openSpecialPage('Speciale Impasti','Impasti per pizza e focaccia da fare a casa.',specialDoughRecipes,Icons.local_pizza)),specialBanner('assets/banners/banner_hamburger.png',onTap:()=>openSpecialPage('Speciale Hamburger','Una raccolta dedicata agli hamburger.',[...specialHamburgerRecipes,...catalog.where((r)=>r.title.toLowerCase().contains('hamburger')||r.tags.any((t)=>t.toLowerCase().contains('burger')))],Icons.lunch_dining)),specialBanner('assets/banners/banner_braceria.png',onTap:()=>openSpecialPage('Speciale Braceria','Ricette per griglia, brace e cotture lente.',[...specialBraceriaRecipes,...catalog.where((r)=>r.tags.any((t)=>['carne','griglia','brace','bbq','pollo'].contains(t.toLowerCase()))||r.title.toLowerCase().contains('asado')||r.title.toLowerCase().contains('pulled'))],Icons.outdoor_grill)),specialBanner('assets/banners/banner_gourmet.png',onTap:()=>openSpecialPage('Speciale Gourmet Stellato','Una raccolta editoriale di alta cucina.',catalog.where((r)=>r.tags.any((t)=>t.toLowerCase()=='gourmet')).toList(),Icons.auto_awesome)),section('Le 10 ricette gratuite',action:'Vedi tutte',onAction:()=>setState(()=>tab=1)),SizedBox(height:264,child:ListView(scrollDirection:Axis.horizontal,padding:const EdgeInsets.only(bottom:4),children:premiumFreeRecipes.map((r)=>miniCard(r)).toList())),ratingHomeSection('🏆 Ricette più votate',false),ratingHomeSection('😋 Ricette più buone',true),section('Esplora il mondo'),continentGrid(),section('Seguici sui social'),socialSection(),section('Scopri Premium'),premiumBanner(),section('Idee per te'),...all.skip(10).take(5).map(recipeCard)]);}
  Widget dailyRecipeCard(){
   if(all.isEmpty)return const SizedBox.shrink();
   final now=DateTime.now();
@@ -444,8 +177,8 @@ class _AppShellState extends State<AppShell>{
         shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(26)),
         child:InkWell(onTap:()=>openRecipe(recipe),child:Stack(children:[
           SizedBox(width:double.infinity,height:250,child:recipeVisual(recipe,height:250,radius:BorderRadius.zero)),
-          Positioned.fill(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.transparent,Colors.transparent,Colors.black.withValues(alpha: .72)])))),
-          Positioned(left:15,top:14,child:Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:7),decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(18),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha: .18),blurRadius:10)]),child:const Text('RICETTA DEL GIORNO',style:TextStyle(color:Colors.white,fontSize:10,fontWeight:FontWeight.w900,letterSpacing:.8)))),
+          Positioned.fill(child:DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.transparent,Colors.transparent,Colors.black.withValues(alpha:.72)])))),
+          Positioned(left:15,top:14,child:Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:7),decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(18),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.18),blurRadius:10)]),child:const Text('RICETTA DEL GIORNO',style:TextStyle(color:Colors.white,fontSize:10,fontWeight:FontWeight.w900,letterSpacing:.8)))),
           Positioned(left:16,right:16,bottom:15,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
             Text(recipe.title,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(color:Colors.white,fontSize:22,fontWeight:FontWeight.w900)),
             const SizedBox(height:6),
@@ -467,7 +200,7 @@ class _AppShellState extends State<AppShell>{
   child:Container(
     decoration:BoxDecoration(
       borderRadius:BorderRadius.circular(30),
-      boxShadow:[BoxShadow(color:green.withValues(alpha: .18),blurRadius:28,offset:const Offset(0,12))],
+      boxShadow:[BoxShadow(color:green.withValues(alpha:.18),blurRadius:28,offset:const Offset(0,12))],
     ),
     child:ClipRRect(
       borderRadius:BorderRadius.circular(30),
@@ -484,21 +217,21 @@ class _AppShellState extends State<AppShell>{
               ),
             ),
           ),
-          Positioned(right:-70,top:-80,child:Container(width:250,height:250,decoration:BoxDecoration(shape:BoxShape.circle,color:Colors.white.withValues(alpha: .055)))),
-          Positioned(left:-90,bottom:-115,child:Container(width:300,height:300,decoration:BoxDecoration(shape:BoxShape.circle,color:orange.withValues(alpha: .10)))),
+          Positioned(right:-70,top:-80,child:Container(width:250,height:250,decoration:BoxDecoration(shape:BoxShape.circle,color:Colors.white.withValues(alpha:.055)))),
+          Positioned(left:-90,bottom:-115,child:Container(width:300,height:300,decoration:BoxDecoration(shape:BoxShape.circle,color:orange.withValues(alpha:.10)))),
           Padding(
             padding:const EdgeInsets.fromLTRB(20,18,20,18),
             child:Column(children:[
               Row(children:[
                 Container(
                   padding:const EdgeInsets.symmetric(horizontal:13,vertical:8),
-                  decoration:BoxDecoration(color:Colors.white.withValues(alpha: .10),borderRadius:BorderRadius.circular(20),border:Border.all(color:Colors.white.withValues(alpha: .13))),
+                  decoration:BoxDecoration(color:Colors.white.withValues(alpha:.10),borderRadius:BorderRadius.circular(20),border:Border.all(color:Colors.white.withValues(alpha:.13))),
                   child:const Text('SAPORI SENZA CONFINI',style:TextStyle(color:Colors.white,fontSize:10,fontWeight:FontWeight.w900,letterSpacing:1.7)),
                 ),
                 const Spacer(),
                 IconButton(
                   tooltip:'Profilo',
-                  style:IconButton.styleFrom(backgroundColor:Colors.white.withValues(alpha: .12),foregroundColor:Colors.white),
+                  style:IconButton.styleFrom(backgroundColor:Colors.white.withValues(alpha:.12),foregroundColor:Colors.white),
                   onPressed:()=>setState(()=>tab=4),
                   icon:const Icon(Icons.person_outline_rounded,size:25),
                 ),
@@ -507,11 +240,11 @@ class _AppShellState extends State<AppShell>{
               SizedBox(height:156,child:logo(h:154)),
               const Text('Ogni ricetta è un viaggio.',textAlign:TextAlign.center,style:TextStyle(color:Colors.white,fontSize:23,fontWeight:FontWeight.w900,letterSpacing:.15)),
               const SizedBox(height:4),
-              Text('Scopri sapori, tradizioni e cucine da tutto il mondo.',textAlign:TextAlign.center,style:TextStyle(color:Colors.white.withValues(alpha: .82),fontSize:12.5,fontWeight:FontWeight.w500)),
+              Text('Scopri sapori, tradizioni e cucine da tutto il mondo.',textAlign:TextAlign.center,style:TextStyle(color:Colors.white.withValues(alpha:.82),fontSize:12.5,fontWeight:FontWeight.w500)),
               const SizedBox(height:17),
               Container(
                 padding:const EdgeInsets.symmetric(horizontal:8,vertical:13),
-                decoration:BoxDecoration(color:Colors.white.withValues(alpha: .105),borderRadius:BorderRadius.circular(22),border:Border.all(color:Colors.white.withValues(alpha: .15))),
+                decoration:BoxDecoration(color:Colors.white.withValues(alpha:.105),borderRadius:BorderRadius.circular(22),border:Border.all(color:Colors.white.withValues(alpha:.15))),
                 child:Row(children:[
                   homeStat('$total','RICETTE',Icons.menu_book_rounded),
                   homeDivider(),
@@ -533,52 +266,24 @@ class _AppShellState extends State<AppShell>{
     ),
   ),
 );
- Widget homeStat(String value,String label,IconData icon)=>Expanded(child:Column(children:[Icon(icon,color:Colors.white.withValues(alpha: .82),size:19),const SizedBox(height:4),Text(value,style:const TextStyle(color:Colors.white,fontSize:20,fontWeight:FontWeight.w900)),Text(label,style:TextStyle(color:Colors.white.withValues(alpha: .70),fontSize:8.5,fontWeight:FontWeight.w800,letterSpacing:.7))]));
- Widget homeDivider()=>Container(width:1,height:48,color:Colors.white.withValues(alpha: .16));
+ Widget homeStat(String value,String label,IconData icon)=>Expanded(child:Column(children:[Icon(icon,color:Colors.white.withValues(alpha:.82),size:19),const SizedBox(height:4),Text(value,style:const TextStyle(color:Colors.white,fontSize:20,fontWeight:FontWeight.w900)),Text(label,style:TextStyle(color:Colors.white.withValues(alpha:.70),fontSize:8.5,fontWeight:FontWeight.w800,letterSpacing:.7))]));
+ Widget homeDivider()=>Container(width:1,height:48,color:Colors.white.withValues(alpha:.16));
  Widget heroAction(IconData icon,String label,VoidCallback onTap)=>Material(color:Colors.white,borderRadius:BorderRadius.circular(16),child:InkWell(onTap:onTap,borderRadius:BorderRadius.circular(16),child:Padding(padding:const EdgeInsets.symmetric(horizontal:10,vertical:11),child:Row(children:[Container(width:34,height:34,decoration:BoxDecoration(color:const Color(0xFFE1F1E8),borderRadius:BorderRadius.circular(11)),child:Icon(icon,color:green,size:19)),const SizedBox(width:8),Expanded(child:Text(label,maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(color:ink,fontSize:11.5,fontWeight:FontWeight.w900))),const Icon(Icons.arrow_forward_ios_rounded,color:green,size:13)]))));
  Widget countStat(String value,String label)=>Column(children:[Text(value,style:const TextStyle(fontSize:22,fontWeight:FontWeight.w900,color:green)),Text(label,style:const TextStyle(fontSize:9,fontWeight:FontWeight.w800,color:ink,letterSpacing:.5))]);
  Widget quickHomeAction(IconData icon,String label,VoidCallback onTap)=>FilledButton.tonalIcon(onPressed:onTap,icon:Icon(icon,size:19),label:Text(label,maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w800)),style:FilledButton.styleFrom(foregroundColor:green,backgroundColor:Colors.white,padding:const EdgeInsets.symmetric(vertical:12,horizontal:9),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(15))));
- Widget specialBanner(String assetPath,{required VoidCallback onTap})=>Card(clipBehavior:Clip.antiAlias,elevation:2,margin:const EdgeInsets.only(bottom:8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),child:InkWell(onTap:onTap,borderRadius:BorderRadius.circular(18),child:AspectRatio(aspectRatio:5.15,child:Image.asset(assetPath,fit:BoxFit.cover,filterQuality:FilterQuality.medium,errorBuilder:(_,__,___)=>Container(color:pale,alignment:Alignment.center,child:const Icon(Icons.image_not_supported_outlined,color:green,size:28))))));
+ Widget specialBanner(String assetPath,{required VoidCallback onTap})=>Card(clipBehavior:Clip.antiAlias,elevation:3,margin:const EdgeInsets.only(bottom:10),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(22)),child:InkWell(onTap:onTap,borderRadius:BorderRadius.circular(22),child:AspectRatio(aspectRatio:4.859375,child:Image.asset(assetPath,fit:BoxFit.contain,filterQuality:FilterQuality.high,errorBuilder:(_,__,___)=>Container(color:pale,alignment:Alignment.center,child:const Icon(Icons.image_not_supported_outlined,color:green,size:32))))));
  void openSpecialPage(String title,String subtitle,List<Recipe> recipes,IconData icon)=>Navigator.push(context,MaterialPageRoute(builder:(_)=>SpecialCollectionPage(title:title,subtitle:subtitle,recipes:recipes,icon:icon)));
  Widget socialSection()=>Card(clipBehavior:Clip.antiAlias,elevation:2,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(24)),child:Container(padding:const EdgeInsets.all(18),decoration:const BoxDecoration(gradient:LinearGradient(colors:[Color(0xFFF5E9D7),Color(0xFFE5F1E8)])),child:Column(crossAxisAlignment:CrossAxisAlignment.center,children:[const Text('Seguici sui social',style:TextStyle(fontSize:23,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:4),const Text('Ricette, curiosità, novità e tanto altro!',textAlign:TextAlign.center,style:TextStyle(color:ink)),const SizedBox(height:14),Row(children:[Expanded(child:socialButton('f','Facebook',const Color(0xFF1877F2),socialFacebook)),const SizedBox(width:9),Expanded(child:socialButton('◎','Instagram',const Color(0xFFE1306C),socialInstagram)),const SizedBox(width:9),Expanded(child:socialButton('♪','TikTok',Colors.black,socialTikTok))]),const SizedBox(height:10),const Text('Unisciti alla nostra community ❤️',style:TextStyle(fontWeight:FontWeight.w700,color:green))])));
  Widget socialButton(String mark,String label,Color color,String url)=>InkWell(onTap:()=>openSocial(url,label),borderRadius:BorderRadius.circular(18),child:Container(padding:const EdgeInsets.symmetric(vertical:12),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(18),boxShadow:[BoxShadow(color:Colors.black12,blurRadius:8,offset:Offset(0,3))]),child:Column(children:[CircleAvatar(radius:21,backgroundColor:color,child:Text(mark,style:const TextStyle(color:Colors.white,fontSize:24,fontWeight:FontWeight.w900))),const SizedBox(height:5),Text(label,style:const TextStyle(fontWeight:FontWeight.w800,color:ink,fontSize:12))])));
  void openSocial(String url,String label){if(url.isEmpty){ScaffoldMessenger.of(context).showSnackBar(SnackBar(content:Text('Collegheremo $label al tuo profilo ufficiale.')));return;}}
 
- Widget ratingHomeSection(String title,bool taste){final ranked=_rankedByRating(taste); final shown=ranked.take(5); return Column(crossAxisAlignment:CrossAxisAlignment.start,children:[section(title,action:'Vedi tutte',onAction:()=>showRatingRanking(taste)),if(shown.isEmpty)Card(color:Colors.white,child:const Padding(padding:EdgeInsets.all(18),child:Text('Ancora nessun voto: sii il primo a valutare una ricetta ⭐',style:TextStyle(fontWeight:FontWeight.w700,color:ink)))) else ...shown.map((r)=>ratingRow(r,taste))]);}
- List<Recipe> _rankedByRating(bool taste){final source=taste?tasteRatings:ratings;final ranked=catalog.where((r)=>source.containsKey(r.id)&&source[r.id]!.count>0).toList();ranked.sort((a,b)=>source[b.id]!.avg.compareTo(source[a.id]!.avg));return ranked;}
+ Widget ratingHomeSection(String title,bool taste){final ranked=catalog.where((r)=>countFor(r,taste:taste)>0).toList()..sort((a,b)=>avgFor(b,taste:taste).compareTo(avgFor(a,taste:taste))); final shown=ranked.take(5).toList(); return Column(crossAxisAlignment:CrossAxisAlignment.start,children:[section(title,action:'Vedi tutte',onAction:()=>showRatingRanking(taste)),if(shown.isEmpty)Card(color:Colors.white,child:const Padding(padding:EdgeInsets.all(18),child:Text('Ancora nessun voto: sii il primo a valutare una ricetta ⭐',style:TextStyle(fontWeight:FontWeight.w700,color:ink)))) else ...shown.map((r)=>ratingRow(r,taste))]);}
  Widget ratingRow(Recipe r,bool taste)=>Card(margin:const EdgeInsets.only(bottom:8),child:ListTile(leading:SizedBox(width:58,height:58,child:recipeVisual(r,height:58,radius:BorderRadius.circular(12))),title:Text(r.title,maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),subtitle:Row(children:[stars(avgFor(r,taste:taste)),const SizedBox(width:5),Text('${avgFor(r,taste:taste).toStringAsFixed(1)} • ${countFor(r,taste:taste)} voti',style:const TextStyle(fontSize:11))]),trailing:const Icon(Icons.chevron_right),onTap:()=>openRecipe(r)));
  Widget stars(double value)=>Row(mainAxisSize:MainAxisSize.min,children:List.generate(5,(i)=>Icon(i<value.round()?Icons.star:Icons.star_border,size:17,color:orange)));
- void showRatingRanking(bool taste)=>showModalBottomSheet(context:context,showDragHandle:true,builder:(_){final ranked=_rankedByRating(taste);return SafeArea(child:ListView(padding:const EdgeInsets.all(18),children:[Text(taste?'Ricette più buone':'Ricette più votate',style:const TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:10),...ranked.map((r)=>ratingRow(r,taste))]));});
- Widget searchBox()=>Container(
-   decoration:BoxDecoration(
-     color:Colors.white,
-     borderRadius:BorderRadius.circular(20),
-     boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.05),blurRadius:14,offset:const Offset(0,5))],
-   ),
-   child:TextField(
-     controller:search,
-     onChanged:onSearchChanged,
-     onSubmitted:(_){_searchQuery=search.text;setState(()=>tab=1);},
-     decoration:InputDecoration(
-       hintText:'Cerca ricette, Paesi o ingredienti',
-       prefixIcon:const Icon(Icons.search_rounded,color:green),
-       suffixIcon:IconButton(
-         onPressed:showFilters,
-         icon:Container(
-           width:34,height:34,
-           decoration:BoxDecoration(color:const Color(0xFFE5F1E9),borderRadius:BorderRadius.circular(11)),
-           child:const Icon(Icons.tune_rounded,color:green,size:18),
-         ),
-       ),
-       filled:true,
-       fillColor:Colors.transparent,
-       border:OutlineInputBorder(borderRadius:BorderRadius.circular(20),borderSide:BorderSide.none),
-       contentPadding:const EdgeInsets.symmetric(vertical:13),
-     ),
-   ),
- );
+ void showRatingRanking(bool taste)=>showModalBottomSheet(context:context,showDragHandle:true,builder:(_){final ranked=catalog.where((r)=>countFor(r,taste:taste)>0).toList()..sort((a,b)=>avgFor(b,taste:taste).compareTo(avgFor(a,taste:taste)));return SafeArea(child:ListView(padding:const EdgeInsets.all(18),children:[Text(taste?'Ricette più buone':'Ricette più votate',style:const TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:10),...ranked.map((r)=>ratingRow(r,taste))]));});
+ Widget searchBox()=>TextField(controller:search,onChanged:(_)=>setState((){}),onSubmitted:(_)=>setState(()=>tab=1),decoration:InputDecoration(hintText:'Cerca ricette, Paesi o ingredienti',prefixIcon:const Icon(Icons.search,color:green),suffixIcon:IconButton(onPressed:showFilters,icon:const Icon(Icons.tune,color:green)),filled:true,fillColor:Colors.white,border:OutlineInputBorder(borderRadius:BorderRadius.circular(30),borderSide:BorderSide.none),contentPadding:const EdgeInsets.symmetric(vertical:14)));
  Widget fridgeBanner()=>Card(elevation:0,color:const Color(0xFFE4F1E8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(22)),child:InkWell(borderRadius:BorderRadius.circular(22),onTap:fridgePage,child:Padding(padding:const EdgeInsets.all(17),child:Row(children:[Container(width:52,height:52,decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(16)),child:const Icon(Icons.kitchen,color:Colors.white)),const SizedBox(width:14),const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Cosa hai nel frigo?',style:TextStyle(fontSize:19,fontWeight:FontWeight.w900,color:ink)),SizedBox(height:4),Text('Seleziona gli ingredienti e scopri cosa puoi cucinare.',style:TextStyle(color:ink))])),const Icon(Icons.arrow_forward_ios_rounded,size:18,color:green)]))));
- Widget section(String t,{String? action,VoidCallback? onAction})=>Padding(padding:const EdgeInsets.only(top:20,bottom:10),child:Row(crossAxisAlignment:CrossAxisAlignment.center,children:[Expanded(child:Text(t,style:const TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink,letterSpacing:-.2))),if(action!=null)InkWell(onTap:onAction,borderRadius:BorderRadius.circular(14),child:Padding(padding:const EdgeInsets.symmetric(horizontal:8,vertical:6),child:Row(children:[Text(action,style:const TextStyle(color:green,fontSize:11,fontWeight:FontWeight.w900)),const SizedBox(width:3),const Icon(Icons.arrow_forward_rounded,size:15,color:green)])))]));
+ Widget section(String t,{String? action,VoidCallback? onAction})=>Padding(padding:const EdgeInsets.only(top:22,bottom:10),child:Row(children:[Expanded(child:Text(t,style:const TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink))),if(action!=null)TextButton(onPressed:onAction,child:Text(action,style:const TextStyle(color:green,fontWeight:FontWeight.w800)))]));
  Widget recipeCard(Recipe r)=>Card(
   margin:const EdgeInsets.only(bottom:11),
   clipBehavior:Clip.antiAlias,
@@ -624,105 +329,14 @@ class _AppShellState extends State<AppShell>{
    final v=base*(servings/(r.servings==0?4:r.servings));
    return '€${v.toStringAsFixed(2)} stimati';
  }
- Widget miniCard(Recipe r)=>GestureDetector(
-   onTap:()=>openRecipe(r),
-   child:SizedBox(
-     width:170,
-     height:226,
-     child:Container(
-       margin:const EdgeInsets.only(right:10),
-       decoration:BoxDecoration(
-         color:Colors.white,
-         borderRadius:BorderRadius.circular(22),
-         boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.07),blurRadius:14,offset:const Offset(0,5))],
-       ),
-       child:ClipRRect(
-         borderRadius:BorderRadius.circular(22),
-         child:Column(
-           crossAxisAlignment:CrossAxisAlignment.start,
-           children:[
-             Stack(children:[
-               SizedBox(width:170,height:112,child:recipeVisual(r,height:112,radius:BorderRadius.zero)),
-               Positioned(
-                 top:8,right:8,
-                 child:Container(
-                   width:30,height:30,
-                   decoration:BoxDecoration(color:Colors.white.withValues(alpha:.94),shape:BoxShape.circle),
-                   child:Icon(r.premium?Icons.workspace_premium_rounded:Icons.arrow_forward_rounded,size:16,color:r.premium?orange:green),
-                 ),
-               ),
-             ]),
-             Padding(
-               padding:const EdgeInsets.fromLTRB(10,9,10,8),
-               child:Column(
-                 crossAxisAlignment:CrossAxisAlignment.start,
-                 children:[
-                   Text(r.title,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink,fontSize:13)),
-                   const SizedBox(height:5),
-                   Text('${flag(r.country)} ${r.country}',maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:10.5,color:Colors.black54,fontWeight:FontWeight.w700)),
-                   const SizedBox(height:5),
-                   Row(children:[
-                     const Icon(Icons.schedule_rounded,size:13,color:green),
-                     const SizedBox(width:3),
-                     Text('${r.timeMin} min',style:const TextStyle(fontSize:10.5,color:ink,fontWeight:FontWeight.w700)),
-                     const Spacer(),
-                     Flexible(child:Text(cost(r,r.servings),maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:9.5,color:green,fontWeight:FontWeight.w900))),
-                   ]),
-                 ],
-               ),
-             ),
-           ],
-         ),
-       ),
-     ),
-   ),
- );
- Widget continentGrid()=>GridView.count(crossAxisCount:3,shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),crossAxisSpacing:9,mainAxisSpacing:9,childAspectRatio:1.02,children:[['Europa','🇪🇺'],['Asia','🌏'],['Americhe','🌎'],['Africa','🌍'],['Oceania','🌊'],['Medio Oriente','🕌']].map((x)=>InkWell(onTap:()=>openContinentPage(x[0]),borderRadius:BorderRadius.circular(20),child:Container(decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(20),border:Border.all(color:const Color(0xFFE7EDE8)),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.04),blurRadius:10,offset:const Offset(0,3))]),child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[Text(x[1],style:const TextStyle(fontSize:29)),const SizedBox(height:6),Text(x[0],style:const TextStyle(fontWeight:FontWeight.w900,color:ink,fontSize:12)),const SizedBox(height:3),const Icon(Icons.arrow_forward_rounded,size:15,color:green)])))).toList());
+ Widget miniCard(Recipe r)=>GestureDetector(onTap:()=>openRecipe(r),child:SizedBox(width:172,height:254,child:Container(margin:const EdgeInsets.only(right:12),child:Card(clipBehavior:Clip.antiAlias,elevation:2,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[recipeVisual(r,height:112,radius:BorderRadius.zero),Padding(padding:const EdgeInsets.fromLTRB(10,7,10,8),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(r.title,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:4),Text('${flag(r.country)} ${r.country}',style:const TextStyle(fontSize:12)),const SizedBox(height:3),Text('${r.timeMin} min • ${cost(r,r.servings)}',maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:11))]))])))));
+ Widget continentGrid()=>GridView.count(crossAxisCount:3,shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),crossAxisSpacing:8,mainAxisSpacing:8,childAspectRatio:1.1,children:[['Europa','🇪🇺'],['Asia','🌏'],['Americhe','🌎'],['Africa','🌍'],['Oceania','🌊'],['Medio Oriente','🕌']].map((x)=>InkWell(onTap:()=>openContinentPage(x[0]),borderRadius:BorderRadius.circular(18),child:Container(decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(18),border:Border.all(color:const Color(0xFFE8DFD1))),child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[Text(x[1],style:const TextStyle(fontSize:32)),const SizedBox(height:5),Text(x[0],style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),const SizedBox(height:3),const Text('Tocca per esplorare',style:TextStyle(fontSize:9,color:Colors.black45))])))).toList());
  void openContinentPage(String continent){final rs=all.where((r)=>r.continent.toLowerCase()==continent.toLowerCase()).toList();Navigator.push(context,MaterialPageRoute(builder:(_)=>SpecialCollectionPage(title:'Ricette $continent',subtitle:'Scopri le ricette di $continent.',recipes:rs,icon:Icons.public)));}
  Widget premiumBanner()=>Card(clipBehavior:Clip.antiAlias,elevation:3,child:Container(decoration:const BoxDecoration(gradient:LinearGradient(colors:[Color(0xFF075B3A),Color(0xFF0C7A4B)])),padding:const EdgeInsets.all(18),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Row(children:[Icon(Icons.workspace_premium,color:orange,size:32),SizedBox(width:8),Text('Passa a Premium',style:TextStyle(color:Colors.white,fontSize:24,fontWeight:FontWeight.w900))]),const SizedBox(height:6),const Text('Sblocca tutte le ricette Premium, le raccolte speciali, storie, procedimenti e funzioni esclusive.',style:TextStyle(color:Colors.white,fontSize:15)),const SizedBox(height:12),Row(children:[priceChip('1 mese','€2,99'),priceChip('6 mesi','€14,99'),priceChip('12 mesi','€24,99')]),const SizedBox(height:12),FilledButton(style:FilledButton.styleFrom(backgroundColor:orange,foregroundColor:ink,minimumSize:const Size.fromHeight(48)),onPressed:premiumPage,child:const Text('Scopri Premium',style:TextStyle(fontWeight:FontWeight.w900)))])));
- Widget priceChip(String a,String b)=>Expanded(child:Container(margin:const EdgeInsets.only(right:6),padding:const EdgeInsets.symmetric(vertical:9,horizontal:5),decoration:BoxDecoration(color:Colors.white.withValues(alpha: .95),borderRadius:BorderRadius.circular(14)),child:Column(children:[Text(a,style:const TextStyle(fontSize:11,color:ink)),Text(b,style:const TextStyle(fontWeight:FontWeight.w900,color:green))])));
- Widget searchPage()=>ListView(padding:const EdgeInsets.fromLTRB(16,10,16,28),children:[
-   Row(children:[const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Cerca',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),Text('Trova la ricetta perfetta per il tuo prossimo viaggio.',style:TextStyle(fontSize:12,color:Colors.black54))])),Container(width:42,height:42,decoration:BoxDecoration(color:const Color(0xFFE6F2EB),borderRadius:BorderRadius.circular(14)),child:const Icon(Icons.travel_explore_rounded,color:green))]),
-   const SizedBox(height:14),searchBox(),
-   section('Ricerche popolari'),
-   Wrap(spacing:8,runSpacing:8,children:['Pasta','Pollo','Pizza','Dolci','Vegetariano','Senza glutine','Salmone','Veloci'].map((x)=>modernChip(x,selected:search.text.toLowerCase()==x.toLowerCase(),onTap:(){search.text=x;_searchQuery=x;setState((){});})).toList()),
-   section('Risultati',action:'${filtered.length} ricette'),
-   if(filtered.isEmpty)emptyState(Icons.search_off_rounded,'Nessuna ricetta trovata','Prova a cambiare parole chiave o filtri.')
-   else GridView.count(crossAxisCount:2,shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),crossAxisSpacing:10,mainAxisSpacing:10,childAspectRatio:.73,children:filtered.take(30).map(miniCard).toList()),
- ]);
- Widget categoriesPage()=>ListView(padding:const EdgeInsets.fromLTRB(16,10,16,28),children:[
-   Row(children:[const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Categorie',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),Text('Esplora, scopri, cucina.',style:TextStyle(fontSize:12,color:Colors.black54))])),IconButton(onPressed:showFilters,icon:const Icon(Icons.tune_rounded,color:green))]),
-   const SizedBox(height:8),
-   Container(
-     height:150,
-     padding:const EdgeInsets.all(18),
-     decoration:BoxDecoration(
-       borderRadius:BorderRadius.circular(26),
-       gradient:const LinearGradient(colors:[Color(0xFF06452F),Color(0xFF0C7A4B)]),
-       boxShadow:[BoxShadow(color:green.withValues(alpha:.15),blurRadius:18,offset:const Offset(0,7))],
-     ),
-     child:Stack(children:[
-       const Positioned(right:-18,top:-25,child:Icon(Icons.restaurant_menu_rounded,size:150,color:Colors.white10)),
-       const Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-         Text('Un mondo di sapori',style:TextStyle(color:Colors.white,fontSize:23,fontWeight:FontWeight.w900)),
-         SizedBox(height:4),
-         Text('Dall’antipasto al dolce, trovi sempre una nuova ispirazione.',style:TextStyle(color:Colors.white70,fontSize:12,height:1.35)),
-       ]),
-       Positioned(left:0,bottom:0,child:Container(
-         padding:const EdgeInsets.symmetric(horizontal:14,vertical:9),
-         decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(16)),
-         child:const Text('Esplora ora →',style:TextStyle(color:green,fontWeight:FontWeight.w900,fontSize:11)),
-       )),
-     ]),
-   ),
-   section('Scegli una categoria'),
-   Wrap(spacing:8,runSpacing:8,children:['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'].map((x)=>modernChip(x,selected:category==x,onTap:()=>setState(()=>category=x))).toList()),
-   section('Ricette in evidenza'),
-   ...all.where((r)=>category=='Tutte'||r.category==category).take(10).map(recipeCard),
- ]);
- Widget modernChip(String text,{required bool selected,required VoidCallback onTap})=>InkWell(onTap:onTap,borderRadius:BorderRadius.circular(18),child:AnimatedContainer(duration:const Duration(milliseconds:180),padding:const EdgeInsets.symmetric(horizontal:13,vertical:9),decoration:BoxDecoration(color:selected?green:Colors.white,borderRadius:BorderRadius.circular(18),border:Border.all(color:selected?green:const Color(0xFFE1E7E3))),child:Text(text,style:TextStyle(color:selected?Colors.white:ink,fontSize:11,fontWeight:FontWeight.w800))));
- Widget emptyState(IconData icon,String title,String subtitle)=>Container(margin:const EdgeInsets.only(top:10),padding:const EdgeInsets.all(28),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(24)),child:Column(children:[Icon(icon,size:48,color:green),const SizedBox(height:10),Text(title,style:const TextStyle(fontSize:17,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:5),Text(subtitle,textAlign:TextAlign.center,style:const TextStyle(color:Colors.black54))]));
- Widget favoritesPage(){final list=all.where((r)=>favorites.contains(r.id)).toList();return ListView(padding:const EdgeInsets.fromLTRB(16,10,16,28),children:[const Text('I miei preferiti',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:3),Text('${list.length} ricette salvate',style:const TextStyle(color:Colors.black54)),section('Le tue ricette'),if(list.isEmpty)emptyState(Icons.favorite_border_rounded,'Nessun preferito ancora','Salva le ricette che vuoi ritrovare in un attimo.') else GridView.count(crossAxisCount:2,shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),crossAxisSpacing:10,mainAxisSpacing:10,childAspectRatio:.73,children:list.map(miniCard).toList())] );}
+ Widget priceChip(String a,String b)=>Expanded(child:Container(margin:const EdgeInsets.only(right:6),padding:const EdgeInsets.symmetric(vertical:9,horizontal:5),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.95),borderRadius:BorderRadius.circular(14)),child:Column(children:[Text(a,style:const TextStyle(fontSize:11,color:ink)),Text(b,style:const TextStyle(fontWeight:FontWeight.w900,color:green))])));
+ Widget searchPage()=>ListView(padding:const EdgeInsets.all(16),children:[const Text('Cerca',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),searchBox(),const SizedBox(height:10),Text('${filtered.length} ricette',style:const TextStyle(fontWeight:FontWeight.w700)),const SizedBox(height:8),...filtered.map(recipeCard)]);
+ Widget categoriesPage()=>ListView(padding:const EdgeInsets.all(16),children:[const Text('Categorie',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),Wrap(spacing:9,runSpacing:9,children:['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'].map((x)=>ChoiceChip(label:Text(x),selected:category==x,onSelected:(_)=>setState(()=>category=x))).toList()),section('Esplora per Paese'),...all.take(20).map(recipeCard)]);
+ Widget favoritesPage(){final list=all.where((r)=>favorites.contains(r.id)).toList();return ListView(padding:const EdgeInsets.all(16),children:[const Text('I tuoi preferiti',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),Text('${list.length} ricette salvate'),const SizedBox(height:12),if(list.isEmpty)Card(child:Padding(padding:const EdgeInsets.all(24),child:Column(children:[const Icon(Icons.favorite_border,size:48,color:green),const SizedBox(height:10),const Text('Le tue ricette preferite appariranno qui.',textAlign:TextAlign.center)]))) else ...list.map(recipeCard)]);}
  Future<void> pickProfilePhoto() async {
   final action = await showModalBottomSheet<String>(context: context, builder: (c)=>SafeArea(child: Wrap(children:[
     ListTile(leading:const Icon(Icons.photo_library_outlined),title:const Text('Scegli dalla galleria'),onTap:()=>Navigator.pop(c,'gallery')),
@@ -742,105 +356,77 @@ class _AppShellState extends State<AppShell>{
   final path=profilePhotoPath;
   final hasPhoto=path!=null && File(path).existsSync();
   return Stack(clipBehavior:Clip.none,children:[
-    CircleAvatar(radius:48,backgroundColor:const Color(0xFFDCEFE5),backgroundImage:hasPhoto?FileImage(File(path)):null,child:hasPhoto?null:const Icon(Icons.person_rounded,size:56,color:green)),
+    CircleAvatar(radius:48,backgroundColor:const Color(0xFFDCEFE5),backgroundImage:hasPhoto?FileImage(File(path!)):null,child:hasPhoto?null:const Icon(Icons.person_rounded,size:56,color:green)),
     Positioned(right:-2,bottom:0,child:InkWell(onTap:pickProfilePhoto,borderRadius:BorderRadius.circular(18),child:Container(width:34,height:34,decoration:const BoxDecoration(color:green,shape:BoxShape.circle),child:const Icon(Icons.camera_alt_rounded,size:17,color:Colors.white)))),
   ]);
  }
- Widget profilePage(){
-   final user=FirebaseAuth.instance.currentUser;
-   final name=(user?.displayName?.trim().isNotEmpty==true)?user!.displayName!.trim():'Ricette del Mondo';
-   final subtitle=user?.email?.trim().isNotEmpty==true?'${user!.email}':'Buongiorno, viaggiatore! ❤️';
-   final loggedIn=user!=null;
-   return ListView(
-   padding:const EdgeInsets.fromLTRB(16,10,16,28),
-   children:[
-     Row(children:[
-       const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-         Text('Profilo',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),
-         Text('Il tuo spazio personale.',style:TextStyle(fontSize:12,color:Colors.black54)),
-       ])),
-       IconButton(style:IconButton.styleFrom(backgroundColor:Colors.white),onPressed:showProfileSettings,icon:const Icon(Icons.settings_outlined,color:green)),
-     ]),
-     const SizedBox(height:8),
-     Container(
-       padding:const EdgeInsets.all(18),
-       decoration:BoxDecoration(
-         gradient:const LinearGradient(begin:Alignment.topLeft,end:Alignment.bottomRight,colors:[Color(0xFFE8F4ED),Color(0xFFF9F5EC)]),
-         borderRadius:BorderRadius.circular(28),
-         boxShadow:[BoxShadow(color:green.withValues(alpha:.10),blurRadius:18,offset:const Offset(0,7))],
-       ),
-       child:Row(children:[
-         profileAvatar(),
-         const SizedBox(width:16),
-         Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-           Text(name,style:const TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink),maxLines:1,overflow:TextOverflow.ellipsis),
-           const SizedBox(height:3),
-           Text(subtitle,style:const TextStyle(fontSize:12,color:Colors.black54),maxLines:1,overflow:TextOverflow.ellipsis),
-           const SizedBox(height:10),
-           Row(children:[if(loggedIn)const Icon(Icons.verified_rounded,color:green,size:15),if(loggedIn)const SizedBox(width:4),Text(loggedIn?'Account connesso':'Esplora • cucina • viaggia',style:const TextStyle(fontSize:11,fontWeight:FontWeight.w800,color:green))]),
-         ])),
-       ]),
-     ),
-     const SizedBox(height:12),
-     Container(
-       padding:const EdgeInsets.symmetric(vertical:15),
-       decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(22),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.05),blurRadius:14,offset:const Offset(0,5))]),
-       child:Row(children:[
-         Expanded(child:profileStat(Icons.favorite_rounded,'${favorites.length}','Salvate',Colors.red)),
-         profileDivider(),
-         Expanded(child:profileStat(Icons.public_rounded,'0','Paesi esplorati',green)),
-         profileDivider(),
-         Expanded(child:profileStat(Icons.flight_takeoff_rounded,'0','Cucine provate',green)),
-       ]),
-     ),
-     const SizedBox(height:14),
-     InkWell(
-       onTap:premiumPage,
-       borderRadius:BorderRadius.circular(22),
-       child:Container(
-         padding:const EdgeInsets.all(15),
-         decoration:BoxDecoration(gradient:const LinearGradient(colors:[Color(0xFFFFF1D1),Color(0xFFFFE3A7)]),borderRadius:BorderRadius.circular(22),border:Border.all(color:const Color(0xFFE8C77A))),
-         child:Row(children:[
-           Container(width:42,height:42,decoration:const BoxDecoration(color:Color(0xFFD28C22),shape:BoxShape.circle),child:const Icon(Icons.workspace_premium_rounded,color:Colors.white)),
-           const SizedBox(width:11),
-           const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-             Text('Passa a Premium',style:TextStyle(fontSize:16,fontWeight:FontWeight.w900,color:ink)),
-             Text('Sblocca tutto il mondo delle ricette.',style:TextStyle(fontSize:11,color:Colors.black54)),
-           ])),
-           const Icon(Icons.arrow_forward_rounded,color:ink),
-         ]),
-       ),
-     ),
-     section('Il tuo viaggio gastronomico'),
-     profileTile(Icons.account_circle_rounded,'Il mio account','Registrazione, accesso e sincronizzazione',green,onTap:accountPage),
-     profileTile(Icons.favorite_rounded,'I miei preferiti','Le tue ricette salvate',Colors.red,trailing:Text('${favorites.length}',style:const TextStyle(fontWeight:FontWeight.w900,fontSize:16,color:ink)),onTap:()=>setState(()=>tab=3)),
-     profileTile(Icons.shopping_cart_rounded,'Lista della spesa','Gestisci i tuoi ingredienti',green,trailing:Text('${shopping.length}',style:const TextStyle(fontWeight:FontWeight.w900,fontSize:16,color:ink)),onTap:shoppingPage),
-     profileTile(Icons.kitchen_rounded,'Cosa hai nel frigo?','Trova ricette con quello che hai',green,onTap:fridgePage),
-     profileTile(Icons.health_and_safety_rounded,'Sicurezza alimentare','Allergeni, conservazione e cottura sicura',green,onTap:foodSafetyPage),
-     profileTile(Icons.shield_outlined,'Allergeni da evitare','Personalizza le ricette che vuoi evitare',green,onTap:allergenSettingsPage),
-     profileTile(Icons.privacy_tip_outlined,'Gestisci Privacy','Consensi, dati, notifiche e pubblicità',green,onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const AppPrivacySettingsPage()))),
-     profileTile(Icons.settings_rounded,'Impostazioni','Notifiche, tema e preferenze',Colors.blueGrey,onTap:showProfileSettings),
-     profileTile(Icons.help_rounded,'Aiuto e supporto','FAQ e contatti',Colors.blueGrey,onTap:showHelp),
-     const SizedBox(height:8),
-     Container(
-       padding:const EdgeInsets.all(18),
-       decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(22)),
-       child:const Column(children:[
-         Text('“Il cibo è memoria, cultura ed emozione.”',textAlign:TextAlign.center,style:TextStyle(color:ink,fontSize:14,fontStyle:FontStyle.italic,fontWeight:FontWeight.w700)),
-         SizedBox(height:10),
-         Text('Ricette del Mondo',style:TextStyle(color:green,fontSize:17,fontWeight:FontWeight.w900)),
-         Text('Ogni ricetta è un viaggio. ❤️',style:TextStyle(color:Colors.black54,fontSize:10)),
-       ]),
-     ),
-   ],
- );
- }
+ Widget profilePage()=>ListView(padding:const EdgeInsets.fromLTRB(16,8,16,28),children:[
+  Container(
+    padding:const EdgeInsets.fromLTRB(10,10,10,18),
+    decoration:BoxDecoration(
+      color:const Color(0xFFFFFBF3),
+      borderRadius:BorderRadius.circular(30),
+      boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.07),blurRadius:18,offset:const Offset(0,7))],
+    ),
+    child:Column(children:[
+      Row(children:[
+        Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+          logo(h:62),
+          const Padding(padding:EdgeInsets.only(left:2),child:Text('Ogni ricetta è un viaggio.',style:TextStyle(fontSize:15,fontWeight:FontWeight.w700,color:const Color(0xFFB66B13),fontStyle:FontStyle.italic))),
+        ])),
+        IconButton(onPressed:showProfileSettings,icon:const Icon(Icons.settings_outlined,size:28,color:ink)),
+      ]),
+      const SizedBox(height:8),
+      Row(crossAxisAlignment:CrossAxisAlignment.center,children:[
+        profileAvatar(),
+        const SizedBox(width:16),
+        const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+          Text('Ciao!',style:TextStyle(fontSize:30,fontWeight:FontWeight.w900,color:ink)),
+          SizedBox(height:2),Text('Esplora, cucina, viaggia.',style:TextStyle(fontSize:18,fontWeight:FontWeight.w600,color:Colors.black87)),
+          SizedBox(height:4),Text('Il tuo spazio personale',style:TextStyle(fontSize:13,color:Colors.black54)),
+        ])),
+      ]),
+      const SizedBox(height:14),
+      InkWell(onTap:premiumPage,borderRadius:BorderRadius.circular(22),child:Container(padding:const EdgeInsets.symmetric(horizontal:16,vertical:13),decoration:BoxDecoration(gradient:const LinearGradient(colors:[Color(0xFFFFF4DE),Color(0xFFFFE7B5)]),borderRadius:BorderRadius.circular(22),border:Border.all(color:const Color(0xFFE7C77D))),child:Row(children:[
+        Container(width:44,height:44,decoration:const BoxDecoration(color:Color(0xFFD18B22),shape:BoxShape.circle),child:const Icon(Icons.workspace_premium_rounded,color:Colors.white,size:25)),
+        const SizedBox(width:12),const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Utente gratuito',style:TextStyle(fontSize:16,fontWeight:FontWeight.w900,color:ink)),Text('Scopri tutti i vantaggi Premium',style:TextStyle(fontSize:12,color:Colors.black54))])),const Icon(Icons.chevron_right_rounded,color:ink,size:28),
+      ]))),
+    ]),
+  ),
+  const SizedBox(height:14),
+  Container(padding:const EdgeInsets.symmetric(vertical:14),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(24),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.06),blurRadius:14,offset:const Offset(0,5))]),child:Row(children:[
+    Expanded(child:profileStat(Icons.favorite_rounded,'${favorites.length}','Ricette salvate',Colors.red)),
+    profileDivider(),
+    Expanded(child:profileStat(Icons.menu_book_rounded,'0','Ricette private',green)),
+    profileDivider(),
+    Expanded(child:profileStat(Icons.format_list_bulleted_rounded,'${shopping.length}','Liste della spesa',green)),
+    profileDivider(),
+    Expanded(child:profileStat(Icons.kitchen_rounded,'0','Ingredienti salvati',green)),
+  ])),
+  const SizedBox(height:16),
+  profileTile(Icons.account_circle_rounded,'Il mio account','Registrazione, accesso e sincronizzazione',green,onTap:accountPage),
+  profileTile(Icons.workspace_premium_rounded,'Premium','Scegli o gestisci il tuo piano',orange,onTap:premiumPage,highlight:true,action:'Scopri di più'),
+  profileTile(Icons.language_rounded,'Lingua','Scegli la lingua dell’app',green,trailing:DropdownButtonHideUnderline(child:DropdownButton<String>(value:language,icon:const Icon(Icons.chevron_right_rounded,color:ink),items:['Italiano','English','Français','Español','Deutsch','Português'].map((x)=>DropdownMenuItem(value:x,child:Text(x,style:const TextStyle(fontWeight:FontWeight.w800,color:ink)))).toList(),onChanged:(v){if(v!=null)setState(()=>language=v);})) ),
+  profileTile(Icons.favorite_rounded,'I miei preferiti','Le tue ricette salvate',Colors.red,trailing:Text('${favorites.length}',style:const TextStyle(fontWeight:FontWeight.w900,fontSize:17,color:ink)),onTap:()=>setState(()=>tab=3)),
+  profileTile(Icons.shopping_cart_rounded,'Lista della spesa','Gestisci i tuoi ingredienti',green,trailing:Text('${shopping.length}',style:const TextStyle(fontWeight:FontWeight.w900,fontSize:17,color:ink)),onTap:shoppingPage),
+  profileTile(Icons.kitchen_rounded,'Cosa hai nel frigo?','Trova ricette con quello che hai',green,onTap:fridgePage),
+  profileTile(Icons.health_and_safety_rounded,'Sicurezza alimentare','Allergeni, conservazione e cottura sicura',green,onTap:foodSafetyPage),
+  profileTile(Icons.shield_outlined,'Allergeni da evitare','Personalizza le ricette che vuoi evitare',green,onTap:allergenSettingsPage),
+  profileTile(Icons.privacy_tip_outlined,'Gestisci Privacy','Consensi, dati, notifiche e pubblicità',green,onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const AppPrivacySettingsPage()))),
+  profileTile(Icons.description_outlined,'Privacy Policy','Come trattiamo i dati',green,onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const PrivacyPolicyPage()))),
+  profileTile(Icons.gavel_outlined,'Termini e Condizioni','Regole di utilizzo dell’app',green,onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const TermsPage()))),
+  profileTile(Icons.fact_check_outlined,'Licenze e crediti','Foto e contenuti di terze parti',green,onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const LicensesPage()))),
+  profileTile(Icons.settings_rounded,'Impostazioni','Notifiche, tema e preferenze',Colors.blueGrey,onTap:showProfileSettings),
+  profileTile(Icons.help_rounded,'Aiuto e supporto','FAQ e contatti',Colors.blueGrey,onTap:showHelp),
+  const SizedBox(height:16),
+  Container(height:120,padding:const EdgeInsets.all(20),decoration:BoxDecoration(borderRadius:BorderRadius.circular(25),gradient:const LinearGradient(begin:Alignment.centerLeft,end:Alignment.centerRight,colors:[Color(0xFFF2F2E6),Color(0xFFE4F0E6)]),image:const DecorationImage(image:AssetImage('assets/logo_rdm.png'),alignment:Alignment.centerRight,opacity:.10,fit:BoxFit.contain)),child:const Align(alignment:Alignment.centerLeft,child:Text('La buona cucina\nunisce il mondo.',style:TextStyle(fontSize:24,fontWeight:FontWeight.w700,fontStyle:FontStyle.italic,color:ink,height:1.15)))),
+]);
  Widget profileStat(IconData icon,String value,String label,Color color)=>Column(children:[Icon(icon,color:color,size:25),const SizedBox(height:5),Text(value,style:const TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:Colors.black)),const SizedBox(height:2),Text(label,textAlign:TextAlign.center,maxLines:2,style:const TextStyle(fontSize:10,color:Colors.black54,fontWeight:FontWeight.w600))]);
  Widget profileDivider()=>Container(width:1,height:55,color:const Color(0xFFE5E0D8));
- Widget profileTile(IconData icon,String title,String subtitle,Color iconColor,{Widget? trailing,VoidCallback? onTap,bool highlight=false,String? action})=>Padding(padding:const EdgeInsets.only(bottom:10),child:InkWell(onTap:onTap,borderRadius:BorderRadius.circular(22),child:Container(padding:const EdgeInsets.fromLTRB(16,14,12,14),decoration:BoxDecoration(color:highlight?const Color(0xFFFFF8E9):Colors.white,borderRadius:BorderRadius.circular(22),border:highlight?Border.all(color:const Color(0xFFE8C87C)):null,boxShadow:[BoxShadow(color:Colors.black.withValues(alpha: .055),blurRadius:12,offset:const Offset(0,4))]),child:Row(children:[Container(width:44,height:44,decoration:BoxDecoration(color:highlight?const Color(0xFFFFE8B7):const Color(0xFFEAF4EE),borderRadius:BorderRadius.circular(14)),child:Icon(icon,color:iconColor,size:24)),const SizedBox(width:13),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(title,style:const TextStyle(fontSize:17,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:2),Text(subtitle,style:const TextStyle(fontSize:12.5,color:Colors.black54))])),if(action!=null)Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:8),decoration:BoxDecoration(color:orange,borderRadius:BorderRadius.circular(18)),child:Text(action,style:const TextStyle(color:ink,fontWeight:FontWeight.w900,fontSize:12))),if(trailing!=null)Padding(padding:const EdgeInsets.only(left:8),child:trailing),if(action==null&&trailing==null)const Padding(padding:EdgeInsets.only(left:8),child:Icon(Icons.chevron_right_rounded,color:ink,size:27))]))));
- Future<void> accountPage() async {await Navigator.push(context,MaterialPageRoute(builder:(_)=>AccountPage(onPremium:premiumPage)));if(mounted)setState((){});}
+ Widget profileTile(IconData icon,String title,String subtitle,Color iconColor,{Widget? trailing,VoidCallback? onTap,bool highlight=false,String? action})=>Padding(padding:const EdgeInsets.only(bottom:10),child:InkWell(onTap:onTap,borderRadius:BorderRadius.circular(22),child:Container(padding:const EdgeInsets.fromLTRB(16,14,12,14),decoration:BoxDecoration(color:highlight?const Color(0xFFFFF8E9):Colors.white,borderRadius:BorderRadius.circular(22),border:highlight?Border.all(color:const Color(0xFFE8C87C)):null,boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.055),blurRadius:12,offset:const Offset(0,4))]),child:Row(children:[Container(width:44,height:44,decoration:BoxDecoration(color:highlight?const Color(0xFFFFE8B7):const Color(0xFFEAF4EE),borderRadius:BorderRadius.circular(14)),child:Icon(icon,color:iconColor,size:24)),const SizedBox(width:13),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(title,style:const TextStyle(fontSize:17,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:2),Text(subtitle,style:const TextStyle(fontSize:12.5,color:Colors.black54))])),if(action!=null)Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:8),decoration:BoxDecoration(color:orange,borderRadius:BorderRadius.circular(18)),child:Text(action,style:const TextStyle(color:ink,fontWeight:FontWeight.w900,fontSize:12))),if(trailing!=null)Padding(padding:const EdgeInsets.only(left:8),child:trailing),if(action==null&&trailing==null)const Padding(padding:EdgeInsets.only(left:8),child:Icon(Icons.chevron_right_rounded,color:ink,size:27))]))));
+ void accountPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const AccountPage()));
  void showProfileSettings(){showModalBottomSheet(context:context,showDragHandle:true,backgroundColor:cream,builder:(c)=>SafeArea(child:ListView(shrinkWrap:true,padding:const EdgeInsets.fromLTRB(20,8,20,20),children:[const Text('Impostazioni',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:8),ListTile(leading:const Icon(Icons.notifications_none_rounded,color:green),title:const Text('Notifiche'),subtitle:const Text('Gestisci gli avvisi dell’app'),onTap:(){Navigator.pop(c);Navigator.push(context,MaterialPageRoute(builder:(_)=>const AppPrivacySettingsPage()));}),const ListTile(leading:Icon(Icons.dark_mode_outlined,color:green),title:Text('Aspetto'),subtitle:Text('Tema chiaro dell’app')),ListTile(leading:const Icon(Icons.privacy_tip_outlined,color:green),title:const Text('Privacy'),subtitle:const Text('Gestisci le tue preferenze'),onTap:(){Navigator.pop(c);Navigator.push(context,MaterialPageRoute(builder:(_)=>const AppPrivacySettingsPage()));}),const SizedBox(height:8),FilledButton(onPressed:()=>Navigator.pop(c),child:const Text('Chiudi'))])));}
- void showHelp(){showModalBottomSheet(context:context,showDragHandle:true,builder:(c)=>SafeArea(child:Padding(padding:const EdgeInsets.all(22),child:Column(mainAxisSize:MainAxisSize.min,crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Aiuto e supporto',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:10),const Text('Per assistenza, suggerimenti o segnalazioni potrai contattarci dalla sezione supporto dell’app.',style:TextStyle(height:1.4)),const SizedBox(height:18),FilledButton(onPressed:()=>Navigator.pop(c),child:const Text('Chiudi'))]))));}
+ void showHelp(){showModalBottomSheet(context:context,showDragHandle:true,builder:(c)=>SafeArea(child:Padding(padding:const EdgeInsets.all(22),child:Column(mainAxisSize:MainAxisSize.min,crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Aiuto e supporto',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:10),const Text('Per assistenza, suggerimenti o segnalazioni potrai contattarci dalla sezione supporto dell’app.',style:TextStyle(height:1.4)),const SizedBox(height:18),FilledButton(onPressed:()=>Navigator.pop(c),child:const Text('Chiudi'))])));)}
  void allergenSettingsPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>AllergenSettingsPage(selected:avoidedAllergens,onChanged:(key,value)async{setState(()=>value?avoidedAllergens.add(key):avoidedAllergens.remove(key));final p=await SharedPreferences.getInstance();await p.setStringList('rdm_avoided_allergens',avoidedAllergens.toList());})));
  void foodSafetyPage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const FoodSafetyPage()));
 
@@ -853,8 +439,8 @@ class _AppShellState extends State<AppShell>{
  Future<void> _openRecipeAfterAd(Recipe recipe) async {
   if (!recipe.premium) {
     await AdService.instance.showInterstitialIfReady();
-    if (!mounted) return;
   }
+  if (!mounted) return;
   final conflicts=detectAllergens(recipe).intersection(avoidedAllergens);
   if(conflicts.isNotEmpty){
     final names=conflicts.map((x)=>allergenLabels[x]??x).join(', ');
@@ -888,7 +474,7 @@ class _AppShellState extends State<AppShell>{
  }
 
  void fridgePage()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>FridgePage(recipes:all,onOpen:openRecipe)));
- void showFilters(){showModalBottomSheet(context:context,showDragHandle:true,isScrollControlled:true,builder:(c)=>StatefulBuilder(builder:(c,setM)=>Padding(padding:EdgeInsets.fromLTRB(20,8,20,20+MediaQuery.of(c).viewInsets.bottom),child:SingleChildScrollView(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Filtri',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),DropdownButtonFormField<String>(initialValue:category,items:['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'].map((x)=>DropdownMenuItem(value:x,child:Text(x))).toList(),onChanged:(v)=>setM(()=>category=v!)),const SizedBox(height:12),const Text('Stile alimentare',style:TextStyle(fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Wrap(spacing:8,runSpacing:8,children:['Tutte','Vegetariano','Vegano','Senza glutine','Senza lattosio'].map((x)=>ChoiceChip(label:Text(x),selected:diet==x,onSelected:(_)=>setM(()=>diet=x))).toList()),const SizedBox(height:12),Text('Tempo massimo: $maxTime min',style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),Slider(min:15,max:180,divisions:11,value:maxTime.toDouble(),label:'$maxTime min',onChanged:(v)=>setM(()=>maxTime=v.round())),const SizedBox(height:8),SizedBox(width:double.infinity,child:FilledButton(onPressed:(){Navigator.pop(c);setState((){});},child:const Text('Applica filtri')))])))));}
+ void showFilters(){showModalBottomSheet(context:context,showDragHandle:true,isScrollControlled:true,builder:(c)=>StatefulBuilder(builder:(c,setM)=>Padding(padding:EdgeInsets.fromLTRB(20,8,20,20+MediaQuery.of(c).viewInsets.bottom),child:SingleChildScrollView(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('Filtri',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:12),DropdownButtonFormField<String>(initialValue:category,items:['Tutte','Antipasti','Primi','Secondi','Zuppe','Dolci','Pizze','Insalate'].map((x)=>DropdownMenuItem(value:x,child:Text(x))).toList(),onChanged:(v){if(v!=null)setM(()=>category=v);}),const SizedBox(height:12),const Text('Stile alimentare',style:TextStyle(fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Wrap(spacing:8,runSpacing:8,children:['Tutte','Vegetariano','Vegano','Senza glutine','Senza lattosio'].map((x)=>ChoiceChip(label:Text(x),selected:diet==x,onSelected:(_)=>setM(()=>diet=x))).toList()),const SizedBox(height:12),Text('Tempo massimo: $maxTime min',style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),Slider(min:15,max:180,divisions:11,value:maxTime.toDouble(),label:'$maxTime min',onChanged:(v)=>setM(()=>maxTime=v.round())),const SizedBox(height:8),SizedBox(width:double.infinity,child:FilledButton(onPressed:(){Navigator.pop(c);setState((){});},child:const Text('Applica filtri')))])))));}
 }
 
 class AppPrivacySettingsPage extends StatefulWidget{const AppPrivacySettingsPage({super.key});@override State<AppPrivacySettingsPage> createState()=>_AppPrivacySettingsPageState();}
@@ -900,9 +486,9 @@ class _AppPrivacySettingsPageState extends State<AppPrivacySettingsPage>{
   Container(padding:const EdgeInsets.all(20),decoration:BoxDecoration(gradient:const LinearGradient(colors:[green,green2]),borderRadius:BorderRadius.circular(26)),child:const Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Icon(Icons.shield_rounded,color:Colors.white,size:38),SizedBox(height:10),Text('Le tue preferenze, sotto il tuo controllo',style:TextStyle(color:Colors.white,fontSize:23,fontWeight:FontWeight.w900)),SizedBox(height:7),Text('Puoi modificarle in qualsiasi momento.',style:TextStyle(color:Colors.white70,height:1.4))])),
   const SizedBox(height:14),Card(color:Colors.white,elevation:0,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),child:Column(children:[
    SwitchListTile(value:analytics,onChanged:(v){setState(()=>analytics=v);save('rdm_pref_analytics',v);},title:const Text('Statistiche di utilizzo',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Aiutano a migliorare l’app.'),secondary:const Icon(Icons.analytics_outlined,color:green)),
-   if(AdConsentService.instance.privacyOptionsRequired)ListTile(leading:const Icon(Icons.ads_click_outlined,color:green),title:const Text('Gestisci consenso pubblicità',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Modifica in qualsiasi momento le scelte sulla pubblicità e sulla privacy.'),trailing:const Icon(Icons.chevron_right_rounded),onTap:()async{final ok=await AdConsentService.instance.showPrivacyOptions();if(!context.mounted)return;if(!ok)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Non è stato possibile aprire le preferenze pubblicitarie.')));}),
+   if(AdConsentService.instance.privacyOptionsRequired)ListTile(leading:const Icon(Icons.ads_click_outlined,color:green),title:const Text('Gestisci consenso pubblicità',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Modifica in qualsiasi momento le scelte sulla pubblicità e sulla privacy.'),trailing:const Icon(Icons.chevron_right_rounded),onTap:()async{final ok=await AdConsentService.instance.showPrivacyOptions();if(mounted&& !ok)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Non è stato possibile aprire le preferenze pubblicitarie.')));}),
    SwitchListTile(value:promotional,onChanged:(v){setState(()=>promotional=v);save('rdm_pref_promotional',v);},title:const Text('Comunicazioni promozionali',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Offerte, novità e promozioni.'),secondary:const Icon(Icons.campaign_outlined,color:green)),
-   SwitchListTile(value:serviceNotifications,onChanged:(v)async{setState(()=>serviceNotifications=v);await save('rdm_pref_service_notifications',v);await NotificationService.instance.setEnabled(v);if(!context.mounted)return;if(v)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Notifiche di servizio abilitate.')));},title:const Text('Notifiche di servizio',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Nuove ricette, comunicazioni importanti e aggiornamenti.'),secondary:const Icon(Icons.notifications_none_rounded,color:green)),
+   SwitchListTile(value:serviceNotifications,onChanged:(v)async{setState(()=>serviceNotifications=v);await save('rdm_pref_service_notifications',v);await NotificationService.instance.setEnabled(v);if(mounted&&v)ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('Notifiche di servizio abilitate.')));},title:const Text('Notifiche di servizio',style:TextStyle(fontWeight:FontWeight.w800)),subtitle:const Text('Nuove ricette, comunicazioni importanti e aggiornamenti.'),secondary:const Icon(Icons.notifications_none_rounded,color:green)),
   ])),const SizedBox(height:12),
   ListTile(tileColor:Colors.white,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),leading:const Icon(Icons.description_outlined,color:green),title:const Text('Privacy Policy',style:TextStyle(fontWeight:FontWeight.w800)),onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const PrivacyPolicyPage()))),const SizedBox(height:8),
   ListTile(tileColor:Colors.white,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18)),leading:const Icon(Icons.gavel_outlined,color:green),title:const Text('Termini e Condizioni',style:TextStyle(fontWeight:FontWeight.w800)),onTap:()=>Navigator.push(context,MaterialPageRoute(builder:(_)=>const TermsPage()))),const SizedBox(height:8),
@@ -1055,81 +641,111 @@ class PremiumPage extends StatefulWidget{const PremiumPage({super.key});@overrid
 class _PremiumPageState extends State<PremiumPage>{
  int selectedPlan=1;
  final plans=const [('1 mese','€2,99','Rinnovo automatico','Si rinnova ogni mese'),('6 mesi','€14,99','Rinnovo automatico','Si rinnova ogni 6 mesi'),('12 mesi','€24,99','Rinnovo automatico','Si rinnova ogni 12 mesi'),('1 mese','€3,49','Una tantum','Nessun rinnovo automatico'),('6 mesi','€16,99','Una tantum','Nessun rinnovo automatico'),('12 mesi','€29,99','Una tantum','Nessun rinnovo automatico')];
- @override
- Widget build(BuildContext c) {
-  return Scaffold(
-   backgroundColor:cream,
-   appBar:AppBar(title:const Text('Premium',style:TextStyle(fontWeight:FontWeight.w900))),
-   body:ListView(
-    padding:const EdgeInsets.fromLTRB(16,8,16,28),
-    children:[
-     Container(
-      padding:const EdgeInsets.fromLTRB(22,24,22,26),
-      decoration:BoxDecoration(gradient:const LinearGradient(begin:Alignment.topLeft,end:Alignment.bottomRight,colors:[Color(0xFF063D28),Color(0xFF0C7A4B)]),borderRadius:BorderRadius.circular(30),boxShadow:[BoxShadow(color:Colors.black26,blurRadius:16,offset:Offset(0,8))]),
-      child:Column(children:[
-       const Icon(Icons.workspace_premium,size:58,color:orange),
-       const SizedBox(height:8),
-       const Text('Ricette del Mondo Premium',textAlign:TextAlign.center,style:TextStyle(color:Colors.white,fontSize:28,fontWeight:FontWeight.w900)),
-       const SizedBox(height:7),
-       const Text('Più ricette. Più viaggi. Più sapori.',textAlign:TextAlign.center,style:TextStyle(color:Color(0xFFFFD889),fontSize:18,fontWeight:FontWeight.w700)),
-       const SizedBox(height:8),
-       const Text('Un mondo di ricette esclusive, raccolte speciali e strumenti per organizzare la tua cucina.',textAlign:TextAlign.center,style:TextStyle(color:Colors.white70,fontSize:14)),
-      ]),
-     ),
-     const SizedBox(height:18),
-     Card(
-      color:Colors.white,elevation:1,shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(24)),
-      child:Padding(
-       padding:const EdgeInsets.fromLTRB(12,8,12,10),
-       child:Column(children:[
-        const Padding(padding:EdgeInsets.all(8),child:Row(children:[Icon(Icons.workspace_premium,color:orange),SizedBox(width:8),Expanded(child:Text('Cosa ottieni con Premium',style:TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink)))])),
-        ...['Accesso a tutte le ricette Premium','Ingredienti e procedimenti completi','Storie, varianti e curiosità','Raccolte speciali: Impasti, Hamburger e Braceria','Lista della spesa e funzione frigo','Esperienza senza pubblicità'].map((x)=>ListTile(dense:true,leading:const Icon(Icons.check_circle,color:green),title:Text(x,style:const TextStyle(fontWeight:FontWeight.w600)))),
-       ]),
+  @override
+  Widget build(BuildContext c) {
+    return Scaffold(
+      backgroundColor: cream,
+      appBar: AppBar(title: const Text('Premium', style: TextStyle(fontWeight: FontWeight.w900))),
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
+        children: [
+          Container(
+            padding: const EdgeInsets.fromLTRB(22, 24, 22, 26),
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF063D28), Color(0xFF0C7A4B)]),
+              borderRadius: BorderRadius.circular(30),
+              boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 16, offset: Offset(0, 8))],
+            ),
+            child: const Column(
+              children: [
+                Icon(Icons.workspace_premium, size: 58, color: orange),
+                SizedBox(height: 8),
+                Text('Ricette del Mondo Premium', textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.w900)),
+                SizedBox(height: 7),
+                Text('Più ricette. Più viaggi. Più sapori.', textAlign: TextAlign.center, style: TextStyle(color: Color(0xFFFFD889), fontSize: 18, fontWeight: FontWeight.w700)),
+                SizedBox(height: 8),
+                Text('Un mondo di ricette esclusive, raccolte speciali e strumenti per organizzare la tua cucina.', textAlign: TextAlign.center, style: TextStyle(color: Colors.white70, fontSize: 14)),
+              ],
+            ),
+          ),
+          const SizedBox(height: 18),
+          Card(
+            color: Colors.white,
+            elevation: 1,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 10),
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Row(children: [Icon(Icons.workspace_premium, color: orange), SizedBox(width: 8), Expanded(child: Text('Cosa ottieni con Premium', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: ink)))]),
+                  ),
+                  ...['Accesso a tutte le ricette Premium', 'Ingredienti e procedimenti completi', 'Storie, varianti e curiosità', 'Raccolte speciali: Impasti, Hamburger e Braceria', 'Lista della spesa e funzione frigo', 'Esperienza senza pubblicità'].map(
+                    (x) => ListTile(dense: true, leading: const Icon(Icons.check_circle, color: green), title: Text(x, style: const TextStyle(fontWeight: FontWeight.w600))),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 18),
+          const Text('Scegli il tuo abbonamento', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: ink)),
+          const SizedBox(height: 6),
+          const Text('Puoi scegliere il rinnovo automatico oppure un acquisto una tantum.', style: TextStyle(fontSize: 13, color: Colors.black54)),
+          const SizedBox(height: 8),
+          ...List.generate(plans.length, (i) {
+            final p = plans[i];
+            final sel = selectedPlan == i;
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(20),
+                onTap: () => setState(() => selectedPlan = i),
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 180),
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: sel ? const Color(0xFFFFF4DE) : Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: sel ? orange : Colors.black12, width: sel ? 2 : 1),
+                    boxShadow: sel ? const [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4))] : null,
+                  ),
+                  child: Row(
+                    children: [
+                      Container(width: 28, height: 28, decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: sel ? orange : Colors.black38, width: 2), color: sel ? orange : Colors.transparent), child: sel ? const Icon(Icons.check, color: Colors.white, size: 18) : null),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(children: [Text(p.$1, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: ink)), if (i == 1) Container(margin: const EdgeInsets.only(left: 8), padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3), decoration: BoxDecoration(color: green, borderRadius: BorderRadius.circular(10)), child: const Text('PIÙ SCELTO', style: TextStyle(color: Colors.white, fontSize: 9, fontWeight: FontWeight.w900)))]),
+                            Text(p.$3, style: const TextStyle(color: green, fontWeight: FontWeight.w700)),
+                            Text(p.$4, style: const TextStyle(fontSize: 11, color: Colors.black54)),
+                          ],
+                        ),
+                      ),
+                      Text(p.$2, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: green)),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }),
+          const SizedBox(height: 8),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: orange, foregroundColor: ink, minimumSize: const Size.fromHeight(54), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18))),
+            onPressed: () {
+              final p = plans[selectedPlan];
+              ScaffoldMessenger.of(c).showSnackBar(SnackBar(content: Text('${p.$1} — ${p.$2} (${p.$3}). Il pagamento reale sarà collegato a Google Play Billing in fase di pubblicazione.')));
+            },
+            child: Text('${plans[selectedPlan].$3 == 'Una tantum' ? 'Acquista' : 'Attiva'} ${plans[selectedPlan].$1} — ${plans[selectedPlan].$2}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+          ),
+          const SizedBox(height: 8),
+          const Text('Puoi scegliere il piano prima del pagamento. Le condizioni di acquisto e rinnovo saranno mostrate chiaramente prima della conferma.', textAlign: TextAlign.center, style: TextStyle(fontSize: 11, color: Colors.black54)),
+        ],
       ),
-     ),
-     const SizedBox(height:18),
-     const Text('Scegli il tuo abbonamento',style:TextStyle(fontSize:22,fontWeight:FontWeight.w900,color:ink)),
-     const SizedBox(height:6),
-     const Text('Puoi scegliere il rinnovo automatico oppure un acquisto una tantum.',style:TextStyle(fontSize:13,color:Colors.black54)),
-     const SizedBox(height:8),
-     ...List.generate(plans.length,(i){
-      final p=plans[i];
-      final sel=selectedPlan==i;
-      return Padding(
-       padding:const EdgeInsets.only(bottom:10),
-       child:InkWell(
-        borderRadius:BorderRadius.circular(20),
-        onTap:()=>setState(()=>selectedPlan=i),
-        child:AnimatedContainer(
-         duration:const Duration(milliseconds:180),
-         padding:const EdgeInsets.all(16),
-         decoration:BoxDecoration(color:sel?const Color(0xFFFFF4DE):Colors.white,borderRadius:BorderRadius.circular(20),border:Border.all(color:sel?orange:Colors.black12,width:sel?2:1),boxShadow:sel?[const BoxShadow(color:Colors.black12,blurRadius:8,offset:Offset(0,4))]:null),
-         child:Row(children:[
-          Container(width:28,height:28,decoration:BoxDecoration(shape:BoxShape.circle,border:Border.all(color:sel?orange:Colors.black38,width:2),color:sel?orange:Colors.transparent),child:sel?const Icon(Icons.check,color:Colors.white,size:18):null),
-          const SizedBox(width:12),
-          Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-           Row(children:[Text(p.$1,style:const TextStyle(fontSize:17,fontWeight:FontWeight.w900,color:ink)),if(i==1)Container(margin:const EdgeInsets.only(left:8),padding:const EdgeInsets.symmetric(horizontal:7,vertical:3),decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(10)),child:const Text('PIÙ SCELTO',style:TextStyle(color:Colors.white,fontSize:9,fontWeight:FontWeight.w900)))]),
-           Text(p.$3,style:const TextStyle(color:green,fontWeight:FontWeight.w700)),
-           Text(p.$4,style:const TextStyle(fontSize:11,color:Colors.black54)),
-          ])),
-          Text(p.$2,style:const TextStyle(fontSize:22,fontWeight:FontWeight.w900,color:green)),
-         ]),
-        ),
-       ),
-      );
-     }),
-     const SizedBox(height:8),
-     FilledButton(
-      style:FilledButton.styleFrom(backgroundColor:orange,foregroundColor:ink,minimumSize:const Size.fromHeight(54),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(18))),
-      onPressed:(){final p=plans[selectedPlan];ScaffoldMessenger.of(c).showSnackBar(SnackBar(content:Text('${p.$1} — ${p.$2} (${p.$3}). Il pagamento reale sarà collegato a Google Play Billing in fase di pubblicazione.')));},
-      child:Text('${plans[selectedPlan].$3 == 'Una tantum' ? 'Acquista' : 'Attiva'} ${plans[selectedPlan].$1} — ${plans[selectedPlan].$2}',style:const TextStyle(fontSize:16,fontWeight:FontWeight.w900)),
-     ),
-     const SizedBox(height:8),
-     const Text('Puoi scegliere il piano prima del pagamento. Le condizioni di acquisto e rinnovo saranno mostrate chiaramente prima della conferma.',textAlign:TextAlign.center,style:TextStyle(fontSize:11,color:Colors.black54)),
-    ],
-   ),
-  );
- }
+    );
+  }
 }
 
 class PaywallPage extends StatelessWidget{final Recipe recipe;final VoidCallback onPremium;const PaywallPage({super.key,required this.recipe,required this.onPremium});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Anteprima Premium')),body:ListView(padding:const EdgeInsets.all(18),children:[recipeVisual(recipe,height:260),const SizedBox(height:12),Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(fontWeight:FontWeight.w800,color:green)),Text(recipe.title,style:const TextStyle(fontSize:29,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.description),const SizedBox(height:14),Container(padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:pale,borderRadius:BorderRadius.circular(20)),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('📖 La storia del piatto',style:TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.history,maxLines:5,overflow:TextOverflow.ellipsis)])),const SizedBox(height:14),const Text('🔒 Ingredienti e procedimento completo sono disponibili con Premium.',style:TextStyle(fontWeight:FontWeight.w700)),const SizedBox(height:16),FilledButton(onPressed:onPremium,child:const Text('Scopri i piani Premium'))]));}
@@ -1141,7 +757,7 @@ class RecipePage extends StatefulWidget{
   @override State<RecipePage> createState()=>_RecipePageState();
 }
 
-class _RecipePageState extends State<RecipePage>{
+class _RecipePageState extends State<RecipePage> with SingleTickerProviderStateMixin{
   late int servings;
   late bool isFavorite;
   late final ScrollController scrollController;
@@ -1149,21 +765,17 @@ class _RecipePageState extends State<RecipePage>{
   final preparationKey=GlobalKey();
   final ratingsKey=GlobalKey();
   final historyKey=GlobalKey();
-  int activeTab=0;
+  late final AnimationController heroController;
 
   @override void initState(){
     super.initState();
     servings=widget.recipe.servings;
     isFavorite=widget.selected;
     scrollController=ScrollController();
+    heroController=AnimationController(vsync:this,duration:const Duration(milliseconds:700))..forward();
   }
-
-  @override void didUpdateWidget(covariant RecipePage oldWidget){
-    super.didUpdateWidget(oldWidget);
-    if(oldWidget.selected!=widget.selected)isFavorite=widget.selected;
-  }
-
-  @override void dispose(){scrollController.dispose();super.dispose();}
+  @override void didUpdateWidget(covariant RecipePage oldWidget){super.didUpdateWidget(oldWidget);if(oldWidget.selected!=widget.selected)isFavorite=widget.selected;}
+  @override void dispose(){scrollController.dispose();heroController.dispose();super.dispose();}
 
   String scaleIng(String s){
     final factor=widget.recipe.servings==0?1.0:servings/widget.recipe.servings;
@@ -1178,14 +790,9 @@ class _RecipePageState extends State<RecipePage>{
     return s;
   }
 
-  void jumpTo(GlobalKey key,int index){
-    setState(()=>activeTab=index);
-    WidgetsBinding.instance.addPostFrameCallback((_){
-      final ctx=key.currentContext;
-      if(ctx!=null && mounted){
-        Scrollable.ensureVisible(ctx,duration:const Duration(milliseconds:450),curve:Curves.easeOutCubic,alignment:0.08);
-      }
-    });
+  void jumpTo(GlobalKey key){
+    final ctx=key.currentContext;
+    if(ctx!=null)Scrollable.ensureVisible(ctx,duration:const Duration(milliseconds:500),curve:Curves.easeOutCubic,alignment:0.08);
   }
 
   @override Widget build(BuildContext c){
@@ -1193,31 +800,27 @@ class _RecipePageState extends State<RecipePage>{
     return Scaffold(
       backgroundColor:cream,
       appBar:AppBar(
-        backgroundColor:cream,
-        elevation:0,
-        surfaceTintColor:Colors.transparent,
-        title:const Text('Ricetta',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),
+        backgroundColor:Colors.transparent,
+        title:const Text('Ricetta',style:TextStyle(fontWeight:FontWeight.w800)),
         actions:[
-          IconButton(tooltip:'Condividi',onPressed:()=>SharePlus.instance.share(ShareParams(text:'${r.title} — Ricette del Mondo')),icon:const Icon(Icons.ios_share_rounded,color:ink)),
-          Padding(padding:const EdgeInsets.only(right:8),child:FavoriteButton(selected:isFavorite,onTap:(){setState(()=>isFavorite=!isFavorite);widget.onFavorite();})),
+          IconButton(onPressed:()=>SharePlus.instance.share(ShareParams(text:'${r.title} — Ricette del Mondo')),icon:const Icon(Icons.share_outlined)),
+          FavoriteButton(selected:isFavorite,onTap:(){setState(()=>isFavorite=!isFavorite);widget.onFavorite();}),
         ],
       ),
       body:ListView(
         controller:scrollController,
-        padding:const EdgeInsets.fromLTRB(16,4,16,118),
+        padding:const EdgeInsets.fromLTRB(16,0,16,115),
         children:[
-          _hero(r),
-          const SizedBox(height:14),
-          _overview(r),
+          _recipeHero(r),
           const SizedBox(height:12),
           _sectionTabs(),
           const SizedBox(height:14),
           KeyedSubtree(key:ingredientsKey,child:_ingredientsSection(r)),
-          const SizedBox(height:16),
+          const SizedBox(height:18),
           KeyedSubtree(key:preparationKey,child:_preparationSection(r)),
-          const SizedBox(height:16),
-          KeyedSubtree(key:ratingsKey,child:_ratingsSection(r)),
-          const SizedBox(height:16),
+          const SizedBox(height:18),
+          KeyedSubtree(key:ratingsKey,child:RatingPanel(recipe:r,rating:widget.rating,taste:widget.tasteRating,ratingCount:widget.ratingCount,tasteCount:widget.tasteCount,onRate:widget.onRate,onTaste:widget.onTaste)),
+          const SizedBox(height:18),
           KeyedSubtree(key:historyKey,child:_historyAndVariants(r)),
         ],
       ),
@@ -1225,193 +828,95 @@ class _RecipePageState extends State<RecipePage>{
     );
   }
 
-  Widget _hero(Recipe r)=>ClipRRect(
-    borderRadius:BorderRadius.circular(30),
-    child:SizedBox(
-      height:300,
-      child:Stack(fit:StackFit.expand,children:[
-        recipeVisual(r,height:300,radius:BorderRadius.circular(30)),
-        DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.black.withValues(alpha:.08),Colors.transparent,Colors.black.withValues(alpha:.22)]))),
-        Positioned(left:14,top:14,child:_glassLabel('${flag(r.country)}  ${r.country}')),
-        Positioned(right:14,top:14,child:Row(children:[
-          _heroAction(Icons.favorite,isFavorite?Colors.red:ink,(){setState(()=>isFavorite=!isFavorite);widget.onFavorite();}),
-          const SizedBox(width:8),
-          _heroAction(Icons.ios_share_rounded,ink,()=>SharePlus.instance.share(ShareParams(text:'${r.title} — Ricette del Mondo'))),
-        ])),
-      ]),
-    ),
-  );
+  Widget _recipeHero(Recipe r){
+    return AnimatedBuilder(animation:heroController,builder:(context,child){
+      final t=Curves.easeOutCubic.transform(heroController.value);
+      return Opacity(opacity:t,child:Transform.translate(offset:Offset(0,18*(1-t)),child:child));
+    },child:ClipRRect(borderRadius:BorderRadius.circular(30),child:SizedBox(height:365,child:Stack(fit:StackFit.expand,children:[
+      recipeVisual(r,height:365,radius:BorderRadius.circular(30)),
+      DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.black.withValues(alpha:.05),Colors.transparent,Colors.black.withValues(alpha:.72)]))),
+      Positioned(left:18,top:18,child:Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:7),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.92),borderRadius:BorderRadius.circular(20)),child:Text('${flag(r.country)}  ${r.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w900)))),
+      Positioned(left:18,right:18,bottom:18,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+        Text(r.title,style:const TextStyle(color:Colors.white,fontSize:30,fontWeight:FontWeight.w900,height:1.05,shadows:[Shadow(color:Colors.black54,blurRadius:8)])),
+        if(r.description.isNotEmpty)Padding(padding:const EdgeInsets.only(top:8),child:Text(r.description,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(color:Colors.white,fontSize:14,fontWeight:FontWeight.w600,height:1.3))),
+        const SizedBox(height:12),
+        SingleChildScrollView(scrollDirection:Axis.horizontal,child:Row(children:[_heroStat(Icons.timer_outlined,'${r.prepMin} min','Preparazione'),_heroStat(Icons.soup_kitchen_outlined,'${r.cookMin} min','Cottura'),_heroStat(Icons.bar_chart_rounded,r.difficulty,'Difficoltà'),_heroStat(Icons.people_alt_outlined,'$servings','Porzioni')])),
+      ]),),
+    ]))));
+  }
+  Widget _heroStat(IconData icon,String value,String label)=>Container(margin:const EdgeInsets.only(right:7),padding:const EdgeInsets.symmetric(horizontal:12,vertical:8),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.93),borderRadius:BorderRadius.circular(18)),child:Row(children:[Icon(icon,size:17,color:green),const SizedBox(width:6),Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(value,style:const TextStyle(fontWeight:FontWeight.w900,color:ink,fontSize:13)),Text(label,style:const TextStyle(color:Colors.black54,fontSize:9))])]));
 
-  Widget _glassLabel(String text)=>Container(padding:const EdgeInsets.symmetric(horizontal:13,vertical:8),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.93),borderRadius:BorderRadius.circular(18)),child:Text(text,style:const TextStyle(color:green,fontWeight:FontWeight.w900,fontSize:14)));
-  Widget _heroAction(IconData icon,Color color,VoidCallback onTap)=>Material(color:Colors.white.withValues(alpha:.94),shape:const CircleBorder(),child:InkWell(customBorder:const CircleBorder(),onTap:onTap,child:SizedBox(width:44,height:44,child:Icon(icon,color:color,size:22))));
+  Widget _sectionTabs()=>Container(padding:const EdgeInsets.all(5),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(22),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.05),blurRadius:12,offset:const Offset(0,4))]),child:Row(children:[_tab('Ingredienti',Icons.eco_outlined,ingredientsKey,true),_tab('Preparazione',Icons.restaurant_menu,preparationKey,false),_tab('Valutazioni',Icons.star_border,ratingsKey,false),_tab('Storia',Icons.menu_book_outlined,historyKey,false)]));
+  Widget _tab(String text,IconData icon,GlobalKey key,bool active)=>Expanded(child:InkWell(onTap:()=>jumpTo(key),borderRadius:BorderRadius.circular(17),child:AnimatedContainer(duration:const Duration(milliseconds:250),padding:const EdgeInsets.symmetric(vertical:10,horizontal:3),decoration:BoxDecoration(color:active?const Color(0xFFEAF5EF):Colors.transparent,borderRadius:BorderRadius.circular(17)),child:Column(children:[Icon(icon,size:19,color:active?green:ink),const SizedBox(height:3),Text(text,style:TextStyle(fontSize:10,fontWeight:active?FontWeight.w900:FontWeight.w600,color:active?green:ink))]))));
 
-  Widget _overview(Recipe r)=>Container(
-    padding:const EdgeInsets.fromLTRB(18,18,18,16),
-    decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(28),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.055),blurRadius:18,offset:const Offset(0,7))]),
-    child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-      Row(crossAxisAlignment:CrossAxisAlignment.start,children:[
-        Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-          Text(r.title,style:const TextStyle(fontSize:27,fontWeight:FontWeight.w900,color:ink,height:1.08)),
-          if(r.description.isNotEmpty)Padding(padding:const EdgeInsets.only(top:7),child:Text(r.description,maxLines:3,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:14,height:1.35,color:Colors.black54))),
-        ])),
-      ]),
-      const SizedBox(height:14),
-      LayoutBuilder(builder:(context,box){
-        final itemWidth=(box.maxWidth-18)/4;
-        return Wrap(spacing:6,runSpacing:6,children:[
-          _overviewStat(itemWidth,Icons.timer_outlined,'${r.prepMin} min','Preparazione'),
-          _overviewStat(itemWidth,Icons.soup_kitchen_outlined,'${r.cookMin} min','Cottura'),
-          _overviewStat(itemWidth,Icons.bar_chart_rounded,r.difficulty,'Difficoltà'),
-          _overviewStat(itemWidth,Icons.people_alt_outlined,'$servings','Porzioni'),
-        ]);
-      }),
-      const SizedBox(height:12),
-      Row(children:[
-        Expanded(child:FilledButton.icon(onPressed:()=>jumpTo(preparationKey,1),icon:const Icon(Icons.restaurant_rounded),label:const Text('Inizia a cucinare',style:TextStyle(fontWeight:FontWeight.w900)))),
-        const SizedBox(width:8),
-        _squareAction(Icons.favorite_border,'Salva',isFavorite?Colors.red:green,(){setState(()=>isFavorite=!isFavorite);widget.onFavorite();}),
-        const SizedBox(width:8),
-        _squareAction(Icons.playlist_add,'Piano',green,widget.onAddAll),
-      ]),
-    ]),
-  );
+  Widget _ingredientsSection(Recipe r)=>Container(padding:const EdgeInsets.fromLTRB(15,16,15,14),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(28),border:Border.all(color:const Color(0xFFE7E1D6)),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.045),blurRadius:16,offset:const Offset(0,6))]),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+    Row(children:[const Icon(Icons.shopping_basket_outlined,color:green,size:29),const SizedBox(width:8),const Expanded(child:Text('Ingredienti',style:TextStyle(fontSize:25,fontWeight:FontWeight.w900,color:ink))),_servingsControl(),TextButton.icon(onPressed:(){widget.onAddAll();ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('🛒 Tutti gli ingredienti sono stati aggiunti alla lista della spesa'),behavior:SnackBarBehavior.floating));},icon:const Icon(Icons.add_shopping_cart,color:green,size:18),label:const Text('Tutti'))]),
+    const SizedBox(height:8),
+    LayoutBuilder(builder:(context,box){final cols=box.maxWidth>620?2:1;return GridView.builder(shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),itemCount:r.ingredients.length,gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount:cols,mainAxisExtent:68,crossAxisSpacing:12,mainAxisSpacing:5),itemBuilder:(context,i)=>_ingredientTile(scaleIng(r.ingredients[i])));}),
+    const SizedBox(height:5),
+    Align(alignment:Alignment.centerRight,child:FilledButton.tonalIcon(onPressed:widget.onAddAll,icon:const Icon(Icons.playlist_add,color:green),label:const Text('Aggiungi alla lista della spesa',style:TextStyle(color:green,fontWeight:FontWeight.w800))))
+  ]));
+  Widget _servingsControl()=>Container(padding:const EdgeInsets.symmetric(horizontal:4,vertical:2),decoration:BoxDecoration(color:const Color(0xFFF3F7F3),borderRadius:BorderRadius.circular(20)),child:Row(children:[IconButton(visualDensity:VisualDensity.compact,onPressed:servings>1?()=>setState(()=>servings--):null,icon:const Icon(Icons.remove_circle_outline)),Text('$servings',style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),IconButton(visualDensity:VisualDensity.compact,onPressed:()=>setState(()=>servings++),icon:const Icon(Icons.add_circle_outline))]));
+  Widget _ingredientTile(String text)=>Container(padding:const EdgeInsets.symmetric(horizontal:8,vertical:6),decoration:BoxDecoration(color:const Color(0xFFFCFAF5),borderRadius:BorderRadius.circular(16)),child:Row(children:[Container(width:8,height:8,decoration:const BoxDecoration(color:green,shape:BoxShape.circle)),const SizedBox(width:10),Expanded(child:Text(text,style:const TextStyle(fontSize:14,fontWeight:FontWeight.w600,color:ink))),IconButton(visualDensity:VisualDensity.compact,onPressed:(){widget.onAdd(text);ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('🛒 Aggiunto alla lista della spesa'),behavior:SnackBarBehavior.floating));},icon:const Icon(Icons.add_shopping_cart,color:green,size:20))]));
 
-  Widget _overviewStat(double width,IconData icon,String value,String label)=>SizedBox(width:width,child:Container(padding:const EdgeInsets.symmetric(horizontal:7,vertical:9),decoration:BoxDecoration(color:const Color(0xFFF4F8F5),borderRadius:BorderRadius.circular(16)),child:Column(children:[Icon(icon,color:green,size:19),const SizedBox(height:3),Text(value,maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink,fontSize:12)),Text(label,maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:8,color:Colors.black54))])));
-  Widget _squareAction(IconData icon,String label,Color color,VoidCallback onTap)=>Material(color:const Color(0xFFF4F8F5),borderRadius:BorderRadius.circular(16),child:InkWell(borderRadius:BorderRadius.circular(16),onTap:onTap,child:SizedBox(width:58,height:54,child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[Icon(icon,color:color,size:20),Text(label,style:const TextStyle(fontSize:9,fontWeight:FontWeight.w800,color:ink))]))));
+  Widget _preparationSection(Recipe r)=>Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+    Row(children:[const Icon(Icons.restaurant_menu,color:green,size:29),const SizedBox(width:8),const Expanded(child:Text('Preparazione',style:TextStyle(fontSize:25,fontWeight:FontWeight.w900,color:ink))),if(r.cookMin>0)FilledButton.tonalIcon(onPressed:(){},icon:const Icon(Icons.timer_outlined,color:green),label:Text('Cottura ${r.cookMin} min',style:const TextStyle(color:green,fontWeight:FontWeight.w800)))]),
+    const SizedBox(height:10),
+    CookingGuide(recipe:r),
+    const SizedBox(height:10),
+    ...r.steps.asMap().entries.map((e)=>_stepCard(e.key+1,e.value)),
+  ]);
+  Widget _stepCard(int number,String text)=>TweenAnimationBuilder<double>(tween:Tween(begin:0,end:1),duration:Duration(milliseconds:350+number*45),curve:Curves.easeOutCubic,builder:(context,v,child)=>Opacity(opacity:v,child:Transform.translate(offset:Offset(0,18*(1-v)),child:child)),child:Container(margin:const EdgeInsets.only(bottom:12),padding:const EdgeInsets.all(14),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(23),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.045),blurRadius:12,offset:const Offset(0,4))]),child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[Container(width:45,height:45,alignment:Alignment.center,decoration:const BoxDecoration(color:green,shape:BoxShape.circle),child:Text('$number',style:const TextStyle(color:Colors.white,fontSize:18,fontWeight:FontWeight.w900))),const SizedBox(width:13),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Passaggio $number',style:const TextStyle(color:green,fontWeight:FontWeight.w900,fontSize:12)),const SizedBox(height:4),Text(text,style:const TextStyle(fontSize:14,height:1.42,color:ink))])),const SizedBox(width:4),const Icon(Icons.chevron_right_rounded,color:Color(0xFFB7C9BF))])));
 
-  Widget _sectionTabs()=>Container(
-    padding:const EdgeInsets.all(5),
-    decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(22),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.05),blurRadius:14,offset:const Offset(0,5))]),
-    child:Row(children:[
-      _tab('Ingredienti',Icons.eco_outlined,ingredientsKey,0),
-      _tab('Preparazione',Icons.restaurant_menu,preparationKey,1),
-      _tab('Valutazioni',Icons.star_border,ratingsKey,2),
-      _tab('Storia',Icons.menu_book_outlined,historyKey,3),
-    ]),
-  );
-
-  Widget _tab(String text,IconData icon,GlobalKey key,int index)=>Expanded(child:InkWell(onTap:()=>jumpTo(key,index),borderRadius:BorderRadius.circular(17),child:AnimatedContainer(duration:const Duration(milliseconds:220),padding:const EdgeInsets.symmetric(vertical:10,horizontal:2),decoration:BoxDecoration(color:activeTab==index?const Color(0xFFE5F3EB):Colors.transparent,borderRadius:BorderRadius.circular(17)),child:Column(children:[Icon(icon,size:20,color:activeTab==index?green:ink),const SizedBox(height:4),Text(text,maxLines:1,overflow:TextOverflow.ellipsis,style:TextStyle(fontSize:10,fontWeight:activeTab==index?FontWeight.w900:FontWeight.w600,color:activeTab==index?green:ink))]))));
-
-  Widget _ingredientsSection(Recipe r)=>Container(
-    padding:const EdgeInsets.fromLTRB(16,17,16,15),
-    decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(28),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.045),blurRadius:16,offset:const Offset(0,6))]),
-    child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-      Row(children:[
-        Container(width:42,height:42,decoration:BoxDecoration(color:const Color(0xFFE7F4EC),borderRadius:BorderRadius.circular(14)),child:const Icon(Icons.shopping_basket_outlined,color:green)),
-        const SizedBox(width:10),
-        const Expanded(child:Text('Ingredienti',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink))),
-        _servingsControl(),
-      ]),
-      const SizedBox(height:12),
-      Align(alignment:Alignment.centerRight,child:TextButton.icon(onPressed:(){widget.onAddAll();ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('🛒 Tutti gli ingredienti sono stati aggiunti alla lista della spesa'),behavior:SnackBarBehavior.floating));},icon:const Icon(Icons.add_shopping_cart,color:green,size:18),label:const Text('Aggiungi tutti',style:TextStyle(color:green,fontWeight:FontWeight.w900)))),
-      const SizedBox(height:2),
-      ...r.ingredients.map((x)=>Padding(padding:const EdgeInsets.only(bottom:7),child:_ingredientTile(scaleIng(x)))),
-    ]),
-  );
-
-  Widget _servingsControl()=>Container(padding:const EdgeInsets.symmetric(horizontal:3,vertical:2),decoration:BoxDecoration(color:const Color(0xFFF0F6F2),borderRadius:BorderRadius.circular(18)),child:Row(mainAxisSize:MainAxisSize.min,children:[IconButton(tooltip:'Diminuisci porzioni',visualDensity:VisualDensity.compact,onPressed:servings>1?()=>setState(()=>servings--):null,icon:const Icon(Icons.remove,size:19)),Text('$servings',style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),IconButton(tooltip:'Aumenta porzioni',visualDensity:VisualDensity.compact,onPressed:()=>setState(()=>servings++),icon:const Icon(Icons.add,size:19))]));
-
-  Widget _ingredientTile(String text)=>Container(padding:const EdgeInsets.symmetric(horizontal:11,vertical:10),decoration:BoxDecoration(color:const Color(0xFFFBFAF6),borderRadius:BorderRadius.circular(17),border:Border.all(color:const Color(0xFFF0ECE3))),child:Row(children:[Container(width:8,height:8,decoration:const BoxDecoration(color:green,shape:BoxShape.circle)),const SizedBox(width:10),Expanded(child:Text(text,style:const TextStyle(fontSize:14,fontWeight:FontWeight.w700,color:ink))),IconButton(tooltip:'Aggiungi alla spesa',visualDensity:VisualDensity.compact,onPressed:(){widget.onAdd(text);ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content:Text('🛒 Aggiunto alla lista della spesa'),behavior:SnackBarBehavior.floating));},icon:const Icon(Icons.add_shopping_cart,color:green,size:20))]));
-
-  Widget _preparationSection(Recipe r)=>Container(
-    padding:const EdgeInsets.fromLTRB(16,17,16,15),
-    decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(28),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.045),blurRadius:16,offset:const Offset(0,6))]),
-    child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-      Row(children:[Container(width:42,height:42,decoration:BoxDecoration(color:const Color(0xFFE7F4EC),borderRadius:BorderRadius.circular(14)),child:const Icon(Icons.restaurant_menu,color:green)),const SizedBox(width:10),const Expanded(child:Text('Preparazione',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink))),if(r.cookMin>0)Text('${r.cookMin} min',style:const TextStyle(color:green,fontWeight:FontWeight.w900))]),
-      const SizedBox(height:14),
-      CookingGuide(recipe:r),
-      if(r.cookMin>0 || r.cookingDetail.isNotEmpty)const SizedBox(height:12),
-      ...r.steps.asMap().entries.map((e)=>_stepCard(e.key+1,e.value)),
-    ]),
-  );
-
-  Widget _stepCard(int number,String text)=>Container(margin:const EdgeInsets.only(bottom:10),padding:const EdgeInsets.all(13),decoration:BoxDecoration(color:const Color(0xFFFCFBF8),borderRadius:BorderRadius.circular(19),border:Border.all(color:const Color(0xFFEDE8DE))),child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[Container(width:38,height:38,alignment:Alignment.center,decoration:const BoxDecoration(color:green,shape:BoxShape.circle),child:Text('$number',style:const TextStyle(color:Colors.white,fontSize:15,fontWeight:FontWeight.w900))),const SizedBox(width:12),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Passaggio $number',style:const TextStyle(color:green,fontWeight:FontWeight.w900,fontSize:11)),const SizedBox(height:4),Text(text,style:const TextStyle(fontSize:14,height:1.42,color:ink))]))]));
-
-  Widget _ratingsSection(Recipe r)=>Container(padding:const EdgeInsets.all(2),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(28),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.045),blurRadius:16,offset:const Offset(0,6))]),child:RatingPanel(recipe:r,rating:widget.rating,taste:widget.tasteRating,ratingCount:widget.ratingCount,tasteCount:widget.tasteCount,onRate:widget.onRate,onTaste:widget.onTaste));
-
-  Widget _historyAndVariants(Recipe r)=>Column(children:[
-    Container(
-      padding:const EdgeInsets.fromLTRB(17,18,17,17),
-      decoration:BoxDecoration(
-        color:Colors.white,
-        borderRadius:BorderRadius.circular(28),
-        boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.045),blurRadius:16,offset:const Offset(0,6))],
-      ),
-      child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-        Row(children:[
-          Container(width:42,height:42,decoration:BoxDecoration(color:const Color(0xFFF4EBD8),borderRadius:BorderRadius.circular(14)),child:const Icon(Icons.menu_book_outlined,color:green)),
-          const SizedBox(width:10),
-          const Text('La storia',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),
-        ]),
-        const SizedBox(height:13),
-        Text(r.history,style:const TextStyle(height:1.5,color:ink)),
-      ]),
-    ),
-    if(r.variants.isNotEmpty)
-      Padding(
-        padding:const EdgeInsets.only(top:12),
-        child:Container(
-          padding:const EdgeInsets.fromLTRB(17,17,17,14),
-          decoration:BoxDecoration(color:const Color(0xFFF6F1E7),borderRadius:BorderRadius.circular(28)),
-          child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-            const Text('Varianti della ricetta',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),
-            const SizedBox(height:9),
-            ...r.variants.map((v)=>Padding(
-              padding:const EdgeInsets.only(bottom:8),
-              child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[
-                const Icon(Icons.check_circle_outline,color:green,size:18),
-                const SizedBox(width:8),
-                Expanded(child:Text(v,style:const TextStyle(height:1.35))),
-              ]),
-            )),
-          ]),
+  Widget _historyAndVariants(Recipe r) => Column(
+    children: [
+      Container(
+        padding: const EdgeInsets.all(17),
+        decoration: BoxDecoration(color: pale, borderRadius: BorderRadius.circular(25)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('La storia del piatto', style: TextStyle(fontSize: 23, fontWeight: FontWeight.w900, color: ink)),
+            const SizedBox(height: 8),
+            Text(r.history, style: const TextStyle(height: 1.45)),
+          ],
         ),
       ),
-  ]);
-
-  Widget _bottomActions()=>SafeArea(
-    top:false,
-    child:Container(
-      padding:const EdgeInsets.fromLTRB(12,9,12,8),
-      decoration:BoxDecoration(
-        color:Colors.white,
-        borderRadius:const BorderRadius.vertical(top:Radius.circular(25)),
-        boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.10),blurRadius:20,offset:const Offset(0,-6))],
-      ),
-      child:Row(children:[
-        Expanded(
-          child:SizedBox(
-            height:54,
-            child:FilledButton.icon(
-              onPressed:()=>jumpTo(preparationKey,1),
-              icon:const Icon(Icons.restaurant_rounded),
-              label:const Text('Inizia a cucinare',style:TextStyle(fontWeight:FontWeight.w900,fontSize:15)),
+      if (r.variants.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.only(top: 14),
+          child: Container(
+            padding: const EdgeInsets.all(17),
+            decoration: BoxDecoration(color: const Color(0xFFF6F0E4), borderRadius: BorderRadius.circular(25)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Varianti della ricetta', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: ink)),
+                const SizedBox(height: 8),
+                ...r.variants.map(
+                  (v) => Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(Icons.check_circle_outline, color: green, size: 18),
+                        const SizedBox(width: 8),
+                        Expanded(child: Text(v, style: const TextStyle(height: 1.35))),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
-        const SizedBox(width:8),
-        SizedBox(
-          width:56,
-          height:54,
-          child:FilledButton.tonal(
-            onPressed:(){setState(()=>isFavorite=!isFavorite);widget.onFavorite();},
-            child:Icon(isFavorite?Icons.favorite:Icons.favorite_border,color:isFavorite?Colors.red:green),
-          ),
-        ),
-        const SizedBox(width:8),
-        SizedBox(
-          width:56,
-          height:54,
-          child:FilledButton.tonal(
-            onPressed:widget.onAddAll,
-            child:const Icon(Icons.playlist_add,color:green),
-          ),
-        ),
-      ]),
-    ),
+    ],
   );
 
+  Widget _bottomActions()=>SafeArea(top:false,child:Container(padding:const EdgeInsets.fromLTRB(12,9,12,8),decoration:BoxDecoration(color:Colors.white,borderRadius:const BorderRadius.vertical(top:Radius.circular(24)),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.10),blurRadius:18,offset:const Offset(0,-5))]),child:Row(children:[Expanded(child:SizedBox(height:52,child:FilledButton.icon(onPressed:()=>jumpTo(preparationKey),icon:const Icon(Icons.restaurant_rounded),label:const Text('Inizia a cucinare',style:TextStyle(fontWeight:FontWeight.w900,fontSize:15))))),const SizedBox(width:8),SizedBox(width:56,height:52,child:FilledButton.tonal(onPressed:(){setState(()=>isFavorite=!isFavorite);widget.onFavorite();},child:Icon(isFavorite?Icons.favorite:Icons.favorite_border,color:isFavorite?Colors.red:green))),const SizedBox(width:8),SizedBox(width:56,height:52,child:FilledButton.tonal(onPressed:widget.onAddAll,child:const Icon(Icons.playlist_add,color:green)))])));
 }
+
+ Widget info(String a,String b)=>Container(padding:const EdgeInsets.symmetric(horizontal:11,vertical:8),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(14)),child:Column(children:[Text(a,style:const TextStyle(fontWeight:FontWeight.w900,color:green)),Text(b,style:const TextStyle(fontSize:10,color:Colors.black54))]));
 
 class CookingGuide extends StatelessWidget {
   final Recipe recipe;
