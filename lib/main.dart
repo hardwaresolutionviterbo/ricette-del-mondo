@@ -1199,7 +1199,30 @@ class _RecipePageState extends State<RecipePage> with SingleTickerProviderStateM
     height:58,
     padding:const EdgeInsets.symmetric(horizontal:7,vertical:6),
     decoration:BoxDecoration(color:Colors.white.withValues(alpha:.94),borderRadius:BorderRadius.circular(17)),
-    child:Row(children:[Icon(icon,size:17,color:green),const SizedBox(width:5),Expanded(child:Column(mainAxisAlignment:MainAxisAlignment.center,crossAxisAlignment:CrossAxisAlignment.start,children:[FittedBox(alignment:Alignment.centerLeft,fit:BoxFit.scaleDown,child:Text(value,style:const TextStyle(fontWeight:FontWeight.w900,color:ink,fontSize:12))),FittedBox(alignment:Alignment.centerLeft,fit:BoxFit.scaleDown,child:Text(label,style:const TextStyle(color:Colors.black54,fontSize:8)))])])),
+    child: Row(
+      children: [
+        Icon(icon, size: 17, color: green),
+        const SizedBox(width: 5),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FittedBox(
+                alignment: Alignment.centerLeft,
+                fit: BoxFit.scaleDown,
+                child: Text(value, style: const TextStyle(fontWeight: FontWeight.w900, color: ink, fontSize: 12)),
+              ),
+              FittedBox(
+                alignment: Alignment.centerLeft,
+                fit: BoxFit.scaleDown,
+                child: Text(label, style: const TextStyle(color: Colors.black54, fontSize: 8)),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
   );
 
   Widget _sectionTabs()=>Container(
@@ -1261,7 +1284,7 @@ class _RecipePageState extends State<RecipePage> with SingleTickerProviderStateM
     final amount=match.group(1)?.trim()??'';
     final unitAndRest=value.substring(amount.length).trim();
     final unitMatch=RegExp(r'^(g|kg|mg|ml|cl|l|dl|cucchiaini?|cucchiai?|pz|pezzi)\b',caseSensitive:false).firstMatch(unitAndRest);
-    if(unitMatch!=null)return '${amount} ${unitMatch.group(1)}';
+    if(unitMatch!=null)return '$amount ${unitMatch.group(1)}';
     return amount;
   }
 
