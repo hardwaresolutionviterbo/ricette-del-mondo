@@ -1178,29 +1178,132 @@ class _RecipePageState extends State<RecipePage> with SingleTickerProviderStateM
       ]),),
     ]))));
   }
-  Widget _heroStat(IconData icon,String value,String label)=>Container(margin:const EdgeInsets.only(right:7),padding:const EdgeInsets.symmetric(horizontal:12,vertical:8),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.93),borderRadius:BorderRadius.circular(18)),child:Row(children:[Icon(icon,size:17,color:green),const SizedBox(width:6),Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(value,style:const TextStyle(fontWeight:FontWeight.w900,color:ink,fontSize:13)),Text(label,style:const TextStyle(color:Colors.black54,fontSize:9))])]));
+  Widget _heroStat(IconData icon, String value, String label) {
+    return Container(
+      margin: const EdgeInsets.only(right: 7),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: .93),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, size: 17, color: green),
+          const SizedBox(width: 6),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                value,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: ink,
+                  fontSize: 13,
+                ),
+              ),
+              Text(
+                label,
+                style: const TextStyle(
+                  color: Colors.black54,
+                  fontSize: 9,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _sectionTabs()=>Container(padding:const EdgeInsets.all(5),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(22),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.05),blurRadius:12,offset:const Offset(0,4))]),child:Row(children:[_tab('Storia',Icons.menu_book_outlined,historyKey,true),_tab('Ingredienti',Icons.eco_outlined,ingredientsKey,false),_tab('Preparazione',Icons.restaurant_menu,preparationKey,false),_tab('Valutazioni',Icons.star_border,ratingsKey,false)]));
   Widget _tab(String text,IconData icon,GlobalKey key,bool active)=>Expanded(child:InkWell(onTap:()=>jumpTo(key),borderRadius:BorderRadius.circular(17),child:AnimatedContainer(duration:const Duration(milliseconds:250),padding:const EdgeInsets.symmetric(vertical:10,horizontal:3),decoration:BoxDecoration(color:active?const Color(0xFFEAF5EF):Colors.transparent,borderRadius:BorderRadius.circular(17)),child:Column(children:[Icon(icon,size:19,color:active?green:ink),const SizedBox(height:3),Text(text,style:TextStyle(fontSize:10,fontWeight:active?FontWeight.w900:FontWeight.w600,color:active?green:ink))]))));
 
-  Widget _ingredientsSection(Recipe r)=>Container(
-    padding:const EdgeInsets.fromLTRB(14,16,14,14),
-    decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(28),border:Border.all(color:const Color(0xFFE7E1D6)),boxShadow:[BoxShadow(color:Colors.black.withValues(alpha:.045),blurRadius:16,offset:const Offset(0,6))]),
-    child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-      Row(children:[
-        Container(width:48,height:48,decoration:BoxDecoration(color:const Color(0xFFEAF5EF),borderRadius:BorderRadius.circular(16)),child:const Icon(Icons.shopping_basket_outlined,color:green,size:28)),
-        const SizedBox(width:10),
-        const Expanded(child:Text('Ingredienti',style:TextStyle(fontSize:25,fontWeight:FontWeight.w900,color:ink))),
-        _servingsControl(),
-        const SizedBox(width:6),
-        SizedBox(width:46,height:46,child:FilledButton.tonal(onPressed:widget.onAddAll,child:const Icon(Icons.add_shopping_cart,color:green,size:21))),
-      ]),
-      const SizedBox(height:12),
-      ...r.ingredients.map((raw)=>Padding(padding:const EdgeInsets.only(bottom:7),child:_ingredientTile(scaleIng(raw)))),
-      const SizedBox(height:4),
-      SizedBox(width:double.infinity,child:FilledButton.tonalIcon(onPressed:widget.onAddAll,icon:const Icon(Icons.playlist_add,color:green),label:const Text('Aggiungi tutti gli ingredienti',style:TextStyle(color:green,fontWeight:FontWeight.w800)))),
-    ]);
-  );
+  Widget _ingredientsSection(Recipe r) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(14, 16, 14, 14),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(28),
+        border: Border.all(color: const Color(0xFFE7E1D6)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: .045),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEAF5EF),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: const Icon(
+                  Icons.shopping_basket_outlined,
+                  color: green,
+                  size: 28,
+                ),
+              ),
+              const SizedBox(width: 10),
+              const Expanded(
+                child: Text(
+                  'Ingredienti',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w900,
+                    color: ink,
+                  ),
+                ),
+              ),
+              _servingsControl(),
+              const SizedBox(width: 6),
+              SizedBox(
+                width: 46,
+                height: 46,
+                child: FilledButton.tonal(
+                  onPressed: widget.onAddAll,
+                  child: const Icon(
+                    Icons.add_shopping_cart,
+                    color: green,
+                    size: 21,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          ...r.ingredients.map(
+            (raw) => Padding(
+              padding: const EdgeInsets.only(bottom: 7),
+              child: _ingredientTile(scaleIng(raw)),
+            ),
+          ),
+          const SizedBox(height: 4),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton.tonalIcon(
+              onPressed: widget.onAddAll,
+              icon: const Icon(Icons.playlist_add, color: green),
+              label: const Text(
+                'Aggiungi tutti gli ingredienti',
+                style: TextStyle(
+                  color: green,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _servingsControl()=>Container(padding:const EdgeInsets.symmetric(horizontal:3,vertical:2),decoration:BoxDecoration(color:const Color(0xFFF3F7F3),borderRadius:BorderRadius.circular(18)),child:Row(children:[IconButton(visualDensity:VisualDensity.compact,onPressed:servings>1?()=>setState(()=>servings--):null,icon:const Icon(Icons.remove_circle_outline,color:green,size:21)),Text('$servings',style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),IconButton(visualDensity:VisualDensity.compact,onPressed:()=>setState(()=>servings++),icon:const Icon(Icons.add_circle_outline,color:green,size:21))]));
 
