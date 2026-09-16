@@ -1,81 +1,23 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
-/// Cerca una fotografia riutilizzabile per un ingrediente e la memorizza in
-/// cache. Le richieste sono serializzate e non partono mai dalle schermate
-/// elenco: questo servizio viene usato solo nel dettaglio della ricetta.
+/// Recupera una foto rappresentativa dell'ingrediente senza bloccare la UI.
+/// Le richieste sono limitate e vengono mantenute in memoria per la sessione.
 class IngredientPhotoService {
   IngredientPhotoService._();
   static final IngredientPhotoService instance = IngredientPhotoService._();
 
-  static const _prefsKey = 'rdm_ingredient_photo_manifest_v1';
   final Map<String, String?> _cache = <String, String?>{};
   final Map<String, Future<String?>> _pending = <String, Future<String?>>{};
-  Future<void>? _initFuture;
-  Future<void> _queue = Future<void>.value();
-  SharedPreferences? _prefs;
-  Timer? _persistTimer;
+  final List<Future<void>> _queues = List<Future<void>>.filled(3, Future<void>.value());
+  int _nextQueue = 0;
 
-  Future<void> _ensureInit() => _initFuture ??= _loadPersisted();
-
-  Future<void> _loadPersisted() async {
-    _prefs = await SharedPreferences.getInstance();
-    final raw = _prefs?.getString(_prefsKey);
-    if (raw == null || raw.isEmpty) return;
-    try {
-      final decoded = jsonDecode(raw);
-      if (decoded is! Map) return;
-      for (final entry in decoded.entries) {
-        final value = entry.value?.toString();
-        if (value != null && value.isNotEmpty) {
-          _cache[entry.key.toString()] = value;
-        }
-      }
-    } catch (_) {
-      // Una cache corrotta non deve mai impedire l'apertura di una ricetta.
-    }
-  }
-
-  String normalize(String value) {
-    var text = value.trim().toLowerCase();
-    text = text.replaceAll(RegExp(r'^\d+(?:[\.,]\d+)?\s*'), '');
-    text = text.replaceAll(RegExp(r'^\d+\s*/\s*\d+\s*'), '');
-    text = text.replaceAll(RegExp(r'\s+q\.b\.?$'), '');
-    text = text.replaceAll(RegExp(r'\s+\(.*?\)$'), '');
-    text = text.replaceAll(RegExp(r'\s+'), ' ').trim();
-    return text;
-  }
-
-  String displayName(String value) {
-    var text = value.trim();
-    text = text.replaceFirst(
-      RegExp(r'^\s*\d+(?:[\.,]\d+)?\s*(?:g|kg|mg|ml|cl|l|dl|cucchiaini?|cucchiai?|pz|pezzi)?\s+', caseSensitive: false),
-      '',
-    );
-    text = text.replaceFirst(RegExp(r'^\s*\d+\s*/\s*\d+\s+'), '');
-    return text.replaceAll(RegExp(r'\s+'), ' ').trim();
-  }
-
-  Future<String?> resolve(String ingredient) async {
-    final key = normalize(ingredient);
-    if (key.isEmpty) return null;
-    if (_cache.containsKey(key)) return _cache[key];
-
-    final pending = _pending[key];
-    if (pending != null) return pending;
-
-    final future = _lookup(key).whenComplete(() => _pending.remove(key));
-    _pending[key] = future;
-    return future;
-  }
-
-  Future<T> _runQueued<T>(Future<T> Function() action) async {
-    final previous = _queue;
+  Future<T> _enqueue<T>(Future<T> Function() action) async {
+    final slot = _nextQueue++ % _queues.length;
+    final previous = _queues[slot];
     final gate = Completer<void>();
-    _queue = gate.future;
+    _queues[slot] = previous.then((_) => gate.future);
     await previous;
     try {
       return await action();
@@ -84,112 +26,89 @@ class IngredientPhotoService {
     }
   }
 
-  Future<String?> _lookup(String key) async {
-    await _ensureInit();
-    final persisted = _cache[key];
-    if (persisted != null && persisted.isNotEmpty) return persisted;
+  Future<String?> resolve(String ingredient) {
+    final key = _cleanIngredient(ingredient).toLowerCase();
+    if (key.isEmpty) return Future<String?>.value(null);
+    if (_cache.containsKey(key)) return Future<String?>.value(_cache[key]);
+    final existing = _pending[key];
+    if (existing != null) return existing;
 
-    return _runQueued(() async {
-      final uri = Uri.https('api.openverse.org', '/v1/images/', {
-        'q': '$key ingredient food',
-        'page_size': '6',
-        'mature': 'false',
-      });
+    final future = _lookup(key).whenComplete(() => _pending.remove(key));
+    _pending[key] = future;
+    return future;
+  }
+
+  String _cleanIngredient(String raw) {
+    var value = raw.trim();
+    value = value.replaceFirst(
+      RegExp(r'^\s*\d+(?:[\.,]\d+)?\s*(?:g|kg|mg|ml|cl|l|dl|oz|lb|cucchiai?|cucchiaini?|pezzi?|fette?|spicchi?|rametti?)?\s*', caseSensitive: false),
+      '',
+    );
+    value = value.replaceFirst(RegExp(r'^\s*[–-]\s*'), '');
+    value = value.replaceAll(RegExp(r'\s*\([^)]*\)'), '');
+    value = value.replaceAll(RegExp(r'\s+'), ' ').trim();
+    return value;
+  }
+
+  String _queryTerm(String value) {
+    const translations = <String, String>{
+      'pomodori': 'tomatoes', 'pomodoro': 'tomato', 'patate': 'potatoes', 'patata': 'potato',
+      'cipolla': 'onion', 'cipolle': 'onions', 'aglio': 'garlic', 'carota': 'carrot', 'carote': 'carrots',
+      'sedano': 'celery', 'zucchina': 'zucchini', 'zucchine': 'zucchini', 'melanzana': 'eggplant', 'melanzane': 'eggplant',
+      'peperone': 'bell pepper', 'peperoni': 'bell peppers', 'peperoncino': 'chili pepper', 'peperoncini': 'chili peppers',
+      'limone': 'lemon', 'limoni': 'lemons', 'lime': 'lime', 'zenzero': 'ginger', 'basilico': 'basil',
+      'prezzemolo': 'parsley', 'coriandolo': 'cilantro', 'rosmarino': 'rosemary', 'salvia': 'sage', 'timo': 'thyme',
+      'menta': 'mint', 'origano': 'oregano', 'olio': 'olive oil', 'burro': 'butter', 'latte': 'milk',
+      'panna': 'cream', 'farina': 'flour', 'zucchero': 'sugar', 'sale': 'salt', 'pepe': 'black pepper',
+      'riso': 'rice', 'pasta': 'pasta', 'spaghetti': 'spaghetti', 'uova': 'eggs', 'uovo': 'egg',
+      'formaggio': 'cheese', 'parmigiano': 'parmesan cheese', 'mozzarella': 'mozzarella', 'pecorino': 'pecorino cheese',
+      'pollo': 'chicken', 'manzo': 'beef', 'carne': 'beef meat', 'maiale': 'pork', 'pesce': 'fish',
+      'salmone': 'salmon', 'tonno': 'tuna', 'gamberi': 'shrimp', 'gamberetto': 'shrimp', 'ceci': 'chickpeas',
+      'fagioli': 'beans', 'lenticchie': 'lentils', 'olive': 'olives', 'mandorle': 'almonds', 'noci': 'walnuts',
+      'miele': 'honey', 'aceto': 'vinegar', 'senape': 'mustard', 'soia': 'soy sauce', 'pane': 'bread',
+    };
+    final lower = value.toLowerCase();
+    return translations[lower] ?? value;
+  }
+
+  Future<String?> _lookup(String key) async {
+    final query = '${_queryTerm(key)} food ingredient';
+    return _enqueue(() async {
       try {
+        final uri = Uri.https('api.openverse.org', '/v1/images/', {
+          'q': query,
+          'page_size': '6',
+          'mature': 'false',
+        });
         final response = await http.get(uri, headers: const {
           'Accept': 'application/json',
           'User-Agent': 'RicetteDelMondo/6.0 (ingredient-photo-service)',
-        }).timeout(const Duration(seconds: 2));
+        }).timeout(const Duration(milliseconds: 1500));
         if (response.statusCode != 200) {
           _cache[key] = null;
           return null;
         }
-
-        final decoded = jsonDecode(response.body);
-        final results = decoded is Map ? decoded['results'] : null;
+        final data = jsonDecode(response.body);
+        final results = data is Map ? data['results'] : null;
         if (results is! List) {
           _cache[key] = null;
           return null;
         }
-
-        final target = _tokens(key);
-        String? bestUrl;
-        double bestScore = double.negativeInfinity;
-
-        for (final raw in results.whereType<Map>()) {
-          final item = Map<String, dynamic>.from(raw);
-          final license = '${item['license'] ?? ''}'.toLowerCase();
-          if (!_licenseAllowed(license)) continue;
+        for (final item in results.whereType<Map>()) {
+          final mime = '${item['mimetype'] ?? item['mime_type'] ?? ''}'.toLowerCase();
+          if (mime.isNotEmpty && !mime.startsWith('image/')) continue;
+          final license = '${item['license'] ?? item['license_version'] ?? ''}'.toLowerCase();
+          if (license.contains('nc') || license.contains('noncommercial')) continue;
           final url = '${item['thumbnail'] ?? item['url'] ?? ''}'.trim();
           if (url.isEmpty) continue;
-          final title = '${item['title'] ?? item['name'] ?? ''}';
-          final description = '${item['description'] ?? ''}';
-          final tags = item['tags'];
-          final tagText = tags is List
-              ? tags.map((tag) => '${tag is Map ? tag['name'] ?? '' : tag}').join(' ')
-              : '';
-          final tokens = _tokens('$title $description $tagText');
-          final hits = target.where(tokens.contains).length;
-          var score = hits * 8.0;
-          if (title.toLowerCase().contains(key)) score += 10;
-          if (RegExp(r'logo|icon|map|poster|diagram|symbol', caseSensitive: false).hasMatch(title)) {
-            score -= 20;
-          }
-          if (score > bestScore) {
-            bestScore = score;
-            bestUrl = url;
-          }
+          _cache[key] = url;
+          return url;
         }
-
-        if (bestScore < 5 || bestUrl == null) {
-          _cache[key] = null;
-          _schedulePersist();
-          return null;
-        }
-        _cache[key] = bestUrl;
-        _schedulePersist();
-        return bestUrl;
       } catch (_) {
-        _cache[key] = null;
-        _schedulePersist();
-        return null;
+        // Il caricamento dell'immagine è opzionale: la riga resta utilizzabile.
       }
-    });
-  }
-
-  bool _licenseAllowed(String license) {
-    if (license.isEmpty) return false;
-    if (license.contains('nc') || license.contains('noncommercial') || license.contains('non-commercial')) return false;
-    return license.contains('cc0') ||
-        license.contains('public domain') ||
-        license == 'pdm' ||
-        license.contains('cc by') ||
-        license.contains('cc-by') ||
-        license.contains('cc by-sa') ||
-        license.contains('cc-by-sa');
-  }
-
-  Set<String> _tokens(String value) => value
-      .toLowerCase()
-      .replaceAll(RegExp(r'[^a-zàèéìòù0-9]+'), ' ')
-      .split(RegExp(r'\s+'))
-      .where((token) => token.length >= 3)
-      .toSet();
-
-  void _schedulePersist() {
-    _persistTimer ??= Timer(const Duration(seconds: 2), () async {
-      _persistTimer = null;
-      final prefs = _prefs;
-      if (prefs == null) return;
-      final values = <String, String>{
-        for (final entry in _cache.entries)
-          if (entry.value != null && entry.value!.isNotEmpty) entry.key: entry.value!,
-      };
-      try {
-        await prefs.setString(_prefsKey, jsonEncode(values));
-      } catch (_) {
-        // La persistenza è solo un'ottimizzazione.
-      }
+      _cache[key] = null;
+      return null;
     });
   }
 }
