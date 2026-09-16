@@ -59,7 +59,8 @@ class RatingStats { double sum=0; int count=0; double get avg=>count==0?0:sum/co
 
 const green=Color(0xFF075B3A), green2=Color(0xFF0C7A4B), orange=Color(0xFFF39A19), cream=Color(0xFFFFFBF3), ink=Color(0xFF12324A), pale=Color(0xFFF2E8D8);
 const flags={'Italia':'🇮🇹','Giappone':'🇯🇵','Messico':'🇲🇽','India':'🇮🇳','Grecia':'🇬🇷','Thailandia':'🇹🇭','Spagna':'🇪🇸','Corea del Sud':'🇰🇷','Perù':'🇵🇪','Francia':'🇫🇷','Turchia':'🇹🇷','Cina':'🇨🇳','Stati Uniti':'🇺🇸','USA':'🇺🇸','Marocco':'🇲🇦','Brasile':'🇧🇷','Argentina':'🇦🇷','Vietnam':'🇻🇳','Indonesia':'🇮🇩','Portogallo':'🇵🇹','Germania':'🇩🇪','Regno Unito':'🇬🇧','Etiopia':'🇪🇹','Libano':'🇱🇧','Israele':'🇮🇱','Egitto':'🇪🇬','Australia':'🇦🇺','Filippine':'🇵🇭'};
-String flag(String c)=>flags[c]??'🌍';
+String flag(String c)=>flags[c.trim()]??'🌍';
+String recipeFlag(Recipe r)=>r.flag.trim().isNotEmpty?r.flag.trim():flag(r.country);
 
 const allergenLabels = <String, String>{
   'glutine': 'Glutine',
@@ -452,7 +453,7 @@ class _AppShellState extends State<AppShell>{
           Positioned(left:16,right:16,bottom:15,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
             Text(recipe.title,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(color:Colors.white,fontSize:22,fontWeight:FontWeight.w900)),
             const SizedBox(height:6),
-            Row(children:[Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(color:Colors.white,fontSize:12,fontWeight:FontWeight.w800)),const SizedBox(width:12),const Icon(Icons.schedule_rounded,color:Colors.white70,size:14),const SizedBox(width:4),Text('${recipe.timeMin} min',style:const TextStyle(color:Colors.white,fontSize:12,fontWeight:FontWeight.w700)),const SizedBox(width:12),Text(recipe.difficulty,style:const TextStyle(color:Colors.white,fontSize:12,fontWeight:FontWeight.w700))]),
+            Row(children:[Text('${recipeFlag(recipe)} ${recipe.country}',style:const TextStyle(color:Colors.white,fontSize:12,fontWeight:FontWeight.w800)),const SizedBox(width:12),const Icon(Icons.schedule_rounded,color:Colors.white70,size:14),const SizedBox(width:4),Text('${recipe.timeMin} min',style:const TextStyle(color:Colors.white,fontSize:12,fontWeight:FontWeight.w700)),const SizedBox(width:12),Text(recipe.difficulty,style:const TextStyle(color:Colors.white,fontSize:12,fontWeight:FontWeight.w700))]),
           ])),
         ])),
       ),
@@ -568,6 +569,19 @@ class _AppShellState extends State<AppShell>{
   },decoration:InputDecoration(hintText:'Cerca ricette, Paesi o ingredienti',prefixIcon:const Icon(Icons.search,color:green),suffixIcon:IconButton(onPressed:showFilters,icon:const Icon(Icons.tune,color:green)),filled:true,fillColor:Colors.white,border:OutlineInputBorder(borderRadius:BorderRadius.circular(30),borderSide:BorderSide.none),contentPadding:const EdgeInsets.symmetric(vertical:14)));
  Widget fridgeBanner()=>Card(elevation:0,color:const Color(0xFFE4F1E8),shape:RoundedRectangleBorder(borderRadius:BorderRadius.circular(22)),child:InkWell(borderRadius:BorderRadius.circular(22),onTap:fridgePage,child:Padding(padding:const EdgeInsets.all(17),child:Row(children:[Container(width:52,height:52,decoration:BoxDecoration(color:green,borderRadius:BorderRadius.circular(16)),child:const Icon(Icons.kitchen,color:Colors.white)),const SizedBox(width:14),const Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text('Cosa hai nel frigo?',style:TextStyle(fontSize:19,fontWeight:FontWeight.w900,color:ink)),SizedBox(height:4),Text('Seleziona gli ingredienti e scopri cosa puoi cucinare.',style:TextStyle(color:ink))])),const Icon(Icons.arrow_forward_ios_rounded,size:18,color:green)]))));
  Widget section(String t,{String? action,VoidCallback? onAction})=>Padding(padding:const EdgeInsets.only(top:22,bottom:10),child:Row(children:[Expanded(child:Text(t,style:const TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink))),if(action!=null)TextButton(onPressed:onAction,child:Text(action,style:const TextStyle(color:green,fontWeight:FontWeight.w800)))]));
+ Widget countryBadge(Recipe r,{Color? background,Color textColor=ink})=>Container(
+  padding:const EdgeInsets.symmetric(horizontal:9,vertical:5),
+  decoration:BoxDecoration(
+    color:background??Colors.white.withValues(alpha:.94),
+    borderRadius:BorderRadius.circular(18),
+    boxShadow:const [BoxShadow(color:Colors.black12,blurRadius:5,offset:Offset(0,2))],
+  ),
+  child:Row(mainAxisSize:MainAxisSize.min,children:[
+    Text(recipeFlag(r),style:const TextStyle(fontSize:17,height:1)),
+    const SizedBox(width:6),
+    ConstrainedBox(constraints:const BoxConstraints(maxWidth:88),child:Text(r.country,maxLines:1,overflow:TextOverflow.ellipsis,style:TextStyle(color:textColor,fontSize:11.5,fontWeight:FontWeight.w900))),
+  ]),
+ );
  Widget recipeCard(Recipe r)=>Card(
   margin:const EdgeInsets.only(bottom:11),
   clipBehavior:Clip.antiAlias,
@@ -575,7 +589,10 @@ class _AppShellState extends State<AppShell>{
   child:InkWell(
     onTap:()=>openRecipe(r),
     child:Row(children:[
-      SizedBox(width:124,height:124,child:recipeVisual(r,height:124,radius:BorderRadius.zero)),
+      SizedBox(width:124,height:124,child:Stack(children:[
+        Positioned.fill(child:recipeVisual(r,height:124,radius:BorderRadius.zero)),
+        Positioned(left:8,top:8,child:countryBadge(r)),
+      ])),
       Expanded(child:Padding(
         padding:const EdgeInsets.all(12),
         child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
@@ -584,8 +601,6 @@ class _AppShellState extends State<AppShell>{
               style:const TextStyle(fontWeight:FontWeight.w900,fontSize:16,color:ink))),
             if(r.premium)const Icon(Icons.workspace_premium,size:18,color:orange),
           ]),
-          const SizedBox(height:5),
-          Text('${flag(r.country)} ${r.country}',style:const TextStyle(fontWeight:FontWeight.w600)),
           const SizedBox(height:5),
           Text('${r.prepMin} min prep • ${r.cookMin} min cottura • ${r.servings} porzioni',
             style:const TextStyle(fontSize:11)),
@@ -613,7 +628,17 @@ class _AppShellState extends State<AppShell>{
    final v=base*(servings/(r.servings==0?4:r.servings));
    return '€${v.toStringAsFixed(2)} stimati';
  }
- Widget miniCard(Recipe r)=>GestureDetector(onTap:()=>openRecipe(r),child:SizedBox(width:172,height:254,child:Container(margin:const EdgeInsets.only(right:12),child:Card(clipBehavior:Clip.antiAlias,elevation:2,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[recipeVisual(r,height:112,radius:BorderRadius.zero),Padding(padding:const EdgeInsets.fromLTRB(10,7,10,8),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(r.title,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:4),Text('${flag(r.country)} ${r.country}',style:const TextStyle(fontSize:12)),const SizedBox(height:3),Text('${r.timeMin} min • ${cost(r,r.servings)}',maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:11))]))])))));
+ Widget miniCard(Recipe r)=>GestureDetector(onTap:()=>openRecipe(r),child:SizedBox(width:172,height:254,child:Container(margin:const EdgeInsets.only(right:12),child:Card(clipBehavior:Clip.antiAlias,elevation:2,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+   SizedBox(height:112,child:Stack(children:[
+     Positioned.fill(child:recipeVisual(r,height:112,radius:BorderRadius.zero)),
+     Positioned(left:7,top:7,child:countryBadge(r)),
+   ])),
+   Padding(padding:const EdgeInsets.fromLTRB(10,7,10,8),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+     Text(r.title,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(fontWeight:FontWeight.w900,color:ink)),
+     const SizedBox(height:5),
+     Text('${r.timeMin} min • ${cost(r,r.servings)}',maxLines:1,overflow:TextOverflow.ellipsis,style:const TextStyle(fontSize:11)),
+   ])),
+ ])))));
  Widget continentGrid()=>GridView.count(crossAxisCount:3,shrinkWrap:true,physics:const NeverScrollableScrollPhysics(),crossAxisSpacing:8,mainAxisSpacing:8,childAspectRatio:1.1,children:[['Europa','🇪🇺'],['Asia','🌏'],['Americhe','🌎'],['Africa','🌍'],['Oceania','🌊'],['Medio Oriente','🕌']].map((x)=>InkWell(onTap:()=>openContinentPage(x[0]),borderRadius:BorderRadius.circular(18),child:Container(decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(18),border:Border.all(color:const Color(0xFFE8DFD1))),child:Column(mainAxisAlignment:MainAxisAlignment.center,children:[Text(x[1],style:const TextStyle(fontSize:32)),const SizedBox(height:5),Text(x[0],style:const TextStyle(fontWeight:FontWeight.w800,color:ink)),const SizedBox(height:3),const Text('Tocca per esplorare',style:TextStyle(fontSize:9,color:Colors.black45))])))).toList());
  void openContinentPage(String continent){final rs=all.where((r)=>r.continent.toLowerCase()==continent.toLowerCase()).toList();Navigator.push(context,MaterialPageRoute(builder:(_)=>SpecialCollectionPage(title:'Ricette $continent',subtitle:'Scopri le ricette di $continent.',recipes:rs,icon:Icons.public)));}
  Widget premiumBanner()=>Card(clipBehavior:Clip.antiAlias,elevation:3,child:Container(decoration:const BoxDecoration(gradient:LinearGradient(colors:[Color(0xFF075B3A),Color(0xFF0C7A4B)])),padding:const EdgeInsets.all(18),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Row(children:[Icon(Icons.workspace_premium,color:orange,size:32),SizedBox(width:8),Text('Passa a Premium',style:TextStyle(color:Colors.white,fontSize:24,fontWeight:FontWeight.w900))]),const SizedBox(height:6),const Text('Sblocca tutte le ricette Premium, le raccolte speciali, storie, procedimenti e funzioni esclusive.',style:TextStyle(color:Colors.white,fontSize:15)),const SizedBox(height:12),Row(children:[priceChip('1 mese','€2,99'),priceChip('6 mesi','€14,99'),priceChip('12 mesi','€24,99')]),const SizedBox(height:12),FilledButton(style:FilledButton.styleFrom(backgroundColor:orange,foregroundColor:ink,minimumSize:const Size.fromHeight(48)),onPressed:premiumPage,child:const Text('Scopri Premium',style:TextStyle(fontWeight:FontWeight.w900)))])));
@@ -1081,7 +1106,7 @@ class _PremiumPageState extends State<PremiumPage>{
   }
 }
 
-class PaywallPage extends StatelessWidget{final Recipe recipe;final VoidCallback onPremium;const PaywallPage({super.key,required this.recipe,required this.onPremium});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Anteprima Premium')),body:ListView(padding:const EdgeInsets.all(18),children:[recipeVisual(recipe,height:260,allowNetwork:true),const SizedBox(height:12),Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(fontWeight:FontWeight.w800,color:green)),Text(recipe.title,style:const TextStyle(fontSize:29,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.description),const SizedBox(height:14),Container(padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:pale,borderRadius:BorderRadius.circular(20)),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('📖 La storia del piatto',style:TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.history,maxLines:5,overflow:TextOverflow.ellipsis)])),const SizedBox(height:14),const Text('🔒 Ingredienti e procedimento completo sono disponibili con Premium.',style:TextStyle(fontWeight:FontWeight.w700)),const SizedBox(height:16),FilledButton(onPressed:onPremium,child:const Text('Scopri i piani Premium'))]));}
+class PaywallPage extends StatelessWidget{final Recipe recipe;final VoidCallback onPremium;const PaywallPage({super.key,required this.recipe,required this.onPremium});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Anteprima Premium')),body:ListView(padding:const EdgeInsets.all(18),children:[recipeVisual(recipe,height:260,allowNetwork:true),const SizedBox(height:12),Text('${recipeFlag(recipe)} ${recipe.country}',style:const TextStyle(fontWeight:FontWeight.w800,color:green)),Text(recipe.title,style:const TextStyle(fontSize:29,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.description),const SizedBox(height:14),Container(padding:const EdgeInsets.all(16),decoration:BoxDecoration(color:pale,borderRadius:BorderRadius.circular(20)),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[const Text('📖 La storia del piatto',style:TextStyle(fontSize:20,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:7),Text(recipe.history,maxLines:5,overflow:TextOverflow.ellipsis)])),const SizedBox(height:14),const Text('🔒 Ingredienti e procedimento completo sono disponibili con Premium.',style:TextStyle(fontWeight:FontWeight.w700)),const SizedBox(height:16),FilledButton(onPressed:onPremium,child:const Text('Scopri i piani Premium'))]));}
 
 class RecipePage extends StatefulWidget{
   final Recipe recipe; final bool selected; final VoidCallback onFavorite; final ValueChanged<String> onAdd; final VoidCallback onAddAll;
@@ -1168,7 +1193,7 @@ class _RecipePageState extends State<RecipePage> with SingleTickerProviderStateM
     },child:ClipRRect(borderRadius:BorderRadius.circular(30),child:SizedBox(height:365,child:Stack(fit:StackFit.expand,children:[
       recipeVisual(r,height:365,radius:BorderRadius.circular(30),allowNetwork:true),
       DecoratedBox(decoration:BoxDecoration(gradient:LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors:[Colors.black.withValues(alpha:.05),Colors.transparent,Colors.black.withValues(alpha:.72)]))),
-      Positioned(left:18,top:18,child:Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:7),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.92),borderRadius:BorderRadius.circular(20)),child:Text('${flag(r.country)}  ${r.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w900)))),
+      Positioned(left:18,top:18,child:Container(padding:const EdgeInsets.symmetric(horizontal:12,vertical:7),decoration:BoxDecoration(color:Colors.white.withValues(alpha:.92),borderRadius:BorderRadius.circular(20)),child:Text('${recipeFlag(r)}  ${r.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w900)))),
       Positioned(left:18,right:18,bottom:18,child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
         Text(r.title,style:const TextStyle(color:Colors.white,fontSize:30,fontWeight:FontWeight.w900,height:1.05,shadows:[Shadow(color:Colors.black54,blurRadius:8)])),
         if(r.description.isNotEmpty)Padding(padding:const EdgeInsets.only(top:8),child:Text(r.description,maxLines:2,overflow:TextOverflow.ellipsis,style:const TextStyle(color:Colors.white,fontSize:14,fontWeight:FontWeight.w600,height:1.3))),
@@ -1516,8 +1541,8 @@ class SpecialCollectionPage extends StatelessWidget {
                     title: Text(r.title, style: const TextStyle(fontWeight: FontWeight.w900, color: ink)),
                     subtitle: Text(
                       r.chef.isEmpty
-                          ? '${flag(r.country)} ${r.country} • ${r.cookMin} min'
-                          : '${flag(r.country)} ${r.country} • Ricetta di ${r.chef}',
+                          ? '${recipeFlag(r)} ${r.country} • ${r.cookMin} min'
+                          : '${recipeFlag(r)} ${r.country} • Ricetta di ${r.chef}',
                     ),
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () => Navigator.push(
@@ -1532,10 +1557,10 @@ class SpecialCollectionPage extends StatelessWidget {
   }
 }
 
-class SimpleRecipePreview extends StatelessWidget{final Recipe recipe;const SimpleRecipePreview({super.key,required this.recipe});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:Text(recipe.title)),body:ListView(padding:const EdgeInsets.all(18),children:[specialVisual(recipe,height:250,radius:BorderRadius.circular(22),allowNetwork:true),const SizedBox(height:12),Text('${flag(recipe.country)} ${recipe.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w800)),Text(recipe.title,style:const TextStyle(fontSize:28,fontWeight:FontWeight.w900,color:ink)),if(recipe.chef.isNotEmpty)Padding(padding:const EdgeInsets.only(top:6),child:Text('Ricetta di ${recipe.chef}',style:const TextStyle(fontWeight:FontWeight.w800,color:orange))),const SizedBox(height:14),CookingGuide(recipe:recipe),const SizedBox(height:14),const Text('Ingredienti',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.ingredients.map((x)=>ListTile(leading:const Icon(Icons.circle,size:7,color:green),title:Text(x))),const Text('Preparazione',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.steps.asMap().entries.map((e)=>ListTile(leading:CircleAvatar(radius:14,backgroundColor:green,child:Text('${e.key+1}',style:const TextStyle(color:Colors.white,fontSize:12))),title:Text(e.value)))]));}
+class SimpleRecipePreview extends StatelessWidget{final Recipe recipe;const SimpleRecipePreview({super.key,required this.recipe});@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:Text(recipe.title)),body:ListView(padding:const EdgeInsets.all(18),children:[specialVisual(recipe,height:250,radius:BorderRadius.circular(22),allowNetwork:true),const SizedBox(height:12),Text('${recipeFlag(recipe)} ${recipe.country}',style:const TextStyle(color:green,fontWeight:FontWeight.w800)),Text(recipe.title,style:const TextStyle(fontSize:28,fontWeight:FontWeight.w900,color:ink)),if(recipe.chef.isNotEmpty)Padding(padding:const EdgeInsets.only(top:6),child:Text('Ricetta di ${recipe.chef}',style:const TextStyle(fontWeight:FontWeight.w800,color:orange))),const SizedBox(height:14),CookingGuide(recipe:recipe),const SizedBox(height:14),const Text('Ingredienti',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.ingredients.map((x)=>ListTile(leading:const Icon(Icons.circle,size:7,color:green),title:Text(x))),const Text('Preparazione',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink)),...recipe.steps.asMap().entries.map((e)=>ListTile(leading:CircleAvatar(radius:14,backgroundColor:green,child:Text('${e.key+1}',style:const TextStyle(color:Colors.white,fontSize:12))),title:Text(e.value)))]));}
 
 class ShoppingPage extends StatefulWidget{final Set<String> items;const ShoppingPage({super.key,required this.items});@override State<ShoppingPage> createState()=>_ShoppingPageState();}
 class _ShoppingPageState extends State<ShoppingPage>{final done=<String>{};@override Widget build(BuildContext c)=>Scaffold(appBar:AppBar(title:const Text('Lista della spesa')),body:ListView(padding:const EdgeInsets.all(18),children:[Card(child:Padding(padding:const EdgeInsets.all(16),child:Column(children:[const Row(children:[Icon(Icons.shopping_cart,color:green),SizedBox(width:8),Text('I tuoi ingredienti',style:TextStyle(fontSize:21,fontWeight:FontWeight.w900,color:ink))]),const SizedBox(height:8),...widget.items.map((x)=>CheckboxListTile(value:done.contains(x),onChanged:(v)=>setState(()=>v==true?done.add(x):done.remove(x)),title:Text(x),controlAffinity:ListTileControlAffinity.leading)),FilledButton.icon(onPressed:(){ScaffoldMessenger.of(c).showSnackBar(const SnackBar(content:Text('Lista pronta per la spesa')));},icon:const Icon(Icons.check),label:const Text('Ho finito'))])))]));}
 
 class FridgePage extends StatefulWidget{final List<Recipe> recipes;final ValueChanged<Recipe> onOpen;const FridgePage({super.key,required this.recipes,required this.onOpen});@override State<FridgePage> createState()=>_FridgePageState();}
-class _FridgePageState extends State<FridgePage>{final selected=<String>{};final search=TextEditingController();final ingredients=['uova','farina','pomodori','cipolla','aglio','olio','burro','latte','formaggio','pollo','riso','pasta','patate','pesce','carne','limone','basilico','pepe','zucchine','melanzane'];@override void dispose(){search.dispose();super.dispose();}@override Widget build(BuildContext c){final q=search.text.toLowerCase();final shown=ingredients.where((x)=>q.isEmpty||x.contains(q)).toList();final ranked=<({Recipe recipe,int missing})>[];if(selected.isNotEmpty){for(final r in widget.recipes){final hay=r.ingredients.join(' ').toLowerCase();final missing=selected.where((s)=>!hay.contains(s)).length;if(missing<selected.length)ranked.add((recipe:r,missing:missing));}ranked.sort((a,b)=>a.missing.compareTo(b.missing));}return Scaffold(appBar:AppBar(title:const Text('Cosa hai nel frigo?')),body:ListView(padding:const EdgeInsets.all(18),children:[const Text('Scegli gli ingredienti che hai',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:8),TextField(controller:search,onChanged:(_)=>setState((){}),decoration:const InputDecoration(prefixIcon:Icon(Icons.search),hintText:'Cerca un ingrediente...')),const SizedBox(height:10),Wrap(spacing:7,runSpacing:7,children:shown.map((x)=>FilterChip(label:Text(x),selected:selected.contains(x),onSelected:(v)=>setState(()=>v?selected.add(x):selected.remove(x)))).toList()),const SizedBox(height:16),Text(selected.isEmpty?'Seleziona almeno un ingrediente.':'${ranked.length} ricette con pochi ingredienti mancanti',style:const TextStyle(fontWeight:FontWeight.w800)),const SizedBox(height:8),...ranked.take(20).map((x)=>Card(child:ListTile(leading:SizedBox(width:62,height:62,child:recipeVisual(x.recipe,height:62,radius:BorderRadius.circular(10))),title:Text(x.recipe.title,style:const TextStyle(fontWeight:FontWeight.w800)),subtitle:Text('${flag(x.recipe.country)} ${x.recipe.country} • ${x.missing} mancanti'),trailing:const Icon(Icons.chevron_right),onTap:()=>widget.onOpen(x.recipe))))]));}}
+class _FridgePageState extends State<FridgePage>{final selected=<String>{};final search=TextEditingController();final ingredients=['uova','farina','pomodori','cipolla','aglio','olio','burro','latte','formaggio','pollo','riso','pasta','patate','pesce','carne','limone','basilico','pepe','zucchine','melanzane'];@override void dispose(){search.dispose();super.dispose();}@override Widget build(BuildContext c){final q=search.text.toLowerCase();final shown=ingredients.where((x)=>q.isEmpty||x.contains(q)).toList();final ranked=<({Recipe recipe,int missing})>[];if(selected.isNotEmpty){for(final r in widget.recipes){final hay=r.ingredients.join(' ').toLowerCase();final missing=selected.where((s)=>!hay.contains(s)).length;if(missing<selected.length)ranked.add((recipe:r,missing:missing));}ranked.sort((a,b)=>a.missing.compareTo(b.missing));}return Scaffold(appBar:AppBar(title:const Text('Cosa hai nel frigo?')),body:ListView(padding:const EdgeInsets.all(18),children:[const Text('Scegli gli ingredienti che hai',style:TextStyle(fontSize:24,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:8),TextField(controller:search,onChanged:(_)=>setState((){}),decoration:const InputDecoration(prefixIcon:Icon(Icons.search),hintText:'Cerca un ingrediente...')),const SizedBox(height:10),Wrap(spacing:7,runSpacing:7,children:shown.map((x)=>FilterChip(label:Text(x),selected:selected.contains(x),onSelected:(v)=>setState(()=>v?selected.add(x):selected.remove(x)))).toList()),const SizedBox(height:16),Text(selected.isEmpty?'Seleziona almeno un ingrediente.':'${ranked.length} ricette con pochi ingredienti mancanti',style:const TextStyle(fontWeight:FontWeight.w800)),const SizedBox(height:8),...ranked.take(20).map((x)=>Card(child:ListTile(leading:SizedBox(width:62,height:62,child:recipeVisual(x.recipe,height:62,radius:BorderRadius.circular(10))),title:Text(x.recipe.title,style:const TextStyle(fontWeight:FontWeight.w800)),subtitle:Text('${recipeFlag(x.recipe)} ${x.recipe.country} • ${x.missing} mancanti'),trailing:const Icon(Icons.chevron_right),onTap:()=>widget.onOpen(x.recipe))))]));}}
