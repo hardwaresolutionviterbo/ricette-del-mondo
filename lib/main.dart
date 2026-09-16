@@ -18,6 +18,7 @@ import 'legal_pages.dart';
 import 'account_page.dart';
 import 'ad_consent_service.dart';
 import 'ad_service.dart';
+import 'google_play_billing_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -971,34 +972,106 @@ class _SafetyCard extends StatelessWidget{final IconData icon;final String title
  @override Widget build(BuildContext context)=>Container(margin:const EdgeInsets.only(bottom:12),padding:const EdgeInsets.all(18),decoration:BoxDecoration(color:Colors.white,borderRadius:BorderRadius.circular(22),boxShadow:[BoxShadow(color:Colors.black12,blurRadius:12,offset:Offset(0,4))]),child:Row(crossAxisAlignment:CrossAxisAlignment.start,children:[Container(width:46,height:46,decoration:BoxDecoration(color:const Color(0xFFEAF4EE),borderRadius:BorderRadius.circular(15)),child:Icon(icon,color:green,size:25)),const SizedBox(width:14),Expanded(child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[Text(title,style:const TextStyle(fontSize:17,fontWeight:FontWeight.w900,color:ink)),const SizedBox(height:6),Text(text,style:const TextStyle(fontSize:13.5,height:1.5,color:Colors.black54))]))]));
 }
 
-class PremiumPage extends StatefulWidget{const PremiumPage({super.key});@override State<PremiumPage> createState()=>_PremiumPageState();}
-class _PremiumPageState extends State<PremiumPage>{
- int selectedPlan=1;
- final plans=const [('1 mese','€2,99','Rinnovo automatico','Si rinnova ogni mese'),('6 mesi','€14,99','Rinnovo automatico','Si rinnova ogni 6 mesi'),('12 mesi','€24,99','Rinnovo automatico','Si rinnova ogni 12 mesi'),('1 mese','€3,49','Una tantum','Nessun rinnovo automatico'),('6 mesi','€16,99','Una tantum','Nessun rinnovo automatico'),('12 mesi','€29,99','Una tantum','Nessun rinnovo automatico')];
+class PremiumPage extends StatefulWidget {
+  const PremiumPage({super.key});
+
+  @override
+  State<PremiumPage> createState() => _PremiumPageState();
+}
+
+class _PremiumPageState extends State<PremiumPage> {
+  final billing = GooglePlayBillingService.instance;
+  int selectedPlan = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    billing.addListener(_billingChanged);
+    unawaited(billing.initialize());
+  }
+
+  @override
+  void dispose() {
+    billing.removeListener(_billingChanged);
+    super.dispose();
+  }
+
+  void _billingChanged() {
+    if (mounted) setState(() {});
+  }
+
+  Future<void> _buySelected() async {
+    final plan = GooglePlayBillingService.plans[selectedPlan];
+    await billing.buy(plan);
+  }
+
+  Future<void> _restore() async {
+    await billing.restorePurchases();
+  }
+
   @override
   Widget build(BuildContext c) {
+    final plans = GooglePlayBillingService.plans;
+    final selected = plans[selectedPlan];
+    final isPurchasing = billing.purchasingProductId == selected.id;
+
     return Scaffold(
       backgroundColor: cream,
-      appBar: AppBar(title: const Text('Premium', style: TextStyle(fontWeight: FontWeight.w900))),
+      appBar: AppBar(
+        title: const Text(
+          'Premium',
+          style: TextStyle(fontWeight: FontWeight.w900),
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(22, 24, 22, 26),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFF063D28), Color(0xFF0C7A4B)]),
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF063D28), Color(0xFF0C7A4B)],
+              ),
               borderRadius: BorderRadius.circular(30),
-              boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 16, offset: Offset(0, 8))],
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 16,
+                  offset: Offset(0, 8),
+                ),
+              ],
             ),
             child: const Column(
               children: [
                 Icon(Icons.workspace_premium, size: 58, color: orange),
                 SizedBox(height: 8),
-                Text('Ricette del Mondo Premium', textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.w900)),
+                Text(
+                  'Ricette del Mondo Premium',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
                 SizedBox(height: 7),
-                Text('Più ricette. Più viaggi. Più sapori.', textAlign: TextAlign.center, style: TextStyle(color: Color(0xFFFFD889), fontSize: 18, fontWeight: FontWeight.w700)),
+                Text(
+                  'Più ricette. Più viaggi. Più sapori.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFFFD889),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
                 SizedBox(height: 8),
-                Text('Un mondo di ricette esclusive, raccolte speciali e strumenti per organizzare la tua cucina.', textAlign: TextAlign.center, style: TextStyle(color: Colors.white70, fontSize: 14)),
+                Text(
+                  'Un mondo di ricette esclusive, raccolte speciali e strumenti per organizzare la tua cucina.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white70, fontSize: 14),
+                ),
               ],
             ),
           ),
@@ -1006,59 +1079,230 @@ class _PremiumPageState extends State<PremiumPage>{
           Card(
             color: Colors.white,
             elevation: 1,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
+            ),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(12, 8, 12, 10),
               child: Column(
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(8),
-                    child: Row(children: [Icon(Icons.workspace_premium, color: orange), SizedBox(width: 8), Expanded(child: Text('Cosa ottieni con Premium', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: ink)))]),
+                    child: Row(
+                      children: [
+                        Icon(Icons.workspace_premium, color: orange),
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            'Cosa ottieni con Premium',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900,
+                              color: ink,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  ...['Accesso a tutte le ricette Premium', 'Ingredienti e procedimenti completi', 'Storie, varianti e curiosità', 'Raccolte speciali: Impasti, Hamburger e Braceria', 'Lista della spesa e funzione frigo', 'Esperienza senza pubblicità'].map(
-                    (x) => ListTile(dense: true, leading: const Icon(Icons.check_circle, color: green), title: Text(x, style: const TextStyle(fontWeight: FontWeight.w600))),
+                  ...[
+                    'Accesso a tutte le ricette Premium',
+                    'Ingredienti e procedimenti completi',
+                    'Storie, varianti e curiosità',
+                    'Raccolte speciali: Impasti, Hamburger e Braceria',
+                    'Lista della spesa e funzione frigo',
+                    'Esperienza senza pubblicità',
+                  ].map(
+                    (x) => ListTile(
+                      dense: true,
+                      leading: const Icon(
+                        Icons.check_circle,
+                        color: green,
+                      ),
+                      title: Text(
+                        x,
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
           ),
           const SizedBox(height: 18),
-          const Text('Scegli il tuo abbonamento', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: ink)),
+          const Text(
+            'Scegli il tuo abbonamento',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w900,
+              color: ink,
+            ),
+          ),
           const SizedBox(height: 6),
-          const Text('Puoi scegliere il rinnovo automatico oppure un acquisto una tantum.', style: TextStyle(fontSize: 13, color: Colors.black54)),
+          const Text(
+            'I prezzi mostrati da Google Play sostituiscono automaticamente quelli di anteprima quando i prodotti sono pubblicati nello store.',
+            style: TextStyle(fontSize: 13, color: Colors.black54),
+          ),
+          if (billing.loading) ...[
+            const SizedBox(height: 12),
+            const LinearProgressIndicator(),
+          ],
+          if (billing.message != null) ...[
+            const SizedBox(height: 12),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: const Color(0xFFFFF4DE),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(color: const Color(0xFFE7C77D)),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.info_outline_rounded, color: orange),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      billing.message!,
+                      style: const TextStyle(
+                        fontSize: 12.5,
+                        color: ink,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
           const SizedBox(height: 8),
           ...List.generate(plans.length, (i) {
-            final p = plans[i];
+            final plan = plans[i];
             final sel = selectedPlan == i;
+            final product = billing.productFor(plan);
+            final purchasing = billing.purchasingProductId == plan.id;
+
             return Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: InkWell(
                 borderRadius: BorderRadius.circular(20),
-                onTap: () => setState(() => selectedPlan = i),
+                onTap: purchasing
+                    ? null
+                    : () => setState(() => selectedPlan = i),
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 180),
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: sel ? const Color(0xFFFFF4DE) : Colors.white,
+                    color: sel
+                        ? const Color(0xFFFFF4DE)
+                        : Colors.white,
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: sel ? orange : Colors.black12, width: sel ? 2 : 1),
-                    boxShadow: sel ? const [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4))] : null,
+                    border: Border.all(
+                      color: sel ? orange : Colors.black12,
+                      width: sel ? 2 : 1,
+                    ),
+                    boxShadow: sel
+                        ? const [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 8,
+                              offset: Offset(0, 4),
+                            ),
+                          ]
+                        : null,
                   ),
                   child: Row(
                     children: [
-                      Container(width: 28, height: 28, decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: sel ? orange : Colors.black38, width: 2), color: sel ? orange : Colors.transparent), child: sel ? const Icon(Icons.check, color: Colors.white, size: 18) : null),
+                      Container(
+                        width: 28,
+                        height: 28,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: sel ? orange : Colors.black38,
+                            width: 2,
+                          ),
+                          color: sel ? orange : Colors.transparent,
+                        ),
+                        child: sel
+                            ? const Icon(
+                                Icons.check,
+                                color: Colors.white,
+                                size: 18,
+                              )
+                            : null,
+                      ),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(children: [Text(p.$1, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: ink)), if (i == 1) Container(margin: const EdgeInsets.only(left: 8), padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3), decoration: BoxDecoration(color: green, borderRadius: BorderRadius.circular(10)), child: const Text('PIÙ SCELTO', style: TextStyle(color: Colors.white, fontSize: 9, fontWeight: FontWeight.w900)))]),
-                            Text(p.$3, style: const TextStyle(color: green, fontWeight: FontWeight.w700)),
-                            Text(p.$4, style: const TextStyle(fontSize: 11, color: Colors.black54)),
+                            Row(
+                              children: [
+                                Text(
+                                  plan.durationLabel,
+                                  style: const TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w900,
+                                    color: ink,
+                                  ),
+                                ),
+                                if (i == 1)
+                                  Container(
+                                    margin: const EdgeInsets.only(left: 8),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 7,
+                                      vertical: 3,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: green,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Text(
+                                      'PIÙ SCELTO',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 9,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                            Text(
+                              plan.typeLabel,
+                              style: const TextStyle(
+                                color: green,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Text(
+                              product?.description.isNotEmpty == true
+                                  ? product!.description
+                                  : plan.detail,
+                              style: const TextStyle(
+                                fontSize: 11,
+                                color: Colors.black54,
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      Text(p.$2, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: green)),
+                      if (purchasing)
+                        const SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      else
+                        Text(
+                          billing.priceFor(plan),
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w900,
+                            color: green,
+                          ),
+                        ),
                     ],
                   ),
                 ),
@@ -1067,15 +1311,53 @@ class _PremiumPageState extends State<PremiumPage>{
           }),
           const SizedBox(height: 8),
           FilledButton(
-            style: FilledButton.styleFrom(backgroundColor: orange, foregroundColor: ink, minimumSize: const Size.fromHeight(54), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18))),
-            onPressed: () {
-              final p = plans[selectedPlan];
-              ScaffoldMessenger.of(c).showSnackBar(SnackBar(content: Text('${p.$1} — ${p.$2} (${p.$3}). Il pagamento reale sarà collegato a Google Play Billing in fase di pubblicazione.')));
-            },
-            child: Text('${plans[selectedPlan].$3 == 'Una tantum' ? 'Acquista' : 'Attiva'} ${plans[selectedPlan].$1} — ${plans[selectedPlan].$2}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+            style: FilledButton.styleFrom(
+              backgroundColor: orange,
+              foregroundColor: ink,
+              minimumSize: const Size.fromHeight(54),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18),
+              ),
+            ),
+            onPressed: billing.loading || isPurchasing ? null : _buySelected,
+            child: isPurchasing
+                ? const SizedBox(
+                    width: 22,
+                    height: 22,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: ink,
+                    ),
+                  )
+                : Text(
+                    '${selected.autoRenew ? 'Attiva' : 'Acquista'} ${selected.durationLabel} — ${billing.priceFor(selected)}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
           ),
           const SizedBox(height: 8),
-          const Text('Puoi scegliere il piano prima del pagamento. Le condizioni di acquisto e rinnovo saranno mostrate chiaramente prima della conferma.', textAlign: TextAlign.center, style: TextStyle(fontSize: 11, color: Colors.black54)),
+          OutlinedButton.icon(
+            onPressed: billing.loading ? null : _restore,
+            icon: const Icon(Icons.restore_rounded),
+            label: const Text(
+              'Ripristina acquisti Google Play',
+              style: TextStyle(fontWeight: FontWeight.w800),
+            ),
+            style: OutlinedButton.styleFrom(
+              minimumSize: const Size.fromHeight(48),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          const Text(
+            'Il pagamento viene gestito da Google Play. Il rinnovo automatico dipende dal piano acquistato e può essere gestito dal tuo account Google Play.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 11, color: Colors.black54),
+          ),
         ],
       ),
     );
